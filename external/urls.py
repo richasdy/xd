@@ -19,5 +19,6 @@ urlpatterns = [
     # path('<int:question_id>/vote/', views.vote, name='vote'),
     
     path('login', views.login, name='login'),
+    path('tables', views.tables, name='tables'),
 
 ]
