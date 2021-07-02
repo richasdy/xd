@@ -7,4 +7,6 @@ def error404(request):
 def login(request):
     return render(request, "external/airui/login.html")
 def tables(request):
-    return render(request, "external/airui/tables.html") 
+    return render(request, "external/airui/tables.html")
+def form(request):
+    return render(request, "external/airui/form-plugins-select2.html")

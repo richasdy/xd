@@ -21,5 +21,5 @@ urlpatterns = [
     path('error404', views.error404, name='error404'),
     path('login', views.login, name='login'),
     path('tables', views.tables, name='tables'),
-
+    path('form', views.form, name='form'),
 ]
