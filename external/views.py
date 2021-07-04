@@ -1,12 +1,10 @@
 from django.shortcuts import render
 
-# Create your views here.
-
 def error404(request):
     return render(request, "external/airui/system-404.html")
 def login(request):
-    return render(request, "external/airui/login.html")
+    return render(request, "external/airui/system-login.html")
 def tables(request):
-    return render(request, "external/airui/tables.html")
+    return render(request, "external/airui/tables-datatables.html")
 def form(request):
     return render(request, "external/airui/form-plugins-select2.html")
