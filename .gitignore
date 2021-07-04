@@ -25,9 +25,7 @@ media
 
 # Distribution / packaging
 .Python
-build/
 develop-eggs/
-# dist/
 downloads/
 eggs/
 .eggs/
@@ -148,5 +146,8 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+# IDEA
+.idea/
 
 # End of https://www.toptal.com/developers/gitignore/api/django
