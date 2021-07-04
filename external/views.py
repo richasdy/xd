@@ -8,3 +8,5 @@ def tables(request):
     return render(request, "external/airui/tables-datatables.html")
 def form(request):
     return render(request, "external/airui/form-plugins-select2.html")
+def dashboard(request):
+    return render(request, "external/airui/dashboards-analytics.html")
