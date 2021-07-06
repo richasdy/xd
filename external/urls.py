@@ -8,4 +8,7 @@ urlpatterns = [
     path('tables', views.tables, name='tables'),
     path('form', views.form, name='form'),
     path('dashboard', views.dashboard, name='dashboard'),
+
+    path('youtube', views.dashboardYoutube, name='youtube'),
+    
 ]

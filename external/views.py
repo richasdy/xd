@@ -10,3 +10,7 @@ def form(request):
     return render(request, "external/airui/form-plugins-select2.html")
 def dashboard(request):
     return render(request, "external/airui/dashboards-analytics.html")
+
+def dashboardYoutube(request):
+    return render(request, "external/youtube/dashboard-youtube.html")
+ 
