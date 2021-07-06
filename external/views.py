@@ -10,3 +10,5 @@ def form(request):
     return render(request, "external/airui/form-plugins-select2.html")
 def dashboard(request):
     return render(request, "external/airui/dashboards-analytics.html")
+def dashboard_tiktok(request):
+    return render(request, "external/airui/dashboards-tiktok.html")
