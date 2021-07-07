@@ -12,3 +12,5 @@ def form(request):
     return render(request, "external/airui/form-plugins-select2.html")
 def dashboard(request):
     return render(request, "external/airui/dashboards-analytics.html")
+def instagram(request):
+    return render(request, "external/airui/dashboard-instagram.html")   
