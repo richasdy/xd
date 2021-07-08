@@ -18,9 +18,9 @@ urlpatterns = [
     # path('<int:pk>/results/', views.ResultsView.as_view(), name='results'),
     # path('<int:question_id>/vote/', views.vote, name='vote'),
     
-    path('DirectorateofPostgraduate&AdvanceLearning', views.DirectorateofPostgraduate&AdvanceLearning, name='DirectorateofPostgraduate&AdvanceLearning'),
-    path('DirectorateofFinance', views.DirectorateofFinance, name='DirectorateofFinance'),
-    path('DirectorateofCareer,Alumni&EndowmentDevelopment', views.DirectorateofCareer,Alumni&EndowmentDevelopment, name='DirectorateofCareer,Alumni&EndowmentDevelopment'),
-    path('DirectorateofResearchandCommunityService', views.DirectorateofResearchandCommunityService, name='DirectorateofResearchandCommunityService'),
-    path('ResearchGroup', views.ResearchGroup, name='ResearchGroup'),
+    path('Directorate-of-Postgraduate-and-Advance-Learning', views.Directorate_of_Post_graduate_and_Advance_Learning, name='Directorate-of-Postgraduate-and-Advance-Learning'),
+    path('Directorate-of-Finance', views.Directorate_of_Finance, name='Directorate-of-Finance'),
+    path('Directorate-of-Career-Alumni-and-Endowment-Development', views.Directorate_of_Career_Alumni_and_Endowment_Development, name='Directorate-of-Career-Alumni-and-Endowment-Development'),
+    path('Directorate-of-Research-and-Community-Service', views.Directorate_of_Research_and_Community_Service, name='Directorate-of-Research-and-Community-Service'),
+    path('Research-Group', views.Research_Group, name='Research-Group'),
 ]
