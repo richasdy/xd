@@ -4219,10 +4219,20 @@
                 "translate(" + margin.left + "," + margin.top + ")");
 
             // Parse the Data
-            d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/5_OneCatSevNumOrdered_wide.csv", function (data) {
+            d3.json("/static/internal/data/example.json", function (data) {
 
               // List of groups = header of the csv files
-              var keys = data.columns.slice(1)
+              var keys = []
+              for (var i = 0; i < data.length; i++) {
+                Object.keys(data[i]).forEach(function (key) {
+                  if (keys.indexOf(key) == -1) {
+                    keys.push(key);
+                  }
+                });
+              }
+
+              // Remove 'year' key from list
+              keys = keys.slice(1)
 
               // Add X axis
               var x = d3.scaleLinear()
