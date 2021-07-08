@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 def soee(request):
-    return render(request, "internal/airui/dashboards-twitter.html")
+    return render(request, "internal/airui/dashboards-soee.html")
 def soie(request):
     return render(request, "internal/airui/dashboards-soie.html")
 def soc(request):
