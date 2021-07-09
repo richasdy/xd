@@ -12,3 +12,5 @@ def dashboard(request):
     return render(request, "external/airui/dashboards-analytics.html")
 def dashboard_tiktok(request):
     return render(request, "external/airui/dashboards-tiktok.html")
+def portal_berita(request):
+    return render(request, "external/airui/portal_berita.html")

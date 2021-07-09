@@ -8,4 +8,8 @@ urlpatterns = [
     path('marketing-and-admission', views.marketing_and_admission, name='marketing-and-admission'),
     path('strategic-partnership-and-international-office', views.strategic_partnership_and_international_office, name='strategic-partnership-and-international-office'),
     path('research-center', views.research_center, name='research-center'),
+    path('researchgroup', views.researchgroup, name='researchgroup'),
+    path('researchcenter', views.researchcenter, name='researchcenter'),
+    path('industrikreatif', views.industrikreatif, name='industrikreatif'),
+    path('sainsterapan', views.sainsterapan, name='sainsterapan'),
 ]

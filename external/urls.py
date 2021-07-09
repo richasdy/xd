@@ -9,4 +9,5 @@ urlpatterns = [
     path('form', views.form, name='form'),
     path('dashboard', views.dashboard, name='dashboard'),
     path('tiktok', views.dashboard_tiktok, name='tiktok'),
+    path('portal_berita', views.portal_berita, name='portal_berita'),
 ]

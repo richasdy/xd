@@ -10,3 +10,11 @@ def strategic_partnership_and_international_office(request):
     return render(request, "internal/airui/strategic-partnership-and-international-office.html")
 def research_center(request):
     return render(request, "internal/airui/research-center.html")
+def researchgroup(request):
+    return render(request, "internal/researchgroup.html")
+def researchcenter(request):
+    return render(request, "internal/researchcenter.html")
+def industrikreatif(request):
+    return render(request, "internal/industrikreatif.html")
+def sainsterapan(request):
+    return render(request, "internal/sainsterapan.html")
