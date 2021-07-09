@@ -3,12 +3,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  {% include 'external/airui/head.html' %}
-  <!-- Load d3.js -->
-<script src="https://d3js.org/d3.v4.js"></script>
-
+  {% include 'internal/head.html' %}
+    <title>
+      Dashboard Human Resources
+    </title>
+    <!-- Load d3.js -->
+  <script src="https://d3js.org/d3.v4.js"></script>
 </head>
-  <body class="air__menu--gray">
+
+<body class="air__menu--gray">
   <div class="air__initialLoading"></div>
   <div class="air__layout air__layout--hasSider">
     <div class="air__menuLeft">
@@ -4463,8 +4466,7 @@
                 "translate(" + margin.left + "," + margin.top + ")");
 
       // get the data
-      d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/1_OneNum.csv", function(data) {
-
+      d3.json("/static/internal/price2.json", function(data) {
         // add the x Axis
         var x = d3.scaleLinear()
                   .domain([0, 1000])
@@ -4482,7 +4484,7 @@
 
         // Compute kernel density estimation
         var kde = kernelDensityEstimator(kernelEpanechnikov(7), x.ticks(40))
-        var density =  kde( data.map(function(d){  return d.price; }) )
+        var density =  kde( data.map(function(d){  return d }) )
 
         // Plot the area
         svg.append("path")
@@ -4500,7 +4502,6 @@
             );
 
       });
-
 
       // Function to compute density
       function kernelDensityEstimator(kernel, X) {
