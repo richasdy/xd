@@ -4555,8 +4555,8 @@ var svg = d3.select("#my_dataviz")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
-// get the data
-d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/1_OneNum.csv", function(data) {
+// parse the data
+d3.json("/static/internal/data/cnth.json", function(data) {
 
   // X axis: scale and draw:
   var x = d3.scaleLinear()
