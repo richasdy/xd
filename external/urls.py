@@ -3,13 +3,14 @@ from . import views
 
 app_name = 'external'
 urlpatterns = [
+    path('dashboard', views.dashboard, name='dashboard'),
     path('error404', views.error404, name='error404'),
+    path('form', views.form, name='form'),
     path('login', views.login, name='login'),
     path('tables', views.tables, name='tables'),
-    path('form', views.form, name='form'),
-    path('dashboard', views.dashboard, name='dashboard'),
-    path('youtube', views.dashboard_youtube, name='youtube'),
-    path('tiktok', views.dashboard_tiktok, name='tiktok'),
-    path('portal-berita', views.dashboard_portal_berita, name='portal_berita'),
-    path('twitter', views.dashboard_twitter, name='twitter'),
+    path('instagram', views.instagram, name='instagram'),
+    path('portal-berita', views.portal_berita, name='portal_berita'),
+    path('tiktok', views.tiktok, name='tiktok'),
+    path('twitter', views.twitter, name='twitter'),
+    path('youtube', views.youtube, name='youtube'),
 ]
