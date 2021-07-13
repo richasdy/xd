@@ -907,8 +907,17 @@
               <h5>d3.js implement</h5>
             </div>
             <div class="row">
-              <div id="d3-content">
+              <!-- <div id="d3-content">
                 <canvas width="800" height="400"></canvas>
+              </div> -->
+              <div id="d3-content">
+                <div class="col-lg-12">
+                  <div class="card">
+                    <div class="card-body">
+                      <canvas width="800" height="400"></canvas>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1258,38 +1267,47 @@
                       "use strict";
                       $(function () {
                         /////////////////////////////////////////////////////////////////////////////////////////
+                        let json_data = {
+                          "series": [{
+                            "className": "ct-series-d",
+                            "data": [5, 9, 7, 8, 5, 3, 5, 4]
+                          }],
+                          "low": 0,
+                          "chartPadding": {
+                            "right": 0,
+                            "left": 0,
+                            "top": 0,
+                            "bottom": 0
+                          },
+                          "fullWidth": true,
+                          "showPoint": false,
+                          "lineSmooth": false,
+                          "axisY": {
+                            "showGrid": false,
+                            "showLabel": false,
+                            "offset": 0
+                          },
+                          "axisX": {
+                            "showGrid": false,
+                            "showLabel": false,
+                            "offset": 0
+                          },
+                          "showArea": true
+                        }
                         new Chartist.Line(
                           ".air__c2__chart",
                           {
-                            series: [
-                              {
-                                className: "ct-series-d",
-                                data: [5, 9, 7, 8, 5, 3, 5, 4],
-                              },
-                            ],
+                            series: json_data.series
                           },
                           {
-                            low: 0,
-                            chartPadding: {
-                              right: 0,
-                              left: 0,
-                              top: 0,
-                              bottom: 0,
-                            },
-                            fullWidth: true,
-                            showPoint: false,
-                            lineSmooth: false,
-                            axisY: {
-                              showGrid: false,
-                              showLabel: false,
-                              offset: 0,
-                            },
-                            axisX: {
-                              showGrid: false,
-                              showLabel: false,
-                              offset: 0,
-                            },
-                            showArea: true,
+                            low: json_data.low,
+                            chartPadding: json_data.chartPadding,
+                            fullWidth: json_data.fullWidth,
+                            showPoint: json_data.showPoint,
+                            lineSmooth: json_data.lineSmooth,
+                            axisY: json_data.axisY,
+                            axisX: json_data.axisX,
+                            showArea: json_data.showArea,
                           }
                         );
                         /////////////////////////////////////////////////////////////////////////////////////////
@@ -1318,13 +1336,17 @@
                             "use strict";
                             $(function () {
                               /////////////////////////////////////////////////////////////////////////////////////////
+                              let json_data = {
+                                "labels": ["Boston", "Gravity Falls", "New York"],
+                                "data":[45, 45, 45]
+                              }
                               const chart9 = new Chart(document.getElementsByClassName("air__c9__chart"), {
                                 type: "doughnut",
                                 data: {
-                                  labels: ["Boston", "Gravity Falls", "New York"],
+                                  labels: json_data.labels,
                                   datasets: [
                                     {
-                                      data: [45, 45, 45],
+                                      data: json_data.data,
                                       backgroundColor: ["#46be8a", "#fb434a", "#1b55e3"],
                                       borderColor: "#fff",
                                       borderWidth: 2,
@@ -1397,17 +1419,21 @@
                             "use strict";
                             $(function () {
                               /////////////////////////////////////////////////////////////////////////////////////////
+                              let data = {
+                                "data1": [5, 4, 3, 7, 5, 10, 3, 4, 8, 10, 6, 8, 6, 7],
+                                "data2": [3, 2, 9, 5, 4, 6, 4, 6, 7, 8, 7, 4, 3, 9]
+                              }
                               new Chartist.Bar(
                                 ".air__c5__chart",
                                 {
                                   series: [
                                     {
                                       className: "ct-series-b",
-                                      data: [5, 4, 3, 7, 5, 10, 3, 4, 8, 10, 6, 8, 6, 7],
+                                      data: data.data1,
                                     },
                                     {
                                       className: "ct-series-m",
-                                      data: [3, 2, 9, 5, 4, 6, 4, 6, 7, 8, 7, 4, 3, 9],
+                                      data: data.data2
                                     },
                                   ],
                                 },
@@ -1465,13 +1491,17 @@
                             "use strict";
                             $(function () {
                               /////////////////////////////////////////////////////////////////////////////////////////
+                              let json_data = {
+                                "labels": ["Boston", "Gravity Falls", "New York"],
+                                "data": [55, 15, 30]
+                              }
                               const chart10 = new Chart(document.getElementsByClassName("air__c10__chart"), {
                                 type: "doughnut",
                                 data: {
-                                  labels: ["Boston", "Gravity Falls", "Paris"],
+                                  labels: json_data.labels,
                                   datasets: [
                                     {
-                                      data: [55, 15, 30],
+                                      data: json_data.data,
                                       backgroundColor: ["#46be8a", "#fb434a", "#1b55e3"],
                                       borderColor: "#fff",
                                       borderWidth: 2,
@@ -1553,17 +1583,21 @@
                             "use strict";
                             $(function () {
                               /////////////////////////////////////////////////////////////////////////////////////////
+                              let data = {
+                                "data1": [10, 40, 30, 30, 55, 25],
+                                "data2": [20, 60, 50, 45, 50, 60]
+                              }
                               new Chartist.Bar(
                                 ".air__c1__chart",
                                 {
                                   series: [
                                     {
                                       className: "ct-series-n",
-                                      data: [10, 40, 30, 30, 55, 25],
+                                      data: data.data1
                                     },
                                     {
                                       className: "ct-series-a",
-                                      data: [20, 60, 50, 45, 50, 60],
+                                      data: data.data2
                                     },
                                   ],
                                 },
@@ -2128,13 +2162,16 @@
                           "use strict";
                           $(function () {
                             /////////////////////////////////////////////////////////////////////////////////////////
+                            let json_data = {
+                              "data": [4, 6, 4, 3, 5, 7, 8, 7]
+                            }
                             new Chartist.Line(
                               ".air__c6__chart",
                               {
                                 series: [
                                   {
                                     className: "ct-series-h",
-                                    data: [4, 6, 4, 3, 5, 7, 8, 7],
+                                    data: json_data.data,
                                   },
                                 ],
                               },
@@ -2953,6 +2990,10 @@
                           "use strict";
                           $(function () {
                             /////////////////////////////////////////////////////////////////////////////////////////
+                            let json_data = {
+                              "data1": [5, 4, 3, 7, 5, 10, 3, 4, 8, 10, 6, 8],
+                              "data2": [3, 2, 9, 5, 4, 6, 4, 6, 7, 8, 7, 4]
+                            }
                             const chartist3 = new Chartist.Bar(
                               ".air__c3__chart",
                               {
@@ -2960,11 +3001,11 @@
                                 series: [
                                   {
                                     className: "ct-series-a",
-                                    data: [5, 4, 3, 7, 5, 10, 3, 4, 8, 10, 6, 8],
+                                    data: json_data.data1,
                                   },
                                   {
                                     className: "ct-series-b",
-                                    data: [3, 2, 9, 5, 4, 6, 4, 6, 7, 8, 7, 4],
+                                    data: json_data.data2,
                                   },
                                 ],
                               },
@@ -4944,13 +4985,17 @@
                         "use strict";
                         $(function () {
                           /////////////////////////////////////////////////////////////////////////////////////////
+                          let json_data = {
+                            "labels": ["Boston", "Gravity Falls", "New York"],
+                            "data":[45, 45, 45]
+                          }
                           const chart9 = new Chart(document.getElementsByClassName("air__c9__chart"), {
                             type: "doughnut",
                             data: {
-                              labels: ["Boston", "Gravity Falls", "New York"],
+                              labels: json_data.labels,
                               datasets: [
                                 {
-                                  data: [45, 45, 45],
+                                  data: json_data.data,
                                   backgroundColor: ["#46be8a", "#fb434a", "#1b55e3"],
                                   borderColor: "#fff",
                                   borderWidth: 2,
@@ -5030,13 +5075,17 @@
                         "use strict";
                         $(function () {
                           /////////////////////////////////////////////////////////////////////////////////////////
+                          let json_data = {
+                            "labels": ["Boston", "Gravity Falls", "New York"],
+                            "data": [55, 15, 30]
+                          }
                           const chart10 = new Chart(document.getElementsByClassName("air__c10__chart"), {
                             type: "doughnut",
                             data: {
-                              labels: ["Boston", "Gravity Falls", "Paris"],
+                              labels: json_data.labels,
                               datasets: [
                                 {
-                                  data: [55, 15, 30],
+                                  data: json_data.data,
                                   backgroundColor: ["#46be8a", "#fb434a", "#1b55e3"],
                                   borderColor: "#fff",
                                   borderWidth: 2,
@@ -5364,13 +5413,16 @@
                       "use strict";
                       $(function () {
                         /////////////////////////////////////////////////////////////////////////////////////////
+                        let json_data = {
+                          "data": [4, 6, 4, 3, 5, 7, 8, 7]
+                        }
                         new Chartist.Line(
                           ".air__c6__chart",
                           {
                             series: [
                               {
                                 className: "ct-series-h",
-                                data: [4, 6, 4, 3, 5, 7, 8, 7],
+                                data: json_data.data,
                               },
                             ],
                           },
