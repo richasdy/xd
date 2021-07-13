@@ -1,129 +1,11 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>
-    Air UI HTML Admin Template
-    Air UI HTML Admin Template
-  </title>
-  <link href="{% static 'components/core/img/favicon.png' %}" rel="shortcut icon">
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700,700i,900" rel="stylesheet">
-
-  <!-- VENDORS -->
-  <!-- v1.0.0 -->
-  <link rel="stylesheet" type="text/css" href="{% static 'vendors/bootstrap/dist/css/bootstrap.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'vendors/font-feathericons/dist/feather.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'vendors/font-awesome/css/font-awesome.min.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'vendors/font-linearicons/style.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'vendors/font-icomoon/style.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'vendors/perfect-scrollbar/css/perfect-scrollbar.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'vendors/chart.js/dist/Chart.min.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'vendors/jqvmap/dist/jqvmap.min.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'vendors/c3/c3.min.css' %}">
-  <link rel="stylesheet" type="text/css"
-    href="https://cdn.datatables.net/v/bs4/dt-1.10.18/fc-3.2.5/r-2.2.2/datatables.min.css" />
-  <link rel="stylesheet" type="text/css"
-    href="{% static 'vendors/tempus-dominus-bs4/build/css/tempusdominus-bootstrap-4.min.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'vendors/fullcalendar/dist/fullcalendar.min.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'vendors/owl.carousel/dist/assets/owl.carousel.min.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'vendors/ionrangeslider/css/ion.rangeSlider.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'vendors/bootstrap-sweetalert/dist/sweetalert.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'vendors/nprogress/nprogress.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'vendors/summernote/dist/summernote.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'vendors/dropify/dist/css/dropify.min.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'vendors/jquery-steps/demo/css/jquery.steps.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'vendors/select2/dist/css/select2.min.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'vendors/bootstrap-select/dist/css/bootstrap-select.min.css' %}">
-
-
-  <script src="{% static 'vendors/jquery/dist/jquery.min.js' %}"></script>
-  <script src="{% static 'vendors/popper.js/dist/umd/popper.js' %}"></script>
-  <script src="{% static 'vendors/bootstrap/dist/js/bootstrap.js' %}"></script>
-  <script src="{% static 'vendors/jquery-mousewheel/jquery.mousewheel.min.js' %}"></script>
-  <script src="{% static 'vendors/perfect-scrollbar/js/perfect-scrollbar.jquery.js' %}"></script>
-  <script src="{% static 'vendors/chartist/dist/chartist.min.js' %}"></script>
-  <script src="{% static 'vendors/chart.js/dist/Chart.min.js' %}"></script>
-  <script src="{% static 'vendors/jqvmap/dist/jquery.vmap.min.js' %}"></script>
-  <script src="{% static 'vendors/jqvmap/dist/maps/jquery.vmap.usa.js' %}"></script>
-  <script src="{% static 'vendors/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.js' %}"></script>
-  <script src="{% static 'vendors/d3/d3.min.js' %}"></script>
-  <script src="{% static 'vendors/d3-dsv/dist/d3-dsv.js' %}"></script>
-  <script src="{% static 'vendors/d3-time-format/dist/d3-time-format.js' %}"></script>
-  <script src="{% static 'vendors/c3/c3.min.js' %}"></script>
-  <script src="{% static 'vendors/peity/jquery.peity.min.js' %}"></script>
-  <script type="text/javascript"
-    src="https://cdn.datatables.net/v/bs4/dt-1.10.18/fc-3.2.5/r-2.2.2/datatables.min.js"></script>
-  <script src="{% static 'vendors/editable-table/mindmup-editabletable.js' %}"></script>
-  <script src="{% static 'vendors/moment/min/moment.min.js' %}"></script>
-  <script src="{% static 'vendors/tempus-dominus-bs4/build/js/tempusdominus-bootstrap-4.min.js' %}"></script>
-  <script src="{% static 'vendors/fullcalendar/dist/fullcalendar.min.js' %}"></script>
-  <script src="{% static 'vendors/owl.carousel/dist/owl.carousel.min.js' %}"></script>
-  <script src="{% static 'vendors/ionrangeslider/js/ion.rangeSlider.min.js' %}"></script>
-  <script src="{% static 'vendors/remarkable-bootstrap-notify/dist/bootstrap-notify.min.js' %}"></script>
-  <script src="{% static 'vendors/bootstrap-sweetalert/dist/sweetalert.min.js' %}"></script>
-  <script src="{% static 'vendors/nprogress/nprogress.js' %}"></script>
-  <script src="{% static 'vendors/summernote/dist/summernote.min.js' %}"></script>
-  <script src="{% static 'vendors/nestable/jquery.nestable.js' %}"></script>
-  <script src="{% static 'vendors/jquery-typeahead/dist/jquery.typeahead.min.js' %}"></script>
-  <script src="{% static 'vendors/autosize/dist/autosize.min.js' %}"></script>
-  <script src="{% static 'vendors/bootstrap-show-password/dist/bootstrap-show-password.min.js' %}"></script>
-  <script src="{% static 'vendors/dropify/dist/js/dropify.min.js' %}"></script>
-  <script src="{% static 'vendors/html5-form-validation/dist/jquery.validation.min.js' %}"></script>
-  <script src="{% static 'vendors/jquery-steps/build/jquery.steps.min.js' %}"></script>
-  <script src="{% static 'vendors/jquery-mask-plugin/dist/jquery.mask.min.js' %}"></script>
-  <script src="{% static 'vendors/select2/dist/js/select2.full.min.js' %}"></script>
-  <script src="{% static 'vendors/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
-
-  <!-- AIR UI HTML ADMIN TEMPLATE MODULES-->
-  <!-- v1.0.0 -->
-  <link rel="stylesheet" type="text/css" href="{% static 'components/vendors/style.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'components/core/style.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'components/widgets/style.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'components/system/style.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'components/menu-left/style.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'components/menu-top/style.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'components/footer/style.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'components/topbar/style.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'components/subbar/style.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'components/sidebar/style.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'components/chat/style.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'components/apps/style.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'components/apps/style.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'components/extra-apps/style.css' %}">
-  <link rel="stylesheet" type="text/css" href="{% static 'components/ecommerce/style.css' %}">
-
-  <script src="{% static 'components/core/index.js' %}"></script>
-  <script src="{% static 'components/menu-left/index.js' %}"></script>
-  <script src="{% static 'components/menu-top/index.js' %}"></script>
-  <script src="{% static 'components/sidebar/index.js' %}"></script>
-  <script src="{% static 'components/topbar/index.js' %}"></script>
-  <script src="{% static 'components/chat/index.js' %}"></script>
-
-  <!-- PRELOADER STYLES-->
-  <style>
-    .air__initialLoading {
-      position: fixed;
-      z-index: 99999;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDFweCIgIGhlaWdodD0iNDFweCIgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89InhNaWRZTWlkIiBjbGFzcz0ibGRzLXJvbGxpbmciPiAgICA8Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiBmaWxsPSJub25lIiBuZy1hdHRyLXN0cm9rZT0ie3tjb25maWcuY29sb3J9fSIgbmctYXR0ci1zdHJva2Utd2lkdGg9Int7Y29uZmlnLndpZHRofX0iIG5nLWF0dHItcj0ie3tjb25maWcucmFkaXVzfX0iIG5nLWF0dHItc3Ryb2tlLWRhc2hhcnJheT0ie3tjb25maWcuZGFzaGFycmF5fX0iIHN0cm9rZT0iIzAxOTBmZSIgc3Ryb2tlLXdpZHRoPSIxMCIgcj0iMzUiIHN0cm9rZS1kYXNoYXJyYXk9IjE2NC45MzM2MTQzMTM0NjQxNSA1Ni45Nzc4NzE0Mzc4MjEzOCIgdHJhbnNmb3JtPSJyb3RhdGUoODQgNTAgNTApIj4gICAgICA8YW5pbWF0ZVRyYW5zZm9ybSBhdHRyaWJ1dGVOYW1lPSJ0cmFuc2Zvcm0iIHR5cGU9InJvdGF0ZSIgY2FsY01vZGU9ImxpbmVhciIgdmFsdWVzPSIwIDUwIDUwOzM2MCA1MCA1MCIga2V5VGltZXM9IjA7MSIgZHVyPSIxcyIgYmVnaW49IjBzIiByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSI+PC9hbmltYXRlVHJhbnNmb3JtPiAgICA8L2NpcmNsZT4gIDwvc3ZnPg==);
-      background-color: #fff;
-    }
-  </style>
-  <script>
-    $(document).ready(function () {
-      $('.air__initialLoading').delay(200).fadeOut(400)
-    })
-  </script>
+  {% include 'external/airui/head.html' %}
 </head>
-<body class="air__menu--gray">
+  <body class="air__menu--gray">
   <div class="air__initialLoading"></div>
   <div class="air__layout air__layout--hasSider">
     <div class="air__menuLeft">
@@ -136,13 +18,13 @@
           <span></span>
         </div>
         <a href="javascript: void(0);" class="air__menuLeft__logo">
-          <img src="{% static 'components/core/img/air-logo.png' %}" alt="Air UI" />
+          <img src="{% static 'external/airui/components/core/img/air-logo.png' %}" alt="Air UI" />
           <div class="air__menuLeft__logo__name">AIR UI</div>
           <div class="air__menuLeft__logo__descr">Admin Template</div>
         </a>
         <a href="javascript: void(0);" class="air__menuLeft__user">
           <div class="air__menuLeft__user__avatar">
-            <img src="{% static 'components/core/img/avatars/avatar.png' %}" alt="David Beckham" />
+            <img src="{% static 'external/airui/components/core/img/avatars/avatar.png' %}" alt="David Beckham" />
           </div>
           <div class="air__menuLeft__user__name">
             David Beckham
@@ -220,22 +102,22 @@
               </a>
               <ul class="air__menuLeft__list">
                 <li class="air__menuLeft__item">
-                  <a href="{% static 'no-layout/system-login.html' %}" class="air__menuLeft__link">
+                  <a href="../no-layout/system-login.html" class="air__menuLeft__link">
                     <span>Login</span>
                   </a>
                 </li>
                 <li class="air__menuLeft__item">
-                  <a href="{% static 'no-layout/system-forgot-password.html' %}" class="air__menuLeft__link">
+                  <a href="../no-layout/system-forgot-password.html" class="air__menuLeft__link">
                     <span>Forgot Password</span>
                   </a>
                 </li>
                 <li class="air__menuLeft__item">
-                  <a href="{% static 'no-layout/system-register.html' %}" class="air__menuLeft__link">
+                  <a href="../no-layout/system-register.html" class="air__menuLeft__link">
                     <span>Register</span>
                   </a>
                 </li>
                 <li class="air__menuLeft__item">
-                  <a href="{% static 'no-layout/system-lockscreen.html' %}" class="air__menuLeft__link">
+                  <a href="../no-layout/system-lockscreen.html" class="air__menuLeft__link">
                     <span>Lockscreen</span>
                   </a>
                 </li>
@@ -255,7 +137,7 @@
                   </a>
                 </li>
                 <li class="air__menuLeft__item">
-                  <a href="{% static 'no-layout/system-500.html' %}" class="air__menuLeft__link">
+                  <a href="../no-layout/system-500.html" class="air__menuLeft__link">
                     <span>Page 500</span>
                   </a>
                 </li>
@@ -1033,7 +915,7 @@
                 </div>
               </div>
               <div class="air__g14__messageAvatar air__utils__avatar">
-                <img src="{% static 'components/core/img/avatars/avatar-2.png' %}" alt="You" />
+                <img src="{% static 'external/airui/components/core/img/avatars/avatar-2.png' %}" alt="You" />
               </div>
             </div>
             <div class="air__g14__message air__g14__message--answer">
@@ -1044,7 +926,7 @@
                 </div>
               </div>
               <div class="air__g14__messageAvatar air__utils__avatar">
-                <img src="{% static 'components/core/img/avatars/2.jpg' %}" alt="Mary Stanform" />
+                <img src="{% static 'external/airui/components/core/img/avatars/2.jpg' %}" alt="Mary Stanform" />
               </div>
             </div>
           </div>
@@ -1129,7 +1011,7 @@
                       <li class="air__l1__item">
                         <a href="javascript: void(0);" class="air__l1__itemLink">
                           <div class="air__utils__avatar mr-3">
-                            <img src="{% static 'components/core/img/avatars/5.jpg' %}" alt="Mary Stanform" />
+                            <img src="{% static 'external/airui/components/core/img/avatars/5.jpg' %}" alt="Mary Stanform" />
                           </div>
                           <div>
                             <div class="text-blue">Mary Stanform</div>
@@ -1140,7 +1022,7 @@
                       <li class="air__l1__item">
                         <a href="javascript: void(0);" class="air__l1__itemLink">
                           <div class="air__utils__avatar mr-3">
-                            <img src="{% static 'components/core/img/avatars/1.jpg' %}" alt="Jamie Rockstar" />
+                            <img src="{% static 'external/airui/components/core/img/avatars/1.jpg' %}" alt="Jamie Rockstar" />
                           </div>
                           <div>
                             <div class="text-blue">Jamie Rockstar</div>
@@ -1151,7 +1033,7 @@
                       <li class="air__l1__item">
                         <a href="javascript: void(0);" class="air__l1__itemLink">
                           <div class="air__utils__avatar mr-3">
-                            <img src="{% static 'components/core/img/avatars/2.jpg' %}" alt="Axel Freddie" />
+                            <img src="{% static 'external/airui/components/core/img/avatars/2.jpg' %}" alt="Axel Freddie" />
                           </div>
                           <div>
                             <div class="text-blue">Axel Freddie</div>
@@ -1381,7 +1263,7 @@
               >
                 <img
                   class="dropdown-toggle-avatar"
-                  src="{% static 'components/core/img/avatars/avatar-2.png' %}"
+                  src="{% static 'external/airui/components/core/img/avatars/avatar-2.png' %}"
                   alt="User avatar"
                 />
               </a>
@@ -1844,7 +1726,7 @@
           <li class="air__l15__item">
             <a href="#" class="air__l15__itemLink">
               <div class="air__l15__itemCover mr-3">
-                <img src="{% static 'components/core/img/content/hands.png' %}" alt="Hands" />
+                <img src="{% static 'external/airui/components/core/img/content/hands.png' %}" alt="Hands" />
               </div>
               <div>
                 <div class="text-blue">New York Times</div>
@@ -1859,7 +1741,7 @@
           <li class="air__l15__item">
             <a href="#" class="air__l15__itemLink">
               <div class="air__l15__itemCover mr-3">
-                <img src="{% static 'components/core/img/content/hands.png' %}" alt="Hands" />
+                <img src="{% static 'external/airui/components/core/img/content/hands.png' %}" alt="Hands" />
               </div>
               <div>
                 <div class="text-blue">CNN</div>
@@ -1874,7 +1756,7 @@
           <li class="air__l15__item">
             <a href="#" class="air__l15__itemLink">
               <div class="air__l15__itemCover mr-3">
-                <img src="{% static 'components/core/img/content/hands.png' %}" alt="Hands" />
+                <img src="{% static 'external/airui/components/core/img/content/hands.png' %}" alt="Hands" />
               </div>
               <div>
                 <div class="text-blue">English Speakers</div>
@@ -1979,7 +1861,7 @@
               </div>
               <div class="col-md-4">
                 <div class="air__footer__logo">
-                  <img src="{% static 'components/core/img/air-logo.png' %}" alt="Air UI" />
+                  <img src="{% static 'external/airui/components/core/img/air-logo.png' %}" alt="Air UI" />
                   <div class="air__footer__logo__name">AIR UI</div>
                   <div class="air__footer__logo__descr">Admin Template</div>
                 </div>
