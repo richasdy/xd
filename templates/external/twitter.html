@@ -39,6 +39,12 @@
                 <span>Information</span>
               </li>
               <li class="air__menuLeft__item">
+                <a href="{% url 'external:logout' %}" class="air__menuLeft__link">
+                  <i class="fe fe-log-out air__menuLeft__icon"></i>
+                  <span>Logout</span>
+                </a>
+              </li>
+              <li class="air__menuLeft__item">
                 <a href="javascript: void(0)" class="air__menuLeft__link air__sidebar__actionToggle">
                   <i class="fe fe-settings air__menuLeft__icon"></i>
                   <span>Settings</span>
@@ -901,6 +907,22 @@
         </div>
       </div>
       <div class="air__layout">
+        <div class="air__layout__content">
+          <div class="air__utils__content">
+            <div class="air__utils__heading">
+              <h5>login status</h5>
+            </div>
+            <div class="row">
+              {% if user.is_authenticated %}
+              Hi {{ user.username }}!
+              {% else %}
+                <p>You are not logged in</p>
+                <!-- <a href="">Log In</a> -->
+              {% endif %} 
+            </div>
+          </div>
+        </div>
+
         <div class="air__layout__content">
           <div class="air__utils__content">
             <div class="air__utils__heading">
