@@ -41,3 +41,18 @@ def bandung_techno_park(request):
 
 def secretariat_and_strategic_planning(request):
     return render(request, "internal/secretariat-and-strategic-planning.html")
+
+def school_of_electrical_engineering(request):
+    return render(request, "internal/school-of-electrical-engineering.html")
+
+def school_of_industrial_engineering(request):
+    return render(request, "internal/school-of-industrial-engineering.html")
+
+def school_of_computing(request):
+    return render(request, "internal/school-of-computing.html")
+
+def school_of_economic_and_business(request):
+    return render(request, "internal/school-of-economic-and-business.html")
+
+def school_of_communication_and_business(request):
+    return render(request, "internal/school-of-communication-and-business.html")

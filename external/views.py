@@ -4,7 +4,7 @@ def error404(request):
     return render(request, "external/airui/system-404.html")
 
 def login(request):
-    return render(request, "external/airui/system-login.html")
+    return render(request, "external/airui/login.html")
 
 def tables(request):
     return render(request, "external/airui/tables-datatables.html")
@@ -23,3 +23,6 @@ def dashboard_youtube(request):
 
 def dashboard_portal_berita(request):
     return render(request, "external/dashboard-portal-berita.html")
+
+def dashboard_twitter(request):
+	return render(request, "external/dashboard-twitter.html")

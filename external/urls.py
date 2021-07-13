@@ -11,4 +11,5 @@ urlpatterns = [
     path('youtube', views.dashboard_youtube, name='youtube'),
     path('tiktok', views.dashboard_tiktok, name='tiktok'),
     path('portal-berita', views.dashboard_portal_berita, name='portal_berita'),
+    path('twitter', views.dashboard_twitter, name='twitter'),
 ]
