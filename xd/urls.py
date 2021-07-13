@@ -20,5 +20,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('external/', include('external.urls')),
     path('internal/', include('internal.urls')),
-
 ]
