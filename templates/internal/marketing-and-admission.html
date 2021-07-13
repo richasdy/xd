@@ -4,7 +4,8 @@
 <html lang="en">
 
 <head>
-  {% include 'internal/airui/head.html' %}
+  {% include 'internal/head.html' %}
+  <!-- Load d3.js -->
   <script src="https://d3js.org/d3.v4.js"></script>
   <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 </head>
@@ -1264,7 +1265,7 @@
       <div class="air__layout__content">
         <div class="air__utils__content">
           <div class="air__utils__heading">
-            <h5>Dashboard Research Center</h5>
+            <h5>Dashboard Directorate of Marketing and Admission</h5>
           </div>
           <div class="row">
             <div class="col-lg-8">
@@ -4219,7 +4220,7 @@
                 "translate(" + margin.left + "," + margin.top + ")");
 
             // Parse the Data
-            d3.json("/static/internal/data/example.json", function (data) {
+            d3.json("/static/internal/data/5_OneCatSevNumOrdered_wide.json", function (data) {
 
               // List of groups = header of the csv files
               var keys = []
