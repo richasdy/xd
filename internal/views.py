@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import chart
+from .models import streamgraph, chart
 from django.http import JsonResponse
 import json
 
@@ -71,4 +71,8 @@ def student_affairs(request):
 
 def json(request):
     data = list(chart.objects.values())
+    return JsonResponse(data, safe=False)
+
+def streamgraph_json(request):
+    data = list(streamgraph.objects.values('year', 'Amanda', 'Ashley', 'Betty', 'Deborah', 'Dorothy', 'Helen', 'Linda', 'Patricia'))
     return JsonResponse(data, safe=False)
