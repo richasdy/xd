@@ -1,6 +1,7 @@
 from django.shortcuts import render
-
 from .models import chart
+from django.http import JsonResponse
+import json
 
 def academic(request):
     return render(request, "internal/academic.html")
@@ -67,4 +68,7 @@ def secretariat_and_strategic_planning(request):
 
 def student_affairs(request):
     return render(request, "internal/student-affairs.html")
-    
+
+def json(request):
+    data = list(chart.objects.values())
+    return JsonResponse(data, safe=False)
