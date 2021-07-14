@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     # apps
     'external.apps.ExternalConfig',
+    'internal.apps.InternalConfig',
 ]
 
 MIDDLEWARE = [

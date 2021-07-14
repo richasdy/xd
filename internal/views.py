@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from .models import chart
+
 def academic(request):
     return render(request, "internal/academic.html")
 
