@@ -42,9 +42,7 @@ def tiktok(request):
     return render(request, "external/tiktok.html")
 
 def twitter(request):
-    current_site = Site.objects.get_current(request)
     context = {}
-    context['getURL'] = current_site
     return render(request, "external/twitter.html", context)
 
 def youtube(request):

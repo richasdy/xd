@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 ]
 
 LOGIN_REDIRECT_URL = '/external/twitter'
-LOGOUT_REDIRECT_URL = '/external/auth/login'
+LOGOUT_REDIRECT_URL = '/auth/login'
 
 SITE_ID = 2
 
