@@ -4237,7 +4237,7 @@
                       "translate(" + margin.left + "," + margin.top + ")");
       
             // get the data
-            d3.json("/static/internal/data/1_OneNum.json", function(data) {
+            d3.json("http://127.0.0.1:8000/internal/json/density", function(data) {
       
               // add the x Axis
               var x = d3.scaleLinear()

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import streamgraph, chart
+from .models import streamgraph, chart, density
 from django.http import JsonResponse
 import json
 
@@ -75,4 +75,8 @@ def json(request):
 
 def streamgraph_json(request):
     data = list(streamgraph.objects.values('year', 'Amanda', 'Ashley', 'Betty', 'Deborah', 'Dorothy', 'Helen', 'Linda', 'Patricia'))
+    return JsonResponse(data, safe=False)
+
+def density_json(request):
+    data = list(density.objects.values('price'))
     return JsonResponse(data, safe=False)
