@@ -4220,7 +4220,7 @@
                 "translate(" + margin.left + "," + margin.top + ")");
 
             // Parse the Data
-            d3.json("/static/internal/data/5_OneCatSevNumOrdered_wide.json", function (data) {
+            d3.json("http://127.0.0.1:8000/internal/json/streamgraph", function (data) {
 
               // List of groups = header of the csv files
               var keys = []
