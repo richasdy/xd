@@ -4221,7 +4221,7 @@
                 "translate(" + margin.left + "," + margin.top + ")");
 
             // Parse the Data
-            d3.json("/static/internal/data/connectedscatter.json",
+            d3.json("http://127.0.0.1:8000/internal/json",
 
               function (data) {
                 // X axis

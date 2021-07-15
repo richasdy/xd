@@ -1,5 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from .models import streamgraph, chart
+from django.http import JsonResponse
+import json
 
 
 @login_required
@@ -89,4 +92,11 @@ def secretariat_and_strategic_planning(request):
 @login_required
 def student_affairs(request):
     return render(request, "internal/student-affairs.html")
-    
+
+def json(request):
+    data = list(chart.objects.values())
+    return JsonResponse(data, safe=False)
+
+def streamgraph_json(request):
+    data = list(streamgraph.objects.values('year', 'Amanda', 'Ashley', 'Betty', 'Deborah', 'Dorothy', 'Helen', 'Linda', 'Patricia'))
+    return JsonResponse(data, safe=False)
