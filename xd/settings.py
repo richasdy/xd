@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-
+  
     # apps
     'external.apps.ExternalConfig',
     'internal.apps.InternalConfig',
@@ -63,6 +63,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'xd.urls'
+
+
 
 #import os
 

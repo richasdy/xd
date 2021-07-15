@@ -11,4 +11,4 @@ class streamgraphAdmin(admin.ModelAdmin):
 
 @admin.register(density)
 class densityAdmin(admin.ModelAdmin):
-    list_display = ('id','Price')    
+    list_display = ('id','price')    
