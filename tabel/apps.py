@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class FormConfig(AppConfig):
+class TabelConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'form'
+    name = 'tabel'

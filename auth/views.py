@@ -6,7 +6,6 @@ from django.shortcuts import redirect, render
 from django.contrib.sites.models import Site
 from .regform import UserCreationForm
 from django.http import HttpResponseRedirect
-from .logform import profilForm
 import logging
 
 logger = logging.getLogger(__name__)
@@ -28,22 +27,6 @@ def sign_up(request):
 def regsuccess(request):
     logger.info('loading register success view')
     return render(request, 'auth/success.html')
-
-def data(request):
-    context = {}
-    if request.method == 'POST':
-        form = profilForm(data=request.POST, instance=request.user)
-        update = form.save(commit=False)
-        update.user = request.user
-        if form.is_valid():
-            form.save()
-            return redirect('auth/system-login.html')
-    else:
-        form = profilForm(instance=request.user)
-    context['form'] = form
-    return render(request, 'auth/form.html', {'form': form})
-
-
 
 #def remove_log(request):
     #form = UserCreationForm(request.POST or None)

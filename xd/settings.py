@@ -75,6 +75,7 @@ INSTALLED_APPS = [
     # apps
     'external.apps.ExternalConfig',
     'internal.apps.InternalConfig',
+    'tabel.apps.TabelConfig',
 ]
 
 LOGIN_URL = '/auth/login'
