@@ -28,8 +28,6 @@ def sign_up(request):
 @login_required
 def dashboard(request):
     logger.info('loading dashboard view')
-    #print(logger.name,logger.level)
-    print(logger.info())
     return render(request, "external/airui/dashboards-analytics.html")
 
 def error404(request):

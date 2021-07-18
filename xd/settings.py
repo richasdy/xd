@@ -53,10 +53,10 @@ LOGGING = {
         }
     },
     'loggers': {
-        'django.server': {
+        '': {
             'level': 'INFO',
             'handlers': ['console', 'file'],
-            'propagate': True,
+            #'propagate': True,
         }
     }    
 }
