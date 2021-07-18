@@ -29,6 +29,38 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'console': {
+            'format': '%(name)-12s %(levelname)-8s %(message)s'
+        },
+        'file': {
+            'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
+        }
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'console'
+        },
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'formatter': 'file',
+            'filename': os.path.join(BASE_DIR, 'tmp/views.log'),
+        }
+    },
+    'loggers': {
+        'django.server': {
+            'level': 'INFO',
+            'handlers': ['console', 'file'],
+            'propagate': True,
+        }
+    }    
+}
+
 # Application definition
 
 INSTALLED_APPS = [

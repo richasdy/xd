@@ -7,6 +7,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate
 from django.contrib import messages
 from django.urls import reverse
+import logging
+
+logger = logging.getLogger(__name__)
 
 def sign_up(request):
     current_site = Site.objects.get_current(request)
@@ -19,10 +22,14 @@ def sign_up(request):
             user = form.save()
             context['registered'] = True
     context['form'] = form
+    logger.info('loading register view')
     return render(request,'external/airui/system-register.html', context)
 
 @login_required
 def dashboard(request):
+    logger.info('loading dashboard view')
+    #print(logger.name,logger.level)
+    print(logger.info())
     return render(request, "external/airui/dashboards-analytics.html")
 
 def error404(request):

@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from .models import streamgraph, chart
 from .models import streamgraph, chart, density
 from django.http import JsonResponse
 import json
