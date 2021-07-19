@@ -21,5 +21,4 @@ urlpatterns = [
     path('external/', include('external.urls')),
     path('internal/', include('internal.urls')),
     path('auth/', include('auth.urls')),
-    path('form/', include('form.urls')),
 ]

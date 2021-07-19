@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "internal/base.html" %}
 
 {% block page_title %}
     {{page_title}}
@@ -10,7 +10,7 @@
     <form method="POST">
         {% csrf_token %}
         <table>
-            {{post_form.as_table}}
+            {{table_form.as_table}}
         </table>
         <button type="Submit">Submit</button>
     </form>

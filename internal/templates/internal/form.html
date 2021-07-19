@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "internal/base.html" %}
 
 {% block page_title %}
     {{page_title}}
@@ -7,8 +7,8 @@
 {% block contents %}
     <h1>{{page_title}}</h1>
     {% for post in posts %}
-        <h1>{{post.judul}}</h1>
-        <p>{{post.body}}</p>
-        <p>{{post.category}}</p>
+        <h1>{{post.username}}</h1>
+        <p>{{post.email}}</p>
+        <p>{{post.password}}</p>
     {% endfor %}
 {% endblock contents %}
