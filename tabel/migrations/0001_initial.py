@@ -15,7 +15,6 @@ class Migration(migrations.Migration):
             name='tabel',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('t_id', models.IntegerField()),
                 ('waktu', models.CharField(max_length=30)),
                 ('nama', models.CharField(max_length=50)),
                 ('level', models.CharField(max_length=30)),

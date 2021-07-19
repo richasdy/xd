@@ -28,12 +28,3 @@ def regsuccess(request):
     logger.info('loading register success view')
     return render(request, 'auth/success.html')
 
-#def remove_log(request):
-    #form = UserCreationForm(request.POST or None)
-    #context['log'] = False
-   # form = logging(data=request.POST, )
-    #if request.method(logger) == "POST":
-    #    if form.is_valid():
-    #        DeleteView.get_object(logger)
-    #        print("Succesfully deleted")
-    #        return redirect('login')

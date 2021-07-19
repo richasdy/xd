@@ -1,32 +1,23 @@
-from tabel.form import editForm
+from tabel.form import tabelForm
 from .models import tabel
-#from django.views.generic import UpdateView, DeleteView
 from django.shortcuts import redirect, render
 
-# Create your views here.
-#class UpdateTabelView(UpdateView):
-#    model = tabel
-#    template_name = 'auth/form.html'
-#    fields = ['waktu', 'nama', 'level', 'pesan']
 
-def update(request, req_id):
-    up_tabel = tabel.objects.get(id=req_id)
-    print(tabel.t_id)
-
-    data = {
-        'waktu' : up_tabel.waktu,
-        'nama' : up_tabel.nama,
-        'level' : up_tabel.level,
-        'pesan' : up_tabel.pesan,
-    }
-    up_form = editForm(request.POST or None, initial=data, instance=up_tabel)
-    
+def update(request, id):
+    up_tabel = tabel.objects.get(id=id)
+    form = tabelForm(instance=up_tabel)
     if request.method == 'POST':
-        if up_form.is_valid():
-            up_form.save()
+        form = tabelForm(request.POST or None,  instance=up_tabel)   
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    print("data berhasil diperbarui")        
+    context = {'form' : form}
+    return render(request, 'auth/form.html', context)
 
-        return redirect('tabel/')
-
-    context = {
-        
-    }    
+def delete(request, id):
+    del_tabel = tabel.objects.get(id=id)
+    del_tabel.delete()
+    print("data berhasil dihapus")
+    return redirect('/')
+  
