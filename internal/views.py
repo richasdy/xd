@@ -109,3 +109,25 @@ def create(request):
         'table_form':table_form
     }
     return render(request, 'internal/create.html', context)
+
+def update(request, id):
+    tabel = TableModel.objects.get(id=id)
+    table_form = TableForm(instance=tabel)
+    
+    if request.method == 'POST':
+        table_form = TableForm(request.POST or None, instance=tabel)
+        if table_form.is_valid():
+            table_form.save()
+            return HttpResponseRedirect("/internal/form/")
+
+    context = {
+        'page_title': 'Update Post',
+        'table_form':table_form
+    }
+    return render(request, 'internal/create.html', context)
+    
+def delete(request, id):
+    del_tabel = TableModel.objects.get(id=id)
+    del_tabel.delete()
+    return HttpResponseRedirect("/internal/form/")
+    #redirect('/')    

@@ -30,5 +30,7 @@ urlpatterns = [
     path('json/streamgraph', views.streamgraph_json, name='streamgraph_json'),
     path('json/density', views.density_json, name='density_json'),
     url(r'^create/$', views.create, name='create'),
-    url(r'^form/$',views.form, name='form')
+    url(r'^form/$',views.form, name='form'),
+    path('update/<int:id>/', views.update, name='update'),
+    path('delete/<int:id>/', views.delete, name='delete')
 ]
