@@ -48,7 +48,7 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'formatter': 'file',
-            'filename': os.path.join(BASE_DIR, 'tmp/views.log'),
+            'filename': os.path.join(BASE_DIR, 'tmp/xd.log'),
         }
     },
     'loggers': {

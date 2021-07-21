@@ -5,8 +5,12 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate
 from django.contrib import messages
-from django.urls import reverse
 import logging
+import json
+import os
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 logger = logging.getLogger(__name__)
 
@@ -53,7 +57,11 @@ def tiktok(request):
     return render(request, "external/tiktok.html")
 
 def twitter(request):
+    # json_data = open('/static/json/Sample Data/100 Data/twitter.json')
+    json_data = open(os.path.join(BASE_DIR, "static/json/Sample Data/100 Data/twitter.json"))
+    data = json.load(json_data)
     context = {}
+    context['data'] = data
     logger.info('loading twitter view')
     return render(request, "external/twitter.html", context)
 
