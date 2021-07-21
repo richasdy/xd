@@ -32,5 +32,7 @@ urlpatterns = [
     url(r'^create/$', views.create, name='create'),
     url(r'^form/$',views.form, name='form'),
     path('update/<int:id>/', views.update, name='update'),
-    path('delete/<int:id>/', views.delete, name='delete')
+    path('delete/<int:id>/', views.delete, name='delete'),
+    path('log',views.log, name='log'),
+
 ]

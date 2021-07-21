@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import chart, density, streamgraph
 from .models import TableModel
+from .models import UserLog
 
 @admin.register(chart)
 class chartAdmin(admin.ModelAdmin):
@@ -17,4 +18,9 @@ class densityAdmin(admin.ModelAdmin):
 @admin.register(TableModel)
 class tableAdmin(admin.ModelAdmin):
     list_display = ('username','email','password')
+
+@admin.register(UserLog)
+class UserLogAdmin(admin.ModelAdmin):
+    list_display = ['activity', 'username', 'ip', 'timestamp']
+    list_filter = ['activity',]
 

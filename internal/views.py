@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import streamgraph, chart, density
+from .models import UserLog, streamgraph, chart, density
 from django.http import HttpResponseRedirect
 from django.http import JsonResponse
 import json
@@ -131,3 +131,11 @@ def delete(request, id):
     del_tabel.delete()
     return HttpResponseRedirect("/internal/form/")
     #redirect('/')    
+
+def log(request):
+    posts = UserLog.objects.all()
+    context = {
+        'page_title':'List Post',
+        'posts':posts,
+    }
+    return render(request, 'internal/log.html', context)
