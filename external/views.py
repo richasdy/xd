@@ -6,6 +6,9 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate
 from django.contrib import messages
 from django.urls import reverse
+import logging
+
+logger = logging.getLogger(__name__)
 
 def sign_up(request):
     current_site = Site.objects.get_current(request)
@@ -18,32 +21,42 @@ def sign_up(request):
             user = form.save()
             context['registered'] = True
     context['form'] = form
+    logger.info('loading register view')
     return render(request,'external/airui/system-register.html', context)
 
 def dashboard(request):
+    logger.info('loading dashboard view')
     return render(request, "external/airui/dashboards-analytics.html")
 
 def error404(request):
+    logger.info('loading error404 view')
     return render(request, "external/airui/system-404.html")
 
 def form(request):
+    logger.info('loading form view')
     return render(request, "external/airui/form-plugins-select2.html")
 
 def tables(request):
+    logger.info('loading tables view')
     return render(request, "external/airui/tables-datatables.html")
 
 def instagram(request):
+    logger.info('loading instagram view')
     return render(request, "external/instagram.html")
 
 def portal_berita(request):
+    logger.info('loading portal berita view')
     return render(request, "external/portal-berita.html")
 
 def tiktok(request):
+    logger.info('loading tiktok view')
     return render(request, "external/tiktok.html")
 
 def twitter(request):
     context = {}
+    logger.info('loading twitter view')
     return render(request, "external/twitter.html", context)
 
 def youtube(request):
-    return render(request, "external/youtube.html") 
+    logger.info('loading youtube view')
+    return render(request, "external/youtube.html")
