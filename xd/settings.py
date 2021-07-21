@@ -75,6 +75,7 @@ INSTALLED_APPS = [
     'internal.apps.InternalConfig',
 ]
 
+LOGIN_URL = '/auth/login'
 LOGIN_REDIRECT_URL = '/external/twitter'
 LOGOUT_REDIRECT_URL = '/auth/login'
 
