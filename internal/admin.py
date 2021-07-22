@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import chart, density, streamgraph
+from .models import TableModel
 
 @admin.register(chart)
 class chartAdmin(admin.ModelAdmin):
@@ -11,4 +12,8 @@ class streamgraphAdmin(admin.ModelAdmin):
 
 @admin.register(density)
 class densityAdmin(admin.ModelAdmin):
-    list_display = ('id','price')    
+    list_display = ('id','price')
+
+@admin.register(TableModel)
+class tableAdmin(admin.ModelAdmin):
+    list_display = ('username','email','password')

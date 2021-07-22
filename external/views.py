@@ -55,8 +55,12 @@ def instagram(request):
 
 @login_required
 def portal_berita(request):
-    logger.info('loading portal berita view')
-    return render(request, "external/portal-berita.html")
+    json_data = open(os.path.join(BASE_DIR, "static/data/json/100_data/berita.json"))
+    data = json.load(json_data)
+    context = {}
+    context['data'] = data
+    logger.info('loading Portal view')
+    return render(request, "external/portal-berita.html", context)
 
 @login_required
 def tiktok(request):

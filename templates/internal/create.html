@@ -1,0 +1,50 @@
+{% extends "external/airui/dashboard-base.html" %}
+{% load static %}
+
+{% block content %}
+      <div class="air__layout__content">
+        <div class="air__utils__content">
+          <div class="air__utils__heading">
+  <h5>
+    Extras
+  </h5>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-body">
+      <table class="table table-hover nowrap" id="example2">
+      <form method="POST">
+        {% csrf_token %}
+        <table>
+          <thead>
+              <tr>
+            {{table_form.as_table}}
+              </tr>
+          </thead>
+        </table>
+        <button type="Submit">Submit</button>
+      </form>
+      </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  ;(function($) {
+    'use strict'
+    $(function() {
+      autosize($('#textarea'))
+
+      $('#password').password({
+        eyeClass: '',
+        eyeOpenClass: 'fe fe-eye',
+        eyeCloseClass: 'fe fe-eye-off',
+      })
+    })
+  })(jQuery)
+</script>
+        </div>
+      </div>
+{% endblock content %}
