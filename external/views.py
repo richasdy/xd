@@ -77,3 +77,12 @@ def twitter(request):
 def youtube(request):
     logger.info('loading youtube view')
     return render(request, "external/youtube.html")
+
+@login_required
+def linkedin(request):
+    json_data = open(os.path.join(BASE_DIR, "static/data/json/100_data/linkedin.json"))
+    data = json.load(json_data)
+    context = {}
+    context['data'] = data
+    logger.info('loading linkedin view')
+    return render(request, "external/linkedin.html", context)
