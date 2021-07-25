@@ -1,0 +1,387 @@
+{% extends "external/airui/dashboard-base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="air__layout__content">
+  <div class="air__utils__content">
+    <div class="air__utils__heading">
+      <h5>Dashboard Alumni</h5>
+    </div>
+    <div class="card">
+        <div class="card-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <h3>Presentase Kepuasan Wisudawan April 2021 Pada Tiap Kategori(%)</h3>
+            <div class="mb-5">
+                <div id="survey"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+        <div class="row">
+          <div class="col-lg-4">
+          <h3>Kategori Akademik</h3>
+          <h6>A.1 Sistem penerimaan mahasiswa baru</h6>
+          <h6>A.2 Kompetensi/kemampuan dosen.</h6>
+          <h6>A.3 Pembimbingan akademik oleh dosen wali</h6>
+          <h6>A.4 Suasana akademik termasuk penyelenggaraan
+          seminar, diskusi, dan kegiatan ilmiah lainnya</h6>
+          <h6>A.5 Pembimbingan tugas akhir</h6>
+          <h6>A.6 Sistem evaluasi belajar mengajar</h6>
+          <h6>A.7 Program pendidikan, termasuk kurikulum</h6>
+          <h6>A.8 Proses belajar mengajar (kuliah dan prkatikum/studio)</h6>  
+          </div>
+          <div class="col-lg-6">
+            <div id="akademik"></div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+        <div class="row">
+            <div class="col-lg-4">
+                <h3>Kategori Fasilitas</h3>
+                <h6>F.1 Fasilitas perpustakaan</h6>
+                <h6>F.2 Fasilitas kegiatan keagamaan</h6>
+                <h6>F.3 Fasilitas teknologi informasi dan komunikasi termasuk akses internet</h6>
+                <h6>F.4 Fasilitas kegiatan olahraga, seni dan budaya, Tingkat Kepentingan</h6>
+                <h6>F.5 Fasilitas kesehatan</h6>
+                <h6>F.6 Fasilitas kantin</h6>
+                <h6>F.7 Fasilitas laboratorium/studio untuk praktikum atau penelitian</h6>
+                <h6>F.8 Fasilitas umum lainnya (toilet, taman, ketersediaan tempat sampah dan parkir)</h6>
+                <h6>F.9 Fasilitas ruang kuliah</h6>
+                <h6>F.10 Fasilitas asrama</h6>
+            </div>  
+          <div class="col-lg-6">
+            <div class="mb-5">
+                <div id="fasilitas"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+        <div class="row">   
+            <div class="col-lg-4">
+                <h3>Kategori Layanan</h3>
+                <h6>L.1 Layanan perpustakaan</h6>
+                <h6>L.2 Layanan pengembangan minat dan bakat, kemandirian melalui UKM</h6>
+                <h6>L.3 Layanan Program Kreativitas Mahasiswa (PKM)</h6>
+                <h6>L.4 Layanan administrasi akademik</h6>
+                <h6>L.5 Layanan bimbingan dan konseling</h6>
+                <h6>L.6 Layanan bimbingan karier dan ketenagakerjaan</h6>
+                <h6>L.7 Layanan beasiswa</h6>
+                <h6>L.8 Layanan kesehatan</h6>
+            </div>  
+          <div class="col-lg-6">
+            <div class="mb-5">
+                <div id="layanan"></div>
+               </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+        <div class="row">
+          <div class="col-lg-4">
+            <h3>Kategori Peningkatan Kompetensi</h3>
+            <h6>K.1 Kemampuan bekerja secara mandiri</h6>
+            <h6>K.2 Kemampuan berpikir logis</h6>
+            <h6>K.3 Kemampuan bekerja dalam tim</h6>
+            <h6>K.4 Kemampuan pemecahan masalah</h6>
+            <h6>K.5 Kemampuan kepemimpinan</h6>
+            <h6>K.6 Kemampuan berkomunikasi</h6>
+            <h6>K.7 Kemampuan penguasaan teknologi informasi (IT)</h6>
+            <h6>K.8 Kemampuan berbahasa asing (Bahasa Inggris)</h6>
+            </div>
+            <div class="col-lg-6"> 
+                <div class="mb-5">
+                    <div id="kompetensi"></div>
+                 </div>
+            </div>
+        </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://d3js.org/d3.v4.js"></script>
+<!-- Create a div where the graph will take place -->
+<script>
+  // set the dimensions and margins of the graph
+  var margin = { top: 10, right: 30, bottom: 30, left: 40 },
+    width = 460 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+    // script for survey  
+    // append the svg object to the body of the page
+  var survey = d3
+        .select("#survey")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    var xScale = d3.scaleBand().range ([0, width]).padding(0.4),
+        yScale = d3.scaleLinear().range ([height, 0]);
+
+  // get the data
+  //d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/1_OneNum.csv", function (data) {
+    d3.json("/static/stakeholder/alumni/alumni.json", function (data) {
+    // X & Y axis: scale and draw:
+    xScale.domain(data.map(function(d) { return d.survey; }));
+    yScale.domain([0, d3.max(data, function(d) { return d.value; }),100]);
+    
+        survey.append("g")
+         .attr("transform", "translate(0," + height + ")")
+         .call(d3.axisBottom(xScale))
+         .append("text")
+         .attr("y", height - 250)
+         .attr("x", width - 100)
+
+
+
+        survey.append("g")
+         .call(d3.axisLeft(yScale).tickFormat(function(d){
+             return d;
+         })
+         .ticks(5))
+         .append("text")
+         .attr("transform", "rotate(-90)")
+         .attr("y", 10)
+         .attr("dy", "-5.1em")
+
+
+        survey.selectAll(".bar")
+         .data(data)
+         .enter().append("rect")
+         .attr("class", "bar")
+         .attr("x", function(d) { return xScale(d.survey); })
+         .attr("y", function(d) { return yScale(d.value); })
+         .attr("width", xScale.bandwidth())
+         .attr("fill", "steelblue")
+         .attr("height", function(d) { return height - yScale(d.value);
+         });
+    });
+
+    // script for survey akademik 
+    // append the svg object to the body of the page
+  var akademik = d3
+        .select("#akademik")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    var xScale = d3.scaleBand().range ([0, width]).padding(0.4),
+        yScale = d3.scaleLinear().range ([height, 0]);
+
+  // get the data
+  //d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/1_OneNum.csv", function (data) {
+    d3.json("/static/stakeholder/alumni/alumni_akademik.json", function (data) {
+    // X axis: scale and draw:
+    xScale.domain(data.map(function(d) { return d.survey; }));
+    yScale.domain([80, d3.max(data, function(d) { return d.value; })]);
+    
+        akademik.append("g")
+         .attr("transform", "translate(0," + height + ")")
+         .call(d3.axisBottom(xScale))
+         .append("text")
+         .attr("y", height - 250)
+         .attr("x", width - 100)
+
+        akademik.append("g")
+         .call(d3.axisLeft(yScale).tickFormat(function(d){
+             return d;
+         })
+         .ticks(5))
+         .append("text")
+         .attr("transform", "rotate(-90)")
+         //.attr("y", 10)
+         //.attr("dy", "-5.1em")
+
+        akademik.selectAll(".bar")
+         .data(data)
+         .enter().append("rect")
+         .attr("class", "bar")
+         .attr("x", function(d) { return xScale(d.survey); })
+         .attr("y", function(d) { return yScale(d.value); })
+         .attr("width", xScale.bandwidth())
+         .attr("fill", "maroon")
+         .attr("height", function(d) { return height - yScale(d.value);
+         });
+    });
+    
+    // script for survey fasilitas  
+    // append the svg object to the body of the page
+  var fas = d3
+        .select("#fasilitas")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    var xScale = d3.scaleBand().range ([0, width]).padding(0.4),
+        yScale = d3.scaleLinear().range ([height, 0]);
+
+  // get the data
+  //d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/1_OneNum.csv", function (data) {
+    d3.json("/static/stakeholder/alumni/alumni_fasilitas.json", function (data) {
+    // X axis: scale and draw:
+    xScale.domain(data.map(function(d) { return d.survey; }));
+    yScale.domain([75, d3.max(data, function(d) { return d.value; })]);
+    
+        fas.append("g")
+         .attr("transform", "translate(0," + height + ")")
+         .call(d3.axisBottom(xScale))
+         .append("text")
+         .attr("y", height - 250)
+         .attr("x", width - 100)
+         .attr("text-anchor", "end")
+         .attr("stroke", "black")
+
+
+        fas.append("g")
+         .call(d3.axisLeft(yScale).tickFormat(function(d){
+             return d;
+         })
+         .ticks(5))
+         .append("text")
+         .attr("transform", "rotate(-90)")
+         .attr("y", 6)
+         .attr("dy", "-5.1em")
+         .attr("text-anchor", "end")
+         .attr("stroke", "black")
+
+        fas.selectAll(".bar")
+         .data(data)
+         .enter().append("rect")
+         .attr("class", "bar")
+         .attr("x", function(d) { return xScale(d.survey); })
+         .attr("y", function(d) { return yScale(d.value); })
+         .attr("width", xScale.bandwidth())
+         .attr("fill", "#59bfff")
+         .attr("height", function(d) { return height - yScale(d.value);
+         });
+    });
+
+    // script for survey layanan  
+    // append the svg object to the body of the page
+  var lay = d3
+        .select("#layanan")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    var xScale = d3.scaleBand().range ([0, width]).padding(0.4),
+        yScale = d3.scaleLinear().range ([height, 0]);
+
+  // get the data
+  //d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/1_OneNum.csv", function (data) {
+    d3.json("/static/stakeholder/alumni/alumni_layanan.json", function (data) {
+    // X axis: scale and draw:
+    xScale.domain(data.map(function(d) { return d.survey; }));
+    yScale.domain([80, d3.max(data, function(d) { return d.value; })]);
+    
+        lay.append("g")
+         .attr("transform", "translate(0," + height + ")")
+         .call(d3.axisBottom(xScale))
+         .append("text")
+         .attr("y", height - 250)
+         .attr("x", width - 100)
+         .attr("text-anchor", "end")
+         .attr("stroke", "black")
+
+
+        lay.append("g")
+         .call(d3.axisLeft(yScale).tickFormat(function(d){
+             return d;
+         })
+         .ticks(5))
+         .append("text")
+         .attr("transform", "rotate(-90)")
+         .attr("y", 6)
+         .attr("dy", "-5.1em")
+         .attr("text-anchor", "end")
+         .attr("stroke", "black")
+
+        lay.selectAll(".bar")
+         .data(data)
+         .enter().append("rect")
+         .attr("class", "bar")
+         .attr("x", function(d) { return xScale(d.survey); })
+         .attr("y", function(d) { return yScale(d.value); })
+         .attr("width", xScale.bandwidth())
+         .attr("fill", "#A4DE02")
+         .attr("height", function(d) { return height - yScale(d.value);
+         });
+    });
+
+    // script for survey kompetensi  
+    // append the svg object to the body of the page
+  var kom = d3
+        .select("#kompetensi")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    var xScale = d3.scaleBand().range ([0, width]).padding(0.4),
+        yScale = d3.scaleLinear().range ([height, 0]);
+
+  // get the data
+  //d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/1_OneNum.csv", function (data) {
+    d3.json("/static/stakeholder/alumni/alumni_peningkatanKompetensi.json", function (data) {
+    // X axis: scale and draw:
+    xScale.domain(data.map(function(d) { return d.survey; }));
+    yScale.domain([80, d3.max(data, function(d) { return d.value; })]);
+    
+        kom.append("g")
+         .attr("transform", "translate(0," + height + ")")
+         .call(d3.axisBottom(xScale))
+         .append("text")
+         .attr("y", height - 250)
+         .attr("x", width - 100)
+         .attr("text-anchor", "end")
+         .attr("stroke", "black")
+
+
+        kom.append("g")
+         .call(d3.axisLeft(yScale).tickFormat(function(d){
+             return d;
+         })
+         .ticks(5))
+         .append("text")
+         .attr("transform", "rotate(-90)")
+         .attr("y", 6)
+         .attr("dy", "-5.1em")
+         .attr("text-anchor", "end")
+         .attr("stroke", "black")
+
+        kom.selectAll(".bar")
+         .data(data)
+         .enter().append("rect")
+         .attr("class", "bar")
+         .attr("x", function(d) { return xScale(d.survey); })
+         .attr("y", function(d) { return yScale(d.value); })
+         .attr("width", xScale.bandwidth())
+         .attr("fill", "yellow")
+         .attr("height", function(d) { return height - yScale(d.value);
+         });
+    });
+</script>
+
+
+{% endblock content %}

@@ -262,3 +262,32 @@ django.db.utils.IntegrityError: NOT NULL constraint failed: internal_tablemodel.
 2021-07-22 20:38:37,737 external.views INFO     loading Portal view
 2021-07-22 20:40:35,210 external.views INFO     loading twitter view
 2021-07-22 20:45:45,876 external.views INFO     loading Portal view
+2021-07-23 03:58:17,641 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-23 03:58:26,541 django.request WARNING  Not Found: /
+2021-07-23 03:58:26,887 django.request WARNING  Not Found: /favicon.ico
+2021-07-23 03:58:40,438 django.request WARNING  Not Found: /stakeholder
+2021-07-23 03:58:43,077 django.request WARNING  Not Found: /stakeholder/
+2021-07-23 03:58:47,245 django.request ERROR    Internal Server Error: /stakeholder/alumni
+Traceback (most recent call last):
+  File "C:\Users\My ASUS\Documents\GitHub\env\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\My ASUS\Documents\GitHub\env\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\My ASUS\Documents\GitHub\xd\stakeholder\views.py", line 5, in alumni
+    return render(request, "alumni.html")
+  File "C:\Users\My ASUS\Documents\GitHub\env\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\My ASUS\Documents\GitHub\env\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\My ASUS\Documents\GitHub\env\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: alumni.html
+2021-07-23 03:59:15,149 django.utils.autoreload INFO     C:\Users\My ASUS\Documents\GitHub\xd\stakeholder\views.py changed, reloading.
+2021-07-23 03:59:17,072 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-23 04:15:53,571 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-23 04:17:22,395 django.request WARNING  Not Found: /stakeholder/
+2021-07-23 04:17:41,651 django.request WARNING  Not Found: /
+2021-07-23 04:18:20,168 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-23 04:18:20,602 django.request WARNING  Not Found: /
+2021-07-23 04:25:11,797 external.views INFO     loading twitter view
+2021-07-23 04:41:14,087 external.views INFO     loading instagram view

@@ -50,8 +50,12 @@ def tables(request):
 
 @login_required
 def instagram(request):
+    json_data = open("static/external/instagram.json")
+    data = json.load(json_data)
+    context = {}
+    context['data'] = data
     logger.info('loading instagram view')
-    return render(request, "external/instagram.html")
+    return render(request, "external/instagram.html", context)
 
 @login_required
 def portal_berita(request):

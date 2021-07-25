@@ -7,6 +7,118 @@
     <div class="air__utils__heading">
       <h5>Dashboard Instagram</h5>
     </div>
+    <div class="card" >
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="mb-5">
+              <table class="table table-hover nowrap" id="instagram_table">
+                <thead>
+                  <tr>
+                    <th>Username</th>
+                    <th>UserLink</th>
+                    <th>Post Time</th>
+                    <th>Post Like(s)</th>
+                    <th>Description</th>
+                    <th>Comment Username</th>
+                    <th>Comment UserLink</th>
+                    <th>Comment Text</th>
+                    <th>Comment Like(s)</th>
+                    <th>Comment Time</th>
+                    <th>Comment Reply</th> 
+                  </tr>
+                </thead>
+                <tbody>  
+                  {% for ig in data %}
+                  <tr>
+                    <td>{{ ig.post_username }}</td>
+                    <td>{{ ig.post_userlink }}</td>
+                    <td>{{ ig.post_time }}</td>
+                    <td>{{ ig.post_like }}</td>
+                    <td>{{ ig.post_description }}</td>
+                    <td>{{ ig.comment_username }}</td>
+                    <td>{{ ig.comment_userlink }}</td>
+                    <td>{{ ig.comment_text }}</td>
+                    <td>{{ ig.comment_like }}</td>
+                    <td>{{ ig.comment_time }}</td>
+                    <td>{{ ig.comment_reply }}</td>                    
+                  </tr>
+                  {% endfor %}
+                </tbody>  
+                <tfoot>
+                  <tr>
+                    <th>Username</th>
+                    <th>UserLink</th>
+                    <th>Post Time</th>
+                    <th>Post Like(s)</th>
+                    <th>Description</th>
+                    <th>Comment Username</th>
+                    <th>Comment UserLink</th>
+                    <th>Comment Text</th>
+                    <th>Comment Like(s)</th>
+                    <th>Comment Time</th>
+                    <th>Comment Reply</th> 
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>  
+      </div>
+    </div>
+    <script type="text/javascript">
+    $(function () {
+          $("#instagram_table").DataTable({
+            responsive: true,
+          });
+        });
+      (jQuery);  
+    /*  ;
+      $(document).ready(function(){
+        (function($) {
+        ("static/external/instagram.json", function(data) {    
+          var tr='';
+          $.each(data, function(key, value){
+                  tr = $('<tr>'); 
+                  tr += '<td>' + value.post_username + '</td>';
+                  tr += '<td>' + value.post_userlink + '</td>';
+                  tr += '<td>' + value.post_description + '</td>';
+                  tr += '<td>' + value.post_time + '</td>';
+                  tr += '<td>' + value.post_like + '</td>';
+                  tr += '<td>' + value.comment_username + '</td>';
+                  tr += '<td>' + value.comment_userlink + '</td>';
+                  tr += '<td>' + value.comment_text + '</td>';
+                  tr += '<td>' + value.comment_like + '</td>';
+                  tr += '<td>' + value.comment_time + '</td>';
+                  tr = $('</tr>');
+              });
+              $('instagram_table').append(tr);
+        });
+      });
+      });
+      (jQuery)
+      /*
+      $(document).ready(function(){
+          $.getJSON("/static/external/instagram.json", function (data) {
+              var tr ='';
+              $.each(data, function(key, value){
+                  tr = $('<tr>');
+                  tr += '<td>' + value.post_username + '</td>';
+                  tr += '<td>' + value.post_userlink + '</td>';
+                  tr += '<td>' + value.post_description + '</td>';
+                  tr += '<td>' + value.post_time + '</td>';
+                  tr += '<td>' + value.post_like + '</td>';
+                  tr += '<td>' + value.comment_username + '</td>';
+                  tr += '<td>' + value.comment_userlink + '</td>';
+                  tr += '<td>' + value.comment_text + '</td>';
+                  tr += '<td>' + value.comment_like + '</td>';
+                  tr += '<td>' + value.comment_time + '</td>';
+                  tr = $('</tr>');
+              });
+              $('instagram_table').append(tr);
+          });
+      });(jQuery)  */
+    </script>
     <!--dashboard analitik-->
     <div class="row">
       <div class="col-lg-8">
