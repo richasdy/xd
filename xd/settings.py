@@ -73,6 +73,7 @@ INSTALLED_APPS = [
     # apps
     'external.apps.ExternalConfig',
     'internal.apps.InternalConfig',
+    'stakeholder.apps.StakeholderConfig',
 ]
 
 LOGIN_URL = '/auth/login'
