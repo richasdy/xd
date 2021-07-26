@@ -50,7 +50,7 @@ def tables(request):
 
 @login_required
 def instagram(request):
-    json_data = open("static/external/instagram.json")
+    json_data = open("static/data/json/100_data/instagram.json")
     data = json.load(json_data)
     context = {}
     context['data'] = data

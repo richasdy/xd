@@ -11,7 +11,7 @@
         <div class="card-body">
         <div class="row">
           <div class="col-lg-12">
-            <h3>Presentase Kepuasan Wisudawan April 2021 Pada Tiap Kategori(%)</h3>
+            <h3>Presentase Kepuasan Wisudawan April 2021 Pada Tiap Kategori (%)</h3>
             <div class="mb-5">
                 <div id="survey"></div>
             </div>
@@ -112,7 +112,6 @@
 </div>
 
 <script src="https://d3js.org/d3.v4.js"></script>
-<!-- Create a div where the graph will take place -->
 <script>
   // set the dimensions and margins of the graph
   var margin = { top: 10, right: 30, bottom: 30, left: 40 },
@@ -133,11 +132,10 @@
         yScale = d3.scaleLinear().range ([height, 0]);
 
   // get the data
-  //d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/1_OneNum.csv", function (data) {
     d3.json("/static/stakeholder/alumni/alumni.json", function (data) {
     // X & Y axis: scale and draw:
     xScale.domain(data.map(function(d) { return d.survey; }));
-    yScale.domain([0, d3.max(data, function(d) { return d.value; }),100]);
+    yScale.domain([0, 100]);
     
         survey.append("g")
          .attr("transform", "translate(0," + height + ")")
@@ -145,8 +143,6 @@
          .append("text")
          .attr("y", height - 250)
          .attr("x", width - 100)
-
-
 
         survey.append("g")
          .call(d3.axisLeft(yScale).tickFormat(function(d){
@@ -185,11 +181,10 @@
         yScale = d3.scaleLinear().range ([height, 0]);
 
   // get the data
-  //d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/1_OneNum.csv", function (data) {
     d3.json("/static/stakeholder/alumni/alumni_akademik.json", function (data) {
     // X axis: scale and draw:
     xScale.domain(data.map(function(d) { return d.survey; }));
-    yScale.domain([80, d3.max(data, function(d) { return d.value; })]);
+    yScale.domain([80, d3.max(data, function(d) { return d.value; }) + 1]);
     
         akademik.append("g")
          .attr("transform", "translate(0," + height + ")")
@@ -202,11 +197,11 @@
          .call(d3.axisLeft(yScale).tickFormat(function(d){
              return d;
          })
-         .ticks(5))
+         .ticks(10))
          .append("text")
          .attr("transform", "rotate(-90)")
-         //.attr("y", 10)
-         //.attr("dy", "-5.1em")
+         .attr("y", 10)
+         .attr("dy", "-5.1em")
 
         akademik.selectAll(".bar")
          .data(data)
@@ -234,11 +229,10 @@
         yScale = d3.scaleLinear().range ([height, 0]);
 
   // get the data
-  //d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/1_OneNum.csv", function (data) {
     d3.json("/static/stakeholder/alumni/alumni_fasilitas.json", function (data) {
     // X axis: scale and draw:
     xScale.domain(data.map(function(d) { return d.survey; }));
-    yScale.domain([75, d3.max(data, function(d) { return d.value; })]);
+    yScale.domain([77, d3.max(data, function(d) { return d.value; }) + 1]);
     
         fas.append("g")
          .attr("transform", "translate(0," + height + ")")
@@ -254,7 +248,7 @@
          .call(d3.axisLeft(yScale).tickFormat(function(d){
              return d;
          })
-         .ticks(5))
+         .ticks(10))
          .append("text")
          .attr("transform", "rotate(-90)")
          .attr("y", 6)
@@ -288,11 +282,10 @@
         yScale = d3.scaleLinear().range ([height, 0]);
 
   // get the data
-  //d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/1_OneNum.csv", function (data) {
     d3.json("/static/stakeholder/alumni/alumni_layanan.json", function (data) {
     // X axis: scale and draw:
     xScale.domain(data.map(function(d) { return d.survey; }));
-    yScale.domain([80, d3.max(data, function(d) { return d.value; })]);
+    yScale.domain([80, d3.max(data, function(d) { return d.value; }) + 1]);
     
         lay.append("g")
          .attr("transform", "translate(0," + height + ")")
@@ -308,7 +301,7 @@
          .call(d3.axisLeft(yScale).tickFormat(function(d){
              return d;
          })
-         .ticks(5))
+         .ticks(10))
          .append("text")
          .attr("transform", "rotate(-90)")
          .attr("y", 6)
@@ -346,7 +339,7 @@
     d3.json("/static/stakeholder/alumni/alumni_peningkatanKompetensi.json", function (data) {
     // X axis: scale and draw:
     xScale.domain(data.map(function(d) { return d.survey; }));
-    yScale.domain([80, d3.max(data, function(d) { return d.value; })]);
+    yScale.domain([80, d3.max(data, function(d) { return d.value; }) + 1]);
     
         kom.append("g")
          .attr("transform", "translate(0," + height + ")")
@@ -362,10 +355,10 @@
          .call(d3.axisLeft(yScale).tickFormat(function(d){
              return d;
          })
-         .ticks(5))
+         .ticks(10))
          .append("text")
          .attr("transform", "rotate(-90)")
-         .attr("y", 6)
+         .attr("y", 10)
          .attr("dy", "-5.1em")
          .attr("text-anchor", "end")
          .attr("stroke", "black")

@@ -41,7 +41,13 @@
                     <td>{{ ig.comment_text }}</td>
                     <td>{{ ig.comment_like }}</td>
                     <td>{{ ig.comment_time }}</td>
-                    <td>{{ ig.comment_reply }}</td>                    
+                    <td>
+                      username reply: {{ ig.comment_reply.username_reply}},
+                      <br> href reply: {{ ig.comment_reply.username_reply_href }}, 
+                      <br> comment reply : {{ ig.comment_reply.comment_reply }},
+                      <br> like reply : {{ ig.comment_reply.comment_like_reply }}, 
+                      <br> time reply : {{ ig.comment_reply.time_reply }}
+                    </td>                  
                   </tr>
                   {% endfor %}
                 </tbody>  
@@ -73,51 +79,6 @@
           });
         });
       (jQuery);  
-    /*  ;
-      $(document).ready(function(){
-        (function($) {
-        ("static/external/instagram.json", function(data) {    
-          var tr='';
-          $.each(data, function(key, value){
-                  tr = $('<tr>'); 
-                  tr += '<td>' + value.post_username + '</td>';
-                  tr += '<td>' + value.post_userlink + '</td>';
-                  tr += '<td>' + value.post_description + '</td>';
-                  tr += '<td>' + value.post_time + '</td>';
-                  tr += '<td>' + value.post_like + '</td>';
-                  tr += '<td>' + value.comment_username + '</td>';
-                  tr += '<td>' + value.comment_userlink + '</td>';
-                  tr += '<td>' + value.comment_text + '</td>';
-                  tr += '<td>' + value.comment_like + '</td>';
-                  tr += '<td>' + value.comment_time + '</td>';
-                  tr = $('</tr>');
-              });
-              $('instagram_table').append(tr);
-        });
-      });
-      });
-      (jQuery)
-      /*
-      $(document).ready(function(){
-          $.getJSON("/static/external/instagram.json", function (data) {
-              var tr ='';
-              $.each(data, function(key, value){
-                  tr = $('<tr>');
-                  tr += '<td>' + value.post_username + '</td>';
-                  tr += '<td>' + value.post_userlink + '</td>';
-                  tr += '<td>' + value.post_description + '</td>';
-                  tr += '<td>' + value.post_time + '</td>';
-                  tr += '<td>' + value.post_like + '</td>';
-                  tr += '<td>' + value.comment_username + '</td>';
-                  tr += '<td>' + value.comment_userlink + '</td>';
-                  tr += '<td>' + value.comment_text + '</td>';
-                  tr += '<td>' + value.comment_like + '</td>';
-                  tr += '<td>' + value.comment_time + '</td>';
-                  tr = $('</tr>');
-              });
-              $('instagram_table').append(tr);
-          });
-      });(jQuery)  */
     </script>
     <!--dashboard analitik-->
     <div class="row">
