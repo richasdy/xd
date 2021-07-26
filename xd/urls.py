@@ -21,4 +21,5 @@ urlpatterns = [
     path('external/', include('external.urls')),
     path('internal/', include('internal.urls')),
     path('auth/', include('auth.urls')),
+    path('stakeholder/', include('stakeholder.urls')),
 ]
