@@ -1,0 +1,8 @@
+2021-07-26 09:13:18,274 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-26 09:13:25,965 django.request WARNING  Not Found: /
+2021-07-26 09:13:26,486 django.request WARNING  Not Found: /favicon.ico
+2021-07-26 09:34:33,975 external.views INFO     loading twitter view
+2021-07-26 10:08:26,610 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-26 10:08:31,930 django.request WARNING  Not Found: /
+2021-07-26 10:08:32,096 django.request WARNING  Not Found: /favicon.ico
+2021-07-26 10:08:57,618 external.views INFO     loading twitter view
