@@ -1,31 +1,31 @@
 [
     {
-      "category": "P1",
+      "kategori": "P1",
       "rata_rata_kepuasan": 66.66666667,
       "tingkat_kepuasan": 66.66666667
     },
     {
-      "category": "P2",
+      "kategori": "P2",
       "rata_rata_kepuasan": 100,
       "tingkat_kepuasan": 100
     },
     {
-      "category": "P3",
+      "kategori": "P3",
       "rata_rata_kepuasan": 100,
       "tingkat_kepuasan": 100
     },
     {
-      "category": "P4",
+      "kategori": "P4",
       "rata_rata_kepuasan": 100,
       "tingkat_kepuasan": 100
     },
     {
-      "category": "P5",
+      "kategori": "P5",
       "rata_rata_kepuasan": 100,
       "tingkat_kepuasan": 100
     },
     {
-      "category": "P6",
+      "kategori": "P6",
       "rata_rata_kepuasan": 100,
       "tingkat_kepuasan": 100
     }
