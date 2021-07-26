@@ -75,5 +75,9 @@ def twitter(request):
 
 @login_required
 def youtube(request):
+    json_data = open(os.path.join(BASE_DIR, "static/data/json/100_data/youtube.json"))
+    data = json.load(json_data)
+    context = {}
+    context['data'] = data
     logger.info('loading youtube view')
-    return render(request, "external/youtube.html")
+    return render(request, "external/youtube.html", context)

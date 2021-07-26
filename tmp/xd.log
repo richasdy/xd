@@ -1,3 +1,7 @@
 
 2021-07-26 10:40:20,449 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2021-07-26 10:40:29,448 django.request WARNING  Not Found: /
+2021-07-26 18:37:53,535 django.utils.autoreload INFO     D:\KP\xd\external\views.py changed, reloading.
+2021-07-26 18:37:54,801 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-26 18:38:00,663 django.utils.autoreload INFO     D:\KP\xd\external\views.py changed, reloading.
+2021-07-26 18:38:01,557 django.utils.autoreload INFO     Watching for file changes with StatReloader
