@@ -1,0 +1,23 @@
+[
+    {
+       "label": "Mengetahui",
+       "Sangat puas": 23.69,
+       "Puas": 72.17,
+       "Tidak puas": 3.45,
+       "Sangat tidak puas": 0.70
+    },
+    {
+       "label":"Memahami",
+       "Sangat puas": 23.26,
+       "Puas": 72.41,
+       "Tidak puas": 3.63,
+       "Sangat tidak puas": 0.69
+    },
+    {
+       "label":"Mengimplementasikan",
+       "Sangat puas": 21.40,
+       "Puas": 73.50,
+       "Tidak puas": 4.46,
+       "Sangat tidak puas": 0.64
+    }
+ ]
