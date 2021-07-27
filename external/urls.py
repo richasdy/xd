@@ -15,4 +15,5 @@ urlpatterns = [
     path('twitter', views.twitter, name='twitter'),
     path('youtube', views.youtube, name='youtube'),
     path('linkedin', views.linkedin, name='linkedin'),
+    path('scholar', views.scholar, name='scholar'),
 ]

@@ -90,3 +90,12 @@ def linkedin(request):
     context['data'] = data
     logger.info('loading linkedin view')
     return render(request, "external/linkedin.html", context)
+
+@login_required
+def scholar(request):
+    json_data = open(os.path.join(BASE_DIR, "static/data/json/100_data/scholar.json"))
+    data = json.load(json_data)
+    context = {}
+    context['data'] = data
+    logger.info('loading scholar view')
+    return render(request, "external/scholar.html", context)
