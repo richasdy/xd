@@ -1,0 +1,32 @@
+[
+    {
+      "kategori": "P1",
+      "rata_rata_kepuasan": 78.125,
+      "tingkat_kepuasan": 75
+    },
+    {
+      "kategori": "P2",
+      "rata_rata_kepuasan": 89.28571429,
+      "tingkat_kepuasan": 85.71428571
+    },
+    {
+      "kategori": "P3",
+      "rata_rata_kepuasan": 89.28571429,
+      "tingkat_kepuasan": 100
+    },
+    {
+      "kategori": "P4",
+      "rata_rata_kepuasan": 89.28571429,
+      "tingkat_kepuasan": 85.71428571
+    },
+    {
+      "kategori": "P5",
+      "rata_rata_kepuasan": 92.85714286,
+      "tingkat_kepuasan": 85.71428571
+    },
+    {
+      "kategori": "P6",
+      "rata_rata_kepuasan": 92.85714286,
+      "tingkat_kepuasan": 85.71428571
+    }
+  ]
