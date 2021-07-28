@@ -1,0 +1,10 @@
+[
+    {"survey" : "K.1", "value" : 89.23}, 
+    {"survey" : "K.2", "value": 88.42}, 
+    {"survey" : "K.3", "value": 88.41},
+    {"survey" : "K.4", "value" : 88.25},
+    {"survey" : "K.5", "value" : 88.18}, 
+    {"survey" : "K.6", "value": 87.80}, 
+    {"survey" : "K.7", "value": 86.83},
+    {"survey" : "K.8", "value" : 85.62}   
+]

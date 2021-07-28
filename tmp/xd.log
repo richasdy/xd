@@ -1,4 +1,3 @@
-
 2021-07-22 15:25:10,874 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2021-07-22 15:25:46,883 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2021-07-22 15:27:59,664 django.utils.autoreload INFO     Watching for file changes with StatReloader
@@ -542,17 +541,13 @@ json.decoder.JSONDecodeError: Expecting value: line 5 column 1 (char 128)
 2021-07-25 18:52:52,922 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2021-07-25 19:12:42,887 django.request WARNING  Not Found: /stakeholder/static/stakeholder/pegawai/FEB.csv
 2021-07-25 19:12:59,288 django.request WARNING  Not Found: /stakeholder/static/stakeholder/pegawai/FEB.json
-<<<<<<< Updated upstream
-2021-07-26 08:18:51,030 django.utils.autoreload INFO     Watching for file changes with StatReloader
-2021-07-26 08:21:59,426 django.utils.autoreload INFO     Watching for file changes with StatReloader
-=======
 2021-07-25 20:02:38,083 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\xd\urls.py changed, reloading.
 2021-07-25 20:02:40,198 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2021-07-26 08:13:30,108 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2021-07-26 08:13:42,598 django.request WARNING  Not Found: /favicon.ico
 2021-07-26 08:14:50,563 django.request WARNING  Not Found: /external/pegawai
 2021-07-26 08:14:57,690 django.request WARNING  Not Found: /stakeholder/pegawai
->>>>>>> Stashed changes
+
 2021-07-26 17:33:29,969 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2021-07-26 17:36:16,476 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\stakeholder\apps.py changed, reloading.
 2021-07-26 17:36:17,740 django.utils.autoreload INFO     Watching for file changes with StatReloader
@@ -616,3 +611,4 @@ django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 4: 'block'.
 2021-07-28 15:08:05,060 django.request WARNING  Not Found: /stakeholder/data/stakeholder/pegawai/FEB.json
 2021-07-28 15:41:26,332 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2021-07-28 15:41:47,332 django.request WARNING  Not Found: /stakeholder/
+
