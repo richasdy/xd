@@ -37,7 +37,7 @@ var feb = d3.select("#feb")
           "translate(" + margin.left + "," + margin.top + ")");
 
 // Parse the Data
-d3.csv("/static/data/stakeholder/pegawai/FEB.csv", function(data) {
+d3.json("{% static 'data/stakeholder/pegawai/FEB.json' %}", function(data) {
 
   // sort data
   data.sort(function(b, a) {
@@ -109,7 +109,7 @@ var fit = d3.select("#fit")
           "translate(" + margin.left + "," + margin.top + ")");
 
 // Parse the Data
-d3.csv("/static/data/stakeholder/pegawai/FIT.csv", function(data) {
+d3.json("{% static 'data/stakeholder/pegawai/FIT.json' %}", function(data) {
 
   // sort data
   data.sort(function(b, a) {
@@ -181,7 +181,7 @@ var fik = d3.select("#fik")
           "translate(" + margin.left + "," + margin.top + ")");
 
 // Parse the Data
-d3.csv("/static/data/stakeholder/pegawai/FIK.csv", function(data) {
+d3.json("{% static 'data/stakeholder/pegawai/FIK.json' %}", function(data) {
 
   // sort data
   data.sort(function(b, a) {
@@ -255,7 +255,7 @@ var fif = d3.select("#fif")
           "translate(" + margin.left + "," + margin.top + ")");
 
 // Parse the Data
-d3.csv("/static/data/stakeholder/pegawai/FIF.csv", function(data) {
+d3.json("{% static 'data/stakeholder/pegawai/FIF.json' %}", function(data) {
 
   // sort data
   data.sort(function(b, a) {
@@ -327,7 +327,7 @@ var fkb = d3.select("#fkb")
           "translate(" + margin.left + "," + margin.top + ")");
 
 // Parse the Data
-d3.csv("/static/data/stakeholder/pegawai/FKB.csv", function(data) {
+d3.json("{% static 'data/stakeholder/pegawai/FKB.json' %}", function(data) {
 
   // sort data
   data.sort(function(b, a) {
@@ -399,7 +399,7 @@ var fri = d3.select("#fri")
           "translate(" + margin.left + "," + margin.top + ")");
 
 // Parse the Data
-d3.csv("/static/data/stakeholder/pegawai/FRI.csv", function(data) {
+d3.json("{% static 'data/stakeholder/pegawai/FRI.json' %}", function(data) {
 
   // sort data
   data.sort(function(b, a) {
@@ -473,7 +473,7 @@ var fte = d3.select("#fte")
           "translate(" + margin.left + "," + margin.top + ")");
 
 // Parse the Data
-d3.csv("/static/data/stakeholder/pegawai/FTE.csv", function(data) {
+d3.json("{% static 'data/stakeholder/pegawai/FTE.json' %}", function(data) {
 
   // sort data
   data.sort(function(b, a) {

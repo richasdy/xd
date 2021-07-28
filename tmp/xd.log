@@ -542,5 +542,75 @@ json.decoder.JSONDecodeError: Expecting value: line 5 column 1 (char 128)
 2021-07-25 18:52:52,922 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2021-07-25 19:12:42,887 django.request WARNING  Not Found: /stakeholder/static/stakeholder/pegawai/FEB.csv
 2021-07-25 19:12:59,288 django.request WARNING  Not Found: /stakeholder/static/stakeholder/pegawai/FEB.json
+<<<<<<< Updated upstream
 2021-07-26 08:18:51,030 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2021-07-26 08:21:59,426 django.utils.autoreload INFO     Watching for file changes with StatReloader
+=======
+2021-07-25 20:02:38,083 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\xd\urls.py changed, reloading.
+2021-07-25 20:02:40,198 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-26 08:13:30,108 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-26 08:13:42,598 django.request WARNING  Not Found: /favicon.ico
+2021-07-26 08:14:50,563 django.request WARNING  Not Found: /external/pegawai
+2021-07-26 08:14:57,690 django.request WARNING  Not Found: /stakeholder/pegawai
+>>>>>>> Stashed changes
+2021-07-26 17:33:29,969 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-26 17:36:16,476 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\stakeholder\apps.py changed, reloading.
+2021-07-26 17:36:17,740 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-26 17:44:01,592 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\stakeholder\views.py changed, reloading.
+2021-07-26 17:44:02,835 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-26 17:44:10,232 django.request WARNING  Not Found: /stakeholder
+2021-07-26 17:44:13,152 django.request WARNING  Not Found: /favicon.ico
+2021-07-26 17:44:17,810 django.request WARNING  Not Found: /stakeholder/
+2021-07-26 17:44:29,323 django.request ERROR    Internal Server Error: /stakeholder/mahasiswalayanan
+Traceback (most recent call last):
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\YOGA\Documents\richasdy\xd\stakeholder\views.py", line 7, in mahasiswalayanan
+    return render(request, "stakeholder/stakeholder-mahasiswalayanan.html")
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loaders\base.py", line 29, in get_template
+    return Template(
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader_tags.py", line 216, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 483, in parse
+    self.unclosed_block_tag(parse_until)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 544, in unclosed_block_tag
+    raise self.error(token, msg)
+django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 4: 'block'. Looking for one of: endblock.
+2021-07-26 18:56:45,045 django.request WARNING  Not Found: /stakeholder/images/spacer.gif
+2021-07-26 18:57:02,808 django.request WARNING  Not Found: /stakeholder/images/spacer.gif
+2021-07-26 19:09:28,763 django.request WARNING  Not Found: /stakeholder/dashboards-analytics.html
+2021-07-26 19:09:36,277 django.request WARNING  Not Found: /stakeholder/dashboards-jira.html
+2021-07-26 19:09:45,288 django.request WARNING  Not Found: /stakeholder/widgets-tables.html
+2021-07-26 19:09:57,030 django.request WARNING  Not Found: /stakeholder/form-plugins-select2.html
+2021-07-26 19:51:58,906 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\stakeholder\views.py changed, reloading.
+2021-07-26 19:52:02,651 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-28 15:07:00,350 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-28 15:08:05,060 django.request WARNING  Not Found: /stakeholder/data/stakeholder/pegawai/FEB.json

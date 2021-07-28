@@ -37,7 +37,7 @@ var mhs = d3.select("#mhs")
           "translate(" + margin.left + "," + margin.top + ")");
 
 // Parse the Data
-d3.csv("/static/data/stakeholder/mahasiswalayanan/mahasiswalayanan.csv", function(data) {
+d3.json("{% static 'data/stakeholder/mahasiswalayanan/mahasiswalayanan.json' %}", function(data) {
 
   // sort data
   data.sort(function(b, a) {
