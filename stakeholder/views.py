@@ -1,7 +1,7 @@
 from django.shortcuts import render
+import json
 from django.contrib.auth.decorators import login_required
 import logging
-import json
 import os
 from pathlib import Path
 
@@ -16,3 +16,9 @@ def mitra(request):
 @login_required
 def mahasiswa_visi_misi(request):
     return render(request, "stakeholder/mahasiswa-visi-misi.html")
+  
+def pegawai(request):
+    return render(request, "stakeholder/stakeholder-pegawai.html")
+
+def mahasiswalayanan(request):
+    return render(request, "stakeholder/stakeholder-mahasiswalayanan.html")
