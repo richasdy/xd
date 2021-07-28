@@ -1,0 +1,409 @@
+{% extends "stakeholder/airui/dashboard-base.html" %}
+{% load static %}
+{% load libtags %}
+
+{% block content %}
+
+{% for survey in data %}
+  <div class="air__layout__content">
+    <div class="air__utils__content" style="padding-bottom:0">
+      <h5><strong>{{ survey.title }}</strong></h5>
+    </div>
+  </div>
+  {% for dt in survey.schools %}
+  <div class="air__layout__content {{ survey.title|to_class }}">
+    <div class="air__utils__content">
+      <div class="air__utils__heading">
+        <h5>{{ dt.name }}</h5>
+      </div>
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="card">
+            <div class="card-body">
+              <div class="tab-pane" id="tab-orders-content" role="tabpanel" aria-labelledby="tab-orders-content">
+                <div class="air__c3__chart-{{ dt.name|to_class }} height-300"></div>
+                <div class="d-flex flex-wrap">
+                  <div class="mr-5 mb-2">
+                    <div class="text-nowrap text-uppercase text-gray-4">
+                      <div class="air__utils__donut air__utils__donut--primary"></div>
+                      Rata-rata Skor (dalam skala 100)
+                    </div>
+                  </div>
+                  <div class="mr-5 mb-2">
+                    <div class="text-nowrap text-uppercase text-gray-4">
+                      <div class="air__utils__donut air__utils__donut--success"></div>
+                      Presentase Responden Puas dan Sangat Puas (%)
+                    </div>
+                  </div>
+                </div>
+
+                <script>
+                  /////////////////////////////////////////////////////////////////////////////////////////
+                  // "widgets charts" module scripts
+
+                  (function ($) {
+                    "use strict";
+                    $(function () {
+                      /////////////////////////////////////////////////////////////////////////////////////////
+                      let json_data = "{{ dt.majors|safe }}";
+                      json_data = json_data.replace(/'/g, '"');
+                      json_data = $.parseJSON(json_data);
+
+                      let labels = [];
+                      let edom1 = [];
+                      let edom2 = [];
+
+                      let edom1avg = 0;
+                      let edom2avg = 0;
+
+                      json_data.forEach(element => {
+                        labels.push(element.name);
+                        edom1.push(element.edom1);
+                        edom2.push(element.edom2);
+
+                        edom1avg += element.edom1;
+                        edom2avg += element.edom2;
+                      });
+
+                      edom1avg = edom1avg / edom1.length;
+                      edom2avg = edom2avg / edom2.length;
+
+                      $('.{{ survey.title|to_class }} .p-edom1-{{ dt.name|to_class }} strong').text(
+                        (Math.round(edom1avg * 100) / 100).toFixed(2) + "%"
+                      );
+                      $('.{{ survey.title|to_class }} .p-edom2-{{ dt.name|to_class }} strong').text(
+                        (Math.round(edom2avg * 100) / 100).toFixed(2) + "%"
+                      );
+                      
+                      const chartist3 = new Chartist.Bar(
+                        ".{{ survey.title|to_class }} .air__c3__chart-{{ dt.name|to_class }}",
+                        {
+                          labels: labels, 
+                          series: [
+                            {
+                              className: "ct-series-a",
+                              data: edom1,
+                            },
+                            {
+                              className: "ct-series-b",
+                              data: edom2,
+                            },
+                          ],
+                        },
+                        {
+                          chartPadding: {
+                            right: 0,
+                            left: 16,
+                            top: 10,
+                            bottom: 0,
+                          },
+                          // fullWidth: true,
+                          // low: 0,
+                          axisY: {
+                            showGrid: false,
+                          //   showLabel: true,
+                            offset: 0,
+                          },
+                          axisX: {
+                            showGrid: false,
+                          },
+                          plugins: [Chartist.plugins.tooltip()],
+                          seriesBarDistance: 15,
+                        }
+                      );
+
+                      chartist3.on("draw", function (data) {
+                        if (data.type === "bar") {
+                          data.group.append(
+                            new Chartist.Svg("line", {
+                              x1: data.x1,
+                              x2: data.x2,
+                              y1: data.y2,
+                              y2: 0,
+                              stroke: "#e4e9f0",
+                              "stroke-width": "10",
+                            })
+                          );
+                        }
+                      });
+                      /////////////////////////////////////////////////////////////////////////////////////////
+                    });
+                  })(jQuery);
+                </script>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex flex-wrap align-items-center">
+                <div class="mr-auto">
+                  <p class="text-uppercase text-dark font-weight-bold mb-1">
+                    Rata-rata Persentase EDOM untuk Fakultas:
+                  </p>
+                  <p class="text-gray-5 mb-0 p-edom1-{{ dt.name|to_class }}">
+                    <strong></strong>
+                  </p>
+                </div>
+              </div>
+              <div class="d-flex flex-wrap align-items-center mt-3">
+                <div class="mr-auto">
+                  <p class="text-uppercase text-dark font-weight-bold mb-1">
+                    Persentase Responden Puas dan Sangat Puas terhadap dosen Fakultas secara keseluruhan:
+                  </p>
+                  <p class="text-gray-5 mb-0 p-edom2-{{ dt.name|to_class }}">
+                    <strong></strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+{% endfor %}
+<div class="air__layout__content">
+  <div class="air__utils__content" style="padding-bottom:0">
+    <h5><strong>Perbandingan EDOM Dosen Tel-U Per Prodi 2020-2021 Ganjil (Antara) & 2020-2021 Ganjil</strong></h5>
+  </div>
+</div>
+<div class="air__layout__content">
+  <div class="air__utils__content">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-header">
+            <strong>Rata-rata Skor Kepuasan</strong>
+          </div>
+          <div class="card-body">
+            <div class="tab-pane" id="tab-orders-content" role="tabpanel" aria-labelledby="tab-orders-content">
+              <div class="air__c3__chart-ganjil-antara height-300"></div>
+              <div class="d-flex flex-wrap">
+                <div class="mr-5 mb-2">
+                  <div class="text-nowrap text-uppercase text-gray-4">
+                    <div class="air__utils__donut air__utils__donut--success"></div>
+                    Rata-rata skor kepuasan EDOM Ganjil (Antara)
+                  </div>
+                </div>
+                <div class="mr-5 mb-2">
+                  <div class="text-nowrap text-uppercase text-gray-4">
+                    <div class="air__utils__donut air__utils__donut--primary"></div>
+                    Rata-rata skor kepuasan EDOM Ganjil
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-header">
+            <strong>Rata-rata Presentase Kepuasan</strong>
+          </div>
+          <div class="card-body">
+            <div class="tab-pane" id="tab-orders-content" role="tabpanel" aria-labelledby="tab-orders-content">
+              <div class="air__c3__chart-ganjil height-300"></div>
+              <div class="d-flex flex-wrap">  
+                <div class="mr-5 mb-2">
+                  <div class="text-nowrap text-uppercase text-gray-4">
+                    <div class="air__utils__donut air__utils__donut--success"></div>
+                    Rata-rata skor kepuasan EDOM Ganjil (Antara)
+                  </div>
+                </div>
+                <div class="mr-5 mb-2">
+                  <div class="text-nowrap text-uppercase text-gray-4">
+                    <div class="air__utils__donut air__utils__donut--primary"></div>
+                    Rata-rata skor kepuasan EDOM Ganjil
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  (function ($) {
+    "use strict";
+    $(function () {
+      /////////////////////////////////////////////////////////////////////////////////////////
+      let json_data = "{{ data|safe }}";
+      json_data = json_data.replace(/'/g, '"');
+      json_data = $.parseJSON(json_data);
+
+      let edom = [];
+      let state = 1;
+
+      json_data.forEach(jd => {
+        let edom1 = {
+          "labels": [],
+          "values": []
+        };
+        let edom1labels = [];
+
+        let edom2 = {
+          "labels": [],
+          "values": []
+        };
+        let edom2labels = [];
+
+        let edom1arr = [];
+        let edom1avg = 0;
+        let edom1avgc = 0;
+
+        let edom2arr = [];
+        let edom2avg = 0;
+        let edom2avgc = 0;
+
+        jd.schools.forEach(sch => {
+          edom1labels.push(sch.code);
+          edom1.labels = edom1labels;
+
+          edom2labels.push(sch.code);
+          edom2.labels = edom2labels;
+
+          edom1avg = 0;
+          edom1avgc = 0;
+
+          edom2avg = 0;
+          edom2avgc = 0;
+
+          sch.majors.forEach(mj => {
+            edom1avg += mj.edom1;
+            edom1avgc++;
+            
+            edom2avg += mj.edom2;
+            edom2avgc++;
+          });
+
+          edom1avg = edom1avg / edom1avgc;
+          edom1avg = (Math.round(edom1avg * 100) / 100).toFixed(2);
+
+          edom2avg = edom2avg / edom2avgc;
+          edom2avg = (Math.round(edom2avg * 100) / 100).toFixed(2);
+
+          edom1arr.push(parseFloat(edom1avg));
+          edom2arr.push(parseFloat(edom2avg));
+        });
+
+        edom1.values = edom1arr;
+        edom2.values = edom2arr;
+
+        edom.push(edom1);
+        edom.push(edom2);
+        state++;
+      });
+
+      const chartist3 = new Chartist.Bar(
+        ".air__c3__chart-ganjil-antara",
+        {
+          labels: edom[0].labels,
+          series: [
+            {
+              className: "ct-series-a",
+              data: edom[0].values,
+            },
+            {
+              className: "ct-series-b",
+              data: edom[2].values,
+            },
+          ],
+        },
+        {
+          fullWidth: true,
+          chartPadding: {
+            right: 0,
+            left: 16,
+            top: 10,
+            bottom: 0,
+          },
+          low: 0,
+          axisY: {
+            showGrid: false,
+            // showLabel: false,
+            offset: 0,
+          },
+          axisX: {
+            showGrid: false,
+          },
+          seriesBarDistance: 15,
+          plugins: [Chartist.plugins.tooltip()],
+        }
+      );
+
+      chartist3.on("draw", function (data) {
+        if (data.type === "bar") {
+          data.group.append(
+            new Chartist.Svg("line", {
+              x1: data.x1,
+              x2: data.x2,
+              y1: data.y2,
+              y2: 0,
+              stroke: "#e4e9f0",
+              "stroke-width": "10",
+            })
+          );
+        }
+      });
+      
+      const chartist4 = new Chartist.Bar(
+        ".air__c3__chart-ganjil",
+        {
+          labels: edom[0].labels,
+          series: [
+            {
+              className: "ct-series-a",
+              data: edom[1].values,
+            },
+            {
+              className: "ct-series-b",
+              data: edom[3].values,
+            },
+          ],
+        },
+        {
+          fullWidth: true,
+          chartPadding: {
+            right: 0,
+            left: 16,
+            top: 10,
+            bottom: 0,
+          },
+          low: 0,
+          axisY: {
+            showGrid: false,
+            // showLabel: false,
+            offset: 0,
+          },
+          axisX: {
+            showGrid: false,
+          },
+          seriesBarDistance: 15,
+          plugins: [Chartist.plugins.tooltip()],
+        }
+      );
+
+      chartist4.on("draw", function (data) {
+        if (data.type === "bar") {
+          data.group.append(
+            new Chartist.Svg("line", {
+              x1: data.x1,
+              x2: data.x2,
+              y1: data.y2,
+              y2: 0,
+              stroke: "#e4e9f0",
+              "stroke-width": "10",
+            })
+          );
+        }
+      });
+    });
+  })(jQuery);
+</script>
+{% endblock content %}

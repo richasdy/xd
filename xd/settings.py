@@ -72,6 +72,7 @@ INSTALLED_APPS = [
 
     # apps
     'external.apps.ExternalConfig',
+    'stakeholder'
 ]
 
 LOGIN_REDIRECT_URL = '/external/twitter'
