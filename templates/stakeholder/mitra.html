@@ -1,0 +1,1289 @@
+<style>
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+
+  .bar {
+    fill: steelblue;
+  }
+
+  .x.axis path {
+    display: none;
+  }
+</style>
+
+{% extends "external/airui/dashboard-base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="air__layout__content">
+  <div class="air__utils__content">
+    <div class="air__utils__heading">
+      <h5>Dashboard Mitra</h5>
+    </div>
+    <h5><strong>TELKOM UNIVERSITY 2020</strong></h5>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div id="telu"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <strong>Dimana: </strong>
+            <div><strong>P1</strong> Telkom University melayani Institusi dengan baik, tepat dan profesional
+              (Partnership).</div>
+            <div><strong>P2</strong> Telkom University menerima saran/ masukan dari Institusi secara terbuka
+              (Awareness Improvement-
+              Communication).</div>
+            <div><strong>P3</strong> Naskah MoU/ MoA/sejenisnya disusun dan ditulis dengan tepat dengan maksud,
+              tujuan dan sasaran
+              institusi
+              (Coordination/ Administration- Program Planning).</div>
+            <div><strong>P4</strong> Kerjasama ini sesuai dengan kebutuhan dan harapan dari Institusi kami
+              (Relationship Management).
+            </div>
+            <div><strong>P5</strong> Selama masa berlaku MoU/MoA/ sejenisnya, telah direalisasikan suatu kegiatan
+              kerjasama yang
+              bermanfaat
+              bagi Institusi (Program Management).</div>
+            <div><strong>P6</strong> Pihak kami memiliki itikad untuk melanjutkan kerjasama (MoU/MoA/ sejenisnya)
+              apabila masa berlaku
+              MOU/MOA/sejenisnya, akan berakhir. (Monitoring).</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <li>Rata-rata kepuasan mitra Telkom University tahun 2020 adalah 89.74</li>
+            <li>Tingkat Kepuasan mitra Telkom University tahun 2020 adalah 92.54</li>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h5><strong>DIREKTORAT AKADEMIK</strong></h5>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div id="da"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <strong>Dimana: </strong>
+            <div><strong>P1</strong> Telkom University melayani Institusi dengan baik, tepat dan profesional
+              (Partnership).</div>
+            <div><strong>P2</strong> Telkom University menerima saran/ masukan dari Institusi secara terbuka
+              (Awareness Improvement-
+              Communication).</div>
+            <div><strong>P3</strong> Naskah MoU/ MoA/sejenisnya disusun dan ditulis dengan tepat dengan maksud,
+              tujuan dan sasaran
+              institusi
+              (Coordination/ Administration- Program Planning).</div>
+            <div><strong>P4</strong> Kerjasama ini sesuai dengan kebutuhan dan harapan dari Institusi kami
+              (Relationship Management).
+            </div>
+            <div><strong>P5</strong> Selama masa berlaku MoU/MoA/ sejenisnya, telah direalisasikan suatu kegiatan
+              kerjasama yang
+              bermanfaat
+              bagi Institusi (Program Management).</div>
+            <div><strong>P6</strong> Pihak kami memiliki itikad untuk melanjutkan kerjasama (MoU/MoA/ sejenisnya)
+              apabila masa berlaku
+              MOU/MOA/sejenisnya, akan berakhir. (Monitoring).</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <li>Rata-rata kepuasan Mitra Kerjasama Direktorat Akademik adalah 77.08</li>
+            <li>Tingkat Kepuasan Mitra Kerjasama Direktorat Akademik adalah 94.44</li>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h5><strong>DIREKTORAT PASCA SARJANA DAN ADVANCE LEARNING</strong></h5>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div id="dpsal"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <strong>Dimana: </strong>
+            <div><strong>P1</strong> Telkom University melayani Institusi dengan baik, tepat dan profesional
+              (Partnership).</div>
+            <div><strong>P2</strong> Telkom University menerima saran/ masukan dari Institusi secara terbuka
+              (Awareness Improvement-
+              Communication).</div>
+            <div><strong>P3</strong> Naskah MoU/ MoA/sejenisnya disusun dan ditulis dengan tepat dengan maksud,
+              tujuan dan sasaran
+              institusi
+              (Coordination/ Administration- Program Planning).</div>
+            <div><strong>P4</strong> Kerjasama ini sesuai dengan kebutuhan dan harapan dari Institusi kami
+              (Relationship Management).
+            </div>
+            <div><strong>P5</strong> Selama masa berlaku MoU/MoA/ sejenisnya, telah direalisasikan suatu kegiatan
+              kerjasama yang
+              bermanfaat
+              bagi Institusi (Program Management).</div>
+            <div><strong>P6</strong> Pihak kami memiliki itikad untuk melanjutkan kerjasama (MoU/MoA/ sejenisnya)
+              apabila masa berlaku
+              MOU/MOA/sejenisnya, akan berakhir. (Monitoring).</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <li>Rata-rata kepuasan Mitra Kerjasama Direktorat Pasca Sarjana dan Advance Learning adalah 80.90</li>
+            <li>Tingkat Kepuasan Mitra Kerjasama Direktorat Pasca Sarjana dan Advance Learning adalah 95.83</li>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h5><strong>DIREKTORAT PEMASARAN DAN ADMISI</strong></h5>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div id="dpa"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <strong>Dimana: </strong>
+            <div><strong>P1</strong> Telkom University melayani Institusi dengan baik, tepat dan profesional
+              (Partnership).</div>
+            <div><strong>P2</strong> Telkom University menerima saran/ masukan dari Institusi secara terbuka
+              (Awareness Improvement-
+              Communication).</div>
+            <div><strong>P3</strong> Naskah MoU/ MoA/sejenisnya disusun dan ditulis dengan tepat dengan maksud,
+              tujuan dan sasaran
+              institusi
+              (Coordination/ Administration- Program Planning).</div>
+            <div><strong>P4</strong> Kerjasama ini sesuai dengan kebutuhan dan harapan dari Institusi kami
+              (Relationship Management).
+            </div>
+            <div><strong>P5</strong> Selama masa berlaku MoU/MoA/ sejenisnya, telah direalisasikan suatu kegiatan
+              kerjasama yang
+              bermanfaat
+              bagi Institusi (Program Management).</div>
+            <div><strong>P6</strong> Pihak kami memiliki itikad untuk melanjutkan kerjasama (MoU/MoA/ sejenisnya)
+              apabila masa berlaku
+              MOU/MOA/sejenisnya, akan berakhir. (Monitoring).</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <li>Rata-rata kepuasan Mitra Kerjasama Direktorat Pemasaran dan Admisi adalah 86.13</li>
+            <li>Tingkat Kepuasan Mitra Kerjasama Direktorat Pemasaran dan Admisi adalah 83.61</li>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h5><strong>DIREKTORAT PENELITIAN DAN PENGABDIAN MASYARAKAT</strong></h5>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div id="dppm"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <strong>Dimana: </strong>
+            <div><strong>P1</strong> Telkom University melayani Institusi dengan baik, tepat dan profesional
+              (Partnership).</div>
+            <div><strong>P2</strong> Telkom University menerima saran/ masukan dari Institusi secara terbuka
+              (Awareness Improvement-
+              Communication).</div>
+            <div><strong>P3</strong> Naskah MoU/ MoA/sejenisnya disusun dan ditulis dengan tepat dengan maksud,
+              tujuan dan sasaran
+              institusi
+              (Coordination/ Administration- Program Planning).</div>
+            <div><strong>P4</strong> Kerjasama ini sesuai dengan kebutuhan dan harapan dari Institusi kami
+              (Relationship Management).
+            </div>
+            <div><strong>P5</strong> Selama masa berlaku MoU/MoA/ sejenisnya, telah direalisasikan suatu kegiatan
+              kerjasama yang
+              bermanfaat
+              bagi Institusi (Program Management).</div>
+            <div><strong>P6</strong> Pihak kami memiliki itikad untuk melanjutkan kerjasama (MoU/MoA/ sejenisnya)
+              apabila masa berlaku
+              MOU/MOA/sejenisnya, akan berakhir. (Monitoring).</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <li>Rata-rata kepuasan Mitra Kerjasama Direktorat Penelitian dan Pengabdian Masyarakat adalah 94.44</li>
+            <li>Tingkat Kepuasan Mitra Kerjasama Direktorat Penelitian dan Pengabdian Masyarakat adalah 94.44</li>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h5><strong>DIREKTORAT PENGEMBANGAN KARIR, ALUMNI DAN ENDOWMENT</strong></h5>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div id="dpkae"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <strong>Dimana: </strong>
+            <div><strong>P1</strong> Telkom University melayani Institusi dengan baik, tepat dan profesional
+              (Partnership).</div>
+            <div><strong>P2</strong> Telkom University menerima saran/ masukan dari Institusi secara terbuka
+              (Awareness Improvement-
+              Communication).</div>
+            <div><strong>P3</strong> Naskah MoU/ MoA/sejenisnya disusun dan ditulis dengan tepat dengan maksud,
+              tujuan dan sasaran
+              institusi
+              (Coordination/ Administration- Program Planning).</div>
+            <div><strong>P4</strong> Kerjasama ini sesuai dengan kebutuhan dan harapan dari Institusi kami
+              (Relationship Management).
+            </div>
+            <div><strong>P5</strong> Selama masa berlaku MoU/MoA/ sejenisnya, telah direalisasikan suatu kegiatan
+              kerjasama yang
+              bermanfaat
+              bagi Institusi (Program Management).</div>
+            <div><strong>P6</strong> Pihak kami memiliki itikad untuk melanjutkan kerjasama (MoU/MoA/ sejenisnya)
+              apabila masa berlaku
+              MOU/MOA/sejenisnya, akan berakhir. (Monitoring).</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <li>Rata-rata kepuasan Mitra Kerjasama Direktorat Pengembangan Karir, Alumni dan Endowment adalah 91.45</li>
+            <li>Tingkat Kepuasan Mitra Kerjasama Direktorat Pengembangan Karir, Alumni dan Endowment adalah 96.67</li>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h5><strong>FAKULTAS EKONOMI DAN BISNIS</strong></h5>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div id="feb"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <strong>Dimana: </strong>
+            <div><strong>P1</strong> Telkom University melayani Institusi dengan baik, tepat dan profesional
+              (Partnership).</div>
+            <div><strong>P2</strong> Telkom University menerima saran/ masukan dari Institusi secara terbuka
+              (Awareness Improvement-
+              Communication).</div>
+            <div><strong>P3</strong> Naskah MoU/ MoA/sejenisnya disusun dan ditulis dengan tepat dengan maksud,
+              tujuan dan sasaran
+              institusi
+              (Coordination/ Administration- Program Planning).</div>
+            <div><strong>P4</strong> Kerjasama ini sesuai dengan kebutuhan dan harapan dari Institusi kami
+              (Relationship Management).
+            </div>
+            <div><strong>P5</strong> Selama masa berlaku MoU/MoA/ sejenisnya, telah direalisasikan suatu kegiatan
+              kerjasama yang
+              bermanfaat
+              bagi Institusi (Program Management).</div>
+            <div><strong>P6</strong> Pihak kami memiliki itikad untuk melanjutkan kerjasama (MoU/MoA/ sejenisnya)
+              apabila masa berlaku
+              MOU/MOA/sejenisnya, akan berakhir. (Monitoring).</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <li>Rata-rata kepuasan Mitra Kerjasama Fakultas Ekonomi dan Bisnis adalah 86.81</li>
+            <li>Tingkat Kepuasan Mitra Kerjasama Fakultas Ekonomi dan Bisnis adalah 95.83</li>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h5><strong>FAKULTAS INDUSTRI KREATIF</strong></h5>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div id="fik"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <strong>Dimana: </strong>
+            <div><strong>P1</strong> Telkom University melayani Institusi dengan baik, tepat dan profesional
+              (Partnership).</div>
+            <div><strong>P2</strong> Telkom University menerima saran/ masukan dari Institusi secara terbuka
+              (Awareness Improvement-
+              Communication).</div>
+            <div><strong>P3</strong> Naskah MoU/ MoA/sejenisnya disusun dan ditulis dengan tepat dengan maksud,
+              tujuan dan sasaran
+              institusi
+              (Coordination/ Administration- Program Planning).</div>
+            <div><strong>P4</strong> Kerjasama ini sesuai dengan kebutuhan dan harapan dari Institusi kami
+              (Relationship Management).
+            </div>
+            <div><strong>P5</strong> Selama masa berlaku MoU/MoA/ sejenisnya, telah direalisasikan suatu kegiatan
+              kerjasama yang
+              bermanfaat
+              bagi Institusi (Program Management).</div>
+            <div><strong>P6</strong> Pihak kami memiliki itikad untuk melanjutkan kerjasama (MoU/MoA/ sejenisnya)
+              apabila masa berlaku
+              MOU/MOA/sejenisnya, akan berakhir. (Monitoring).</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <li>Mitra Kerjasama Fakultas Industri Kreatif adalah 86.62</li>
+            <li>Tingkat Kepuasan Mitra Kerjasama Fakultas Industri Kreatif adalah 86.31</li>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h5><strong>FAKULTAS KOMUNIKASI DAN BISNIS</strong></h5>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div id="fkb"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <strong>Dimana: </strong>
+            <div><strong>P1</strong> Telkom University melayani Institusi dengan baik, tepat dan profesional
+              (Partnership).</div>
+            <div><strong>P2</strong> Telkom University menerima saran/ masukan dari Institusi secara terbuka
+              (Awareness Improvement-
+              Communication).</div>
+            <div><strong>P3</strong> Naskah MoU/ MoA/sejenisnya disusun dan ditulis dengan tepat dengan maksud,
+              tujuan dan sasaran
+              institusi
+              (Coordination/ Administration- Program Planning).</div>
+            <div><strong>P4</strong> Kerjasama ini sesuai dengan kebutuhan dan harapan dari Institusi kami
+              (Relationship Management).
+            </div>
+            <div><strong>P5</strong> Selama masa berlaku MoU/MoA/ sejenisnya, telah direalisasikan suatu kegiatan
+              kerjasama yang
+              bermanfaat
+              bagi Institusi (Program Management).</div>
+            <div><strong>P6</strong> Pihak kami memiliki itikad untuk melanjutkan kerjasama (MoU/MoA/ sejenisnya)
+              apabila masa berlaku
+              MOU/MOA/sejenisnya, akan berakhir. (Monitoring).</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <li>Rata-rata kepuasan Mitra Kerjasama Fakultas Komunikasi dan Bisnis adalah 90.63</li>
+            <li>Tingkat Kepuasan Mitra Kerjasama Fakultas Komunikasi Bisnis adalah 96.67</li>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h5><strong>PUSAT PENELITIAN CENTER FOR DIGITAL BUSINESS ECOSYSTEM/DBE</strong></h5>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div id="ppcfdbe"></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <strong>Dimana: </strong>
+            <div><strong>P1</strong> Telkom University melayani Institusi dengan baik, tepat dan profesional
+              (Partnership).</div>
+            <div><strong>P2</strong> Telkom University menerima saran/ masukan dari Institusi secara terbuka
+              (Awareness Improvement-
+              Communication).</div>
+            <div><strong>P3</strong> Naskah MoU/ MoA/sejenisnya disusun dan ditulis dengan tepat dengan maksud,
+              tujuan dan sasaran
+              institusi
+              (Coordination/ Administration- Program Planning).</div>
+            <div><strong>P4</strong> Kerjasama ini sesuai dengan kebutuhan dan harapan dari Institusi kami
+              (Relationship Management).
+            </div>
+            <div><strong>P5</strong> Selama masa berlaku MoU/MoA/ sejenisnya, telah direalisasikan suatu kegiatan
+              kerjasama yang
+              bermanfaat
+              bagi Institusi (Program Management).</div>
+            <div><strong>P6</strong> Pihak kami memiliki itikad untuk melanjutkan kerjasama (MoU/MoA/ sejenisnya)
+              apabila masa berlaku
+              MOU/MOA/sejenisnya, akan berakhir. (Monitoring).</div>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <li>Rata-rata kepuasan Mitra Kerjasama Pusat Penelitian Center For Digital Business Ecosystem/DBE adalah
+              92.36</li>
+            <li>Tingkat Kepuasan Mitra Kerjasama Pusat Penelitian Center For Digital Business Ecosystem/DBE adalah 94.44
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script>
+
+      var margin = { top: 20, right: 20, bottom: 30, left: 40 },
+        width = 960 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
+
+      var x0 = d3.scale.ordinal()
+        .rangeRoundBands([0, width], .1);
+
+      var x1 = d3.scale.ordinal();
+
+      var y = d3.scale.linear()
+        .range([height, 0]);
+
+      var color = d3.scale.ordinal()
+        .range(["#4473c5", "#ec7d30"]);
+
+      var xAxis = d3.svg.axis()
+        .scale(x0)
+        .orient("bottom");
+
+      var yAxis = d3.svg.axis()
+        .scale(y)
+        .orient("left")
+        .tickFormat(d3.format(".2s"));
+
+      var telu = d3.select("#telu").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      d3.json("{% static 'stakeholder/data/mitra_telu.json' %}", function (error, data) {
+        if (error) throw error;
+
+        var ageNames = d3.keys(data[0]).filter(function (key) { return key !== "kategori"; });
+
+        data.forEach(function (d) {
+          d.ages = ageNames.map(function (name) { return { name: name, value: +d[name] }; });
+        });
+
+        x0.domain(data.map(function (d) { return d.kategori; }));
+        x1.domain(ageNames).rangeRoundBands([0, x0.rangeBand()]);
+        y.domain([0, 120]);
+
+        telu.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis);
+
+        telu.append("g")
+          .attr("class", "y axis")
+          .call(yAxis)
+          .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", ".71em")
+          .style("text-anchor", "end")
+
+        var kategori = telu.selectAll(".kategori")
+          .data(data)
+          .enter().append("g")
+          .attr("class", "g")
+          .attr("transform", function (d) { return "translate(" + x0(d.kategori) + ",0)"; });
+
+        kategori.selectAll("rect")
+          .data(function (d) { return d.ages; })
+          .enter().append("rect")
+          .attr("class", "bars")
+          .attr("width", x1.rangeBand())
+          .attr("x", function (d) { return x1(d.name); })
+          .attr("y", function (d) { return y(d.value); })
+          .attr("height", function (d) { return height - y(d.value); })
+          .style("fill", function (d) { return color(d.name); });
+
+        kategori.selectAll("text")
+          .data(function (d) { return d.ages; })
+          .enter().append("text")
+          .attr("class", "barstext")
+          .attr("x", function (d) { return x1(d.name); })
+          .attr("y", function (d) { return y(d.value); })
+          .text(function (d) { return (d.value.toFixed(2)); })
+
+        var legend = telu.selectAll(".legend")
+          .data(ageNames.slice().reverse())
+          .enter().append("g")
+          .attr("class", "legend")
+          .attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
+
+        legend.append("rect")
+          .attr("x", width - 18)
+          .attr("width", 18)
+          .attr("height", 18)
+          .style("fill", color);
+
+        legend.append("text")
+          .attr("x", width - 24)
+          .attr("y", 9)
+          .attr("dy", ".35em")
+          .style("text-anchor", "end")
+          .text(function (d) { return d; });
+
+      });
+
+      var da = d3.select("#da").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      d3.json("{% static 'stakeholder/data/mitra_da.json' %}", function (error, data) {
+        if (error) throw error;
+
+        var ageNames = d3.keys(data[0]).filter(function (key) { return key !== "kategori"; });
+
+        data.forEach(function (d) {
+          d.ages = ageNames.map(function (name) { return { name: name, value: +d[name] }; });
+        });
+
+        x0.domain(data.map(function (d) { return d.kategori; }));
+        x1.domain(ageNames).rangeRoundBands([0, x0.rangeBand()]);
+        y.domain([0, 120]);
+
+        da.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis);
+
+        da.append("g")
+          .attr("class", "y axis")
+          .call(yAxis)
+          .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", ".71em")
+          .style("text-anchor", "end")
+
+        var kategori = da.selectAll(".kategori")
+          .data(data)
+          .enter().append("g")
+          .attr("class", "g")
+          .attr("transform", function (d) { return "translate(" + x0(d.kategori) + ",0)"; });
+
+        kategori.selectAll("rect")
+          .data(function (d) { return d.ages; })
+          .enter().append("rect")
+          .attr("class", "bars")
+          .attr("width", x1.rangeBand())
+          .attr("x", function (d) { return x1(d.name); })
+          .attr("y", function (d) { return y(d.value); })
+          .attr("height", function (d) { return height - y(d.value); })
+          .style("fill", function (d) { return color(d.name); });
+
+        kategori.selectAll("text")
+          .data(function (d) { return d.ages; })
+          .enter().append("text")
+          .attr("class", "barstext")
+          .attr("x", function (d) { return x1(d.name); })
+          .attr("y", function (d) { return y(d.value); })
+          .text(function (d) { return (d.value.toFixed(2)); })
+
+        var legend = da.selectAll(".legend")
+          .data(ageNames.slice().reverse())
+          .enter().append("g")
+          .attr("class", "legend")
+          .attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
+
+        legend.append("rect")
+          .attr("x", width - 18)
+          .attr("width", 18)
+          .attr("height", 18)
+          .style("fill", color);
+
+        legend.append("text")
+          .attr("x", width - 24)
+          .attr("y", 9)
+          .attr("dy", ".35em")
+          .style("text-anchor", "end")
+          .text(function (d) { return d; });
+
+      });
+
+      var dpsal = d3.select("#dpsal").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      d3.json("{% static 'stakeholder/data/mitra_dpsal.json' %}", function (error, data) {
+        if (error) throw error;
+
+        var ageNames = d3.keys(data[0]).filter(function (key) { return key !== "kategori"; });
+
+        data.forEach(function (d) {
+          d.ages = ageNames.map(function (name) { return { name: name, value: +d[name] }; });
+        });
+
+        x0.domain(data.map(function (d) { return d.kategori; }));
+        x1.domain(ageNames).rangeRoundBands([0, x0.rangeBand()]);
+        y.domain([0, 120]);
+
+        dpsal.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis);
+
+        dpsal.append("g")
+          .attr("class", "y axis")
+          .call(yAxis)
+          .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", ".71em")
+          .style("text-anchor", "end")
+
+        var kategori = dpsal.selectAll(".kategori")
+          .data(data)
+          .enter().append("g")
+          .attr("class", "g")
+          .attr("transform", function (d) { return "translate(" + x0(d.kategori) + ",0)"; });
+
+        kategori.selectAll("rect")
+          .data(function (d) { return d.ages; })
+          .enter().append("rect")
+          .attr("class", "bars")
+          .attr("width", x1.rangeBand())
+          .attr("x", function (d) { return x1(d.name); })
+          .attr("y", function (d) { return y(d.value); })
+          .attr("height", function (d) { return height - y(d.value); })
+          .style("fill", function (d) { return color(d.name); });
+
+        kategori.selectAll("text")
+          .data(function (d) { return d.ages; })
+          .enter().append("text")
+          .attr("class", "barstext")
+          .attr("x", function (d) { return x1(d.name); })
+          .attr("y", function (d) { return y(d.value); })
+          .text(function (d) { return (d.value.toFixed(2)); })
+
+        var legend = dpsal.selectAll(".legend")
+          .data(ageNames.slice().reverse())
+          .enter().append("g")
+          .attr("class", "legend")
+          .attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
+
+        legend.append("rect")
+          .attr("x", width - 18)
+          .attr("width", 18)
+          .attr("height", 18)
+          .style("fill", color);
+
+        legend.append("text")
+          .attr("x", width - 24)
+          .attr("y", 9)
+          .attr("dy", ".35em")
+          .style("text-anchor", "end")
+          .text(function (d) { return d; });
+
+      });
+
+      var dpa = d3.select("#dpa").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      d3.json("{% static 'stakeholder/data/mitra_dpa.json' %}", function (error, data) {
+        if (error) throw error;
+
+        var ageNames = d3.keys(data[0]).filter(function (key) { return key !== "kategori"; });
+
+        data.forEach(function (d) {
+          d.ages = ageNames.map(function (name) { return { name: name, value: +d[name] }; });
+        });
+
+        x0.domain(data.map(function (d) { return d.kategori; }));
+        x1.domain(ageNames).rangeRoundBands([0, x0.rangeBand()]);
+        y.domain([0, 120]);
+
+        dpa.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis);
+
+        dpa.append("g")
+          .attr("class", "y axis")
+          .call(yAxis)
+          .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", ".71em")
+          .style("text-anchor", "end")
+
+        var kategori = dpa.selectAll(".kategori")
+          .data(data)
+          .enter().append("g")
+          .attr("class", "g")
+          .attr("transform", function (d) { return "translate(" + x0(d.kategori) + ",0)"; });
+
+        kategori.selectAll("rect")
+          .data(function (d) { return d.ages; })
+          .enter().append("rect")
+          .attr("class", "bars")
+          .attr("width", x1.rangeBand())
+          .attr("x", function (d) { return x1(d.name); })
+          .attr("y", function (d) { return y(d.value); })
+          .attr("height", function (d) { return height - y(d.value); })
+          .style("fill", function (d) { return color(d.name); });
+
+        kategori.selectAll("text")
+          .data(function (d) { return d.ages; })
+          .enter().append("text")
+          .attr("class", "barstext")
+          .attr("x", function (d) { return x1(d.name); })
+          .attr("y", function (d) { return y(d.value); })
+          .text(function (d) { return (d.value.toFixed(2)); })
+
+        var legend = dpa.selectAll(".legend")
+          .data(ageNames.slice().reverse())
+          .enter().append("g")
+          .attr("class", "legend")
+          .attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
+
+        legend.append("rect")
+          .attr("x", width - 18)
+          .attr("width", 18)
+          .attr("height", 18)
+          .style("fill", color);
+
+        legend.append("text")
+          .attr("x", width - 24)
+          .attr("y", 9)
+          .attr("dy", ".35em")
+          .style("text-anchor", "end")
+          .text(function (d) { return d; });
+
+      });
+
+      var dppm = d3.select("#dppm").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      d3.json("{% static 'stakeholder/data/mitra_dppm.json' %}", function (error, data) {
+        if (error) throw error;
+
+        var ageNames = d3.keys(data[0]).filter(function (key) { return key !== "kategori"; });
+
+        data.forEach(function (d) {
+          d.ages = ageNames.map(function (name) { return { name: name, value: +d[name] }; });
+        });
+
+        x0.domain(data.map(function (d) { return d.kategori; }));
+        x1.domain(ageNames).rangeRoundBands([0, x0.rangeBand()]);
+        y.domain([0, 120]);
+
+        dppm.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis);
+
+        dppm.append("g")
+          .attr("class", "y axis")
+          .call(yAxis)
+          .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", ".71em")
+          .style("text-anchor", "end")
+
+        var kategori = dppm.selectAll(".kategori")
+          .data(data)
+          .enter().append("g")
+          .attr("class", "g")
+          .attr("transform", function (d) { return "translate(" + x0(d.kategori) + ",0)"; });
+
+        kategori.selectAll("rect")
+          .data(function (d) { return d.ages; })
+          .enter().append("rect")
+          .attr("class", "bars")
+          .attr("width", x1.rangeBand())
+          .attr("x", function (d) { return x1(d.name); })
+          .attr("y", function (d) { return y(d.value); })
+          .attr("height", function (d) { return height - y(d.value); })
+          .style("fill", function (d) { return color(d.name); });
+
+        kategori.selectAll("text")
+          .data(function (d) { return d.ages; })
+          .enter().append("text")
+          .attr("class", "barstext")
+          .attr("x", function (d) { return x1(d.name); })
+          .attr("y", function (d) { return y(d.value); })
+          .text(function (d) { return (d.value.toFixed(2)); })
+
+        var legend = dppm.selectAll(".legend")
+          .data(ageNames.slice().reverse())
+          .enter().append("g")
+          .attr("class", "legend")
+          .attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
+
+        legend.append("rect")
+          .attr("x", width - 18)
+          .attr("width", 18)
+          .attr("height", 18)
+          .style("fill", color);
+
+        legend.append("text")
+          .attr("x", width - 24)
+          .attr("y", 9)
+          .attr("dy", ".35em")
+          .style("text-anchor", "end")
+          .text(function (d) { return d; });
+
+      });
+
+      var dpkae = d3.select("#dpkae").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      d3.json("{% static 'stakeholder/data/mitra_dpkae.json' %}", function (error, data) {
+        if (error) throw error;
+
+        var ageNames = d3.keys(data[0]).filter(function (key) { return key !== "kategori"; });
+
+        data.forEach(function (d) {
+          d.ages = ageNames.map(function (name) { return { name: name, value: +d[name] }; });
+        });
+
+        x0.domain(data.map(function (d) { return d.kategori; }));
+        x1.domain(ageNames).rangeRoundBands([0, x0.rangeBand()]);
+        y.domain([0, 120]);
+
+        dpkae.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis);
+
+        dpkae.append("g")
+          .attr("class", "y axis")
+          .call(yAxis)
+          .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", ".71em")
+          .style("text-anchor", "end")
+
+        var kategori = dpkae.selectAll(".kategori")
+          .data(data)
+          .enter().append("g")
+          .attr("class", "g")
+          .attr("transform", function (d) { return "translate(" + x0(d.kategori) + ",0)"; });
+
+        kategori.selectAll("rect")
+          .data(function (d) { return d.ages; })
+          .enter().append("rect")
+          .attr("class", "bars")
+          .attr("width", x1.rangeBand())
+          .attr("x", function (d) { return x1(d.name); })
+          .attr("y", function (d) { return y(d.value); })
+          .attr("height", function (d) { return height - y(d.value); })
+          .style("fill", function (d) { return color(d.name); });
+
+        kategori.selectAll("text")
+          .data(function (d) { return d.ages; })
+          .enter().append("text")
+          .attr("class", "barstext")
+          .attr("x", function (d) { return x1(d.name); })
+          .attr("y", function (d) { return y(d.value); })
+          .text(function (d) { return (d.value.toFixed(2)); })
+
+        var legend = dpkae.selectAll(".legend")
+          .data(ageNames.slice().reverse())
+          .enter().append("g")
+          .attr("class", "legend")
+          .attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
+
+        legend.append("rect")
+          .attr("x", width - 18)
+          .attr("width", 18)
+          .attr("height", 18)
+          .style("fill", color);
+
+        legend.append("text")
+          .attr("x", width - 24)
+          .attr("y", 9)
+          .attr("dy", ".35em")
+          .style("text-anchor", "end")
+          .text(function (d) { return d; });
+
+      });
+
+      var feb = d3.select("#feb").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      d3.json("{% static 'stakeholder/data/mitra_feb.json' %}", function (error, data) {
+        if (error) throw error;
+
+        var ageNames = d3.keys(data[0]).filter(function (key) { return key !== "kategori"; });
+
+        data.forEach(function (d) {
+          d.ages = ageNames.map(function (name) { return { name: name, value: +d[name] }; });
+        });
+
+        x0.domain(data.map(function (d) { return d.kategori; }));
+        x1.domain(ageNames).rangeRoundBands([0, x0.rangeBand()]);
+        y.domain([0, 120]);
+
+        feb.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis);
+
+        feb.append("g")
+          .attr("class", "y axis")
+          .call(yAxis)
+          .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", ".71em")
+          .style("text-anchor", "end")
+
+        var kategori = feb.selectAll(".kategori")
+          .data(data)
+          .enter().append("g")
+          .attr("class", "g")
+          .attr("transform", function (d) { return "translate(" + x0(d.kategori) + ",0)"; });
+
+        kategori.selectAll("rect")
+          .data(function (d) { return d.ages; })
+          .enter().append("rect")
+          .attr("class", "bars")
+          .attr("width", x1.rangeBand())
+          .attr("x", function (d) { return x1(d.name); })
+          .attr("y", function (d) { return y(d.value); })
+          .attr("height", function (d) { return height - y(d.value); })
+          .style("fill", function (d) { return color(d.name); });
+
+        kategori.selectAll("text")
+          .data(function (d) { return d.ages; })
+          .enter().append("text")
+          .attr("class", "barstext")
+          .attr("x", function (d) { return x1(d.name); })
+          .attr("y", function (d) { return y(d.value); })
+          .text(function (d) { return (d.value.toFixed(2)); })
+
+        var legend = feb.selectAll(".legend")
+          .data(ageNames.slice().reverse())
+          .enter().append("g")
+          .attr("class", "legend")
+          .attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
+
+        legend.append("rect")
+          .attr("x", width - 18)
+          .attr("width", 18)
+          .attr("height", 18)
+          .style("fill", color);
+
+        legend.append("text")
+          .attr("x", width - 24)
+          .attr("y", 9)
+          .attr("dy", ".35em")
+          .style("text-anchor", "end")
+          .text(function (d) { return d; });
+
+      });
+
+      var fik = d3.select("#fik").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      d3.json("{% static 'stakeholder/data/mitra_fik.json' %}", function (error, data) {
+        if (error) throw error;
+
+        var ageNames = d3.keys(data[0]).filter(function (key) { return key !== "kategori"; });
+
+        data.forEach(function (d) {
+          d.ages = ageNames.map(function (name) { return { name: name, value: +d[name] }; });
+        });
+
+        x0.domain(data.map(function (d) { return d.kategori; }));
+        x1.domain(ageNames).rangeRoundBands([0, x0.rangeBand()]);
+        y.domain([0, 120]);
+
+        fik.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis);
+
+        fik.append("g")
+          .attr("class", "y axis")
+          .call(yAxis)
+          .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", ".71em")
+          .style("text-anchor", "end")
+
+        var kategori = fik.selectAll(".kategori")
+          .data(data)
+          .enter().append("g")
+          .attr("class", "g")
+          .attr("transform", function (d) { return "translate(" + x0(d.kategori) + ",0)"; });
+
+        kategori.selectAll("rect")
+          .data(function (d) { return d.ages; })
+          .enter().append("rect")
+          .attr("class", "bars")
+          .attr("width", x1.rangeBand())
+          .attr("x", function (d) { return x1(d.name); })
+          .attr("y", function (d) { return y(d.value); })
+          .attr("height", function (d) { return height - y(d.value); })
+          .style("fill", function (d) { return color(d.name); });
+
+        kategori.selectAll("text")
+          .data(function (d) { return d.ages; })
+          .enter().append("text")
+          .attr("class", "barstext")
+          .attr("x", function (d) { return x1(d.name); })
+          .attr("y", function (d) { return y(d.value); })
+          .text(function (d) { return (d.value.toFixed(2)); })
+
+        var legend = fik.selectAll(".legend")
+          .data(ageNames.slice().reverse())
+          .enter().append("g")
+          .attr("class", "legend")
+          .attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
+
+        legend.append("rect")
+          .attr("x", width - 18)
+          .attr("width", 18)
+          .attr("height", 18)
+          .style("fill", color);
+
+        legend.append("text")
+          .attr("x", width - 24)
+          .attr("y", 9)
+          .attr("dy", ".35em")
+          .style("text-anchor", "end")
+          .text(function (d) { return d; });
+
+      });
+      var fkb = d3.select("#fkb").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      d3.json("{% static 'stakeholder/data/mitra_fkb.json' %}", function (error, data) {
+        if (error) throw error;
+
+        var ageNames = d3.keys(data[0]).filter(function (key) { return key !== "kategori"; });
+
+        data.forEach(function (d) {
+          d.ages = ageNames.map(function (name) { return { name: name, value: +d[name] }; });
+        });
+
+        x0.domain(data.map(function (d) { return d.kategori; }));
+        x1.domain(ageNames).rangeRoundBands([0, x0.rangeBand()]);
+        y.domain([0, 120]);
+
+        fkb.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis);
+
+        fkb.append("g")
+          .attr("class", "y axis")
+          .call(yAxis)
+          .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", ".71em")
+          .style("text-anchor", "end")
+
+        var kategori = fkb.selectAll(".kategori")
+          .data(data)
+          .enter().append("g")
+          .attr("class", "g")
+          .attr("transform", function (d) { return "translate(" + x0(d.kategori) + ",0)"; });
+
+        kategori.selectAll("rect")
+          .data(function (d) { return d.ages; })
+          .enter().append("rect")
+          .attr("class", "bars")
+          .attr("width", x1.rangeBand())
+          .attr("x", function (d) { return x1(d.name); })
+          .attr("y", function (d) { return y(d.value); })
+          .attr("height", function (d) { return height - y(d.value); })
+          .style("fill", function (d) { return color(d.name); });
+
+        kategori.selectAll("text")
+          .data(function (d) { return d.ages; })
+          .enter().append("text")
+          .attr("class", "barstext")
+          .attr("x", function (d) { return x1(d.name); })
+          .attr("y", function (d) { return y(d.value); })
+          .text(function (d) { return (d.value.toFixed(2)); })
+
+        var legend = fkb.selectAll(".legend")
+          .data(ageNames.slice().reverse())
+          .enter().append("g")
+          .attr("class", "legend")
+          .attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
+
+        legend.append("rect")
+          .attr("x", width - 18)
+          .attr("width", 18)
+          .attr("height", 18)
+          .style("fill", color);
+
+        legend.append("text")
+          .attr("x", width - 24)
+          .attr("y", 9)
+          .attr("dy", ".35em")
+          .style("text-anchor", "end")
+          .text(function (d) { return d; });
+
+      });
+
+      var ppcfdbe = d3.select("#ppcfdbe").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      d3.json("{% static 'stakeholder/data/mitra_ppcfdbe.json' %}", function (error, data) {
+        if (error) throw error;
+
+        var ageNames = d3.keys(data[0]).filter(function (key) { return key !== "kategori"; });
+
+        data.forEach(function (d) {
+          d.ages = ageNames.map(function (name) { return { name: name, value: +d[name] }; });
+        });
+
+        x0.domain(data.map(function (d) { return d.kategori; }));
+        x1.domain(ageNames).rangeRoundBands([0, x0.rangeBand()]);
+        y.domain([0, 120]);
+
+        ppcfdbe.append("g")
+          .attr("class", "x axis")
+          .attr("transform", "translate(0," + height + ")")
+          .call(xAxis);
+
+        ppcfdbe.append("g")
+          .attr("class", "y axis")
+          .call(yAxis)
+          .append("text")
+          .attr("transform", "rotate(-90)")
+          .attr("y", 6)
+          .attr("dy", ".71em")
+          .style("text-anchor", "end")
+
+        var kategori = ppcfdbe.selectAll(".kategori")
+          .data(data)
+          .enter().append("g")
+          .attr("class", "g")
+          .attr("transform", function (d) { return "translate(" + x0(d.kategori) + ",0)"; });
+
+        kategori.selectAll("rect")
+          .data(function (d) { return d.ages; })
+          .enter().append("rect")
+          .attr("class", "bars")
+          .attr("width", x1.rangeBand())
+          .attr("x", function (d) { return x1(d.name); })
+          .attr("y", function (d) { return y(d.value); })
+          .attr("height", function (d) { return height - y(d.value); })
+          .style("fill", function (d) { return color(d.name); });
+
+        kategori.selectAll("text")
+          .data(function (d) { return d.ages; })
+          .enter().append("text")
+          .attr("class", "barstext")
+          .attr("x", function (d) { return x1(d.name); })
+          .attr("y", function (d) { return y(d.value); })
+          .text(function (d) { return (d.value.toFixed(2)); })
+
+        var legend = ppcfdbe.selectAll(".legend")
+          .data(ageNames.slice().reverse())
+          .enter().append("g")
+          .attr("class", "legend")
+          .attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
+
+        legend.append("rect")
+          .attr("x", width - 18)
+          .attr("width", 18)
+          .attr("height", 18)
+          .style("fill", color);
+
+        legend.append("text")
+          .attr("x", width - 24)
+          .attr("y", 9)
+          .attr("dy", ".35em")
+          .style("text-anchor", "end")
+          .text(function (d) { return d; });
+
+      });
+
+    </script>
+  </div>
+</div>
+{% endblock content %}

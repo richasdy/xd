@@ -5,12 +5,12 @@
 <div class="air__layout__content">
   <div class="air__utils__content">
     <div class="air__utils__heading">
-      <h5>Dashboard Portal Berita</h5>
+      <h5>Dashboard Google Scholar</h5>
     </div>
     <div class="card">
       <div class="card-body">
         <h4 class="mb-4">
-          <strong>Tabel Data Portal Berita</strong>
+          <strong>Tabel Data Google Scholar</strong>
         </h4>
         <div class="row">
           <div class="col-lg-12">
@@ -18,23 +18,23 @@
               <table class="table table-hover nowrap" id="example1">
                 <thead>
                   <tr>
-                    <th>Judul</th>
-                    <th>Kategori</th>
-                    <th>Penulis</th>
-                    <th>Tanggal</th>
-                    <th>Artikel</th>
-                    <th>Scrape Time</th>
+                    <th>Tittle</th>
+                    <th>Author</th>
+                    <th>Year</th>
+                    <th>URL</th>
+                    <th>Description</th>
+                    <th>Number of Cited</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {% for prt in data %}
+                  {% for li in data %}
                   <tr>
-                    <td>{{ prt.title }}</td>
-                    <td>{{ prt.category }}</td>
-                    <td>{{ prt.author }}</td>
-                    <td>{{ prt.date }}</td>
-                    <td>{{ prt.article }}</td>
-                    <td>{{ prt.scrape_time }}</td>
+                    <td>{{ li.tittle }}</td>
+                    <td>{{ li.author }}</td>
+                    <td>{{ li.year }}</td>
+                    <td>{{ li.url }}</td>
+                    <td>{{ li.desc }}</td>
+                    <td>{{ li.num_cited }}</td>
                   </tr>
                   {% endfor %}
                 </tbody>

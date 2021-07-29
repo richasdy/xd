@@ -2,7 +2,10 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import streamgraph, chart, density
 from django.http import JsonResponse
+from django.http import HttpResponseRedirect
 import json
+from .forms import TableForm
+from .models import TableModel
 
 @login_required
 def academic(request):
@@ -103,3 +106,29 @@ def streamgraph_json(request):
 def density_json(request):
     data = list(density.objects.values('price'))
     return JsonResponse(data, safe=False)
+
+def form(request):
+    posts = TableModel.objects.all()
+    context = {
+        'page_title':'List Post',
+        'posts':posts,
+    }
+    return render(request, 'internal/form.html', context)
+
+def create(request):
+    table_form = TableForm()
+
+    if request.method == 'POST':
+        TableModel.objects.create(
+            username = request.POST.get('username'),
+            email = request.POST.get('email'),
+            password = request.POST.get('password'),
+        )
+
+        return HttpResponseRedirect("http://127.0.0.1:8000/internal/form/")
+
+    context = {
+        'page_title': 'List Post',
+        'table_form':table_form
+    }
+    return render(request, 'internal/create.html', context)
