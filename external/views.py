@@ -73,7 +73,6 @@ def tiktok(request):
 
 @login_required
 def twitter(request):
-    # json_data = open('/static/json/Sample Data/100 Data/twitter.json')
     json_data = open(os.path.join(BASE_DIR, "static/data/json/100_data/twitter.json"))
     data = json.load(json_data)
     context = {}

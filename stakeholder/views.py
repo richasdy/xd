@@ -7,7 +7,16 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Create your views here.
 logger = logging.getLogger(__name__)
+
+@login_required
+def mahasiswa_edom(request):
+    json_data = open(os.path.join(BASE_DIR, "static/data/json/edom/2021ganjil.json"))
+    data = json.load(json_data)
+    context = {}
+    context['data'] = data
+    return render(request, "stakeholder/airui/mahasiswa-edom.html", context)
 
 @login_required
 def alumni(request):

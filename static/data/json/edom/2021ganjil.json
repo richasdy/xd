@@ -1,0 +1,516 @@
+[
+  {
+    "title": "EDOM DOSEN TEL-U 2020-2021 GANJIL (ANTARA)",
+    "schools": [
+      {
+        "name": "Fakultas Ekonomi dan Bisnis",
+        "code": "FEB",
+        "majors": [
+          {
+            "name": "S1 International ICT Business",
+            "edom1": 82.66,
+            "edom2": 84.27
+          },
+          {
+            "name": "S1 Manajemen (MBTI)",
+            "edom1": 83.17,
+            "edom2": 84.8
+          },
+          {
+            "name": "S1 Akuntansi",
+            "edom1": 83.67,
+            "edom2": 84.81
+          },
+          {
+            "name": "S2 Manajemen",
+            "edom1": 84.56,
+            "edom2": 88.31
+          }
+        ]
+      },
+      {
+        "name": "Fakultas Informatika",
+        "code": "FIF",
+        "majors": [
+          {
+            "name": "S1 Informatika",
+            "edom1": 82.31,
+            "edom2": 80.92
+          },
+          {
+            "name": "S1 Rekayasa Perangkat Lunak",
+            "edom1": 82.28,
+            "edom2": 79.51
+          },
+          {
+            "name": "S2 Informatika",
+            "edom1": 84.05,
+            "edom2": 85.38
+          },
+          {
+            "name": "S1 Informatika (Int. Class)",
+            "edom1": 82.49,
+            "edom2": 80.81
+          },
+          {
+            "name": "S1 Teknologi Informasi",
+            "edom1": 82.50,
+            "edom2": 81.59
+          },
+          {
+            "name": "S1 Informatika PJJ",
+            "edom1": 84.59,
+            "edom2": 84.80
+          }
+        ]
+      },
+      {
+        "name": "Fakultas Industri Kreatif",
+        "code": "FIK",
+        "majors": [
+          {
+            "name": "S1 Desain Komunikasi Visual",
+            "edom1": 83.22,
+            "edom2": 83.22
+          },
+          {
+            "name": "S1 Kriya",
+            "edom1": 84.74,
+            "edom2": 86.31
+          },
+          {
+            "name": "S1 Desain Interior",
+            "edom1": 83.20,
+            "edom2": 84.57
+          },
+          {
+            "name": "S1 Desain Produk",
+            "edom1": 80.46,
+            "edom2": 79.27
+          },
+          {
+            "name": "S1 Seni Rupa",
+            "edom1": 82.96,
+            "edom2": 82.21
+          },
+          {
+            "name": "S2 Desain",
+            "edom1": 85.54,
+            "edom2": 84.83
+          },
+          {
+            "name": "S1 Desain Komunikasi Visual (Int. Class)",
+            "edom1": 84.19,
+            "edom2": 86.28
+          }
+        ]
+      },
+      {
+        "name": "Fakultas Ilmu Terapan",
+        "code": "FIT",
+        "majors": [
+          {
+            "name": "D3 Teknologi Telekomunikasi",
+            "edom1": 83.35,
+            "edom2": 84.35
+          },
+          {
+            "name": "D3 Rekayasa Perangkat Lunak Aplikasi",
+            "edom1": 84.05,
+            "edom2": 84.92
+          },
+          {
+            "name": "D3 Manajemen Pemasaran",
+            "edom1": 87.93,
+            "edom2": 88.23
+          },
+          {
+            "name": "D3 Teknologi Komputer",
+            "edom1": 81.74,
+            "edom2": 80.44
+          },
+          {
+            "name": "D3 Sistem Informasi",
+            "edom1": 86.68,
+            "edom2": 86.11
+          },
+          {
+            "name": "D3 Sistem Informasi Akuntansi",
+            "edom1": 83.24,
+            "edom2": 84.75
+          },
+          {
+            "name": "D3 Perhotelan",
+            "edom1": 86.23,
+            "edom2": 88.16
+          },
+          {
+            "name": "D4 Teknologi Rekayasa Multimedia",
+            "edom1": 80.26,
+            "edom2": 77.41
+          }
+        ]
+      },
+      {
+        "name": "Fakultas Komunikasi dan Bisnis",
+        "code": "FKB",
+        "majors": [
+          {
+            "name": "S1 Ilmu Komunikasi",
+            "edom1": 82.02,
+            "edom2": 83.02
+          },
+          {
+            "name": "S1 Administrasi Bisnis",
+            "edom1": 83.37,
+            "edom2": 84.24
+          },
+          {
+            "name": "S1 Digital Public Relations",
+            "edom1": 83.07,
+            "edom2": 83.00
+          },
+          {
+            "name": "S1 Adminstrasi Bisnis (Int. Class)",
+            "edom1": 84.60,
+            "edom2": 87.83
+          },
+          {
+            "name": "S1 Ilmu Komunikasi (Int. Class)",
+            "edom1": 83.18,
+            "edom2": 87.09
+          }
+        ]
+      },
+      {
+        "name": "Fakultas Rekayasa Industri",
+        "code": "FRI",
+        "majors": [
+          {
+            "name": "S1 Sistem Informasi",
+            "edom1": 82.42,
+            "edom2": 82.75
+          },
+          {
+            "name": "S1 Teknik Industri",
+            "edom1": 83.73,
+            "edom2": 85.31
+          },
+          {
+            "name": "S1 Teknik Industri (Int. Class)",
+            "edom1": 83.42,
+            "edom2": 84.39
+          },
+          {
+            "name": "S1 Sistem Informasi (Int. Class)",
+            "edom1": 83.13,
+            "edom2": 83.75
+          },
+          {
+            "name": "S2 Teknik Industri",
+            "edom1": 85.72,
+            "edom2": 87.27
+          },
+          {
+            "name": "S1 Teknik Logistik",
+            "edom1": 83.70,
+            "edom2": 84.19
+          }
+        ]
+      },
+      {
+        "name": "Fakultas Teknik Elektro",
+        "code": "FTE",
+        "majors": [
+          {
+            "name": "S1 Teknik Telekomunikasi",
+            "edom1": 83.31,
+            "edom2": 84.99
+          },
+          {
+            "name": "S1 Teknik Elektro",
+            "edom1": 81.57,
+            "edom2": 80.97
+          },
+          {
+            "name": "S1 Teknik Komputer",
+            "edom1": 81.57,
+            "edom2": 80.97
+          },
+          {
+            "name": "S1 Teknik Fisika",
+            "edom1": 80.84,
+            "edom2": 80.40
+          },
+          {
+            "name": "S2 Teknik Elektro",
+            "edom1": 83.65,
+            "edom2": 86.52
+          },
+          {
+            "name": "S1 Teknik Telkomunikasi (Int. Class)",
+            "edom1": 84.77,
+            "edom2": 87.25
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "EDOM DOSEN TEL-U 2020-2021 GANJIL",
+    "schools": [
+      {
+        "name": "Fakultas Ekonomi dan Bisnis",
+        "code": "FEB",
+        "majors": [
+          {
+            "name": "S1 International ICT Business",
+            "edom1": 83.93,
+            "edom2": 97.03
+          },
+          {
+            "name": "S1 Manajemen (MBTI)",
+            "edom1": 84.00,
+            "edom2": 97.13
+          },
+          {
+            "name": "S1 Akuntansi",
+            "edom1": 84.72,
+            "edom2": 97.26
+          },
+          {
+            "name": "S2 Manajemen",
+            "edom1": 84.43,
+            "edom2": 97.18
+          }
+        ]
+      },
+      {
+        "name": "Fakultas Informatika",
+        "code": "FIF",
+        "majors": [
+          {
+            "name": "S1 Informatika",
+            "edom1": 83.87,
+            "edom2": 95.17
+          },
+          {
+            "name": "S1 Rekayasa Perangkat Lunak",
+            "edom1": 84.23,
+            "edom2": 95.48
+          },
+          {
+            "name": "S2 Informatika",
+            "edom1": 85.68,
+            "edom2": 96.34
+          },
+          {
+            "name": "S1 Informatika (Int. Class)",
+            "edom1": 84.49,
+            "edom2": 95.09
+          },
+          {
+            "name": "S1 Teknologi Informasi",
+            "edom1": 83.83,
+            "edom2": 95.50
+          },
+          {
+            "name": "S1 Informatika PJJ",
+            "edom1": 86.23,
+            "edom2": 97.54
+          }
+        ]
+      },
+      {
+        "name": "Fakultas Industri Kreatif",
+        "code": "FIK",
+        "majors": [
+          {
+            "name": "S1 Desain Komunikasi Visual",
+            "edom1": 86.27,
+            "edom2": 97.99
+          },
+          {
+            "name": "S1 Kriya",
+            "edom1": 85.72,
+            "edom2": 97.66
+          },
+          {
+            "name": "S1 Desain Interior",
+            "edom1": 84.49,
+            "edom2": 97.49
+          },
+          {
+            "name": "S1 Desain Produk",
+            "edom1": 82.81,
+            "edom2": 97.15
+          },
+          {
+            "name": "S1 Seni Rupa",
+            "edom1": 84.72,
+            "edom2": 96.42
+          },
+          {
+            "name": "S2 Desain",
+            "edom1": 85.31,
+            "edom2": 97.49
+          },
+          {
+            "name": "S1 Desain Komunikasi Visual (Int. Class)",
+            "edom1": 87.32,
+            "edom2": 98.36
+          }
+        ]
+      },
+      {
+        "name": "Fakultas Ilmu Terapan",
+        "code": "FIT",
+        "majors": [
+          {
+            "name": "D3 Teknologi Telekomunikasi",
+            "edom1": 97.40,
+            "edom2": 84.04
+          },
+          {
+            "name": "D3 Rekayasa Perangkat Lunak Aplikasi",
+            "edom1": 85.83,
+            "edom2": 98.17
+          },
+          {
+            "name": "D3 Manajemen Pemasaran",
+            "edom1": 90.93,
+            "edom2": 98.41
+          },
+          {
+            "name": "D3 Teknologi Komputer",
+            "edom1": 83.91,
+            "edom2": 94.81
+          },
+          {
+            "name": "D3 Sistem Informasi",
+            "edom1": 88.61,
+            "edom2": 98.70
+          },
+          {
+            "name": "D3 Sistem Informasi Akuntansi",
+            "edom1": 86.30,
+            "edom2": 98.15
+          },
+          {
+            "name": "D3 Perhotelan",
+            "edom1": 87.13,
+            "edom2": 98.03
+          },
+          {
+            "name": "D4 Teknologi Rekayasa Multimedia",
+            "edom1": 82.00,
+            "edom2": 94.43
+          }
+        ]
+      },
+      {
+        "name": "Fakultas Komunikasi dan Bisnis",
+        "code": "FKB",
+        "majors": [
+          {
+            "name": "S1 Ilmu Komunikasi",
+            "edom1": 83.58,
+            "edom2": 97.20
+          },
+          {
+            "name": "S1 Administrasi Bisnis",
+            "edom1": 85.20,
+            "edom2": 97.41
+          },
+          {
+            "name": "S1 Digital Public Relations",
+            "edom1": 84.52,
+            "edom2": 97.01
+          },
+          {
+            "name": "S1 Adminstrasi Bisnis (Int. Class)",
+            "edom1": 86.34,
+            "edom2": 97.86
+          },
+          {
+            "name": "S1 Ilmu Komunikasi (Int. Class)",
+            "edom1": 84.01,
+            "edom2": 97.50
+          }
+        ]
+      },
+      {
+        "name": "Fakultas Rekayasa Industri",
+        "code": "FRI",
+        "majors": [
+          {
+            "name": "S1 Sistem Informasi",
+            "edom1": 84.20,
+            "edom2": 97.13
+          },
+          {
+            "name": "S1 Teknik Industri",
+            "edom1": 84.76,
+            "edom2": 97.96
+          },
+          {
+            "name": "S1 Teknik Industri (Int. Class)",
+            "edom1": 85.11,
+            "edom2": 98.17
+          },
+          {
+            "name": "S1 Sistem Informasi (Int. Class)",
+            "edom1": 85.35,
+            "edom2": 97.84
+          },
+          {
+            "name": "S2 Teknik Industri",
+            "edom1": 87.45,
+            "edom2": 98.70
+          },
+          {
+            "name": "S1 Teknik Logistik",
+            "edom1": 85.02,
+            "edom2": 98.41
+          }
+        ]
+      },
+      {
+        "name": "Fakultas Teknik Elektro",
+        "code": "FTE",
+        "majors": [
+          {
+            "name": "S1 Teknik Telekomunikasi",
+            "edom1": 84.61,
+            "edom2": 97.33
+          },
+          {
+            "name": "S1 Teknik Elektro",
+            "edom1": 82.83,
+            "edom2": 96.07
+          },
+          {
+            "name": "S1 Teknik Komputer",
+            "edom1": 83.92,
+            "edom2": 97.25
+          },
+          {
+            "name": "S1 Teknik Fisika",
+            "edom1": 82.34,
+            "edom2": 97.09
+          },
+          {
+            "name": "S2 Teknik Elektro",
+            "edom1": 85.09,
+            "edom2": 96.97
+          },
+          {
+            "name": "S1 Teknik Telkomunikasi (Int. Class)",
+            "edom1": 86.12,
+            "edom2": 96.50
+          }
+        ]
+      }
+    ]
+  }
+]

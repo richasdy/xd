@@ -1,9 +1,9 @@
-
 from django.urls import path
 from . import views
 
 app_name = 'stakeholder'
 urlpatterns = [
+    path('mahasiswa-edom', views.mahasiswa_edom, name='mahasiswa'),
     path('orangtuamahasiswa', views.orangtuamahasiswa, name='orangtuamahasiswa'),
     path('alumni', views.alumni, name='alumni'),
     path('pegawai', views.pegawai, name='pegawai'),
