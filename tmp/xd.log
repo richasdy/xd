@@ -1,0 +1,613 @@
+2021-07-22 15:25:10,874 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 15:25:46,883 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 15:27:59,664 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 15:28:47,660 django.request WARNING  Not Found: /internal/create/
+2021-07-22 15:29:02,941 django.request WARNING  Not Found: /internal/
+2021-07-22 15:39:24,300 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\internal\admin.py changed, reloading.
+2021-07-22 15:39:25,391 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 15:39:37,684 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\internal\admin.py changed, reloading.
+2021-07-22 15:39:38,707 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 15:41:03,022 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\internal\models.py changed, reloading.
+2021-07-22 15:41:04,129 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 15:41:59,550 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\internal\urls.py changed, reloading.
+2021-07-22 15:42:01,252 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 15:42:13,066 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\internal\urls.py changed, reloading.
+2021-07-22 15:42:14,741 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 15:43:06,355 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\internal\views.py changed, reloading.
+2021-07-22 15:43:07,569 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 15:43:22,066 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\internal\views.py changed, reloading.
+2021-07-22 15:43:23,233 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 15:46:06,727 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\internal\urls.py changed, reloading.
+2021-07-22 15:46:07,789 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 15:46:40,882 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 15:47:05,563 django.request ERROR    Internal Server Error: /internal/create/
+Traceback (most recent call last):
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\YOGA\Documents\richasdy\xd\internal\views.py", line 127, in create
+    return HttpResponseRedirect("/internal/form/")
+NameError: name 'HttpResponseRedirect' is not defined
+2021-07-22 15:47:49,426 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\internal\views.py changed, reloading.
+2021-07-22 15:47:50,515 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 15:47:50,990 django.request ERROR    Internal Server Error: /internal/create/
+Traceback (most recent call last):
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\YOGA\Documents\richasdy\xd\internal\views.py", line 127, in create
+    return HttpResponseRedirect("/form/")
+NameError: name 'HttpResponseRedirect' is not defined
+2021-07-22 15:48:21,187 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\internal\views.py changed, reloading.
+2021-07-22 15:48:22,368 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 15:48:26,182 django.request WARNING  Not Found: /form/
+2021-07-22 15:48:38,146 django.request ERROR    Internal Server Error: /internal/form/
+Traceback (most recent call last):
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\YOGA\Documents\richasdy\xd\internal\views.py", line 116, in form
+    return render(request, 'form.html', context)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: form.html
+2021-07-22 15:48:43,839 django.request WARNING  Not Found: /internal/
+2021-07-22 15:49:04,592 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\internal\views.py changed, reloading.
+2021-07-22 15:49:05,681 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 15:49:06,062 django.request WARNING  Not Found: /internal/
+2021-07-22 15:49:40,573 django.request WARNING  Not Found: /internal/create/internal/form/
+2021-07-22 15:50:07,706 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\internal\views.py changed, reloading.
+2021-07-22 15:50:08,687 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 15:50:13,406 django.request WARNING  Not Found: /internal/create/internal/create
+2021-07-22 15:50:30,824 django.request WARNING  Not Found: /form/
+2021-07-22 15:50:41,998 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\internal\views.py changed, reloading.
+2021-07-22 15:50:43,144 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 15:51:02,926 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\internal\views.py changed, reloading.
+2021-07-22 15:51:03,978 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 15:51:04,404 django.request WARNING  Not Found: /form/
+2021-07-22 15:51:11,521 django.request ERROR    Internal Server Error: /internal/form/
+Traceback (most recent call last):
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\YOGA\Documents\richasdy\xd\internal\views.py", line 116, in form
+    return render(request, '/form.html', context)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: /form.html
+2021-07-22 15:51:29,140 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\internal\views.py changed, reloading.
+2021-07-22 15:51:30,185 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 15:51:52,992 django.request WARNING  Not Found: /internal/create/internal/form/
+2021-07-22 17:08:18,489 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\internal\views.py changed, reloading.
+2021-07-22 17:08:19,671 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 17:08:56,776 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\internal\views.py changed, reloading.
+2021-07-22 17:08:57,965 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 17:33:04,838 django.request WARNING  Not Found: /internal/create/{% static '/vendors/moment/min/moment.min.js
+2021-07-22 17:33:05,478 django.request WARNING  Not Found: /internal/create/{% static '/components/core/img/avatars/avatar-2.png' }
+2021-07-22 17:33:05,635 django.request WARNING  Not Found: /internal/create/{% static '/vendors/moment/min/moment.min.js
+2021-07-22 17:39:56,562 django.request WARNING  Not Found: /internal/create/{% static 'external/vendors/moment/min/moment.min.js
+2021-07-22 17:39:57,092 django.request WARNING  Not Found: /internal/create/{% static 'external/vendors/moment/min/moment.min.js
+2021-07-22 17:39:57,100 django.request WARNING  Not Found: /internal/create/{% static 'external/components/core/img/avatars/avatar-2.png' }
+2021-07-22 17:40:11,390 external.views INFO     loading portal berita view
+2021-07-22 17:40:17,463 external.views INFO     loading twitter view
+2021-07-22 18:06:36,410 django.request ERROR    Internal Server Error: /internal/create/
+Traceback (most recent call last):
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: internal_tablemodel.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\YOGA\Documents\richasdy\xd\internal\views.py", line 122, in create
+    TableModel.objects.create(
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\query.py", line 453, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\base.py", line 726, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\base.py", line 763, in save_base
+    updated = self._save_table(
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\base.py", line 868, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\base.py", line 906, in _do_insert
+    return manager._insert(
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\sql\compiler.py", line 1416, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: internal_tablemodel.username
+2021-07-22 18:08:58,842 django.request ERROR    Internal Server Error: /internal/create/
+Traceback (most recent call last):
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: internal_tablemodel.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\YOGA\Documents\richasdy\xd\internal\views.py", line 122, in create
+    TableModel.objects.create(
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\query.py", line 453, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\base.py", line 726, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\base.py", line 763, in save_base
+    updated = self._save_table(
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\base.py", line 868, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\base.py", line 906, in _do_insert
+    return manager._insert(
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\sql\compiler.py", line 1416, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: internal_tablemodel.username
+2021-07-22 18:10:09,582 django.request ERROR    Internal Server Error: /internal/create/
+Traceback (most recent call last):
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: internal_tablemodel.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\YOGA\Documents\richasdy\xd\internal\views.py", line 122, in create
+    TableModel.objects.create(
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\query.py", line 453, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\base.py", line 726, in save
+    self.save_base(using=using, force_insert=force_insert,
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\base.py", line 763, in save_base
+    updated = self._save_table(
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\base.py", line 868, in _save_table
+    results = self._do_insert(cls._base_manager, using, fields, returning_fields, raw)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\base.py", line 906, in _do_insert
+    return manager._insert(
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\query.py", line 1270, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\models\sql\compiler.py", line 1416, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 98, in execute
+    return super().execute(sql, params)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 66, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 75, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\db\backends\sqlite3\base.py", line 423, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: internal_tablemodel.username
+2021-07-22 20:26:03,568 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\views.py changed, reloading.
+2021-07-22 20:26:15,278 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 20:33:22,134 external.views INFO     loading portal berita view
+2021-07-22 20:34:01,982 external.views INFO     loading portal berita view
+2021-07-22 20:37:33,189 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\views.py changed, reloading.
+2021-07-22 20:37:34,446 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 20:38:37,737 external.views INFO     loading Portal view
+2021-07-22 20:40:35,210 external.views INFO     loading twitter view
+2021-07-22 20:45:45,876 external.views INFO     loading Portal view
+2021-07-22 23:30:45,470 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 23:31:02,063 django.request WARNING  Not Found: /favicon.ico
+2021-07-22 23:33:27,761 external.views INFO     loading Portal view
+2021-07-22 23:34:48,622 external.views INFO     loading Portal view
+2021-07-22 23:35:28,225 external.views INFO     loading twitter view
+2021-07-22 23:41:40,375 django.request WARNING  Not Found: /internal/school-of-applied-science
+2021-07-22 23:42:14,963 django.request WARNING  Not Found: /external/prt
+2021-07-22 23:42:22,726 external.views INFO     loading Portal view
+2021-07-22 23:46:47,720 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\views.py changed, reloading.
+2021-07-22 23:46:49,471 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 23:49:13,563 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\internal\urls.py changed, reloading.
+2021-07-22 23:49:14,622 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 23:51:03,867 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\views.py changed, reloading.
+2021-07-22 23:51:05,696 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 23:51:13,984 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\models.py changed, reloading.
+2021-07-22 23:51:14,968 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 23:51:25,525 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\urls.py changed, reloading.
+2021-07-22 23:51:27,414 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-22 23:51:33,891 django.request WARNING  Not Found: /external/
+2021-07-22 23:51:52,038 django.request WARNING  Not Found: /external/
+2021-07-23 00:04:51,862 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\views.py changed, reloading.
+2021-07-23 00:04:53,321 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-23 00:07:15,486 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\views.py changed, reloading.
+2021-07-23 00:07:16,423 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-23 00:07:44,963 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\views.py changed, reloading.
+2021-07-23 00:07:45,869 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-23 00:09:03,371 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\views.py changed, reloading.
+2021-07-23 00:09:04,424 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-23 00:10:14,896 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\views.py changed, reloading.
+2021-07-23 00:10:15,817 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-23 00:11:22,773 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\views.py changed, reloading.
+2021-07-23 00:11:23,701 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-23 00:13:09,552 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\urls.py changed, reloading.
+2021-07-23 00:13:10,473 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-23 00:13:19,647 external.views INFO     loading pegawai view
+2021-07-23 00:13:19,830 django.request ERROR    Internal Server Error: /external/pegawai
+Traceback (most recent call last):
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\YOGA\Documents\richasdy\xd\external\views.py", line 96, in pegawai
+    return render(request, "external/stakeholder-pegawai.html", context)
+NameError: name 'context' is not defined
+2021-07-23 00:13:33,775 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\views.py changed, reloading.
+2021-07-23 00:13:34,860 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-23 00:13:35,273 external.views INFO     loading pegawai view
+2021-07-23 00:13:36,609 django.request WARNING  Not Found: /data/json-stakeholder/Kepuasan FEB.json
+2021-07-23 00:15:50,379 external.views INFO     loading pegawai view
+2021-07-23 00:15:51,920 django.request WARNING  Not Found: /data/json-stakeholder/Kepuasan FEB.json
+2021-07-23 00:16:25,246 external.views INFO     loading Portal view
+2021-07-23 00:18:04,493 external.views INFO     loading Portal view
+2021-07-23 00:18:14,097 external.views INFO     loading Portal view
+2021-07-23 00:18:29,060 external.views INFO     loading Portal view
+2021-07-23 00:18:49,421 external.views INFO     loading pegawai view
+2021-07-23 00:18:50,464 django.request WARNING  Not Found: /data/json-stakeholder/Kepuasan FEB.json
+2021-07-23 00:19:51,656 external.views INFO     loading pegawai view
+2021-07-23 00:19:52,629 django.request WARNING  Not Found: /data/json-stakeholder/Kepuasan FEB.json
+2021-07-23 00:20:25,885 external.views INFO     loading pegawai view
+2021-07-23 00:20:26,802 django.request WARNING  Not Found: /external/static/data/json-stakeholder/Kepuasan FEB.json
+2021-07-23 00:20:53,998 external.views INFO     loading pegawai view
+2021-07-23 00:21:19,523 external.views INFO     loading pegawai view
+2021-07-23 00:23:35,056 django.request WARNING  Not Found: /internal/static/data/data-stakeholder/Kepuasan FEB.json
+2021-07-23 00:24:21,043 django.request WARNING  Not Found: /internal/static/data/jsonstakeholder/FEB.json
+2021-07-23 00:25:47,410 external.views INFO     loading pegawai view
+2021-07-23 00:25:48,392 django.request WARNING  Not Found: /external/data/jsonstakeholder/FEB.json
+2021-07-23 00:26:18,294 external.views INFO     loading pegawai view
+2021-07-23 00:26:19,003 django.request WARNING  Not Found: /external/data/jsonstakeholder/FEB.json
+2021-07-23 00:29:59,495 external.views INFO     loading pegawai view
+2021-07-23 00:30:00,815 django.request WARNING  Not Found: /external/data/jsonstakeholder/FEB.json
+2021-07-23 00:30:24,442 external.views INFO     loading pegawai view
+2021-07-23 00:31:09,728 external.views INFO     loading pegawai view
+2021-07-23 00:32:08,530 external.views INFO     loading pegawai view
+2021-07-23 00:32:08,902 django.request WARNING  Not Found: /external/data/jsonstakeholder/FEB.json
+2021-07-23 00:32:55,126 external.views INFO     loading pegawai view
+2021-07-23 00:32:55,465 django.request WARNING  Not Found: /external/data/jsonstakeholder/FEB.json
+2021-07-23 00:33:06,429 external.views INFO     loading pegawai view
+2021-07-23 00:33:07,022 django.request WARNING  Not Found: /external/static/data/jsonstakeholder/FEB.json
+2021-07-23 00:34:42,920 external.views INFO     loading pegawai view
+2021-07-23 00:35:53,710 external.views INFO     loading pegawai view
+2021-07-23 00:36:08,192 external.views INFO     loading pegawai view
+2021-07-23 00:36:30,543 external.views INFO     loading pegawai view
+2021-07-23 00:36:51,160 external.views INFO     loading pegawai view
+2021-07-23 00:38:07,120 external.views INFO     loading pegawai view
+2021-07-23 00:38:08,199 django.request WARNING  Not Found: /external/jsonstakeholder/FEB.json
+2021-07-23 00:38:19,167 external.views INFO     loading pegawai view
+2021-07-23 00:38:20,095 django.request WARNING  Not Found: /external/data/jsonstakeholder/FEB.json
+2021-07-23 00:39:41,696 external.views INFO     loading pegawai view
+2021-07-23 00:39:42,934 django.request WARNING  Not Found: /external/data/json/jsondata.json
+2021-07-23 00:39:52,709 external.views INFO     loading pegawai view
+2021-07-23 00:39:54,203 django.request WARNING  Not Found: /external/data/jsondata.json
+2021-07-23 00:43:44,291 external.views INFO     loading pegawai view
+2021-07-23 00:43:45,227 django.request WARNING  Not Found: /external/data/jsonstakeholder/FEB.json
+2021-07-23 00:45:40,331 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\views.py changed, reloading.
+2021-07-23 00:45:41,459 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-23 00:45:41,874 django.request ERROR    Internal Server Error: /external/pegawai
+Traceback (most recent call last):
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\YOGA\Documents\richasdy\xd\external\views.py", line 96, in pegawai
+    data = json.load(json_data)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 5 column 1 (char 128)
+2021-07-23 00:50:51,684 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\views.py changed, reloading.
+2021-07-23 00:50:52,796 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-23 00:50:53,316 external.views INFO     loading pegawai view
+2021-07-23 00:50:54,852 django.request WARNING  Not Found: /external/data/json-stakeholder/FEB.json
+2021-07-23 00:51:45,666 external.views INFO     loading pegawai view
+2021-07-23 00:53:02,308 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\views.py changed, reloading.
+2021-07-23 00:53:03,427 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-23 00:53:17,541 django.request WARNING  Not Found: /external/data/json-stakeholder/FEB.json
+2021-07-23 00:54:21,719 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\internal\admin.py changed, reloading.
+2021-07-23 00:54:22,855 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-23 00:54:24,073 django.request WARNING  Not Found: /external/data/json-stakeholder/FEB.json
+2021-07-23 00:54:49,184 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\admin.py changed, reloading.
+2021-07-23 00:54:50,326 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-23 00:54:51,565 django.request WARNING  Not Found: /external/data/json-stakeholder/FEB.json
+2021-07-23 00:55:59,638 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\admin.py changed, reloading.
+2021-07-23 00:56:00,846 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-23 00:56:35,899 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\admin.py changed, reloading.
+2021-07-23 00:56:37,000 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-23 00:58:35,539 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\views.py changed, reloading.
+2021-07-23 00:58:36,672 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-23 00:58:37,165 external.views INFO     loading pegawai view
+2021-07-23 00:58:38,818 django.request WARNING  Not Found: /external/data/json-stakeholder/FEB.json
+2021-07-23 00:58:58,431 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\internal\admin.py changed, reloading.
+2021-07-23 00:58:59,547 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-23 01:00:01,602 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\views.py changed, reloading.
+2021-07-23 01:00:02,730 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-23 01:00:04,748 django.request WARNING  Not Found: /external/data/json-stakeholder/FEB.json
+2021-07-23 01:00:12,681 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\views.py changed, reloading.
+2021-07-23 01:00:13,811 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-23 01:00:14,182 external.views INFO     loading pegawai view
+2021-07-23 01:00:14,983 django.request WARNING  Not Found: /external/data/json-stakeholder/FEB.json
+2021-07-23 01:00:55,750 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\admin.py changed, reloading.
+2021-07-23 01:00:57,162 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-25 13:29:08,027 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-25 13:29:15,838 external.views INFO     loading pegawai view
+2021-07-25 13:29:25,839 django.request WARNING  Not Found: /external/data/json-stakeholder/FEB.json
+2021-07-25 13:34:27,393 external.views INFO     loading pegawai view
+2021-07-25 13:34:28,256 django.request WARNING  Not Found: /external/data/json-stakeholder/FEB.json
+2021-07-25 13:34:35,241 external.views INFO     loading pegawai view
+2021-07-25 13:34:45,445 external.views INFO     loading pegawai view
+2021-07-25 13:34:46,279 django.request WARNING  Not Found: /external/data/json-stakeholder/FEB.json
+2021-07-25 13:37:11,601 external.views INFO     loading pegawai view
+2021-07-25 13:42:12,148 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\views.py changed, reloading.
+2021-07-25 13:42:13,309 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-25 13:43:34,284 django.request ERROR    Internal Server Error: /external/pegawai
+Traceback (most recent call last):
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\YOGA\Documents\richasdy\xd\external\views.py", line 96, in pegawai
+    data = json.load(json_data)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 5 column 1 (char 128)
+2021-07-25 13:43:37,549 django.request WARNING  Not Found: /favicon.ico
+2021-07-25 13:55:44,194 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-25 13:59:26,991 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\stakeholder\views.py changed, reloading.
+2021-07-25 13:59:31,616 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-25 13:59:37,818 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-25 14:00:53,392 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\stakeholder\views.py changed, reloading.
+2021-07-25 14:00:54,321 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-25 14:00:58,942 external.views INFO     loading pegawai view
+2021-07-25 14:03:04,597 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\urls.py changed, reloading.
+2021-07-25 14:03:05,842 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-25 14:04:34,049 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\stakeholder\views.py changed, reloading.
+2021-07-25 14:04:35,248 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-25 14:04:55,687 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\stakeholder\views.py changed, reloading.
+2021-07-25 14:04:56,810 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-25 14:04:57,163 django.request ERROR    Internal Server Error: /stakeholder/pegawai
+Traceback (most recent call last):
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\YOGA\Documents\richasdy\xd\stakeholder\views.py", line 5, in pegawai
+    json_data = open(os.path.join(BASE_DIR, "static/data/json-stakeholder/FEB.json"))
+NameError: name 'os' is not defined
+2021-07-25 14:05:41,875 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\stakeholder\views.py changed, reloading.
+2021-07-25 14:05:42,957 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-25 14:05:43,516 django.request ERROR    Internal Server Error: /stakeholder/pegawai
+Traceback (most recent call last):
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\YOGA\Documents\richasdy\xd\stakeholder\views.py", line 7, in pegawai
+    json_data = open(os.path.join(BASE_DIR, "static/data/json-stakeholder/FEB.json"))
+NameError: name 'BASE_DIR' is not defined
+2021-07-25 14:05:59,277 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\stakeholder\views.py changed, reloading.
+2021-07-25 14:06:00,701 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-25 14:06:01,148 django.request ERROR    Internal Server Error: /stakeholder/pegawai
+Traceback (most recent call last):
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\YOGA\Documents\richasdy\xd\stakeholder\views.py", line 15, in pegawai
+    json_data = open(os.path.join(BASE_DIR, "static/data/json-stakeholder/FEB.json"))
+NameError: name 'BASE_DIR' is not defined
+2021-07-25 14:06:23,422 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\stakeholder\views.py changed, reloading.
+2021-07-25 14:06:24,649 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-25 14:06:29,768 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\stakeholder\views.py changed, reloading.
+2021-07-25 14:06:30,836 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-25 14:06:31,279 django.request ERROR    Internal Server Error: /stakeholder/pegawai
+Traceback (most recent call last):
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\YOGA\Documents\richasdy\xd\stakeholder\views.py", line 18, in pegawai
+    data = json.load(json_data)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 5 column 1 (char 128)
+2021-07-25 14:34:24,417 django.request ERROR    Internal Server Error: /stakeholder/pegawai
+Traceback (most recent call last):
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\YOGA\Documents\richasdy\xd\stakeholder\views.py", line 18, in pegawai
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 5 column 1 (char 128)
+2021-07-25 14:34:24,439 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\stakeholder\views.py changed, reloading.
+2021-07-25 14:34:26,127 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-25 14:39:52,764 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\stakeholder\views.py changed, reloading.
+2021-07-25 14:39:53,956 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-25 14:44:27,811 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-25 14:44:33,301 external.views INFO     loading Portal view
+2021-07-25 15:19:15,815 django.request WARNING  Not Found: /external/
+2021-07-25 15:19:28,992 external.views INFO     loading form view
+2021-07-25 15:19:40,683 django.request WARNING  Not Found: /external/
+2021-07-25 15:28:49,894 django.request WARNING  Not Found: /external/pegawai
+2021-07-25 15:36:14,256 django.request WARNING  Not Found: /stakeholder/FEB.json
+2021-07-25 15:36:26,576 django.request WARNING  Not Found: /stakeholder/stakeholder/pegawai/FEB.json
+2021-07-25 15:36:35,527 django.request WARNING  Not Found: /stakeholder/pegawai/FEB.json
+2021-07-25 16:14:04,102 django.request WARNING  Not Found: /internal/json.json
+2021-07-25 16:16:49,676 django.request WARNING  Not Found: /internal/static/stakeholder/pegawai/feb.jsom
+2021-07-25 16:18:36,318 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\xd\urls.py changed, reloading.
+2021-07-25 16:18:38,170 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-25 16:21:30,118 django.request WARNING  Not Found: /stakeholder/pegawai
+2021-07-25 16:39:41,761 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-25 16:39:43,434 django.request WARNING  Not Found: /external/pegawai
+2021-07-25 16:39:44,924 django.request WARNING  Not Found: /external/pegawai
+2021-07-25 18:52:51,574 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\stakeholder\views.py changed, reloading.
+2021-07-25 18:52:52,922 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-25 19:12:42,887 django.request WARNING  Not Found: /stakeholder/static/stakeholder/pegawai/FEB.csv
+2021-07-25 19:12:59,288 django.request WARNING  Not Found: /stakeholder/static/stakeholder/pegawai/FEB.json
+2021-07-25 20:02:38,083 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\xd\urls.py changed, reloading.
+2021-07-25 20:02:40,198 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-26 08:13:30,108 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-26 08:13:42,598 django.request WARNING  Not Found: /favicon.ico
+2021-07-26 08:14:50,563 django.request WARNING  Not Found: /external/pegawai
+2021-07-26 08:14:57,690 django.request WARNING  Not Found: /stakeholder/pegawai
+
+2021-07-26 17:33:29,969 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-26 17:36:16,476 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\stakeholder\apps.py changed, reloading.
+2021-07-26 17:36:17,740 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-26 17:44:01,592 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\stakeholder\views.py changed, reloading.
+2021-07-26 17:44:02,835 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-26 17:44:10,232 django.request WARNING  Not Found: /stakeholder
+2021-07-26 17:44:13,152 django.request WARNING  Not Found: /favicon.ico
+2021-07-26 17:44:17,810 django.request WARNING  Not Found: /stakeholder/
+2021-07-26 17:44:29,323 django.request ERROR    Internal Server Error: /stakeholder/mahasiswalayanan
+Traceback (most recent call last):
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\YOGA\Documents\richasdy\xd\stakeholder\views.py", line 7, in mahasiswalayanan
+    return render(request, "stakeholder/stakeholder-mahasiswalayanan.html")
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loaders\base.py", line 29, in get_template
+    return Template(
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader_tags.py", line 216, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 483, in parse
+    self.unclosed_block_tag(parse_until)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 544, in unclosed_block_tag
+    raise self.error(token, msg)
+django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 4: 'block'. Looking for one of: endblock.
+2021-07-26 18:56:45,045 django.request WARNING  Not Found: /stakeholder/images/spacer.gif
+2021-07-26 18:57:02,808 django.request WARNING  Not Found: /stakeholder/images/spacer.gif
+2021-07-26 19:09:28,763 django.request WARNING  Not Found: /stakeholder/dashboards-analytics.html
+2021-07-26 19:09:36,277 django.request WARNING  Not Found: /stakeholder/dashboards-jira.html
+2021-07-26 19:09:45,288 django.request WARNING  Not Found: /stakeholder/widgets-tables.html
+2021-07-26 19:09:57,030 django.request WARNING  Not Found: /stakeholder/form-plugins-select2.html
+2021-07-26 19:51:58,906 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\stakeholder\views.py changed, reloading.
+2021-07-26 19:52:02,651 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-28 15:07:00,350 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-28 15:08:05,060 django.request WARNING  Not Found: /stakeholder/data/stakeholder/pegawai/FEB.json
+2021-07-28 15:41:26,332 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-28 15:41:47,332 django.request WARNING  Not Found: /stakeholder/

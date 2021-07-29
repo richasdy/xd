@@ -1,0 +1,525 @@
+{% extends "external/airui/dashboard-base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<div class="air__layout__content">
+  <div class="air__utils__content">
+    <div class="air__utils__heading">
+      <h5>Dashboard Data Kepuasan Pegawai</h5>
+    </div>
+
+<div class="card">
+      <div class="card-body">
+        <h4 class="mb-4">
+          <strong>Grafik Data Kepuasan Pegawai FEB</strong>
+        </h4>
+      </div>
+    </div>
+
+<!-- Create a div where the graph will take place -->
+<div id="feb"></div>
+<script>
+// set the dimensions and margins of the graph
+var margin = {top: 30, right: 30, bottom: 70, left: 60},
+    width = 460 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var feb = d3.select("#feb")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+// Parse the Data
+d3.json("{% static 'data/stakeholder/pegawai/FEB.json' %}", function(data) {
+
+  // sort data
+  data.sort(function(b, a) {
+    return a.Value - b.Value;
+  });
+
+  // X axis
+  var x = d3.scaleBand()
+    .range([ 0, width ])
+    .domain(data.map(function(d) { return d.Responden; }))
+    .padding(0.2);
+  feb.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x))
+    .selectAll("text")
+      .attr("transform", "translate(-10,0)rotate(-45)")
+      .style("text-anchor", "end");
+
+  // Add Y axis
+  var y = d3.scaleLinear()
+    .domain([0, 100])
+    .range([ height, 0]);
+  feb.append("g")
+    .call(d3.axisLeft(y));
+
+  // Bars
+  feb.selectAll("mybar")
+    .data(data)
+    .enter()
+    .append("rect")
+      .attr("x", function(d) { return x(d.Responden); })
+      .attr("y", function(d) { return y(d.Value); })
+      .attr("width", x.bandwidth())
+      .attr("height", function(d) { return height - y(d.Value); })
+      .attr("fill", "#2b65ec")
+})
+</script>
+<div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <li>Rata-rata kepuasan pegawai FEB Telkom University tahun 2020 adalah 88.78</li>
+          </div>
+        </div>
+</div>
+
+<div class="card">
+      <div class="card-body">
+        <h4 class="mb-4">
+          <strong>Grafik Data Kepuasan Pegawai FIT</strong>
+        </h4>
+      </div>
+    </div>
+
+<!-- Create a div where the graph will take place -->
+<div id="fit"></div>
+<script>
+// set the dimensions and margins of the graph
+var margin = {top: 30, right: 30, bottom: 70, left: 60},
+    width = 460 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var fit = d3.select("#fit")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+// Parse the Data
+d3.json("{% static 'data/stakeholder/pegawai/FIT.json' %}", function(data) {
+
+  // sort data
+  data.sort(function(b, a) {
+    return a.Value - b.Value;
+  });
+
+  // X axis
+  var x = d3.scaleBand()
+    .range([ 0, width ])
+    .domain(data.map(function(d) { return d.Responden; }))
+    .padding(0.2);
+  fit.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x))
+    .selectAll("text")
+      .attr("transform", "translate(-10,0)rotate(-45)")
+      .style("text-anchor", "end");
+
+  // Add Y axis
+  var y = d3.scaleLinear()
+    .domain([0, 100])
+    .range([ height, 0]);
+  fit.append("g")
+    .call(d3.axisLeft(y));
+
+  // Bars
+  fit.selectAll("mybar")
+    .data(data)
+    .enter()
+    .append("rect")
+      .attr("x", function(d) { return x(d.Responden); })
+      .attr("y", function(d) { return y(d.Value); })
+      .attr("width", x.bandwidth())
+      .attr("height", function(d) { return height - y(d.Value); })
+      .attr("fill", "#00ffff")
+})
+</script>
+<div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <li>Rata-rata kepuasan pegawai FIT Telkom University tahun 2020 adalah 88.74</li>
+          </div>
+        </div>
+</div>
+
+<div class="card">
+      <div class="card-body">
+        <h4 class="mb-4">
+          <strong>Grafik Data Kepuasan Pegawai FIK</strong>
+        </h4>
+      </div>
+    </div>
+
+<!-- Create a div where the graph will take place -->
+<div id="fik"></div>
+<script>
+// set the dimensions and margins of the graph
+var margin = {top: 30, right: 30, bottom: 70, left: 60},
+    width = 460 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var fik = d3.select("#fik")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+// Parse the Data
+d3.json("{% static 'data/stakeholder/pegawai/FIK.json' %}", function(data) {
+
+  // sort data
+  data.sort(function(b, a) {
+    return a.Value - b.Value;
+  });
+
+  // X axis
+  var x = d3.scaleBand()
+    .range([ 0, width ])
+    .domain(data.map(function(d) { return d.Responden; }))
+    .padding(0.2);
+  fik.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x))
+    .selectAll("text")
+      .attr("transform", "translate(-10,0)rotate(-45)")
+      .style("text-anchor", "end");
+
+  // Add Y axis
+  var y = d3.scaleLinear()
+    .domain([0, 100])
+    .range([ height, 0]);
+  fik.append("g")
+    .call(d3.axisLeft(y));
+
+  // Bars
+  fik.selectAll("mybar")
+    .data(data)
+    .enter()
+    .append("rect")
+      .attr("x", function(d) { return x(d.Responden); })
+      .attr("y", function(d) { return y(d.Value); })
+      .attr("width", x.bandwidth())
+      .attr("height", function(d) { return height - y(d.Value); })
+      .attr("fill", "#50c878")
+})
+</script>
+<div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <li>Rata-rata kepuasan pegawai FIK Telkom University tahun 2020 adalah 92.57</li>
+          </div>
+        </div>
+</div>
+
+<div class="card">
+      <div class="card-body">
+        <h4 class="mb-4">
+          <strong>Grafik Data Kepuasan Pegawai FIF</strong>
+        </h4>
+      </div>
+    </div>
+
+<!-- Create a div where the graph will take place -->
+<div id="fif"></div>
+<script>
+
+
+// set the dimensions and margins of the graph
+var margin = {top: 30, right: 30, bottom: 70, left: 60},
+    width = 460 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var fif = d3.select("#fif")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+// Parse the Data
+d3.json("{% static 'data/stakeholder/pegawai/FIF.json' %}", function(data) {
+
+  // sort data
+  data.sort(function(b, a) {
+    return a.Value - b.Value;
+  });
+
+  // X axis
+  var x = d3.scaleBand()
+    .range([ 0, width ])
+    .domain(data.map(function(d) { return d.Responden; }))
+    .padding(0.2);
+  fif.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x))
+    .selectAll("text")
+      .attr("transform", "translate(-10,0)rotate(-45)")
+      .style("text-anchor", "end");
+
+  // Add Y axis
+  var y = d3.scaleLinear()
+    .domain([0, 100])
+    .range([ height, 0]);
+  fif.append("g")
+    .call(d3.axisLeft(y));
+
+  // Bars
+  fif.selectAll("mybar")
+    .data(data)
+    .enter()
+    .append("rect")
+      .attr("x", function(d) { return x(d.Responden); })
+      .attr("y", function(d) { return y(d.Value); })
+      .attr("width", x.bandwidth())
+      .attr("height", function(d) { return height - y(d.Value); })
+      .attr("fill", "#e2f516")
+})
+</script>
+<div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <li>Rata-rata kepuasan pegawai FIF Telkom University tahun 2020 adalah 85.52</li>
+          </div>
+        </div>
+</div>
+
+<div class="card">
+      <div class="card-body">
+        <h4 class="mb-4">
+          <strong>Grafik Data Kepuasan Pegawai FKB</strong>
+        </h4>
+      </div>
+    </div>
+
+<!-- Create a div where the graph will take place -->
+<div id="fkb"></div>
+<script>
+// set the dimensions and margins of the graph
+var margin = {top: 30, right: 30, bottom: 70, left: 60},
+    width = 460 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var fkb = d3.select("#fkb")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+// Parse the Data
+d3.json("{% static 'data/stakeholder/pegawai/FKB.json' %}", function(data) {
+
+  // sort data
+  data.sort(function(b, a) {
+    return a.Value - b.Value;
+  });
+
+  // X axis
+  var x = d3.scaleBand()
+    .range([ 0, width ])
+    .domain(data.map(function(d) { return d.Responden; }))
+    .padding(0.2);
+  fkb.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x))
+    .selectAll("text")
+      .attr("transform", "translate(-10,0)rotate(-45)")
+      .style("text-anchor", "end");
+
+  // Add Y axis
+  var y = d3.scaleLinear()
+    .domain([0, 100])
+    .range([ height, 0]);
+  fkb.append("g")
+    .call(d3.axisLeft(y));
+
+  // Bars
+  fkb.selectAll("mybar")
+    .data(data)
+    .enter()
+    .append("rect")
+      .attr("x", function(d) { return x(d.Responden); })
+      .attr("y", function(d) { return y(d.Value); })
+      .attr("width", x.bandwidth())
+      .attr("height", function(d) { return height - y(d.Value); })
+      .attr("fill", "#ffa500")
+})
+</script>
+<div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <li>Rata-rata kepuasan pegawai FKB Telkom University tahun 2020 adalah 86.98</li>
+          </div>
+        </div>
+</div>
+
+<div class="card">
+      <div class="card-body">
+        <h4 class="mb-4">
+          <strong>Grafik Data Kepuasan Pegawai FRI</strong>
+        </h4>
+      </div>
+    </div>
+
+<!-- Create a div where the graph will take place -->
+<div id="fri"></div>
+<script>
+// set the dimensions and margins of the graph
+var margin = {top: 30, right: 30, bottom: 70, left: 60},
+    width = 460 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var fri = d3.select("#fri")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+// Parse the Data
+d3.json("{% static 'data/stakeholder/pegawai/FRI.json' %}", function(data) {
+
+  // sort data
+  data.sort(function(b, a) {
+    return a.Value - b.Value;
+  });
+
+  // X axis
+  var x = d3.scaleBand()
+    .range([ 0, width ])
+    .domain(data.map(function(d) { return d.Responden; }))
+    .padding(0.2);
+  fri.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x))
+    .selectAll("text")
+      .attr("transform", "translate(-10,0)rotate(-45)")
+      .style("text-anchor", "end");
+
+  // Add Y axis
+  var y = d3.scaleLinear()
+    .domain([0, 100])
+    .range([ height, 0]);
+  fri.append("g")
+    .call(d3.axisLeft(y));
+
+  // Bars
+  fri.selectAll("mybar")
+    .data(data)
+    .enter()
+    .append("rect")
+      .attr("x", function(d) { return x(d.Responden); })
+      .attr("y", function(d) { return y(d.Value); })
+      .attr("width", x.bandwidth())
+      .attr("height", function(d) { return height - y(d.Value); })
+      .attr("fill", "#e55451")
+})
+</script>
+<div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <li>Rata-rata kepuasan pegawai FRI Telkom University tahun 2020 adalah 91.47</li>
+          </div>
+        </div>
+</div>
+
+<div class="card">
+      <div class="card-body">
+        <h4 class="mb-4">
+          <strong>Grafik Data Kepuasan Pegawai FTE</strong>
+        </h4>
+      </div>
+    </div>
+
+<!-- Create a div where the graph will take place -->
+<div id="fte"></div>
+<script>
+
+
+// set the dimensions and margins of the graph
+var margin = {top: 30, right: 30, bottom: 70, left: 60},
+    width = 460 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var fte = d3.select("#fte")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+// Parse the Data
+d3.json("{% static 'data/stakeholder/pegawai/FTE.json' %}", function(data) {
+
+  // sort data
+  data.sort(function(b, a) {
+    return a.Value - b.Value;
+  });
+
+  // X axis
+  var x = d3.scaleBand()
+    .range([ 0, width ])
+    .domain(data.map(function(d) { return d.Responden; }))
+    .padding(0.2);
+  fte.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x))
+    .selectAll("text")
+      .attr("transform", "translate(-10,0)rotate(-45)")
+      .style("text-anchor", "end");
+
+  // Add Y axis
+  var y = d3.scaleLinear()
+    .domain([0, 100])
+    .range([ height, 0]);
+  fte.append("g")
+    .call(d3.axisLeft(y));
+
+  // Bars
+  fte.selectAll("mybar")
+    .data(data)
+    .enter()
+    .append("rect")
+      .attr("x", function(d) { return x(d.Responden); })
+      .attr("y", function(d) { return y(d.Value); })
+      .attr("width", x.bandwidth())
+      .attr("height", function(d) { return height - y(d.Value); })
+      .attr("fill", "#faafbe")
+})
+</script>
+<div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <li>Rata-rata kepuasan pegawai FTE Telkom University tahun 2020 adalah 86.74</li>
+          </div>
+        </div>
+</div>
+
+    </div>
+</div>
+
+{% endblock content %}

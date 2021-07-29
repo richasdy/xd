@@ -69,12 +69,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-
+  
     # apps
     'external.apps.ExternalConfig',
-    'stakeholder'
+    'internal.apps.InternalConfig',
+    'stakeholder.apps.StakeholderConfig',
 ]
 
+LOGIN_URL = '/auth/login'
 LOGIN_REDIRECT_URL = '/external/twitter'
 LOGOUT_REDIRECT_URL = '/auth/login'
 
@@ -91,6 +93,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'xd.urls'
+
+
 
 #import os
 

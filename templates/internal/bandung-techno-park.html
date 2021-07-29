@@ -4214,7 +4214,7 @@
             <div class="col-lg-12">
               <div class="card">
                 <div class="card-body">
-                  <h5>Histograph</h5>
+                  <h5>Density</h5>
                   <div id="my_dataviz"></div>
                 </div>
               </div>
@@ -4237,7 +4237,7 @@
                       "translate(" + margin.left + "," + margin.top + ")");
       
             // get the data
-            d3.json("/static/internal/data/1_OneNum.json", function(data) {
+            d3.json("http://127.0.0.1:8000/internal/json/density", function(data) {
       
               // add the x Axis
               var x = d3.scaleLinear()

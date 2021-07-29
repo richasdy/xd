@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from django.conf.urls import url
 
 app_name = 'internal'
 urlpatterns = [
@@ -25,4 +26,9 @@ urlpatterns = [
     path('secretariat-and-strategic-planning', views.secretariat_and_strategic_planning, name='secretariat_and_strategic_planning'),
     path('strategic-partnership-and-international-office', views.strategic_partnership_and_international_office, name='strategic_partnership_and_international_office'),
     path('student-affairs', views.student_affairs, name='student_affairs'),
+    path('json', views.json, name='json'),
+    path('json/streamgraph', views.streamgraph_json, name='streamgraph_json'),
+    path('json/density', views.density_json, name='density_json'),
+    url(r'^create/$', views.create, name='create'),
+    url(r'^form/$',views.form, name='form'),
 ]

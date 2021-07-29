@@ -1,9 +1,13 @@
 from django.urls import path
 from . import views
 
-from django.contrib.auth import views as auth_views
-
 app_name = 'stakeholder'
 urlpatterns = [
     path('mahasiswa-edom', views.mahasiswa_edom, name='mahasiswa'),
+    path('orangtuamahasiswa', views.orangtuamahasiswa, name='orangtuamahasiswa'),
+    path('alumni', views.alumni, name='alumni'),
+    path('pegawai', views.pegawai, name='pegawai'),
+    path('mahasiswalayanan', views.mahasiswalayanan, name='mahasiswalayanan'),
+    path('mitra', views.mitra, name='mitra'),
+    path('mahasiswa-visi-misi', views.mahasiswa_visi_misi, name='mahasiswa-visi-misi'),
 ]
