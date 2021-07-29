@@ -1,0 +1,167 @@
+{% extends "external/airui/dashboard-base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="air__layout__content">
+  <div class="air__utils__content">
+    <div class="air__utils__heading">
+      <h5>Dashboard Orang Tua Mahasiswa</h5>
+            
+    <div class="card text-center">
+  <div class="card-header">
+    <h6>Survei Kepuasan Orang Tua Mahasiswa Telkom University</h6>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Rataan Persentase Kepuasan Orang Tua Mahasiswa Terhadap Telkom University</h5>
+    <p class="card-text">93,83%</p>
+  </div>
+  </div>
+</div>
+    <div class="card">
+        <div class="card-body">
+        <div class="row">
+            <div class="col-lg-4">
+                <h3>Persentase Kepuasan Orang Tua Terhadap Telkom University Di Tiap Fakultas</h3>
+            </div>  
+          <div class="col-lg-6">
+            <div class="mb-5">
+                <div id="fakultas"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+        <div class="row">   
+            <div class="col-lg-4">
+                <h3>Kepuasan Tiap Pernyataan</h3>
+                <h6>A.1 Fasilitas Pendidikan</h6>
+                <h6>A.2 Fasilitas Pendukung</h6>
+                <h6>A.3 Ketersediaan kegiatan ekstrakulikuler/olahraga sebagai penunjang keaktifan dalam berorganisasi di Telkom University</h6>
+                <h6>A.4 Aktivitas Pembelajaran</h6>
+                <h6>A.5 Informasi tentang proses akademik mahasiswa</h6>
+                <h6>A.6 Kemudahan komunikasi dengan pihak kampus Telkom University</h6>
+            </div>  
+          <div class="col-lg-6">
+            <div class="mb-5">
+                <div id="kepuasan"></div>
+               </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<script>
+
+
+// set the dimensions and margins of the graph
+var margin = {top: 30, right: 30, bottom: 70, left: 60},
+    width = 460 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg = d3.select("#fakultas")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+// Parse the Data
+d3.json("/static/data/json/stakeholder/orangtuamahasiswa/ortumahasiswa_tiapfakultas.json", function(data) {
+
+  // sort data
+  data.sort(function(b, a) {
+    return a.Value - b.Value;
+  });
+
+  // X axis
+  var x = d3.scaleBand()
+    .range([ 0, width ])
+    .domain(data.map(function(d) { return d.Fakultas; }))
+    .padding(0.2);
+  svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x))
+    .selectAll("text")
+      .attr("transform", "translate(-10,0)rotate(-45)")
+      .style("text-anchor", "end");
+
+  // Add Y axis
+  var y = d3.scaleLinear()
+    .domain([0, 96])
+    .range([ height, 0]);
+  svg.append("g")
+    .call(d3.axisLeft(y));
+
+  // Bars
+  svg.selectAll("mybar")
+    .data(data)
+    .enter()
+    .append("rect")
+      .attr("x", function(d) { return x(d.Fakultas); })
+      .attr("y", function(d) { return y(d.Value); })
+      .attr("width", x.bandwidth())
+      .attr("height", function(d) { return height - y(d.Value); })
+      .attr("fill", "#69b3a2")
+
+});
+
+var kepuasan = d3
+        .select("#kepuasan")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    var xScale = d3.scaleBand().range ([0, width]).padding(0.4),
+        yScale = d3.scaleLinear().range ([height, 0]);
+
+  // get the data
+  //d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/1_OneNum.csv", function (data) {
+    d3.json("/static/data/json/stakeholder/orangtuamahasiswa/kepuasan.json", function (data) {
+    // X axis: scale and draw:
+    xScale.domain(data.map(function(d) { return d.Kepuasan; }));
+    yScale.domain([80, d3.max(data, function(d) { return d.Value; })]);
+    
+        kepuasan.append("g")
+         .attr("transform", "translate(0," + height + ")")
+         .call(d3.axisBottom(xScale))
+         .append("text")
+         .attr("y", height - 250)
+         .attr("x", width - 100)
+
+        kepuasan.append("g")
+         .call(d3.axisLeft(yScale).tickFormat(function(d){
+             return d;
+         })
+         .ticks(5))
+         .append("text")
+         .attr("transform", "rotate(-90)")
+         //.attr("y", 10)
+         //.attr("dy", "-5.1em")
+
+        kepuasan.selectAll(".bar")
+         .data(data)
+         .enter().append("rect")
+         .attr("class", "bar")
+         .attr("x", function(d) { return xScale(d.Kepuasan); })
+         .attr("y", function(d) { return yScale(d.Value); })
+         .attr("width", xScale.bandwidth())
+         .attr("fill", "grey")
+         .attr("height", function(d) { return height - yScale(d.Value);
+         });
+    });
+
+
+</script>
+
+
+{% endblock content %}

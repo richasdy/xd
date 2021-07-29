@@ -9,9 +9,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 logger = logging.getLogger(__name__)
 
-@login_reuqired
+@login_required
 def alumni(request):
     return render(request, "stakeholder/alumni.html")
+
+@login_required
+def orangtuamahasiswa(request):
+    return render(request, "stakeholder/orangtuamahasiswa.html")
   
 @login_required
 def mitra(request):
@@ -21,11 +25,10 @@ def mitra(request):
 def mahasiswa_visi_misi(request):
     return render(request, "stakeholder/mahasiswa-visi-misi.html")
 
- @login_required
+@login_required
 def pegawai(request):
     return render(request, "stakeholder/stakeholder-pegawai.html")
 
 @login_required  
 def mahasiswalayanan(request):
     return render(request, "stakeholder/stakeholder-mahasiswalayanan.html")
-

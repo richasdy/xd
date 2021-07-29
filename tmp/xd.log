@@ -611,4 +611,3 @@ django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 4: 'block'.
 2021-07-28 15:08:05,060 django.request WARNING  Not Found: /stakeholder/data/stakeholder/pegawai/FEB.json
 2021-07-28 15:41:26,332 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2021-07-28 15:41:47,332 django.request WARNING  Not Found: /stakeholder/
-
