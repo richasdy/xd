@@ -32,21 +32,29 @@ def sign_up(request):
 @login_required
 def dashboard(request):
     logger.info('loading dashboard view')
-    return render(request, "external/airui/dashboards-analytics.html")
+    context = {}
+    context['page_name'] = "Dashboard"
+    return render(request, "external/airui/dashboards-analytics.html", context)
 
 def error404(request):
     logger.info('loading error404 view')
-    return render(request, "external/airui/system-404.html")
+    context = {}
+    context['page_name'] = "Error 404"
+    return render(request, "external/airui/system-404.html", context)
 
 @login_required
 def form(request):
     logger.info('loading form view')
-    return render(request, "external/airui/form-plugins-select2.html")
+    context = {}
+    context['page_name'] = "Dashboard Form"
+    return render(request, "external/airui/form-plugins-select2.html", context)
 
 @login_required
 def tables(request):
     logger.info('loading tables view')
-    return render(request, "external/airui/tables-datatables.html")
+    context = {}
+    context['page_name'] = "Dashboard Table"
+    return render(request, "external/airui/tables-datatables.html", context)
 
 @login_required
 def instagram(request):
@@ -54,6 +62,7 @@ def instagram(request):
     data = json.load(json_data)
     context = {}
     context['data'] = data
+    context['page_name'] = "Instagram"
     logger.info('loading instagram view')
     return render(request, "external/instagram.html", context)
 
@@ -63,13 +72,16 @@ def portal_berita(request):
     data = json.load(json_data)
     context = {}
     context['data'] = data
+    context['page_name'] = "Portal Berita"
     logger.info('loading Portal view')
     return render(request, "external/portal-berita.html", context)
 
 @login_required
 def tiktok(request):
     logger.info('loading tiktok view')
-    return render(request, "external/tiktok.html")
+    context = {}
+    context['page_name'] = "Tiktok"
+    return render(request, "external/tiktok.html", context)
 
 @login_required
 def twitter(request):
@@ -77,6 +89,7 @@ def twitter(request):
     data = json.load(json_data)
     context = {}
     context['data'] = data
+    context['page_name'] = "Twitter"
     logger.info('loading twitter view')
     return render(request, "external/twitter.html", context)
 
@@ -86,6 +99,7 @@ def youtube(request):
     data = json.load(json_data)
     context = {}
     context['data'] = data
+    context['page_name'] = "Youtube"
     logger.info('loading youtube view')
     return render(request, "external/youtube.html", context)
 
@@ -95,6 +109,7 @@ def linkedin(request):
     data = json.load(json_data)
     context = {}
     context['data'] = data
+    context['page_name'] = "LinkedIn"
     logger.info('loading linkedin view')
     return render(request, "external/linkedin.html", context)
 
@@ -104,5 +119,6 @@ def scholar(request):
     data = json.load(json_data)
     context = {}
     context['data'] = data
+    context['page_name'] = "Scholar"
     logger.info('loading scholar view')
     return render(request, "external/scholar.html", context)

@@ -610,4 +610,321 @@ django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 4: 'block'.
 2021-07-28 15:07:00,350 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2021-07-28 15:08:05,060 django.request WARNING  Not Found: /stakeholder/data/stakeholder/pegawai/FEB.json
 2021-07-28 15:41:26,332 django.utils.autoreload INFO     Watching for file changes with StatReloader
-2021-07-28 15:41:47,332 django.request WARNING  Not Found: /stakeholder/
+2021-07-28 15:41:47,332 django.request WARNING  Not Found: /stakeholder/2021-07-29 09:49:32,796 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-29 09:49:49,339 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-29 09:52:21,111 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-29 09:52:44,608 auth.views   INFO     loading register view
+2021-07-29 09:52:48,893 auth.views   INFO     loading register view
+2021-07-29 09:53:06,775 external.views INFO     loading twitter view
+2021-07-29 09:53:28,437 auth.views   INFO     loading register view
+2021-07-29 10:03:13,297 auth.views   INFO     loading register view
+2021-07-29 10:03:21,736 auth.views   INFO     loading register view
+2021-07-29 10:03:37,367 auth.views   INFO     loading register view
+2021-07-29 10:03:52,418 auth.views   INFO     loading register view
+2021-07-29 10:04:34,238 external.views INFO     loading twitter view
+2021-07-29 10:04:41,248 django.request WARNING  Not Found: /stakeholder/mahasiswa
+2021-07-29 10:11:37,209 django.utils.autoreload INFO     D:\work\djangoapps\xd\internal\views.py changed, reloading.
+2021-07-29 10:11:37,897 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-29 10:36:17,282 external.views INFO     loading twitter view
+2021-07-29 10:42:08,946 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-29 10:44:08,057 external.views INFO     loading twitter view
+2021-07-29 10:59:34,948 django.utils.autoreload INFO     D:\work\djangoapps\xd\stakeholder\views.py changed, reloading.
+2021-07-29 10:59:35,501 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-29 10:59:51,258 django.utils.autoreload INFO     D:\work\djangoapps\xd\stakeholder\views.py changed, reloading.
+2021-07-29 10:59:53,405 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-29 11:07:54,888 django.utils.autoreload INFO     D:\work\djangoapps\xd\stakeholder\urls.py changed, reloading.
+2021-07-29 11:07:55,396 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-29 11:09:15,901 django.request ERROR    Internal Server Error: /stakeholder/mahasiswa-edom
+Traceback (most recent call last):
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\work\djangoapps\xd\stakeholder\views.py", line 20, in mahasiswa_edom
+    return render(request, "stakeholder/airui/mahasiswa-edom.html", context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'mahasiswa_edom' not found. 'mahasiswa_edom' is not a valid view function or pattern name.
+2021-07-29 11:09:16,255 django.request WARNING  Not Found: /favicon.ico
+2021-07-29 11:09:39,410 django.utils.autoreload INFO     D:\work\djangoapps\xd\stakeholder\urls.py changed, reloading.
+2021-07-29 11:09:40,052 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-29 11:11:29,112 django.utils.autoreload INFO     D:\work\djangoapps\xd\stakeholder\views.py changed, reloading.
+2021-07-29 11:11:29,715 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-29 11:11:40,147 django.request ERROR    Internal Server Error: /stakeholder/orangtuamahasiswa
+Traceback (most recent call last):
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\work\djangoapps\xd\stakeholder\views.py", line 32, in orangtuamahasiswa
+    context['data'] = data
+NameError: name 'data' is not defined
+2021-07-29 11:11:42,563 django.request ERROR    Internal Server Error: /stakeholder/orangtuamahasiswa
+Traceback (most recent call last):
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\work\djangoapps\xd\stakeholder\views.py", line 32, in orangtuamahasiswa
+    context['data'] = data
+NameError: name 'data' is not defined
+2021-07-29 11:12:00,329 django.utils.autoreload INFO     D:\work\djangoapps\xd\stakeholder\views.py changed, reloading.
+2021-07-29 11:12:00,931 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-29 11:12:01,206 django.request ERROR    Internal Server Error: /stakeholder/orangtuamahasiswa
+Traceback (most recent call last):
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\work\djangoapps\xd\stakeholder\views.py", line 32, in orangtuamahasiswa
+    context['data'] = data
+NameError: name 'data' is not defined
+2021-07-29 11:12:12,576 django.utils.autoreload INFO     D:\work\djangoapps\xd\stakeholder\views.py changed, reloading.
+2021-07-29 11:12:13,093 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-30 06:34:34,792 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-30 06:34:36,620 external.views INFO     loading twitter view
+2021-07-30 06:34:42,963 django.request WARNING  Not Found: /stakeholder/mahasiswa
+2021-07-30 06:34:43,068 django.request WARNING  Not Found: /favicon.ico
+2021-07-30 06:35:31,109 django.request ERROR    Internal Server Error: /stakeholder/mahasiswa-edom
+Traceback (most recent call last):
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader_tags.py", line 183, in render
+    template = context.template.engine.select_template(template_name)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\engine.py", line 180, in select_template
+    raise TemplateDoesNotExist(', '.join(not_found))
+django.template.exceptions.TemplateDoesNotExist: /includes/sidebar.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\work\djangoapps\xd\stakeholder\views.py", line 20, in mahasiswa_edom
+    return render(request, "stakeholder/airui/mahasiswa-edom.html", context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\backends\django.py", line 63, in render
+    reraise(exc, self.backend)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\backends\django.py", line 84, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: /includes/sidebar.html
+2021-07-30 06:35:43,804 django.request ERROR    Internal Server Error: /stakeholder/mahasiswa-edom
+Traceback (most recent call last):
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader_tags.py", line 183, in render
+    template = context.template.engine.select_template(template_name)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\engine.py", line 180, in select_template
+    raise TemplateDoesNotExist(', '.join(not_found))
+django.template.exceptions.TemplateDoesNotExist: /includes/sidebar.html
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\work\djangoapps\xd\stakeholder\views.py", line 20, in mahasiswa_edom
+    return render(request, "stakeholder/airui/mahasiswa-edom.html", context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\backends\django.py", line 63, in render
+    reraise(exc, self.backend)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\backends\django.py", line 84, in reraise
+    raise new from exc
+django.template.exceptions.TemplateDoesNotExist: /includes/sidebar.html
+2021-07-30 06:41:39,182 django.utils.autoreload INFO     D:\work\djangoapps\xd\external\urls.py changed, reloading.
+2021-07-30 06:41:39,751 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-30 06:43:21,204 external.views INFO     loading twitter view
+2021-07-30 06:47:40,711 django.utils.autoreload INFO     D:\work\djangoapps\xd\external\views.py changed, reloading.
+2021-07-30 06:47:41,290 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-30 06:47:41,706 external.views INFO     loading twitter view
+2021-07-30 06:49:43,928 external.views INFO     loading twitter view
+2021-07-30 06:49:46,985 external.views INFO     loading instagram view
+2021-07-30 06:49:47,359 external.views INFO     loading Portal view
+2021-07-30 06:49:47,801 external.views INFO     loading tiktok view
+2021-07-30 06:49:48,591 external.views INFO     loading twitter view
+2021-07-30 06:49:48,894 external.views INFO     loading youtube view
+2021-07-30 06:49:49,232 external.views INFO     loading youtube view
+2021-07-30 06:49:49,586 external.views INFO     loading scholar view
+2021-07-30 06:50:02,989 external.views INFO     loading youtube view
+2021-07-30 06:50:04,086 external.views INFO     loading youtube view
+2021-07-30 06:50:04,808 external.views INFO     loading scholar view
+2021-07-30 06:50:16,304 external.views INFO     loading youtube view
+2021-07-30 06:50:18,276 external.views INFO     loading youtube view
+2021-07-30 06:50:20,869 external.views INFO     loading linkedin view
+2021-07-30 06:50:32,158 django.utils.autoreload INFO     D:\work\djangoapps\xd\internal\urls.py changed, reloading.
+2021-07-30 06:50:32,655 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-30 07:04:40,717 external.views INFO     loading twitter view
+2021-07-30 07:05:47,447 external.views INFO     loading twitter view
+2021-07-30 07:06:44,527 external.views INFO     loading Portal view
+2021-07-30 07:06:48,992 external.views INFO     loading tiktok view
+2021-07-30 07:07:20,465 external.views INFO     loading tiktok view
+2021-07-30 07:07:24,604 external.views INFO     loading tiktok view
+2021-07-30 07:16:45,046 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-30 07:26:15,777 external.views INFO     loading Portal view
+2021-07-30 07:43:02,463 django.request WARNING  Not Found: /favicon.ico
+2021-07-30 07:47:25,545 django.request ERROR    Internal Server Error: /internal/school-of-industrial-engineering
+Traceback (most recent call last):
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\work\djangoapps\xd\internal\views.py", line 88, in school_of_industrial_engineering
+    return render(request, "internal/school-of-industrial-engineering.html")
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader_tags.py", line 195, in render
+    return template.render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 172, in render
+    return self._render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\defaulttags.py", line 446, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\urls\base.py", line 86, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\jose\AppData\Local\Programs\Python\Python39\lib\site-packages\django\urls\resolvers.py", line 694, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'postgraduate_and_advance_learning' not found. 'postgraduate_and_advance_learning' is not a valid view function or pattern name.
+2021-07-30 07:50:30,200 external.views INFO     loading tiktok view
+2021-07-30 07:51:17,450 django.utils.autoreload INFO     D:\work\djangoapps\xd\internal\views.py changed, reloading.
+2021-07-30 07:51:18,055 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-30 07:51:27,973 django.utils.autoreload INFO     D:\work\djangoapps\xd\internal\views.py changed, reloading.
+2021-07-30 07:51:28,648 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-30 07:51:47,549 django.utils.autoreload INFO     D:\work\djangoapps\xd\internal\views.py changed, reloading.
+2021-07-30 07:51:48,113 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-30 07:52:21,849 django.utils.autoreload INFO     D:\work\djangoapps\xd\internal\views.py changed, reloading.
+2021-07-30 07:52:22,342 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-30 07:54:03,397 django.utils.autoreload INFO     D:\work\djangoapps\xd\internal\views.py changed, reloading.
+2021-07-30 07:54:03,970 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-30 07:57:00,385 django.utils.autoreload INFO     D:\work\djangoapps\xd\internal\views.py changed, reloading.
+2021-07-30 07:57:00,975 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-30 07:58:43,357 django.utils.autoreload INFO     D:\work\djangoapps\xd\internal\views.py changed, reloading.
+2021-07-30 07:58:43,886 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-08-02 08:20:49,433 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-08-02 08:20:51,722 external.views INFO     loading twitter view
+2021-08-02 08:21:54,023 django.request WARNING  Not Found: /favicon.ico
+2021-08-02 08:22:06,418 django.security.csrf WARNING  Forbidden (CSRF token missing or incorrect.): /auth/login
+2021-08-02 08:22:35,058 external.views INFO     loading twitter view
+2021-08-02 08:22:55,591 django.security.csrf WARNING  Forbidden (CSRF token missing or incorrect.): /admin/auth/user/2/change/
+2021-08-02 08:23:05,307 external.views INFO     loading twitter view
+2021-08-02 08:23:07,063 external.views INFO     loading twitter view
+2021-08-02 08:23:49,434 external.views INFO     loading instagram view
+2021-08-02 08:23:56,040 external.views INFO     loading Portal view
+2021-08-02 08:24:25,522 external.views INFO     loading Portal view
+2021-08-02 08:24:59,179 external.views INFO     loading Portal view
