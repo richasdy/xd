@@ -95,7 +95,7 @@ def youtube(request):
 @login_required
 def linkedin(request):
     ner()
-    pos
+    pos()
     json_data = open(os.path.join(BASE_DIR, "static/data/json/100_data/linkedin.json"))
     data = json.load(json_data)
     context = {}
@@ -113,7 +113,7 @@ def scholar(request):
     return render(request, "external/scholar.html", context)
 
 def ner():
-    text_file = open("./static/external/text/text.txt", "r")
+    text_file = open("./static/external/text/text.txt", "r", encoding="utf8")
     text = text_file.read()
     text_file.close()
 
@@ -125,7 +125,7 @@ def ner():
     output_path.open("w", encoding="utf-8").write(ner)
 
 def pos():
-    text_file = open("./static/external/text/text.txt", "r")
+    text_file = open("./static/external/text/text.txt", "r", encoding="utf8")
     text = text_file.read()
     text_file.close()
 
