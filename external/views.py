@@ -10,6 +10,9 @@ import logging
 import json
 import os
 from pathlib import Path
+import spacy
+from spacy import displacy
+from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -91,6 +94,8 @@ def youtube(request):
 
 @login_required
 def linkedin(request):
+    ner()
+    pos()
     json_data = open(os.path.join(BASE_DIR, "static/data/json/100_data/linkedin.json"))
     data = json.load(json_data)
     context = {}
@@ -106,3 +111,27 @@ def scholar(request):
     context['data'] = data
     logger.info('loading scholar view')
     return render(request, "external/scholar.html", context)
+
+def ner():
+    text_file = open("./static/external/input/text.txt", "r")
+    text = text_file.read()
+    text_file.close()
+
+    nlp = spacy.load("en_core_web_sm")
+    doc = nlp(text)
+
+    ner = displacy.render([doc], style="ent", page=True)
+    output_path = Path("./static/external/output/ner.html")
+    output_path.open("w", encoding="utf-8").write(ner)
+
+def pos():
+    text_file = open("./static/external/input/text.txt", "r")
+    text = text_file.read()
+    text_file.close()
+
+    nlp = spacy.load("en_core_web_sm")
+    doc = nlp(text)
+
+    pos = displacy.render(doc, style="dep")
+    output_path = Path("./static/external/output/pos.svg")
+    output_path.open("w", encoding="utf-8").write(pos)
