@@ -928,3 +928,16 @@ django.urls.exceptions.NoReverseMatch: Reverse for 'postgraduate_and_advance_lea
 2021-08-02 08:23:56,040 external.views INFO     loading Portal view
 2021-08-02 08:24:25,522 external.views INFO     loading Portal view
 2021-08-02 08:24:59,179 external.views INFO     loading Portal view
+2021-08-04 02:08:29,560 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-08-04 02:08:33,083 external.views INFO     loading twitter view
+2021-08-04 04:33:01,023 external.views INFO     loading twitter view
+2021-08-04 04:39:15,090 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-08-04 04:40:03,905 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-08-04 04:40:19,616 django.utils.autoreload INFO     D:\work\djangoapps\xd\xdlog\admin.py changed, reloading.
+2021-08-04 04:40:20,098 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-08-04 04:40:32,745 django.utils.autoreload INFO     D:\work\djangoapps\xd\xdlog\admin.py changed, reloading.
+2021-08-04 04:40:33,229 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-08-04 04:40:38,741 external.views INFO     loading twitter view
+2021-08-04 04:44:29,954 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-08-04 04:45:02,289 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-08-04 04:45:19,133 django.utils.autoreload INFO     D:\work\djangoapps\xd\xd\settings.py changed, reloading.
