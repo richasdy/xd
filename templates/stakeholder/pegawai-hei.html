@@ -1,0 +1,988 @@
+{% extends "external/airui/dashboard-base.html" %}
+{% load static %}
+
+{% block content %}
+<style>
+  .ct-bar{
+    /* The width of your bars */
+    stroke-width: 50px;
+  }
+  .dirChart .ct-bar{
+    stroke-width: 15px;
+  }
+  .fkChart .ct-bar{
+    stroke-width: 15px;
+  }
+  .chart3 .ct-bar {
+    /* Colour of your bars */
+    stroke: maroon;
+    }
+  .chart4 .ct-bar {
+    stroke: #59bfff;
+    }
+  .chart5 .ct-bar{
+    stroke: #A4DE02;
+  }
+  .chart6 .ct-bar{
+    stroke: yellowgreen;
+  }
+  .chart7 .ct-bar{
+    stroke: #c06969;
+  }
+  .chart8 .ct-bar{
+    stroke: #cb99ff;
+  }
+  .chart9 .ct-bar{
+    stroke: seagreen;
+  }
+  .chart10 .ct-bar{
+    stroke: #37718e;
+  }
+  .chart11 .ct-bar{
+    stroke: #ae3450;
+  }
+  .chart12 .ct-bar{
+    stroke: #fcdf76;
+  }
+  .chart13 .ct-bar{
+    stroke: #5f9eb8;
+  }
+  .chart14 .ct-bar{
+    stroke: #ff4c4c;
+  }
+  .chart15 .ct-bar{
+    stroke: #7fbf7f;
+  }
+  .chart16 .ct-bar{
+    stroke: #9999ff;
+  }
+  
+</style>
+<div class="air__layout__content">
+  <div class="air__utils__content">
+    <div class="air__utils__heading">
+      <h5>Dashboard Pegawai Hei</h5>
+    </div>
+      <h2 class="text-dark mb-4">RESPONDEN</h5>
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex flex-wrap mb-9">
+              <div class="air__c1__item">
+                <div class="font-size-18 text-dark font-weight-bold">Direktorat</div>                    
+                </div>
+            </div>
+            <div class="dirChart height-400"></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="d-flex flex-wrap mb-9">
+          <div class="air__c1__item">
+            <div class="font-size-18 text-dark font-weight-bold">Fakultas</div>                    
+            </div>
+        </div>
+        <div class="fkChart ct-chart height-300"></div>
+  </div>
+</div>
+  <script>
+    //HORIZONTAL BAR CHART
+    //Chart responden direktorat
+    (function ($) {
+        'use strict'
+        fetch("/static/data/stakeholder/pegawai-hei/hei_respondenDirektorat.json").then(function(response) {
+              return response.json();
+            }).then(function(data){
+          new Chartist.Bar(
+            '.dirChart',
+            {
+              labels: data.map(function(data){return data.survey}),
+              series: [data.map(function(data){return data.value})],
+      },
+      {
+        seriesBarDistance: 5,
+        
+        reverseData: !0,
+        horizontalBars: !0,
+        axisY: {
+          showGrid: false,
+          offset: 240,
+        },
+        //plugins: [Chartist.plugins.tooltip()],
+      },
+        )
+        })
+      }) (jQuery)
+    // chart responden fakultas
+    ; (function ($) {
+      'use strict'
+      fetch("/static/data/stakeholder/pegawai-hei/hei_respondenFakultas.json").then(function(response) {
+            return response.json();
+          }).then(function(data){
+      //$.getJSON("/static/data/stakeholder/pegawai-hei/hei_respondenFakultas.json", function (data) {
+        new Chartist.Bar(
+          '.fkChart',
+          {
+            labels: data.map(function(data){return data.survey}),
+            series: [data.map(function(data){return data.value})],
+    },
+    {
+      seriesBarDistance: 5,
+      reverseData: !0,
+      horizontalBars: !0,
+      axisY: {
+        showGrid: false,
+        offset: 240,
+      },
+      //plugins: [Chartist.plugins.tooltip()],
+    },
+        )
+      })
+    })(jQuery)
+  </script>
+<h2 class="text-dark mb-4"><b>HASIL SURVEI BUDAYA HEI PER DIREKTORAT</b></h2>  
+
+  <div class="row">
+      <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">     
+          <div class="tab-panel" id="tab-orders-content" role="tabpanel" aria-labelledby="tab-orders-content">
+            <h5>DIR. AKADEMIK</h5>
+            <div class="chart3 height-300"></div>
+            <div class="d-flex flex-wrap">
+              <div class="mr-5 mb-2"></div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="tab-panel" id="tab-orders-content" role="tabpanel" aria-labelledby="tab-orders-content">
+              <h5>DIR. BANDUNG TECHNO PARK </h5>
+              <div class="chart4 height-300"></div>
+            <div class="d-flex flex-wrap">
+              <div class="mr-5 mb-2">
+              </div>
+            </div>           
+            </div>  
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="tab-panel" id="tab-orders-content" role="tabpanel" aria-labelledby="tab-orders-content">
+              <h5>DIR. KEMAHASISWAAN</h5>
+              <div class="chart5 height-300"></div>
+              <div class="d-flex flex-wrap">
+              <div class="mr-5 mb-2">
+              </div>
+            </div>
+            </div>  
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="tab-panel" id="tab-orders-content" role="tabpanel" aria-labelledby="tab-orders-content">
+              <h5>DIR. KERJASAMA STRATEGIS DAN INTERNATIONAL</h5>
+              <div class="chart6 height-300"></div>
+            <div class="d-flex flex-wrap">
+              <div class="mr-5 mb-2">
+              </div>
+            </div>
+            </div>  
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="tab-panel" id="tab-orders-content" role="tabpanel" aria-labelledby="tab-orders-content">
+              <h5>DIR. KEUANGAN</h5>
+              <div class="chart7 height-300"></div>
+            <div class="d-flex flex-wrap">
+              <div class="mr-5 mb-2">
+              </div>
+            </div>
+            </div>  
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="tab-panel" id="tab-orders-content" role="tabpanel" aria-labelledby="tab-orders-content">
+              <h5>DIR. LOGISTIK DAN ASET</h5>
+              <div class="chart8 height-300"></div>
+                <div class="d-flex flex-wrap">
+              <div class="mr-5 mb-2">
+              </div>
+            </div>
+            </div>  
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="tab-panel" id="tab-orders-content" role="tabpanel" aria-labelledby="tab-orders-content">
+              <h5>DIR. PASCASARJANA DAN ADVANCE LEARNING</h5>
+              <div class="chart9 height-300"></div>
+            <div class="d-flex flex-wrap">
+              <div class="mr-5 mb-2">
+              </div>
+            </div>
+            </div>  
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="tab-panel" id="tab-orders-content" role="tabpanel" aria-labelledby="tab-orders-content">
+              <h5>DIR. PEMASARAN DAN ADMISI</h5>
+              <div class="chart11 height-300"></div>
+            <div class="d-flex flex-wrap">
+              <div class="mr-5 mb-2">
+              </div>
+            </div>
+            </div>  
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="tab-panel" id="tab-orders-content" role="tabpanel" aria-labelledby="tab-orders-content">
+              <h5>DIR. PENELITIAN DAN PENGABDIAN MASYARAKAT</h5>
+              <div class="chart10 height-300"></div>
+                <div class="d-flex flex-wrap">
+              <div class="mr-5 mb-2">
+              </div>
+            </div>
+            </div>  
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="tab-panel" id="tab-orders-content" role="tabpanel" aria-labelledby="tab-orders-content">
+              <h5>DIR. PENGEMBANGAN KARIR, ALUMNI DAN ENDOWMENT</h5>
+              <div class="chart12 height-300"></div>
+                <div class="d-flex flex-wrap">
+              <div class="mr-5 mb-2">
+              </div>
+            </div>
+            </div>  
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="tab-panel" id="tab-orders-content" role="tabpanel" aria-labelledby="tab-orders-content">
+              <h5>DIR. PUSAT TEKNOLOGI INFORMASI</h5>
+              <div class="chart13 height-300"></div>
+                <div class="d-flex flex-wrap">
+              <div class="mr-5 mb-2">
+              </div>
+            </div>
+            <script>
+            </script>
+            </div>  
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="tab-panel" id="tab-orders-content" role="tabpanel" aria-labelledby="tab-orders-content">
+              <h5>DIR. SUMBER DAYA MANUSIA</h5>
+              <div class="chart14 height-300"></div>
+            <div class="d-flex flex-wrap">
+              <div class="mr-5 mb-2">
+              </div>
+            </div>
+            </div>  
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="tab-panel" id="tab-orders-content" role="tabpanel" aria-labelledby="tab-orders-content">
+              <h5>DIR. SEKRETARIAT DAN PERENCANAAN STRATEGIS</h5>
+              <div class="chart15 height-300"></div>
+                <div class="d-flex flex-wrap">
+              <div class="mr-5 mb-2">
+              </div>
+            </div>
+            </div>  
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="tab-panel" id="tab-orders-content" role="tabpanel" aria-labelledby="tab-orders-content">
+              <h5>DIR. FAKULTAS</h5>
+              <div class="chart16 height-300"></div>
+            <div class="d-flex flex-wrap">
+              <div class="mr-5 mb-2">
+              </div>
+            </div>
+            </div>  
+          </div>
+        </div>
+      </div>
+  
+
+<script>
+  //BAR CHART
+    /////////////////////////////////////////////////////////////////////////////////////////
+    // "akademik"
+    (function ($) {
+      "use strict";
+      $.getJSON("/static/data/stakeholder/pegawai-hei/hei_akademik.json", function (data) {
+        /////////////////////////////////////////////////////////////////////////////////////////
+        const chartist3 = new Chartist.Bar(
+          ".chart3",
+          {
+            labels: data.map(function(data){return data.survey}),
+            series: [data.map(function(data){return data.value})]},
+          {
+            
+            fullWidth: true,
+            //low: 0,
+            axisY: {
+              showGrid: true,
+              showLabel: true,
+              //offset: 0,
+            },
+            axisX: {
+              showGrid: true,
+            },
+            seriesBarDistance: 25,
+            stroke: "#07da63",
+          }
+        );
+
+        chartist3.on("draw", function (data) {
+          if (data.type === "bar") {
+            data.group.append(
+              new Chartist.Svg("line", {
+                x1: data.x1,
+                x2: data.x2,
+                y1: data.y2,
+                y2: 0,
+                stroke: "#e4e9f0",
+                "stroke-width": "50",
+              })
+            );
+          }
+        });
+        /////////////////////////////////////////////////////////////////////////////////////////
+      });
+    })(jQuery);
+
+    /////////////////////////////////////////////////////////////////////////////////////////
+    // "bandung techno park
+    (function ($) {
+      "use strict";
+      $.getJSON("/static/data/stakeholder/pegawai-hei/hei_btp.json", function (data) {
+        /////////////////////////////////////////////////////////////////////////////////////////
+        const chartist3 = new Chartist.Bar(
+          ".chart4",
+          {
+            labels: data.map(function(data){return data.survey}),
+            series: [data.map(function(data){return data.value})]},
+          {
+            
+            fullWidth: true,
+            //low: 0,
+            axisY: {
+              showGrid: true,
+              showLabel: true,
+              //offset: 0,
+            },
+            axisX: {
+              showGrid: true,
+            },
+            seriesBarDistance: 25,
+            stroke: "#07da63",
+          }
+        );
+
+        chartist3.on("draw", function (data) {
+          if (data.type === "bar") {
+            data.group.append(
+              new Chartist.Svg("line", {
+                x1: data.x1,
+                x2: data.x2,
+                y1: data.y2,
+                y2: 0,
+                stroke: "#e4e9f0",
+                "stroke-width": "50",
+              })
+            );
+          }
+        });
+        /////////////////////////////////////////////////////////////////////////////////////////
+      });
+    })(jQuery);
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////
+    // "kemahasiswaan"
+    (function ($) {
+      "use strict";
+      $.getJSON("/static/data/stakeholder/pegawai-hei/hei_kemahasiswaan.json", function (data) {
+        /////////////////////////////////////////////////////////////////////////////////////////
+        const chartist3 = new Chartist.Bar(
+          ".chart5",
+          {
+            labels: data.map(function(data){return data.survey}),
+            series: [data.map(function(data){return data.value})]},
+          {
+            
+            fullWidth: true,
+            //low: 0,
+            axisY: {
+              showGrid: true,
+              showLabel: true,
+              //offset: 0,
+            },
+            axisX: {
+              showGrid: true,
+            },
+            seriesBarDistance: 25,
+            stroke: "#07da63",
+          }
+        );
+
+        chartist3.on("draw", function (data) {
+          if (data.type === "bar") {
+            data.group.append(
+              new Chartist.Svg("line", {
+                x1: data.x1,
+                x2: data.x2,
+                y1: data.y2,
+                y2: 0,
+                stroke: "#e4e9f0",
+                "stroke-width": "50",
+              })
+            );
+          }
+        });
+        /////////////////////////////////////////////////////////////////////////////////////////
+      });
+    })(jQuery);
+
+    /////////////////////////////////////////////////////////////////////////////////////////
+    // "kerjasama strategis dan international
+    (function ($) {
+      "use strict";
+      $.getJSON("/static/data/stakeholder/pegawai-hei/hei_kerjasama.json", function (data) {
+        /////////////////////////////////////////////////////////////////////////////////////////
+        const chartist3 = new Chartist.Bar(
+          ".chart6",
+          {
+            labels: data.map(function(data){return data.survey}),
+            series: [data.map(function(data){return data.value})]},
+          {
+            
+            fullWidth: true,
+            //low: 0,
+            axisY: {
+              showGrid: true,
+              showLabel: true,
+              //offset: 0,
+            },
+            axisX: {
+              showGrid: true,
+            },
+            seriesBarDistance: 25,
+            stroke: "#07da63",
+          }
+        );
+
+        chartist3.on("draw", function (data) {
+          if (data.type === "bar") {
+            data.group.append(
+              new Chartist.Svg("line", {
+                x1: data.x1,
+                x2: data.x2,
+                y1: data.y2,
+                y2: 0,
+                stroke: "#e4e9f0",
+                "stroke-width": "50",
+              })
+            );
+          }
+        });
+        /////////////////////////////////////////////////////////////////////////////////////////
+      });
+    })(jQuery);
+
+    /////////////////////////////////////////////////////////////////////////////////////////
+    // "keuangan"
+    (function ($) {
+      "use strict";
+      $.getJSON("/static/data/stakeholder/pegawai-hei/hei_keuangan.json", function (data) {
+        /////////////////////////////////////////////////////////////////////////////////////////
+        const chartist3 = new Chartist.Bar(
+          ".chart7",
+          {
+            labels: data.map(function(data){return data.survey}),
+            series: [data.map(function(data){return data.value})]},
+          {
+            
+            fullWidth: true,
+            //low: 0,
+            axisY: {
+              showGrid: true,
+              showLabel: true,
+              //offset: 0,
+            },
+            axisX: {
+              showGrid: true,
+            },
+            seriesBarDistance: 25,
+            stroke: "#07da63",
+          }
+        );
+
+        chartist3.on("draw", function (data) {
+          if (data.type === "bar") {
+            data.group.append(
+              new Chartist.Svg("line", {
+                x1: data.x1,
+                x2: data.x2,
+                y1: data.y2,
+                y2: 0,
+                stroke: "#e4e9f0",
+                "stroke-width": "50",
+              })
+            );
+          }
+        });
+        /////////////////////////////////////////////////////////////////////////////////////////
+      });
+    })(jQuery);
+
+    /////////////////////////////////////////////////////////////////////////////////////////
+    // logistik dan aset"
+    (function ($) {
+      "use strict";
+      $.getJSON("/static/data/stakeholder/pegawai-hei/hei_logistik.json", function (data) {
+        /////////////////////////////////////////////////////////////////////////////////////////
+        const chartist3 = new Chartist.Bar(
+          ".chart8",
+          {
+            labels: data.map(function(data){return data.survey}),
+            series: [data.map(function(data){return data.value})]},
+          {
+            
+            fullWidth: true,
+            //low: 0,
+            axisY: {
+              showGrid: true,
+              showLabel: true,
+              //offset: 0,
+            },
+            axisX: {
+              showGrid: true,
+            },
+            seriesBarDistance: 25,
+            stroke: "#07da63",
+          }
+        );
+
+        chartist3.on("draw", function (data) {
+          if (data.type === "bar") {
+            data.group.append(
+              new Chartist.Svg("line", {
+                x1: data.x1,
+                x2: data.x2,
+                y1: data.y2,
+                y2: 0,
+                stroke: "#e4e9f0",
+                "stroke-width": "50",
+              })
+            );
+          }
+        });
+        /////////////////////////////////////////////////////////////////////////////////////////
+      });
+    })(jQuery);
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////
+    // "pascasarjana"
+    (function ($) {
+      "use strict";
+      $.getJSON("/static/data/stakeholder/pegawai-hei/hei_pascaSarjana.json", function (data) {
+        /////////////////////////////////////////////////////////////////////////////////////////
+        const chartist3 = new Chartist.Bar(
+          ".chart9",
+          {
+            labels: data.map(function(data){return data.survey}),
+            series: [data.map(function(data){return data.value})]},
+          {
+            
+            fullWidth: true,
+            //low: 0,
+            axisY: {
+              showGrid: true,
+              showLabel: true,
+              //offset: 0,
+            },
+            axisX: {
+              showGrid: true,
+            },
+            seriesBarDistance: 25,
+            stroke: "#07da63",
+          }
+        );
+
+        chartist3.on("draw", function (data) {
+          if (data.type === "bar") {
+            data.group.append(
+              new Chartist.Svg("line", {
+                x1: data.x1,
+                x2: data.x2,
+                y1: data.y2,
+                y2: 0,
+                stroke: "#e4e9f0",
+                "stroke-width": "50",
+              })
+            );
+          }
+        });
+        /////////////////////////////////////////////////////////////////////////////////////////
+      });
+    })(jQuery);
+    
+    /////////////////////////////////////////////////////////////////////////////////////////
+    // "pemasaran dan admisi"
+    (function ($) {
+      "use strict";
+      $.getJSON("/static/data/stakeholder/pegawai-hei/hei_pemasaranAdmisi.json", function (data) {
+        /////////////////////////////////////////////////////////////////////////////////////////
+        const chartist3 = new Chartist.Bar(
+          ".chart11",
+          {
+            labels: data.map(function(data){return data.survey}),
+            series: [data.map(function(data){return data.value})]},
+          {
+            
+            fullWidth: true,
+            //low: 0,
+            axisY: {
+              showGrid: true,
+              showLabel: true,
+              //offset: 0,
+            },
+            axisX: {
+              showGrid: true,
+            },
+            seriesBarDistance: 25,
+            stroke: "#07da63",
+          }
+        );
+
+        chartist3.on("draw", function (data) {
+          if (data.type === "bar") {
+            data.group.append(
+              new Chartist.Svg("line", {
+                x1: data.x1,
+                x2: data.x2,
+                y1: data.y2,
+                y2: 0,
+                stroke: "#e4e9f0",
+                "stroke-width": "50",
+              })
+            );
+          }
+        });
+        /////////////////////////////////////////////////////////////////////////////////////////
+      });
+    })(jQuery);  
+    /////////////////////////////////////////////////////////////////////////////////////////
+    // "penelitian dan pengabdian masyarakat"
+    (function ($) {
+      "use strict";
+      $.getJSON("/static/data/stakeholder/pegawai-hei/hei_ppm.json", function (data) {
+        /////////////////////////////////////////////////////////////////////////////////////////
+        const chartist3 = new Chartist.Bar(
+          ".chart10",
+          {
+            labels: data.map(function(data){return data.survey}),
+            series: [data.map(function(data){return data.value})]},
+          {
+            
+            fullWidth: true,
+            //low: 0,
+            axisY: {
+              showGrid: true,
+              showLabel: true,
+              //offset: 0,
+            },
+            axisX: {
+              showGrid: true,
+            },
+            seriesBarDistance: 25,
+            stroke: "#07da63",
+          }
+        );
+
+        chartist3.on("draw", function (data) {
+          if (data.type === "bar") {
+            data.group.append(
+              new Chartist.Svg("line", {
+                x1: data.x1,
+                x2: data.x2,
+                y1: data.y2,
+                y2: 0,
+                stroke: "#e4e9f0",
+                "stroke-width": "50",
+              })
+            );
+          }
+        });
+        /////////////////////////////////////////////////////////////////////////////////////////
+      });
+    })(jQuery);
+    /////////////////////////////////////////////////////////////////////////////////////////
+    // "pengembangan karir"
+    (function ($) {
+      "use strict";
+      $.getJSON("/static/data/stakeholder/pegawai-hei/hei_pengembangan.json", function (data) {
+        /////////////////////////////////////////////////////////////////////////////////////////
+        const chartist3 = new Chartist.Bar(
+          ".chart12",
+          {
+            labels: data.map(function(data){return data.survey}),
+            series: [data.map(function(data){return data.value})]},
+          {
+            
+            fullWidth: true,
+            //low: 0,
+            axisY: {
+              showGrid: true,
+              showLabel: true,
+              //offset: 0,
+            },
+            axisX: {
+              showGrid: true,
+            },
+            seriesBarDistance: 25,
+            stroke: "#07da63",
+          }
+        );
+
+        chartist3.on("draw", function (data) {
+          if (data.type === "bar") {
+            data.group.append(
+              new Chartist.Svg("line", {
+                x1: data.x1,
+                x2: data.x2,
+                y1: data.y2,
+                y2: 0,
+                stroke: "#e4e9f0",
+                "stroke-width": "50",
+              })
+            );
+          }
+        });
+        /////////////////////////////////////////////////////////////////////////////////////////
+      });
+    })(jQuery);
+    /////////////////////////////////////////////////////////////////////////////////////////
+    // "pusat IT"
+    (function ($) {
+      "use strict";
+      $.getJSON("/static/data/stakeholder/pegawai-hei/hei_pusatIT.json", function (data) {
+        /////////////////////////////////////////////////////////////////////////////////////////
+        const chartist3 = new Chartist.Bar(
+          ".chart13",
+          {
+            labels: data.map(function(data){return data.survey}),
+            series: [data.map(function(data){return data.value})]},
+          {
+            
+            fullWidth: true,
+            //low: 0,
+            axisY: {
+              showGrid: true,
+              showLabel: true,
+              //offset: 0,
+            },
+            axisX: {
+              showGrid: true,
+            },
+            seriesBarDistance: 25,
+            stroke: "#07da63",
+          }
+        );
+
+        chartist3.on("draw", function (data) {
+          if (data.type === "bar") {
+            data.group.append(
+              new Chartist.Svg("line", {
+                x1: data.x1,
+                x2: data.x2,
+                y1: data.y2,
+                y2: 0,
+                stroke: "#e4e9f0",
+                "stroke-width": "50",
+              })
+            );
+          }
+        });
+        /////////////////////////////////////////////////////////////////////////////////////////
+      });
+    })(jQuery);
+    /////////////////////////////////////////////////////////////////////////////////////////
+    // "sdm"
+    (function ($) {
+      "use strict";
+      $.getJSON("/static/data/stakeholder/pegawai-hei/hei_sdm.json", function (data) {
+        /////////////////////////////////////////////////////////////////////////////////////////
+        const chartist3 = new Chartist.Bar(
+          ".chart14",
+          {
+            labels: data.map(function(data){return data.survey}),
+            series: [data.map(function(data){return data.value})]},
+          {
+            
+            fullWidth: true,
+            //low: 0,
+            axisY: {
+              showGrid: true,
+              showLabel: true,
+              //offset: 0,
+            },
+            axisX: {
+              showGrid: true,
+            },
+            seriesBarDistance: 25,
+            stroke: "#07da63",
+          }
+        );
+
+        chartist3.on("draw", function (data) {
+          if (data.type === "bar") {
+            data.group.append(
+              new Chartist.Svg("line", {
+                x1: data.x1,
+                x2: data.x2,
+                y1: data.y2,
+                y2: 0,
+                stroke: "#e4e9f0",
+                "stroke-width": "50",
+              })
+            );
+          }
+        });
+        /////////////////////////////////////////////////////////////////////////////////////////
+      });
+    })(jQuery);
+    /////////////////////////////////////////////////////////////////////////////////////////
+    // sekretariat
+    (function ($) {
+      "use strict";
+      $.getJSON("/static/data/stakeholder/pegawai-hei/hei_sekretariat.json", function (data) {
+        /////////////////////////////////////////////////////////////////////////////////////////
+        const chartist3 = new Chartist.Bar(
+          ".chart15",
+          {
+            labels: data.map(function(data){return data.survey}),
+            series: [data.map(function(data){return data.value})]},
+          {
+            
+            fullWidth: true,
+            //low: 0,
+            axisY: {
+              showGrid: true,
+              showLabel: true,
+              //offset: 0,
+            },
+            axisX: {
+              showGrid: true,
+            },
+            seriesBarDistance: 25,
+            stroke: "#07da63",
+          }
+        );
+
+        chartist3.on("draw", function (data) {
+          if (data.type === "bar") {
+            data.group.append(
+              new Chartist.Svg("line", {
+                x1: data.x1,
+                x2: data.x2,
+                y1: data.y2,
+                y2: 0,
+                stroke: "#e4e9f0",
+                "stroke-width": "50",
+              })
+            );
+          }
+        });
+        /////////////////////////////////////////////////////////////////////////////////////////
+      });
+    })(jQuery);
+
+    /////////////////////////////////////////////////////////////////////////////////////////
+    // "fakultas
+    (function ($) {
+      "use strict";
+      $.getJSON("/static/data/stakeholder/pegawai-hei/hei_fakultas.json", function (data) {
+        /////////////////////////////////////////////////////////////////////////////////////////
+        const chartist3 = new Chartist.Bar(
+          ".chart16",
+          {
+            labels: data.map(function(data){return data.survey}),
+            series: [data.map(function(data){return data.value})]},
+          {
+            
+            fullWidth: true,
+            //low: 0,
+            axisY: {
+              showGrid: true,
+              showLabel: true,
+              //offset: 0,
+            },
+            axisX: {
+              showGrid: true,
+            },
+            seriesBarDistance: 25,
+            stroke: "#07da63",
+          }
+        );
+
+        chartist3.on("draw", function (data) {
+          if (data.type === "bar") {
+            data.group.append(
+              new Chartist.Svg("line", {
+                x1: data.x1,
+                x2: data.x2,
+                y1: data.y2,
+                y2: 0,
+                stroke: "#e4e9f0",
+                "stroke-width": "50",
+              })
+            );
+          }
+        });
+        /////////////////////////////////////////////////////////////////////////////////////////
+      });
+    })(jQuery);  
+</script>
+
+{% endblock content %}

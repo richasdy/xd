@@ -7,7 +7,6 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Create your views here.
 logger = logging.getLogger(__name__)
 
 @login_required
@@ -17,7 +16,7 @@ def mahasiswa_edom(request):
     context = {}
     context['data'] = data
     return render(request, "stakeholder/airui/mahasiswa-edom.html", context)
-
+    
 @login_required
 def alumni(request):
     return render(request, "stakeholder/alumni.html")
@@ -41,3 +40,11 @@ def pegawai(request):
 @login_required  
 def mahasiswalayanan(request):
     return render(request, "stakeholder/stakeholder-mahasiswalayanan.html")
+
+@login_required  
+def pegawai_hei(request):
+    return render(request, "stakeholder/pegawai-hei.html")
+
+@login_required  
+def ypt_gug(request):
+    return render(request, "stakeholder/ypt-gug.html")       

@@ -611,3 +611,20 @@ django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 4: 'block'.
 2021-07-28 15:08:05,060 django.request WARNING  Not Found: /stakeholder/data/stakeholder/pegawai/FEB.json
 2021-07-28 15:41:26,332 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2021-07-28 15:41:47,332 django.request WARNING  Not Found: /stakeholder/
+2021-08-12 00:05:48,774 django.utils.autoreload INFO     C:\Users\My ASUS\Documents\GitHub\xd\stakeholder\views.py changed, reloading.
+2021-08-12 00:05:49,984 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-08-12 00:07:51,087 django.utils.autoreload INFO     C:\Users\My ASUS\Documents\GitHub\xd\stakeholder\urls.py changed, reloading.
+2021-08-12 00:07:52,307 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-08-12 00:08:39,464 django.utils.autoreload INFO     C:\Users\My ASUS\Documents\GitHub\xd\stakeholder\views.py changed, reloading.
+2021-08-12 00:08:40,512 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-08-12 00:08:51,418 django.request WARNING  Not Found: /stakeholder/
+2021-08-12 00:08:55,641 django.request WARNING  Not Found: /stakeholder/mahasiswa
+2021-08-12 00:14:11,918 external.views INFO     loading instagram view
+2021-08-12 00:14:21,067 external.views INFO     loading instagram view
+2021-08-12 00:15:12,801 external.views INFO     loading instagram view
+2021-08-12 00:18:57,354 external.views INFO     loading instagram view
+2021-08-12 00:24:40,638 django.request WARNING  Not Found: /stakeholder/pegawai-hei1
+2021-08-12 00:26:46,776 django.utils.autoreload INFO     C:\Users\My ASUS\Documents\GitHub\xd\stakeholder\views.py changed, reloading.
+2021-08-12 00:26:47,921 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-08-12 00:27:43,612 django.utils.autoreload INFO     C:\Users\My ASUS\Documents\GitHub\xd\external\views.py changed, reloading.
+2021-08-12 00:27:44,732 django.utils.autoreload INFO     Watching for file changes with StatReloader

@@ -10,4 +10,6 @@ urlpatterns = [
     path('mahasiswalayanan', views.mahasiswalayanan, name='mahasiswalayanan'),
     path('mitra', views.mitra, name='mitra'),
     path('mahasiswa-visi-misi', views.mahasiswa_visi_misi, name='mahasiswa-visi-misi'),
+    path('pegawai-hei', views.pegawai_hei, name='pegawai-hei'),
+    path('ypt-gug', views.ypt_gug, name='ypt-gug'),
 ]
