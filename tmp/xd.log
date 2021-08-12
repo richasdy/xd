@@ -616,3 +616,398 @@ django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 4: 'block'.
 2021-07-28 15:08:05,060 django.request WARNING  Not Found: /stakeholder/data/stakeholder/pegawai/FEB.json
 2021-07-28 15:41:26,332 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2021-07-28 15:41:47,332 django.request WARNING  Not Found: /stakeholder/
+2021-07-28 15:44:22,489 django.request WARNING  Not Found: /stakeholder/
+2021-07-30 01:05:43,868 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-30 01:06:13,647 external.views INFO     loading Portal view
+2021-07-30 01:07:17,745 external.views INFO     loading Portal view
+2021-07-30 01:08:35,684 external.views INFO     loading Portal view
+2021-07-30 01:10:47,944 external.views INFO     loading Portal view
+2021-07-30 01:18:05,200 external.views INFO     loading Portal view
+2021-07-30 01:18:14,920 external.views INFO     loading Portal view
+2021-07-30 01:18:25,832 external.views INFO     loading Portal view
+2021-07-30 01:18:33,229 external.views INFO     loading Portal view
+2021-07-30 01:18:45,279 external.views INFO     loading Portal view
+2021-07-30 01:33:40,762 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-30 01:33:43,606 external.views INFO     loading Portal view
+2021-07-30 01:33:44,656 django.request WARNING  Not Found: /assets/css/style.css
+2021-07-30 01:33:44,912 django.request WARNING  Not Found: /release/go.js
+2021-07-30 01:33:44,961 django.request WARNING  Not Found: /assets/css/style.css
+2021-07-30 01:33:45,490 django.request WARNING  Not Found: /release/go.js
+2021-07-30 01:34:11,624 external.views INFO     loading Portal view
+2021-07-30 01:37:49,971 external.views INFO     loading Portal view
+2021-07-30 01:50:44,577 external.views INFO     loading Portal view
+2021-07-30 01:51:07,515 external.views INFO     loading Portal view
+2021-07-30 01:51:27,889 external.views INFO     loading Portal view
+2021-07-30 06:32:17,183 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-30 06:32:45,128 external.views INFO     loading Portal view
+2021-07-30 06:44:33,970 external.views INFO     loading Portal view
+2021-07-30 06:45:51,262 external.views INFO     loading Portal view
+2021-07-30 06:50:20,984 external.views INFO     loading Portal view
+2021-07-30 06:51:38,386 external.views INFO     loading Portal view
+2021-07-30 06:52:20,283 external.views INFO     loading Portal view
+2021-07-30 06:54:32,621 external.views INFO     loading Portal view
+2021-07-30 06:55:23,272 external.views INFO     loading Portal view
+2021-07-30 06:58:11,548 external.views INFO     loading Portal view
+2021-07-30 06:59:16,730 external.views INFO     loading Portal view
+2021-07-30 06:59:49,854 external.views INFO     loading Portal view
+2021-07-30 07:00:37,821 external.views INFO     loading Portal view
+2021-07-30 07:03:25,884 external.views INFO     loading Portal view
+2021-07-30 07:04:34,212 external.views INFO     loading Portal view
+2021-07-30 07:04:46,206 external.views INFO     loading Portal view
+2021-07-30 07:04:59,821 external.views INFO     loading Portal view
+2021-07-30 07:10:11,139 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\views.py changed, reloading.
+2021-07-30 07:10:12,416 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-07-30 07:10:18,416 external.views INFO     loading root view
+2021-07-30 07:10:18,929 django.request ERROR    Internal Server Error: /external/root
+Traceback (most recent call last):
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\YOGA\Documents\richasdy\xd\external\views.py", line 106, in root
+    return render(request, "external/root.html")
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loaders\base.py", line 29, in get_template
+    return Template(
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader_tags.py", line 216, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 483, in parse
+    self.unclosed_block_tag(parse_until)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 544, in unclosed_block_tag
+    raise self.error(token, msg)
+django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 4: 'block'. Looking for one of: endblock.
+2021-07-30 07:10:21,678 django.request WARNING  Not Found: /favicon.ico
+2021-07-30 07:10:40,526 external.views INFO     loading root view
+2021-07-30 07:11:05,575 external.views INFO     loading root view
+2021-07-30 07:13:17,787 external.views INFO     loading root view
+2021-07-30 07:13:44,631 external.views INFO     loading root view
+2021-07-30 07:14:13,186 external.views INFO     loading root view
+2021-07-30 07:14:47,746 external.views INFO     loading root view
+2021-08-01 15:58:15,498 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-08-01 15:58:25,667 external.views INFO     loading Portal view
+2021-08-01 16:21:27,082 external.views INFO     loading Portal view
+2021-08-01 16:22:24,854 external.views INFO     loading Portal view
+2021-08-01 16:24:02,065 external.views INFO     loading Portal view
+2021-08-01 16:31:06,127 external.views INFO     loading root view
+2021-08-01 16:31:06,823 django.request ERROR    Internal Server Error: /external/root
+Traceback (most recent call last):
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 470, in parse
+    compile_func = self.tags[command]
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\core\handlers\base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\contrib\auth\decorators.py", line 21, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\YOGA\Documents\richasdy\xd\external\views.py", line 106, in root
+    return render(request, "external/root.html")
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\loaders\base.py", line 29, in get_template
+    return Template(
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 472, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\YOGA\AppData\Local\Programs\Python\Python39\lib\site-packages\django\template\base.py", line 531, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 17: 'static'. Did you forget to register or load this tag?
+2021-08-01 16:31:10,100 django.request WARNING  Not Found: /favicon.ico
+2021-08-01 16:31:28,274 external.views INFO     loading root view
+2021-08-01 16:31:52,979 external.views INFO     loading root view
+2021-08-01 16:32:36,922 external.views INFO     loading root view
+2021-08-01 16:34:14,706 external.views INFO     loading Portal view
+2021-08-01 16:34:42,524 external.views INFO     loading Portal view
+2021-08-01 16:34:54,108 external.views INFO     loading Portal view
+2021-08-01 16:35:14,760 external.views INFO     loading Portal view
+2021-08-01 16:35:21,484 external.views INFO     loading Portal view
+2021-08-01 16:36:17,277 external.views INFO     loading Portal view
+2021-08-01 16:36:43,950 external.views INFO     loading Portal view
+2021-08-01 16:38:02,373 external.views INFO     loading Portal view
+2021-08-01 16:38:03,781 django.request WARNING  Not Found: /external/data/json/root.json
+2021-08-01 16:38:18,287 external.views INFO     loading Portal view
+2021-08-01 16:38:49,369 external.views INFO     loading Portal view
+2021-08-01 16:39:18,013 external.views INFO     loading Portal view
+2021-08-01 16:41:18,474 external.views INFO     loading Portal view
+2021-08-01 16:44:08,134 external.views INFO     loading Portal view
+2021-08-01 16:54:15,194 external.views INFO     loading root view
+2021-08-01 16:54:44,940 external.views INFO     loading root view
+2021-08-01 17:00:22,005 external.views INFO     loading root view
+2021-08-01 17:26:30,635 external.views INFO     loading Portal view
+2021-08-01 17:27:03,840 external.views INFO     loading Portal view
+2021-08-01 17:27:31,810 external.views INFO     loading Portal view
+2021-08-01 20:13:37,908 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-08-01 20:13:45,682 external.views INFO     loading Portal view
+2021-08-01 20:15:31,050 external.views INFO     loading Portal view
+2021-08-01 20:18:09,224 external.views INFO     loading Portal view
+2021-08-01 20:18:22,932 external.views INFO     loading Portal view
+2021-08-01 20:18:48,441 external.views INFO     loading Portal view
+2021-08-01 20:20:07,946 external.views INFO     loading Portal view
+2021-08-01 20:23:24,970 external.views INFO     loading Portal view
+2021-08-01 20:24:50,644 external.views INFO     loading Portal view
+2021-08-01 20:26:06,567 external.views INFO     loading Portal view
+2021-08-01 20:26:18,356 external.views INFO     loading Portal view
+2021-08-02 13:58:48,893 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-08-02 13:58:53,894 external.views INFO     loading Portal view
+2021-08-02 14:03:06,177 external.views INFO     loading Portal view
+2021-08-02 14:03:50,774 external.views INFO     loading Portal view
+2021-08-02 14:06:09,762 external.views INFO     loading Portal view
+2021-08-02 14:06:29,807 external.views INFO     loading Portal view
+2021-08-02 14:06:46,593 external.views INFO     loading Portal view
+2021-08-02 14:07:15,808 external.views INFO     loading Portal view
+2021-08-02 14:08:51,750 external.views INFO     loading Portal view
+2021-08-02 14:09:43,698 external.views INFO     loading Portal view
+2021-08-02 14:12:14,552 external.views INFO     loading Portal view
+2021-08-02 14:12:34,332 external.views INFO     loading Portal view
+2021-08-02 14:15:27,300 external.views INFO     loading Portal view
+2021-08-02 14:15:34,574 external.views INFO     loading Portal view
+2021-08-02 14:17:00,375 external.views INFO     loading Portal view
+2021-08-02 14:19:16,791 external.views INFO     loading root view
+2021-08-02 14:19:19,649 django.request WARNING  Not Found: /favicon.ico
+2021-08-02 14:23:32,396 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\views.py changed, reloading.
+2021-08-02 14:23:33,852 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-08-03 14:22:49,095 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-08-03 14:22:52,081 external.views INFO     loading root view
+2021-08-03 14:22:52,579 django.request WARNING  Not Found: /assets/css/style.css
+2021-08-03 14:22:52,583 django.request WARNING  Not Found: /assets/js/goSamples.js
+2021-08-03 14:22:52,586 django.request WARNING  Not Found: /release/go.js
+2021-08-03 14:22:53,042 django.request WARNING  Not Found: /assets/js/goSamples.js
+2021-08-03 14:22:55,943 django.request WARNING  Not Found: /favicon.ico
+2021-08-03 14:28:37,463 external.views INFO     loading Portal view
+2021-08-03 15:47:04,185 external.views INFO     loading root view
+2021-08-03 15:55:05,102 external.views INFO     loading root view
+2021-08-03 15:56:58,024 external.views INFO     loading root view
+2021-08-03 15:57:34,212 external.views INFO     loading root view
+2021-08-03 15:57:34,594 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-03 15:59:28,688 external.views INFO     loading root view
+2021-08-03 15:59:29,009 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-03 16:00:56,413 external.views INFO     loading root view
+2021-08-03 16:00:56,594 django.request WARNING  Not Found: /external/dist/style.css
+2021-08-03 16:00:56,872 django.request WARNING  Not Found: /external/dist/script.js
+2021-08-03 16:00:56,941 django.request WARNING  Not Found: /external/assets/icon.svg
+2021-08-03 16:00:56,947 django.request WARNING  Not Found: /external/assets/icons.svg
+2021-08-03 16:00:56,971 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-03 16:00:57,204 django.request WARNING  Not Found: /external/dist/script.js
+2021-08-03 16:01:55,502 external.views INFO     loading root view
+2021-08-03 16:01:55,612 django.request WARNING  Not Found: /external/dist/style.css
+2021-08-03 16:01:55,617 django.request WARNING  Not Found: /external/assets/icon.svg
+2021-08-03 16:01:55,948 django.request WARNING  Not Found: /external/dist/script.js
+2021-08-03 16:01:55,979 django.request WARNING  Not Found: /external/assets/icons.svg
+2021-08-03 16:01:55,989 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-03 16:06:55,690 external.views INFO     loading root view
+2021-08-03 16:06:55,766 django.request WARNING  Not Found: /external/dist/style.css
+2021-08-03 16:06:55,963 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-03 16:14:22,130 external.views INFO     loading root view
+2021-08-03 16:14:22,197 django.request WARNING  Not Found: /external/dist/style.css
+2021-08-03 16:14:22,424 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-03 16:28:30,860 external.views INFO     loading root view
+2021-08-03 16:28:31,217 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-03 16:37:07,692 external.views INFO     loading root view
+2021-08-03 16:37:08,046 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-03 16:40:29,744 external.views INFO     loading root view
+2021-08-03 16:40:29,926 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-03 16:41:04,985 external.views INFO     loading root view
+2021-08-03 16:41:05,269 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-03 16:44:52,138 external.views INFO     loading root view
+2021-08-03 16:44:52,382 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-03 16:48:25,312 external.views INFO     loading Portal view
+2021-08-03 16:48:27,690 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-03 16:49:01,405 external.views INFO     loading Portal view
+2021-08-03 16:49:02,662 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-10 09:09:57,196 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-08-10 09:10:05,288 external.views INFO     loading Portal view
+2021-08-10 09:10:16,280 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-10 09:11:00,768 django.utils.autoreload INFO     C:\Users\YOGA\Documents\richasdy\xd\external\views.py changed, reloading.
+2021-08-10 09:11:02,704 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-08-10 09:12:58,840 external.views INFO     loading Portal view
+2021-08-10 09:13:00,491 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-10 09:18:58,875 external.views INFO     loading Portal view
+2021-08-10 09:19:00,577 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-10 09:19:57,178 external.views INFO     loading Portal view
+2021-08-10 09:19:58,620 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-10 09:22:43,372 external.views INFO     loading Portal view
+2021-08-10 09:22:44,542 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-10 09:23:15,300 external.views INFO     loading Portal view
+2021-08-10 09:23:16,517 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-10 09:23:24,602 external.views INFO     loading Portal view
+2021-08-10 09:23:25,727 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-10 09:23:47,188 external.views INFO     loading Portal view
+2021-08-10 09:23:48,663 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-10 09:25:24,886 external.views INFO     loading Portal view
+2021-08-10 09:25:26,074 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-10 09:25:58,970 external.views INFO     loading Portal view
+2021-08-10 09:26:00,146 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-10 09:27:19,552 external.views INFO     loading Portal view
+2021-08-10 09:27:20,670 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-10 09:27:39,923 external.views INFO     loading Portal view
+2021-08-10 09:27:41,067 django.request WARNING  Not Found: /external/data/json/sct.json
+2021-08-10 09:27:41,072 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-10 09:27:57,874 external.views INFO     loading Portal view
+2021-08-10 09:27:59,049 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-10 09:27:59,051 django.request WARNING  Not Found: /external/static/data/json/sct.json
+2021-08-10 09:29:10,292 external.views INFO     loading Portal view
+2021-08-10 09:29:11,465 django.request WARNING  Not Found: /external/static/data/json/sct.json
+2021-08-10 09:29:11,472 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-10 09:29:24,951 external.views INFO     loading Portal view
+2021-08-10 09:29:26,354 django.request WARNING  Not Found: /external/static/data/json/sct.json
+2021-08-10 09:29:26,359 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-10 09:29:44,775 external.views INFO     loading Portal view
+2021-08-10 09:29:45,964 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-10 09:32:03,931 external.views INFO     loading Portal view
+2021-08-10 09:32:05,122 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-10 09:32:31,505 external.views INFO     loading Portal view
+2021-08-10 09:32:32,675 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-10 09:33:08,134 external.views INFO     loading Portal view
+2021-08-10 09:33:09,321 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-11 23:41:01,828 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-08-11 23:41:06,966 external.views INFO     loading Portal view
+2021-08-11 23:41:15,257 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-11 23:45:02,877 external.views INFO     loading Portal view
+2021-08-11 23:45:04,226 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-11 23:55:14,341 external.views INFO     loading Portal view
+2021-08-11 23:55:17,580 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-11 23:58:25,349 external.views INFO     loading Portal view
+2021-08-11 23:58:26,945 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-11 23:59:27,482 external.views INFO     loading Portal view
+2021-08-11 23:59:29,193 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:00:47,730 external.views INFO     loading Portal view
+2021-08-12 00:00:49,163 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:01:52,803 external.views INFO     loading Portal view
+2021-08-12 00:01:54,026 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:08:00,612 external.views INFO     loading Portal view
+2021-08-12 00:08:02,667 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:08:24,587 external.views INFO     loading Portal view
+2021-08-12 00:08:25,970 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:08:36,732 external.views INFO     loading Portal view
+2021-08-12 00:08:37,985 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:08:58,700 external.views INFO     loading Portal view
+2021-08-12 00:08:59,989 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:09:07,768 external.views INFO     loading Portal view
+2021-08-12 00:09:08,962 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:09:19,887 external.views INFO     loading Portal view
+2021-08-12 00:09:21,322 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:09:41,989 external.views INFO     loading Portal view
+2021-08-12 00:09:43,261 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:09:55,053 external.views INFO     loading Portal view
+2021-08-12 00:09:56,260 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:10:07,078 external.views INFO     loading Portal view
+2021-08-12 00:10:08,631 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:10:24,844 external.views INFO     loading Portal view
+2021-08-12 00:10:26,109 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:10:49,625 external.views INFO     loading Portal view
+2021-08-12 00:10:51,259 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:11:16,885 external.views INFO     loading Portal view
+2021-08-12 00:11:18,129 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:12:14,483 external.views INFO     loading Portal view
+2021-08-12 00:12:15,762 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:12:38,857 external.views INFO     loading Portal view
+2021-08-12 00:12:40,155 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:12:50,741 external.views INFO     loading Portal view
+2021-08-12 00:12:52,162 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:12:58,985 external.views INFO     loading Portal view
+2021-08-12 00:13:00,530 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:13:06,357 external.views INFO     loading Portal view
+2021-08-12 00:13:07,547 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:13:23,934 external.views INFO     loading Portal view
+2021-08-12 00:13:25,153 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:13:44,632 external.views INFO     loading Portal view
+2021-08-12 00:13:45,840 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:13:56,941 external.views INFO     loading Portal view
+2021-08-12 00:13:58,108 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:14:05,653 external.views INFO     loading Portal view
+2021-08-12 00:14:06,842 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:14:20,380 external.views INFO     loading Portal view
+2021-08-12 00:14:21,830 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:14:46,461 external.views INFO     loading Portal view
+2021-08-12 00:14:47,750 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:15:00,670 external.views INFO     loading Portal view
+2021-08-12 00:15:01,888 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:15:53,552 external.views INFO     loading Portal view
+2021-08-12 00:15:54,752 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:16:15,346 external.views INFO     loading Portal view
+2021-08-12 00:16:16,823 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:16:32,644 external.views INFO     loading Portal view
+2021-08-12 00:16:33,899 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:16:45,395 external.views INFO     loading Portal view
+2021-08-12 00:16:46,624 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:17:11,506 external.views INFO     loading Portal view
+2021-08-12 00:17:12,702 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:17:34,024 external.views INFO     loading Portal view
+2021-08-12 00:17:35,297 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:17:47,210 external.views INFO     loading Portal view
+2021-08-12 00:17:48,422 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:17:57,535 external.views INFO     loading Portal view
+2021-08-12 00:17:58,741 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:18:16,167 external.views INFO     loading Portal view
+2021-08-12 00:18:17,389 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:18:56,126 external.views INFO     loading Portal view
+2021-08-12 00:18:57,390 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:19:39,827 external.views INFO     loading Portal view
+2021-08-12 00:19:41,014 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:20:36,774 external.views INFO     loading Portal view
+2021-08-12 00:20:38,069 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:21:35,646 external.views INFO     loading Portal view
+2021-08-12 00:21:37,505 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:21:46,987 external.views INFO     loading Portal view
+2021-08-12 00:21:48,470 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:21:55,382 external.views INFO     loading Portal view
+2021-08-12 00:21:56,526 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:25:35,065 external.views INFO     loading Portal view
+2021-08-12 00:25:37,107 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:25:55,995 external.views INFO     loading Portal view
+2021-08-12 00:25:57,616 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:26:12,139 external.views INFO     loading Portal view
+2021-08-12 00:26:13,604 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:27:31,520 external.views INFO     loading Portal view
+2021-08-12 00:27:33,943 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:28:52,300 external.views INFO     loading Portal view
+2021-08-12 00:28:55,211 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:29:40,688 external.views INFO     loading Portal view
+2021-08-12 00:29:42,134 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 00:31:03,774 external.views INFO     loading Portal view
+2021-08-12 00:31:05,071 django.request WARNING  Not Found: /external/assets/link.svg
+2021-08-12 08:25:00,247 django.utils.autoreload INFO     Watching for file changes with StatReloader
