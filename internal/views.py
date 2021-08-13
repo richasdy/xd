@@ -10,11 +10,6 @@ import logging
 
 db_logger = logging.getLogger('db')
 
-try:
-    1/0
-except Exception as e:
-    db_logger.exception(e)
-
 @login_required
 def academic(request):
     context = {}

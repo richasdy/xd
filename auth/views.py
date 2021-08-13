@@ -5,11 +5,6 @@ import logging
 
 db_logger = logging.getLogger('db')
 
-try:
-    1/0
-except Exception as e:
-    db_logger.exception(e)
-
 def sign_up(request):
     current_site = Site.objects.get_current(request)
     context = {}
