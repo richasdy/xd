@@ -13,11 +13,6 @@ import logging
 
 db_logger = logging.getLogger('db')
 
-try:
-    1/0
-except Exception as e:
-    db_logger.exception(e)
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 @login_required
