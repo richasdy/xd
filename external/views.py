@@ -9,6 +9,8 @@ from django.contrib import messages
 import logging
 import json
 import os
+#import spacy
+#from spacy import displacy
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -50,6 +52,8 @@ def tables(request):
 
 @login_required
 def instagram(request):
+    ner()
+    pos()
     json_data = open("static/data/json/100_data/instagram.json")
     data = json.load(json_data)
     context = {}
@@ -106,3 +110,27 @@ def scholar(request):
     context['data'] = data
     logger.info('loading scholar view')
     return render(request, "external/scholar.html", context)
+
+def ner():
+    text_file = open("./static/external/text/text.txt", "r", encoding="utf8")
+    text = text_file.read()
+    text_file.close()
+
+    #nlp = spacy.load("en_core_web_sm")
+    #doc = nlp(text)
+
+    #ner = displacy.render([doc], style="ent", page=True)
+    #output_path = Path("./static/external/graphic/ner.html")
+    #output_path.open("w", encoding="utf-8").write(ner)
+
+def pos():
+    text_file = open("./static/external/text/text.txt", "r", encoding="utf8")
+    #text = text_file.read()
+    #text_file.close()
+
+    #nlp = spacy.load("en_core_web_sm")
+    #doc = nlp(text)
+
+    #pos = displacy.render(doc, style="dep")
+    #output_path = Path("./static/external/graphic/pos.svg")
+    #output_path.open("w", encoding="utf-8").write(pos)
