@@ -28,33 +28,58 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'formatters': {
+#         'console': {
+#             'format': '%(name)-12s %(levelname)-8s %(message)s'
+#         },
+#         'file': {
+#             'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
+#         }
+#     },
+#     'handlers': {
+#         'console': {
+#             'class': 'logging.StreamHandler',
+#             'formatter': 'console'
+#         },
+#         'file': {
+#             'level': 'DEBUG',
+#             'class': 'logging.FileHandler',
+#             'formatter': 'file',
+#             'filename': os.path.join(BASE_DIR, 'tmp/xd.log'),
+#         }
+#     },
+#     'loggers': {
+#         '': {
+#             'level': 'INFO',
+#             'handlers': ['console', 'file']
+#         }
+#     }
+# }
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'formatters': {
-        'console': {
-            'format': '%(name)-12s %(levelname)-8s %(message)s'
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
         },
-        'file': {
-            'format': '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
-        }
+        'simple': {
+            'format': '%(levelname)s %(asctime)s %(message)s'
+        },
     },
     'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-            'formatter': 'console'
-        },
-        'file': {
+        'db_log': {
             'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'formatter': 'file',
-            'filename': os.path.join(BASE_DIR, 'tmp/xd.log'),
-        }
+            'class': 'django_db_logger.db_log_handler.DatabaseLogHandler'
+        },
     },
     'loggers': {
-        '': {
-            'level': 'INFO',
-            'handlers': ['console', 'file']
+        'db': {
+            'handlers': ['db_log'],
+            'level': 'DEBUG'
         }
     }
 }
@@ -74,6 +99,7 @@ INSTALLED_APPS = [
     'external.apps.ExternalConfig',
     'internal.apps.InternalConfig',
     'stakeholder.apps.StakeholderConfig',
+    'django_db_logger'
 ]
 
 LOGIN_URL = '/auth/login'

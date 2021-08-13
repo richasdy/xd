@@ -3,7 +3,12 @@ from django.contrib.sites.models import Site
 from .regform import UserCreationForm
 import logging
 
-logger = logging.getLogger(__name__)
+db_logger = logging.getLogger('db')
+
+try:
+    1/0
+except Exception as e:
+    db_logger.exception(e)
 
 def sign_up(request):
     current_site = Site.objects.get_current(request)
@@ -16,9 +21,9 @@ def sign_up(request):
             user = form.save()
             return render(request, 'auth/success.html')
     context['form'] = form
-    logger.info('loading register view')
+    db_logger.info('load register page')
     return render(request, 'auth/system-register.html', context)
 
 def regsuccess(request):
-    logger.info('loading register success view')
+    db_logger.info('load registration success page')
     return render(request, 'auth/success.html')
