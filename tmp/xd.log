@@ -610,4 +610,30 @@ django.template.exceptions.TemplateSyntaxError: Unclosed tag on line 4: 'block'.
 2021-07-28 15:07:00,350 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2021-07-28 15:08:05,060 django.request WARNING  Not Found: /stakeholder/data/stakeholder/pegawai/FEB.json
 2021-07-28 15:41:26,332 django.utils.autoreload INFO     Watching for file changes with StatReloader
-2021-07-28 15:41:47,332 django.request WARNING  Not Found: /stakeholder/
+2021-07-28 15:41:47,332 django.request WARNING  Not Found: /stakeholder/2021-08-12 19:45:34,675 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-08-12 19:45:44,097 django.request WARNING  Not Found: /
+2021-08-12 19:45:44,184 django.request WARNING  Not Found: /favicon.ico
+2021-08-12 19:45:52,153 external.views INFO     loading youtube view
+2021-08-12 19:53:35,483 external.views INFO     loading youtube view
+2021-08-12 19:53:48,971 external.views INFO     loading youtube view
+2021-08-12 19:53:54,227 external.views INFO     loading youtube view
+2021-08-12 19:56:07,521 external.views INFO     loading youtube view
+2021-08-12 20:03:26,824 external.views INFO     loading youtube view
+2021-08-12 20:03:29,877 external.views INFO     loading youtube view
+2021-08-12 20:03:36,809 external.views INFO     loading youtube view
+2021-08-12 20:03:42,062 external.views INFO     loading youtube view
+2021-08-12 20:04:02,927 external.views INFO     loading youtube view
+2021-08-12 20:04:38,839 external.views INFO     loading youtube view
+2021-08-12 20:06:21,089 external.views INFO     loading youtube view
+2021-08-12 20:06:25,545 external.views INFO     loading youtube view
+2021-08-12 20:08:29,438 external.views INFO     loading youtube view
+2021-08-12 20:09:11,924 external.views INFO     loading youtube view
+2021-08-12 20:09:20,016 external.views INFO     loading youtube view
+2021-08-12 20:13:16,802 external.views INFO     loading youtube view
+2021-08-12 20:14:12,398 external.views INFO     loading youtube view
+2021-08-12 20:14:20,335 external.views INFO     loading youtube view
+2021-08-12 20:14:52,665 external.views INFO     loading youtube view
+2021-08-12 20:14:57,733 external.views INFO     loading youtube view
+2021-08-12 20:15:15,765 external.views INFO     loading youtube view
+2021-08-12 20:15:20,639 external.views INFO     loading youtube view
+2021-08-12 20:15:34,972 external.views INFO     loading youtube view
