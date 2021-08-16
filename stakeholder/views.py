@@ -7,6 +7,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Create your views here.
 logger = logging.getLogger(__name__)
 
 @login_required
@@ -15,36 +16,41 @@ def mahasiswa_edom(request):
     data = json.load(json_data)
     context = {}
     context['data'] = data
+    context['page_name'] = 'Mahasiswa EDOM'
     return render(request, "stakeholder/airui/mahasiswa-edom.html", context)
-    
+
 @login_required
 def alumni(request):
-    return render(request, "stakeholder/alumni.html")
+    context = {}
+    context['page_name'] = 'Alumni'
+    return render(request, "stakeholder/alumni.html", context)
 
 @login_required
 def orangtuamahasiswa(request):
-    return render(request, "stakeholder/orangtuamahasiswa.html")
+    context = {}
+    context['page_name'] = 'Orang Tua Mahasiswa'
+    return render(request, "stakeholder/orangtuamahasiswa.html", context)
   
 @login_required
 def mitra(request):
-    return render(request, "stakeholder/mitra.html")
+    context = {}
+    context['page_name'] = 'Mitra'
+    return render(request, "stakeholder/mitra.html", context)
 
 @login_required
 def mahasiswa_visi_misi(request):
-    return render(request, "stakeholder/mahasiswa-visi-misi.html")
+    context = {}
+    context['page_name'] = 'Mahasiswa Pengetahuan Visi Misi'
+    return render(request, "stakeholder/mahasiswa-visi-misi.html", context)
 
 @login_required
 def pegawai(request):
-    return render(request, "stakeholder/stakeholder-pegawai.html")
+    context = {}
+    context['page_name'] = 'Pegawai'
+    return render(request, "stakeholder/stakeholder-pegawai.html", context)
 
 @login_required  
 def mahasiswalayanan(request):
-    return render(request, "stakeholder/stakeholder-mahasiswalayanan.html")
-
-@login_required  
-def pegawai_hei(request):
-    return render(request, "stakeholder/pegawai-hei.html")
-
-@login_required  
-def ypt_gug(request):
-    return render(request, "stakeholder/ypt-gug.html")       
+    context = {}
+    context['page_name'] = 'Mahasiswa Layanan'
+    return render(request, "stakeholder/stakeholder-mahasiswalayanan.html", context)
