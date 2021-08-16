@@ -59,7 +59,7 @@ var margin = {top: 10, right: 30, bottom: 30, left: 40},
     height = 400 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-var svg = d3.select("#hst")
+var hst = d3.select("#hst")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -74,7 +74,7 @@ d3.json("{% static 'data/json/hst.json' %}", function(data) {
   var x = d3.scaleLinear()
       .domain([0, 1000])     // can use this instead of 1000 to have the max of data: d3.max(data, function(d) { return +d.price })
       .range([0, width]);
-  svg.append("g")
+  hst.append("g")
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x));
 
@@ -91,11 +91,11 @@ d3.json("{% static 'data/json/hst.json' %}", function(data) {
   var y = d3.scaleLinear()
       .range([height, 0]);
       y.domain([0, d3.max(bins, function(d) { return d.length; })]);   // d3.hist has to be called before the Y axis obviously
-  svg.append("g")
+  hst.append("g")
       .call(d3.axisLeft(y));
 
   // append the bar rectangles to the svg element
-  svg.selectAll("rect")
+  hst.selectAll("rect")
       .data(bins)
       .enter()
       .append("rect")
