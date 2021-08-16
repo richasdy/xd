@@ -1,0 +1,13 @@
+[
+    {"word": "Jogging", "size": 10, "color" :"indigo"}, 
+    {"word": "Camping", "size": 20, "color" :"lightGreen"},
+    {"word": "Biking", "size": 50, "color" :"greenYellow"}, 
+    {"word": "Fishing", "size": 30, "color" :"navy"}, 
+    {"word": "Sailing", "size": 20, "color" :"springGreen"}, 
+    {"word": "Snowboarding", "size": 50, "color" :"springGreen"},
+    {"word": "Surfing", "size": 40, "color" :"navy"},
+    {"word": "Climbing", "size": 30, "color" :"indigo"}, 
+    {"word": "Kiting", "size": 30, "color" :"yellow"}, 
+    {"word": "Running", "size": 10, "color" :"greenYellow"}, 
+    {"word": "Swimming", "size": 34, "color" :"indigo"} 
+]
