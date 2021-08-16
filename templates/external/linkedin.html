@@ -537,13 +537,14 @@
     <!-- end Howard -->
 
     <!-- Fathur: Root Cause Analysis & Relationship Extraction -->
-    <!--
-      <div class="card">
+    <div class="card">
       <div class="card-body">
         <h4 class="mb-4">
           <strong>Root Cause Analysis</strong>
         </h4>
         <div id="hst"></div>
+
+        <script src="https://d3js.org/d3.v4.js"></script>
         <script>
           // set the dimensions and margins of the graph
           var margin = { top: 10, right: 30, bottom: 30, left: 40 },
@@ -551,7 +552,7 @@
             height = 400 - margin.top - margin.bottom;
 
           // append the svg object to the body of the page
-          var svg = d3.select("#hst")
+          var hst = d3.select("#hst")
             .append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
@@ -566,7 +567,7 @@
             var x = d3.scaleLinear()
               .domain([0, 1000])     // can use this instead of 1000 to have the max of data: d3.max(data, function(d) { return +d.price })
               .range([0, width]);
-            svg.append("g")
+            hst.append("g")
               .attr("transform", "translate(0," + height + ")")
               .call(d3.axisBottom(x));
 
@@ -583,11 +584,11 @@
             var y = d3.scaleLinear()
               .range([height, 0]);
             y.domain([0, d3.max(bins, function (d) { return d.length; })]);   // d3.hist has to be called before the Y axis obviously
-            svg.append("g")
+            hst.append("g")
               .call(d3.axisLeft(y));
 
             // append the bar rectangles to the svg element
-            svg.selectAll("rect")
+            hst.selectAll("rect")
               .data(bins)
               .enter()
               .append("rect")
@@ -600,15 +601,13 @@
         </script>
       </div>
     </div>
-    -->
 
-    <!--
-<div class="card">
+    <div class="card">
       <div class="card-body">
         <h4 class="mb-4">
           <strong>Root Cause Analysis</strong>
         </h4>
-        <div id="sct"></div>
+        <div id="cnt_sct"></div>
 
         <script>
           // set the dimensions and margins of the graph
@@ -617,7 +616,7 @@
             height = 400 - margin.top - margin.bottom;
 
           // append the svg object to the body of the page
-          var sct = d3.select("#sct")
+          var cnt_sct = d3.select("#cnt_sct")
             .append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
@@ -633,17 +632,17 @@
               var x = d3.scaleTime()
                 .domain(d3.extent(data, function (d) { return d.date; }))
                 .range([0, width]);
-              sct.append("g")
+              cnt_sct.append("g")
                 .attr("transform", "translate(0," + height + ")")
                 .call(d3.axisBottom(x));
               // Add Y axis
               var y = d3.scaleLinear()
                 .domain([8000, 9200])
                 .range([height, 0]);
-              sct.append("g")
+              cnt_sct.append("g")
                 .call(d3.axisLeft(y));
               // Add the line
-              sct.append("path")
+              cnt_sct.append("path")
                 .datum(data)
                 .attr("fill", "none")
                 .attr("stroke", "#69b3a2")
@@ -653,7 +652,7 @@
                   .y(function (d) { return y(d.value) })
                 )
               // Add the points
-              sct
+              cnt_sct
                 .append("g")
                 .selectAll("dot")
                 .data(data)
@@ -667,7 +666,6 @@
         </script>
       </div>
     </div>
-    -->
 
     <div class="card">
       <div class="card-body">
