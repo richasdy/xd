@@ -65,11 +65,11 @@
     <!-- Eko: NER & POS -->
     <div class="row">
       <div class="col-lg-12">
-        <div class="air__utils__heading">
-          <h5>Named Entity Recognition (NER)</h5>
-        </div>
         <div class="card">
           <div class="card-body">
+            <h4 class="mb-4">
+              <strong>Named Entity Recognition (NER)</strong>
+            </h4>
             <p style="text-align: center;">
               <iframe src="{% static 'external/graphic/ner.html' %}" width="1000" height="200"></iframe>
             </p>
@@ -80,11 +80,11 @@
     </div>
     <div class="row">
       <div class="col-lg-12">
-        <div class="air__utils__heading">
-          <h5>Part-of-Speech Tagging (POS)</h5>
-        </div>
         <div class="card">
           <div class="card-body">
+            <h4 class="mb-4">
+              <strong>Part-of-Speech Tagging (POS)</strong>
+            </h4>
             <p style="text-align: center;">
               <img src="{% static 'external/graphic/pos.svg' %}" width="1000" height="200"></img>
             </p>
@@ -98,11 +98,12 @@
     <!-- Khairul: Wordcloud & Doc Clustering -->
     <div class="card">
       <div class="card-body">
-        <div class="air__utils__heading">
-          <h5>Document Clustering</h5>
-        </div>
+        <h4 class="mb-4">
+          <strong>Document Clustering</strong>
+        </h4>
         <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/bmabey/pyLDAvis/files/ldavis.v1.0.0.css">
         <div id="lda"></div>
+        <p style="text-align: center;">Document Clustering</p>
         <script type="text/javascript">
           //var ldavis = ("https://gist.githubusercontent.com/olemi/17d82c722c7d2086b5af1c3fc4b6c6bd/raw/298b1a66292143722021734d83f7bd5d0797d8ac/topic_model_twitter_consulting_bigram_20170323");
           $.getJSON("/static/data/json/ldavis.json", function (data) {
@@ -145,17 +146,19 @@
       </div>
     </div>
 
-    <div class="air__utils__heading">
-      <h5>Wordcloud</h5>
-    </div>
     <div class="card">
       <div class="card-body">
+        <h4 class="mb-4">
+          <strong>Wordcloud</strong>
+        </h4>
         <div class="row">
           <div class="col-lg-6 position-relative">
             <div id="wordcloud"></div>
+            <p style="text-align: center;">Wordcloud</p>
           </div>
           <div class="col-lg-6">
             <div id="scatter"></div>
+            <p style="text-align: center;">Scatter Plot</p>
           </div>
         </div>
         <!-- Load d3-cloud -->
@@ -266,285 +269,517 @@
           })
         </script>
       </div>
-      <!-- end Khairul -->
-
-      <!-- Howard: Sentiment Analysis & Sentiment Polarity -->
-      <div class="air__layout__content">
-        <div class="air__utils__content">
-          <div class="air__utils__heading">
-            <h5> Sentiment Analysis</h5>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div class="row">
-                <div class="col-lg-12" id="sentiment_analysis">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <script src="{% static 'common/d3.min.js' %}"></script>
-      <script src="{% static 'common/cloud.js' %}"></script>
-      <script>
-        var text_string = "Our goal is to get the best version consistently that’s going to bring us closer to winning football matches. That’s what I want from the team. If we do that consistently in every single match, we’re going to be in a good place, but that’s something we haven’t done, consistently give the best version. That’s something we must control and we must do, and I think if we’re able to do that, then the results will be the consequence to that.";
-
-        drawWordCloud(text_string);
-
-        function drawWordCloud(text_string) {
-          var common = "poop,i,me,my,myself,we,us,our,ours,ourselves,you,your,yours,yourself,yourselves,he,him,his,himself,she,her,hers,herself,it,its,itself,they,them,their,theirs,themselves,what,which,who,whom,whose,this,that,these,those,am,is,are,was,were,be,been,being,have,has,had,having,do,does,did,doing,will,would,should,can,could,ought,i'm,you're,he's,she's,it's,we're,they're,i've,you've,we've,they've,i'd,you'd,he'd,she'd,we'd,they'd,i'll,you'll,he'll,she'll,we'll,they'll,isn't,aren't,wasn't,weren't,hasn't,haven't,hadn't,doesn't,don't,didn't,won't,wouldn't,shan't,shouldn't,can't,cannot,couldn't,mustn't,let's,that's,who's,what's,here's,there's,when's,where's,why's,how's,a,an,the,and,but,if,or,because,as,until,while,of,at,by,for,with,about,against,between,into,through,during,before,after,above,below,to,from,up,upon,down,in,out,on,off,over,under,again,further,then,once,here,there,when,where,why,how,all,any,both,each,few,more,most,other,some,such,no,nor,not,only,own,same,so,than,too,very,say,says,said,shall";
-
-          var word_count = {};
-
-          var words = text_string.split(/[ '\-\(\)\*":;\[\]|{},.!?]+/);
-          if (words.length == 1) {
-            word_count[words[0]] = 1;
-          } else {
-            words.forEach(function (word) {
-              var word = word.toLowerCase();
-              if (word != "" && common.indexOf(word) == -1 && word.length > 1) {
-                if (word_count[word]) {
-                  word_count[word]++;
-                } else {
-                  word_count[word] = 1;
-                }
-              }
-            })
-          }
-
-          var svg_location = "#sentiment_analysis";
-          var width = $('#sentiment_analysis').width();
-          var height = 360;
-
-          var fill = d3.scale.category20();
-
-          var word_entries = d3.entries(word_count);
-
-          var xScale = d3.scale.linear()
-            .domain([0, d3.max(word_entries, function (d) {
-              return d.value;
-            })
-            ])
-            .range([10, 100]);
-
-          d3.layout.cloud().size([width, height])
-            .timeInterval(20)
-            .words(word_entries)
-            .fontSize(function (d) { return xScale(+d.value); })
-            .text(function (d) { return d.key; })
-            .rotate(function () { return ~~(Math.random() * 2) * 90; })
-            .font("Impact")
-            .on("end", draw)
-            .start();
-
-          function draw(words) {
-            d3.select(svg_location).append("svg")
-              .attr("width", width)
-              .attr("height", height)
-              .append("g")
-              .attr("transform", "translate(" + [width >> 1, height >> 1] + ")")
-              .selectAll("text")
-              .data(words)
-              .enter().append("text")
-              .style("font-size", function (d) { return xScale(d.value) + "px"; })
-              .style("font-family", "Impact")
-              .style("fill", "#69b3a2")
-              .attr("text-anchor", "middle")
-              .attr("transform", function (d) {
-                return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-              })
-              .text(function (d) { return d.key; });
-          }
-          d3.layout.cloud().stop();
-        }
-      </script>
-
-      <script>
-        var text_string = "That the team puts in place what we’ve been working on and the spirit that they have and the energy that they’ve been training with and in games more consistently, because we’ve had some very good patches against both teams in the last two games against Spurs and Chelsea. It’s how we compete in matches to get the wins, which is the most important things. ";
-
-        drawWordCloud(text_string);
-
-        function drawWordCloud(text_string) {
-          var common = "poop,i,me,my,myself,we,us,our,ours,ourselves,you,your,yours,yourself,yourselves,he,him,his,himself,she,her,hers,herself,it,its,itself,they,them,their,theirs,themselves,what,which,who,whom,whose,this,that,these,those,am,is,are,was,were,be,been,being,have,has,had,having,do,does,did,doing,will,would,should,can,could,ought,i'm,you're,he's,she's,it's,we're,they're,i've,you've,we've,they've,i'd,you'd,he'd,she'd,we'd,they'd,i'll,you'll,he'll,she'll,we'll,they'll,isn't,aren't,wasn't,weren't,hasn't,haven't,hadn't,doesn't,don't,didn't,won't,wouldn't,shan't,shouldn't,can't,cannot,couldn't,mustn't,let's,that's,who's,what's,here's,there's,when's,where's,why's,how's,a,an,the,and,but,if,or,because,as,until,while,of,at,by,for,with,about,against,between,into,through,during,before,after,above,below,to,from,up,upon,down,in,out,on,off,over,under,again,further,then,once,here,there,when,where,why,how,all,any,both,each,few,more,most,other,some,such,no,nor,not,only,own,same,so,than,too,very,say,says,said,shall";
-
-          var word_count = {};
-
-          var words = text_string.split(/[ '\-\(\)\*":;\[\]|{},.!?]+/);
-          if (words.length == 1) {
-            word_count[words[0]] = 1;
-          } else {
-            words.forEach(function (word) {
-              var word = word.toLowerCase();
-              if (word != "" && common.indexOf(word) == -1 && word.length > 1) {
-                if (word_count[word]) {
-                  word_count[word]++;
-                } else {
-                  word_count[word] = 1;
-                }
-              }
-            })
-          }
-
-          var svg_location = "#sentiment_analysis";
-          var width = $('#sentiment_analysis').width();
-          var height = 360;
-
-          var fill = d3.scale.category20();
-
-          var word_entries = d3.entries(word_count);
-
-          var xScale = d3.scale.linear()
-            .domain([0, d3.max(word_entries, function (d) {
-              return d.value;
-            })
-            ])
-            .range([10, 100]);
-
-          d3.layout.cloud().size([width, height])
-            .timeInterval(20)
-            .words(word_entries)
-            .fontSize(function (d) { return xScale(+d.value); })
-            .text(function (d) { return d.key; })
-            .rotate(function () { return ~~(Math.random() * 2) * 90; })
-            .font("Impact")
-            .on("end", draw)
-            .start();
-
-          function draw(words) {
-            d3.select(svg_location).append("svg")
-              .attr("width", width)
-              .attr("height", height)
-              .append("g")
-              .attr("transform", "translate(" + [width >> 1, height >> 1] + ")")
-              .selectAll("text")
-              .data(words)
-              .enter().append("text")
-              .style("font-size", function (d) { return xScale(d.value) + "px"; })
-              .style("font-family", "Impact")
-              .style("fill", "#FF0000")
-              .attr("text-anchor", "middle")
-              .attr("transform", function (d) {
-                return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-              })
-              .text(function (d) { return d.key; });
-
-          }
-
-
-
-          d3.layout.cloud().stop();
-        }
-
-
-      </script>
-
-      <div class="air__layout__content">
-        <div class="air__utils__content">
-          <div class="air__utils__heading">
-            <h5>Sentiment Polarity</h5>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div class="row">
-                <div id="my_dataviz">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Load d3.js -->
-      <script src="https://d3js.org/d3.v4.js"></script>
-
-      <script>
-        // set the dimensions and margins of the graph
-        var margin = { top: 10, right: 30, bottom: 30, left: 40 },
-          width = 460 - margin.left - margin.right,
-          height = 400 - margin.top - margin.bottom;
-
-        // append the svg object to the body of the page
-        var svg = d3.select("#my_dataviz")
-          .append("svg")
-          .attr("width", width + margin.left + margin.right)
-          .attr("height", height + margin.top + margin.bottom)
-          .append("g")
-          .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")");
-
-        // get the data
-        d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/data_doubleHist.csv", function (data) {
-          // X axis: scale and draw:
-          var x = d3.scaleLinear()
-            .domain([-4, 9])     // can use this instead of 1000 to have the max of data: d3.max(data, function(d) { return +d.price })
-            .range([0, width]);
-          svg.append("g")
-            .attr("transform", "translate(0," + height + ")")
-            .call(d3.axisBottom(x));
-
-          // set the parameters for the histogram
-          var histogram = d3.histogram()
-            .value(function (d) { return +d.value; })   // I need to give the vector of value
-            .domain(x.domain())  // then the domain of the graphic
-            .thresholds(x.ticks(40)); // then the numbers of bins
-
-          // And apply twice this function to data to get the bins.
-          var bins1 = histogram(data.filter(function (d) { return d.type === "variable 1" }));
-          var bins2 = histogram(data.filter(function (d) { return d.type === "variable 2" }));
-
-          // Y axis: scale and draw:
-          var y = d3.scaleLinear()
-            .range([height, 0]);
-          y.domain([0, d3.max(bins1, function (d) { return d.length; })]);   // d3.hist has to be called before the Y axis obviously
-          svg.append("g")
-            .call(d3.axisLeft(y));
-
-          // append the bars for series 1
-          svg.selectAll("rect")
-            .data(bins1)
-            .enter()
-            .append("rect")
-            .attr("x", 1)
-            .attr("transform", function (d) { return "translate(" + x(d.x0) + "," + y(d.length) + ")"; })
-            .attr("width", function (d) { return x(d.x1) - x(d.x0) - 1; })
-            .attr("height", function (d) { return height - y(d.length); })
-            .style("fill", "#3952a3")
-            .style("opacity", 0.6)
-
-          // append the bars for series 2
-          svg.selectAll("rect2")
-            .data(bins2)
-            .enter()
-            .append("rect")
-            .attr("x", 1)
-            .attr("transform", function (d) { return "translate(" + x(d.x0) + "," + y(d.length) + ")"; })
-            .attr("width", function (d) { return x(d.x1) - x(d.x0) - 1; })
-            .attr("height", function (d) { return height - y(d.length); })
-            .style("fill", "#a64d19")
-            .style("opacity", 0.6)
-
-          // Handmade legend
-          svg.append("circle").attr("cx", 300).attr("cy", 30).attr("r", 6).style("fill", "#3952a3")
-          svg.append("circle").attr("cx", 300).attr("cy", 60).attr("r", 6).style("fill", "#a64d19")
-          svg.append("text").attr("x", 320).attr("y", 30).text("Not Recommended").style("font-size", "15px").attr("alignment-baseline", "middle")
-          svg.append("text").attr("x", 320).attr("y", 60).text("Recommended").style("font-size", "15px").attr("alignment-baseline", "middle")
-        });
-      </script>
-
-
-      <!-- end Howard -->
-
-
     </div>
-  </div>
-  <script type="text/javascript">
+    <!-- end Khairul -->
 
-    $(function () {
-      $("#example1").DataTable({
-        responsive: true,
-        // autoWidth: true,
-        // scrollX: true,
-        // fixedColumns: true,
+    <!-- Howard: Sentiment Analysis & Sentiment Polarity -->
+    <div class="air__layout__content">
+      <div class="air__utils__content">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="mb-4">
+              <strong>Sentiment Analysis</strong>
+            </h4>
+            <div class="row">
+              <div class="col-lg-12" id="sentiment_analysis"></div>
+            </div>
+            <p style="text-align: center;">Wordcloud of Sentiment Analysis</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'common/d3.min.js' %}"></script>
+    <script src="{% static 'common/cloud.js' %}"></script>
+    <script>
+      var text_string = "Our goal is to get the best version consistently that’s going to bring us closer to winning football matches. That’s what I want from the team. If we do that consistently in every single match, we’re going to be in a good place, but that’s something we haven’t done, consistently give the best version. That’s something we must control and we must do, and I think if we’re able to do that, then the results will be the consequence to that.";
+
+      drawWordCloud(text_string);
+
+      function drawWordCloud(text_string) {
+        var common = "poop,i,me,my,myself,we,us,our,ours,ourselves,you,your,yours,yourself,yourselves,he,him,his,himself,she,her,hers,herself,it,its,itself,they,them,their,theirs,themselves,what,which,who,whom,whose,this,that,these,those,am,is,are,was,were,be,been,being,have,has,had,having,do,does,did,doing,will,would,should,can,could,ought,i'm,you're,he's,she's,it's,we're,they're,i've,you've,we've,they've,i'd,you'd,he'd,she'd,we'd,they'd,i'll,you'll,he'll,she'll,we'll,they'll,isn't,aren't,wasn't,weren't,hasn't,haven't,hadn't,doesn't,don't,didn't,won't,wouldn't,shan't,shouldn't,can't,cannot,couldn't,mustn't,let's,that's,who's,what's,here's,there's,when's,where's,why's,how's,a,an,the,and,but,if,or,because,as,until,while,of,at,by,for,with,about,against,between,into,through,during,before,after,above,below,to,from,up,upon,down,in,out,on,off,over,under,again,further,then,once,here,there,when,where,why,how,all,any,both,each,few,more,most,other,some,such,no,nor,not,only,own,same,so,than,too,very,say,says,said,shall";
+
+        var word_count = {};
+
+        var words = text_string.split(/[ '\-\(\)\*":;\[\]|{},.!?]+/);
+        if (words.length == 1) {
+          word_count[words[0]] = 1;
+        } else {
+          words.forEach(function (word) {
+            var word = word.toLowerCase();
+            if (word != "" && common.indexOf(word) == -1 && word.length > 1) {
+              if (word_count[word]) {
+                word_count[word]++;
+              } else {
+                word_count[word] = 1;
+              }
+            }
+          })
+        }
+
+        var svg_location = "#sentiment_analysis";
+        var width = $('#sentiment_analysis').width();
+        var height = 360;
+
+        var fill = d3.scale.category20();
+
+        var word_entries = d3.entries(word_count);
+
+        var xScale = d3.scale.linear()
+          .domain([0, d3.max(word_entries, function (d) {
+            return d.value;
+          })
+          ])
+          .range([10, 100]);
+
+        d3.layout.cloud().size([width, height])
+          .timeInterval(20)
+          .words(word_entries)
+          .fontSize(function (d) { return xScale(+d.value); })
+          .text(function (d) { return d.key; })
+          .rotate(function () { return ~~(Math.random() * 2) * 90; })
+          .font("Impact")
+          .on("end", draw)
+          .start();
+
+        function draw(words) {
+          d3.select(svg_location).append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .append("g")
+            .attr("transform", "translate(" + [width >> 1, height >> 1] + ")")
+            .selectAll("text")
+            .data(words)
+            .enter().append("text")
+            .style("font-size", function (d) { return xScale(d.value) + "px"; })
+            .style("font-family", "Impact")
+            .style("fill", "#69b3a2")
+            .attr("text-anchor", "middle")
+            .attr("transform", function (d) {
+              return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+            })
+            .text(function (d) { return d.key; });
+        }
+        d3.layout.cloud().stop();
+      }
+    </script>
+
+    <script>
+      var text_string = "That the team puts in place what we’ve been working on and the spirit that they have and the energy that they’ve been training with and in games more consistently, because we’ve had some very good patches against both teams in the last two games against Spurs and Chelsea. It’s how we compete in matches to get the wins, which is the most important things. ";
+
+      drawWordCloud(text_string);
+
+      function drawWordCloud(text_string) {
+        var common = "poop,i,me,my,myself,we,us,our,ours,ourselves,you,your,yours,yourself,yourselves,he,him,his,himself,she,her,hers,herself,it,its,itself,they,them,their,theirs,themselves,what,which,who,whom,whose,this,that,these,those,am,is,are,was,were,be,been,being,have,has,had,having,do,does,did,doing,will,would,should,can,could,ought,i'm,you're,he's,she's,it's,we're,they're,i've,you've,we've,they've,i'd,you'd,he'd,she'd,we'd,they'd,i'll,you'll,he'll,she'll,we'll,they'll,isn't,aren't,wasn't,weren't,hasn't,haven't,hadn't,doesn't,don't,didn't,won't,wouldn't,shan't,shouldn't,can't,cannot,couldn't,mustn't,let's,that's,who's,what's,here's,there's,when's,where's,why's,how's,a,an,the,and,but,if,or,because,as,until,while,of,at,by,for,with,about,against,between,into,through,during,before,after,above,below,to,from,up,upon,down,in,out,on,off,over,under,again,further,then,once,here,there,when,where,why,how,all,any,both,each,few,more,most,other,some,such,no,nor,not,only,own,same,so,than,too,very,say,says,said,shall";
+
+        var word_count = {};
+
+        var words = text_string.split(/[ '\-\(\)\*":;\[\]|{},.!?]+/);
+        if (words.length == 1) {
+          word_count[words[0]] = 1;
+        } else {
+          words.forEach(function (word) {
+            var word = word.toLowerCase();
+            if (word != "" && common.indexOf(word) == -1 && word.length > 1) {
+              if (word_count[word]) {
+                word_count[word]++;
+              } else {
+                word_count[word] = 1;
+              }
+            }
+          })
+        }
+
+        var svg_location = "#sentiment_analysis";
+        var width = $('#sentiment_analysis').width();
+        var height = 360;
+
+        var fill = d3.scale.category20();
+
+        var word_entries = d3.entries(word_count);
+
+        var xScale = d3.scale.linear()
+          .domain([0, d3.max(word_entries, function (d) {
+            return d.value;
+          })
+          ])
+          .range([10, 100]);
+
+        d3.layout.cloud().size([width, height])
+          .timeInterval(20)
+          .words(word_entries)
+          .fontSize(function (d) { return xScale(+d.value); })
+          .text(function (d) { return d.key; })
+          .rotate(function () { return ~~(Math.random() * 2) * 90; })
+          .font("Impact")
+          .on("end", draw)
+          .start();
+
+        function draw(words) {
+          d3.select(svg_location).append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .append("g")
+            .attr("transform", "translate(" + [width >> 1, height >> 1] + ")")
+            .selectAll("text")
+            .data(words)
+            .enter().append("text")
+            .style("font-size", function (d) { return xScale(d.value) + "px"; })
+            .style("font-family", "Impact")
+            .style("fill", "#FF0000")
+            .attr("text-anchor", "middle")
+            .attr("transform", function (d) {
+              return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+            })
+            .text(function (d) { return d.key; });
+
+        }
+
+
+
+        d3.layout.cloud().stop();
+      }
+
+
+    </script>
+
+    <div class="air__layout__content">
+      <div class="air__utils__content">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="mb-4">
+              <strong>Sentiment Polarity</strong>
+            </h4>
+            <div class="row">
+              <div id="sentiment_polarity">
+              </div>
+            </div>
+            <p style="text-align: center;">Histogram of Sentiment Polarity</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Load d3.js -->
+    <script src="https://d3js.org/d3.v4.js"></script>
+
+    <script>
+      // set the dimensions and margins of the graph
+      var margin = { top: 10, right: 30, bottom: 30, left: 40 },
+        width = 460 - margin.left - margin.right,
+        height = 400 - margin.top - margin.bottom;
+
+      // append the svg object to the body of the page
+      var svg = d3.select("#sentiment_polarity")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+      // get the data
+      d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/data_doubleHist.csv", function (data) {
+        // X axis: scale and draw:
+        var x = d3.scaleLinear()
+          .domain([-4, 9])     // can use this instead of 1000 to have the max of data: d3.max(data, function(d) { return +d.price })
+          .range([0, width]);
+        svg.append("g")
+          .attr("transform", "translate(0," + height + ")")
+          .call(d3.axisBottom(x));
+
+        // set the parameters for the histogram
+        var histogram = d3.histogram()
+          .value(function (d) { return +d.value; })   // I need to give the vector of value
+          .domain(x.domain())  // then the domain of the graphic
+          .thresholds(x.ticks(40)); // then the numbers of bins
+
+        // And apply twice this function to data to get the bins.
+        var bins1 = histogram(data.filter(function (d) { return d.type === "variable 1" }));
+        var bins2 = histogram(data.filter(function (d) { return d.type === "variable 2" }));
+
+        // Y axis: scale and draw:
+        var y = d3.scaleLinear()
+          .range([height, 0]);
+        y.domain([0, d3.max(bins1, function (d) { return d.length; })]);   // d3.hist has to be called before the Y axis obviously
+        svg.append("g")
+          .call(d3.axisLeft(y));
+
+        // append the bars for series 1
+        svg.selectAll("rect")
+          .data(bins1)
+          .enter()
+          .append("rect")
+          .attr("x", 1)
+          .attr("transform", function (d) { return "translate(" + x(d.x0) + "," + y(d.length) + ")"; })
+          .attr("width", function (d) { return x(d.x1) - x(d.x0) - 1; })
+          .attr("height", function (d) { return height - y(d.length); })
+          .style("fill", "#3952a3")
+          .style("opacity", 0.6)
+
+        // append the bars for series 2
+        svg.selectAll("rect2")
+          .data(bins2)
+          .enter()
+          .append("rect")
+          .attr("x", 1)
+          .attr("transform", function (d) { return "translate(" + x(d.x0) + "," + y(d.length) + ")"; })
+          .attr("width", function (d) { return x(d.x1) - x(d.x0) - 1; })
+          .attr("height", function (d) { return height - y(d.length); })
+          .style("fill", "#a64d19")
+          .style("opacity", 0.6)
+
+        // Handmade legend
+        svg.append("circle").attr("cx", 300).attr("cy", 30).attr("r", 6).style("fill", "#3952a3")
+        svg.append("circle").attr("cx", 300).attr("cy", 60).attr("r", 6).style("fill", "#a64d19")
+        svg.append("text").attr("x", 320).attr("y", 30).text("Not Recommended").style("font-size", "15px").attr("alignment-baseline", "middle")
+        svg.append("text").attr("x", 320).attr("y", 60).text("Recommended").style("font-size", "15px").attr("alignment-baseline", "middle")
       });
-    })
-  </script>
-  {% endblock content %}
+    </script>
+    <!-- end Howard -->
+
+    <!-- Fathur: Root Cause Analysis & Relationship Extraction -->
+    <!--
+      <div class="card">
+      <div class="card-body">
+        <h4 class="mb-4">
+          <strong>Root Cause Analysis</strong>
+        </h4>
+        <div id="hst"></div>
+        <script>
+          // set the dimensions and margins of the graph
+          var margin = { top: 10, right: 30, bottom: 30, left: 40 },
+            width = 460 - margin.left - margin.right,
+            height = 400 - margin.top - margin.bottom;
+
+          // append the svg object to the body of the page
+          var svg = d3.select("#hst")
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform",
+              "translate(" + margin.left + "," + margin.top + ")");
+
+          // get the data
+          d3.json("{% static 'data/json/hst.json' %}", function (data) {
+
+            // X axis: scale and draw:
+            var x = d3.scaleLinear()
+              .domain([0, 1000])     // can use this instead of 1000 to have the max of data: d3.max(data, function(d) { return +d.price })
+              .range([0, width]);
+            svg.append("g")
+              .attr("transform", "translate(0," + height + ")")
+              .call(d3.axisBottom(x));
+
+            // set the parameters for the histogram
+            var histogram = d3.histogram()
+              .value(function (d) { return d.price; })   // I need to give the vector of value
+              .domain(x.domain())  // then the domain of the graphic
+              .thresholds(x.ticks(70)); // then the numbers of bins
+
+            // And apply this function to data to get the bins
+            var bins = histogram(data);
+
+            // Y axis: scale and draw:
+            var y = d3.scaleLinear()
+              .range([height, 0]);
+            y.domain([0, d3.max(bins, function (d) { return d.length; })]);   // d3.hist has to be called before the Y axis obviously
+            svg.append("g")
+              .call(d3.axisLeft(y));
+
+            // append the bar rectangles to the svg element
+            svg.selectAll("rect")
+              .data(bins)
+              .enter()
+              .append("rect")
+              .attr("x", 1)
+              .attr("transform", function (d) { return "translate(" + x(d.x0) + "," + y(d.length) + ")"; })
+              .attr("width", function (d) { return x(d.x1) - x(d.x0) - 1; })
+              .attr("height", function (d) { return height - y(d.length); })
+              .style("fill", "#69b3a2")
+          });
+        </script>
+      </div>
+    </div>
+    -->
+
+    <!--
+<div class="card">
+      <div class="card-body">
+        <h4 class="mb-4">
+          <strong>Root Cause Analysis</strong>
+        </h4>
+        <div id="sct"></div>
+
+        <script>
+          // set the dimensions and margins of the graph
+          var margin = { top: 10, right: 30, bottom: 30, left: 60 },
+            width = 460 - margin.left - margin.right,
+            height = 400 - margin.top - margin.bottom;
+
+          // append the svg object to the body of the page
+          var sct = d3.select("#sct")
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform",
+              "translate(" + margin.left + "," + margin.top + ")");
+
+          //Read the data
+          d3.json("{% static 'data/json/sct.json' %}",
+
+            function (data) {
+              // Add X axis 
+              var x = d3.scaleTime()
+                .domain(d3.extent(data, function (d) { return d.date; }))
+                .range([0, width]);
+              sct.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x));
+              // Add Y axis
+              var y = d3.scaleLinear()
+                .domain([8000, 9200])
+                .range([height, 0]);
+              sct.append("g")
+                .call(d3.axisLeft(y));
+              // Add the line
+              sct.append("path")
+                .datum(data)
+                .attr("fill", "none")
+                .attr("stroke", "#69b3a2")
+                .attr("stroke-width", 1.5)
+                .attr("d", d3.line()
+                  .x(function (d) { return x(d.date) })
+                  .y(function (d) { return y(d.value) })
+                )
+              // Add the points
+              sct
+                .append("g")
+                .selectAll("dot")
+                .data(data)
+                .enter()
+                .append("circle")
+                .attr("cx", function (d) { return x(d.date) })
+                .attr("cy", function (d) { return y(d.value) })
+                .attr("r", 5)
+                .attr("fill", "#69b3a2")
+            })
+        </script>
+      </div>
+    </div>
+    -->
+
+    <div class="card">
+      <div class="card-body">
+        <h4 class="mb-4">
+          <strong>Relationship Extraction</strong>
+        </h4>
+        <div class="task relex highlighted" id="relex">
+          <div class="hairline"></div>
+          <div class="container-wrapper">
+            <svg class="svg-container" width="1139" height="40">
+              <defs>
+                <marker id="marker-relex-art" viewBox="0 0 10 10" refX="6" refY="6" markerWidth="6" markerHeight="6"
+                  orient="20">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#4286f4"></path>
+                </marker>
+                <marker id="marker-relex-gen-aff" viewBox="0 0 10 10" refX="6" refY="6" markerWidth="6" markerHeight="6"
+                  orient="20">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#4df441"></path>
+                </marker>
+                <marker id="marker-relex-org-aff" viewBox="0 0 10 10" refX="6" refY="6" markerWidth="6" markerHeight="6"
+                  orient="20">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#cc2486"></path>
+                </marker>
+                <marker id="marker-relex-part-whole" viewBox="0 0 10 10" refX="6" refY="6" markerWidth="6"
+                  markerHeight="6" orient="20">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#222526"></path>
+                </marker>
+                <marker id="marker-relex-per-soc" viewBox="0 0 10 10" refX="6" refY="6" markerWidth="6" markerHeight="6"
+                  orient="20">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#9924cc"></path>
+                </marker>
+                <marker id="marker-relex-phys" viewBox="0 0 10 10" refX="6" refY="6" markerWidth="6" markerHeight="6"
+                  orient="20">
+                  <path d="M 0 0 L 10 5 L 0 10 z" fill="#1ca02c"></path>
+                </marker>
+              </defs>
+
+              <g class="displacy-arrow relex-phys">
+                <path class="displacy-arc" d="M57.6171875,26 C57.6171875,16 430.3359375,16 430.3359375,26"
+                  stroke-width="1px" fill="none" stroke="currentColor" id="arrow-l3tahsdy"
+                  marker-end="url(#marker-relex-phys)"></path>
+                <text dy="-0.3em">
+                  <textPath class="displacy-label" startOffset="50%" fill="currentColor" text-anchor="middle"
+                    xlink:href="#arrow-l3tahsdy">PHYS</textPath>
+                </text>
+              </g>
+              <g class="displacy-arrow relex-phys">
+                <path class="displacy-arc" d="M430.3359375,26 C430.3359375,16 555.1015625,16 555.1015625,26"
+                  stroke-width="1px" fill="none" stroke="currentColor" id="arrow-8wz2gb94"
+                  marker-start="url(#marker-relex-phys)"></path>
+                <text dy="-0.3em">
+                  <textPath class="displacy-label" startOffset="50%" fill="currentColor" text-anchor="middle"
+                    xlink:href="#arrow-8wz2gb94">PHYS</textPath>
+                </text>
+              </g>
+              <g class="displacy-arrow relex-phys">
+                <path class="displacy-arc" d="M555.1015625,26 C555.1015625,16 740.8828125,16 740.8828125,26"
+                  stroke-width="1px" fill="none" stroke="currentColor" id="arrow-t68zgjav"
+                  marker-end="url(#marker-relex-phys)"></path>
+                <text dy="-0.3em">
+                  <textPath class="displacy-label" startOffset="50%" fill="currentColor" text-anchor="middle"
+                    xlink:href="#arrow-t68zgjav">PHYS</textPath>
+                </text>
+              </g>
+              <g class="displacy-arrow relex-part-whole">
+                <path class="displacy-arc" d="M740.8828125,26 C740.8828125,16 850.78125,16 850.78125,26"
+                  stroke-width="1px" fill="none" stroke="currentColor" id="arrow-lg2ifrog"
+                  marker-end="url(#marker-relex-part-whole)"></path>
+                <text dy="-0.3em">
+                  <textPath class="displacy-label" startOffset="50%" fill="currentColor" text-anchor="middle"
+                    xlink:href="#arrow-lg2ifrog">PART-WHOLE</textPath>
+                </text>
+              </g>
+            </svg>
+            <div class="container">
+              <div class="text">
+                <mark data-entity="subj" data-index="0-4">Mark<span
+                    style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">subj</span></mark>
+                is from Seattle. But housing is so expensive in
+                <mark data-entity="obj" data-index="53-66">
+                  <mark data-entity="obj" data-index="53-66">San Francisco<span
+                      style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">obj</span></mark>
+                </mark> that
+                <mark data-entity="subj" data-index="72-74">
+                  <mark data-entity="subj" data-index="72-74">he<span
+                      style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">subj</span></mark>
+                </mark> used to sleep in
+                <mark data-entity="obj" data-index="92-102">
+                  <mark data-entity="subj" data-index="92-102">the garage<span
+                      style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">obj</span></mark>
+                </mark> of
+                <mark data-entity="obj" data-index="106-113">a house<span
+                    style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">obj</span></mark>.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end Fathur -->
+
+  </div>
+</div>
+<script type="text/javascript">
+
+  $(function () {
+    $("#example1").DataTable({
+      responsive: true,
+      // autoWidth: true,
+      // scrollX: true,
+      // fixedColumns: true,
+    });
+  })
+</script>
+{% endblock content %}
