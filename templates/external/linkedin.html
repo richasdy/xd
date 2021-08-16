@@ -1,4 +1,4 @@
-{% extends "external/airui/dashboard-base.html" %}
+{% extends "includes/dashboard-base.html" %}
 {% load static %}
 
 {% block content %}
@@ -61,7 +61,9 @@
         </div>
       </div>
     </div>
-    <div class ="row">
+
+    <!-- Eko: NER & POS -->
+    <div class="row">
       <div class="col-lg-12">
         <div class="card">
           <div class="card-body">
@@ -73,7 +75,7 @@
         </div>
       </div>
     </div>
-    <div class ="row">
+    <div class="row">
       <div class="col-lg-12">
         <div class="card">
           <div class="card-body">
@@ -85,6 +87,270 @@
         </div>
       </div>
     </div>
+    <!-- end Eko -->
+
+    <!-- Khairul: Wordcloud & Doc Clustering -->
+    <div class="card">
+      <div class="card-body">
+        <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/bmabey/pyLDAvis/files/ldavis.v1.0.0.css">
+        <div id="lda"></div>
+        <script type="text/javascript">
+          //var ldavis = ("https://gist.githubusercontent.com/olemi/17d82c722c7d2086b5af1c3fc4b6c6bd/raw/298b1a66292143722021734d83f7bd5d0797d8ac/topic_model_twitter_consulting_bigram_20170323");
+          $.getJSON("/static/data/json/ldavis.json", function (data) {
+            var ldavis = data;
+
+
+            function LDAvis_load_lib(url, callback) {
+              var s = document.createElement('script');
+              s.src = url;
+              s.async = true;
+              s.onreadystatechange = s.onload = callback;
+              s.onerror = function () { console.warn("failed to load library " + url); };
+              document.getElementsByTagName("head")[0].appendChild(s);
+            }
+
+            if (typeof (LDAvis) !== "undefined") {
+              // already loaded: just create the visualization
+              !function (LDAvis) {
+                new LDAvis("#" + "lda", ldavis);
+              }(LDAvis);
+            } else if (typeof define === "function" && define.amd) {
+              // require.js is available: use it to load d3/LDAvis
+              //  require.config({paths: {d3: "https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min"}});
+              require(["d3"], function (d3) {
+                window.d3 = d3;
+                LDAvis_load_lib("https://cdn.rawgit.com/bmabey/pyLDAvis/files/ldavis.v1.0.0.js", function () {
+                  new LDAvis("#" + "lda", ldavis);
+                });
+              });
+            } else {
+              // require.js not available: dynamically load d3 & LDAvis
+              LDAvis_load_lib("https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js", function () {
+                LDAvis_load_lib("https://cdn.rawgit.com/bmabey/pyLDAvis/files/ldavis.v1.0.0.js", function () {
+                  new LDAvis("#" + "lda", ldavis);
+                })
+              });
+            }
+          })
+        </script>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-6 position-relative">
+            <div id="wordcloud"></div>
+          </div>
+          <div class="col-lg-6">
+            <div id="scatter"></div>
+          </div>
+        </div>
+        <!-- Load d3-cloud -->
+        <script src="https://d3js.org/d3.v4.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
+        <script>
+          //WORDSCLOUD
+          // set the dimensions and margins of the graph
+          var margin = { top: 10, right: 10, bottom: 10, left: 10 },
+            width = 450 - margin.left - margin.right,
+            height = 450 - margin.top - margin.bottom;
+
+          // append the svg object to the body of the page
+          var wc = d3.select("#wordcloud")
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform",
+              "translate(" + margin.left + "," + margin.top + ")");
+
+          // Constructs a new cloud layout instance. It run an algorithm to find the position of words that suits your requirements
+          // Wordcloud features that are different from one word to the other must be here
+          d3.json("/static/data/json/wordcloud.json", function (data) {
+            var layout = d3.layout.cloud()
+              .size([width, height])
+              .words(data.map(function (d) { return { text: d.word, size: d.size, color: d.color }; }))
+              .padding(5)        //space between words
+              .rotate(function () { return ~~(Math.random() * 2) * 90; })
+              .fontSize(function (d) { return d.size; })      // font size of words             
+              .on("end", draw);
+            layout.start();
+
+            // This function takes the output of 'layout' above and draw the words
+            // Wordcloud features that are THE SAME from one word to the other can be here
+            function draw(words) {
+              // Color scale: give me a specie name, I return a color            
+              var color = d3.scaleOrdinal()
+                .domain(["navy", "springGreen", "greenYellow", "indigo", "lightGreen", "yellow"])
+                .range(["#071A52", "#00FF7F", "#ADFF2F", "#4B0082", "#90EE90", "#FFFF00"])
+
+              wc.append("g")
+                .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
+                .selectAll("text")
+                .data(words)
+                .enter().append("text")
+                .style("font-size", function (d) { return d.size; })
+                .attr("text-anchor", "middle")
+                .style("font-family", "Impact")
+                //.attr("fill", "#69b3a2")
+                .style("fill", function (d) { return color(d.color) })
+                .attr("transform", function (d) {
+                  return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+                })
+                .text(function (d) { return d.text; });
+            }
+          })
+          //SCATTER versi d3
+          // set the dimensions and margins of the graph
+          var margin = { top: 10, right: 30, bottom: 30, left: 60 },
+            width = 460 - margin.left - margin.right,
+            height = 400 - margin.top - margin.bottom;
+
+
+          // append the svg object to the body of the page
+          var sct = d3.select("#scatter")
+            .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform",
+              "translate(" + margin.left + "," + margin.top + ")");
+
+          //Read the data
+          d3.json("/static/data/json/scatter.json", function (data) {
+
+            // Add X axis
+            var x = d3.scaleLinear()
+              .domain([4, 8])
+              .range([0, width]);
+            sct.append("g")
+              .attr("transform", "translate(0," + height + ")")
+              .call(d3.axisBottom(x));
+
+            // Add Y axis
+            var y = d3.scaleLinear()
+              .domain([0, 9])
+              .range([height, 0]);
+            sct.append("g")
+              .call(d3.axisLeft(y));
+
+            // Color scale: give me a specie name, I return a color
+            var color = d3.scaleOrdinal()
+              .domain(["setosa", "versicolor", "virginica"])
+              .range(["#440154ff", "#21908dff", "#fde725ff"])
+
+            // Add dots
+            sct.append('g')
+              .selectAll("dot")
+              .data(data)
+              .enter()
+              .append("circle")
+              .attr("cx", function (d) { return x(d.Sepal_Length); })
+              .attr("cy", function (d) { return y(d.Petal_Length); })
+              .attr("r", 5)
+              .style("fill", function (d) { return color(d.Species) })
+
+          })
+        </script>
+      </div>
+    </div>
+    <!-- end Khairul -->
+    
+    <!-- Jose: Wordcloud & Doc Clustering -->
+    <!--
+    <script src="{% static 'common/d3.min.js' %}"></script>
+    <script src="{% static 'common/cloud.js' %}"></script>
+    <div class="air__layout__content">
+      <div class="air__utils__content">
+        <div class="air__utils__heading">
+          <h5>Wordcloud</h5>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-12" id="wordcloud">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var text_string = "Of course that’s your contention. You’re a first year grad student. You just got finished readin’ some Marxian historian, Pete Garrison probably. You’re gonna be convinced of that ’til next month when you get to James Lemon and then you’re gonna be talkin’ about how the economies of Virginia and Pennsylvania were entrepreneurial and capitalist way back in 1740. That’s gonna last until next year. You’re gonna be in here regurgitating Gordon Wood, talkin’ about, you know, the Pre-Revolutionary utopia and the capital-forming effects of military mobilization… ‘Wood drastically underestimates the impact of social distinctions predicated upon wealth, especially inherited wealth.’ You got that from Vickers, Work in Essex County, page 98, right? Yeah, I read that, too. Were you gonna plagiarize the whole thing for us? Do you have any thoughts of your own on this matter? Or do you, is that your thing? You come into a bar. You read some obscure passage and then pretend, you pawn it off as your own, as your own idea just to impress some girls and embarrass my friend? See, the sad thing about a guy like you is in 50 years, you’re gonna start doin’ some thinkin’ on your own and you’re gonna come up with the fact that there are two certainties in life. One: don’t do that. And two: you dropped a hundred and fifty grand on a fuckin’ education you coulda got for a dollar fifty in late charges at the public library.";
+
+      drawWordCloud(text_string);
+
+      function drawWordCloud(text_string) {
+        var common = "poop,i,me,my,myself,we,us,our,ours,ourselves,you,your,yours,yourself,yourselves,he,him,his,himself,she,her,hers,herself,it,its,itself,they,them,their,theirs,themselves,what,which,who,whom,whose,this,that,these,those,am,is,are,was,were,be,been,being,have,has,had,having,do,does,did,doing,will,would,should,can,could,ought,i'm,you're,he's,she's,it's,we're,they're,i've,you've,we've,they've,i'd,you'd,he'd,she'd,we'd,they'd,i'll,you'll,he'll,she'll,we'll,they'll,isn't,aren't,wasn't,weren't,hasn't,haven't,hadn't,doesn't,don't,didn't,won't,wouldn't,shan't,shouldn't,can't,cannot,couldn't,mustn't,let's,that's,who's,what's,here's,there's,when's,where's,why's,how's,a,an,the,and,but,if,or,because,as,until,while,of,at,by,for,with,about,against,between,into,through,during,before,after,above,below,to,from,up,upon,down,in,out,on,off,over,under,again,further,then,once,here,there,when,where,why,how,all,any,both,each,few,more,most,other,some,such,no,nor,not,only,own,same,so,than,too,very,say,says,said,shall";
+
+        var word_count = {};
+
+        var words = text_string.split(/[ '\-\(\)\*":;\[\]|{},.!?]+/);
+        if (words.length == 1) {
+          word_count[words[0]] = 1;
+        } else {
+          words.forEach(function (word) {
+            var word = word.toLowerCase();
+            if (word != "" && common.indexOf(word) == -1 && word.length > 1) {
+              if (word_count[word]) {
+                word_count[word]++;
+              } else {
+                word_count[word] = 1;
+              }
+            }
+          })
+        }
+
+        var svg_location = "#wordcloud";
+        var width = $('#wordcloud').width();
+        var height = 360;
+
+        var fill = d3.scale.category20();
+
+        var word_entries = d3.entries(word_count);
+
+        var xScale = d3.scale.linear()
+          .domain([0, d3.max(word_entries, function (d) {
+            return d.value;
+          })
+          ])
+          .range([10, 100]);
+
+        d3.layout.cloud().size([width, height])
+          .timeInterval(20)
+          .words(word_entries)
+          .fontSize(function (d) { return xScale(+d.value); })
+          .text(function (d) { return d.key; })
+          .rotate(function () { return ~~(Math.random() * 2) * 90; })
+          .font("Impact")
+          .on("end", draw)
+          .start();
+
+        function draw(words) {
+          d3.select(svg_location).append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .append("g")
+            .attr("transform", "translate(" + [width >> 1, height >> 1] + ")")
+            .selectAll("text")
+            .data(words)
+            .enter().append("text")
+            .style("font-size", function (d) { return xScale(d.value) + "px"; })
+            .style("font-family", "Impact")
+            .style("fill", function (d, i) { return fill(i); })
+            .attr("text-anchor", "middle")
+            .attr("transform", function (d) {
+              return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+            })
+            .text(function (d) { return d.key; });
+        }
+
+        d3.layout.cloud().stop();
+      }
+    </script>
+    -->
+    <!-- end Jose -->
   </div>
 </div>
 <script type="text/javascript">

@@ -2,6 +2,96 @@
 {% load static %}
 
 {% block content %}
+<script src="{% static 'common/d3.min.js' %}"></script>
+<script src="{% static 'common/cloud.js' %}"></script>
+<div class="air__layout__content">
+  <div class="air__utils__content">
+    <div class="air__utils__heading">
+      <h5>Wordcloud</h5>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-12" id="wordcloud">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var text_string = "Of course that’s your contention. You’re a first year grad student. You just got finished readin’ some Marxian historian, Pete Garrison probably. You’re gonna be convinced of that ’til next month when you get to James Lemon and then you’re gonna be talkin’ about how the economies of Virginia and Pennsylvania were entrepreneurial and capitalist way back in 1740. That’s gonna last until next year. You’re gonna be in here regurgitating Gordon Wood, talkin’ about, you know, the Pre-Revolutionary utopia and the capital-forming effects of military mobilization… ‘Wood drastically underestimates the impact of social distinctions predicated upon wealth, especially inherited wealth.’ You got that from Vickers, Work in Essex County, page 98, right? Yeah, I read that, too. Were you gonna plagiarize the whole thing for us? Do you have any thoughts of your own on this matter? Or do you, is that your thing? You come into a bar. You read some obscure passage and then pretend, you pawn it off as your own, as your own idea just to impress some girls and embarrass my friend? See, the sad thing about a guy like you is in 50 years, you’re gonna start doin’ some thinkin’ on your own and you’re gonna come up with the fact that there are two certainties in life. One: don’t do that. And two: you dropped a hundred and fifty grand on a fuckin’ education you coulda got for a dollar fifty in late charges at the public library.";
+
+  drawWordCloud(text_string);
+
+  function drawWordCloud(text_string) {
+    var common = "poop,i,me,my,myself,we,us,our,ours,ourselves,you,your,yours,yourself,yourselves,he,him,his,himself,she,her,hers,herself,it,its,itself,they,them,their,theirs,themselves,what,which,who,whom,whose,this,that,these,those,am,is,are,was,were,be,been,being,have,has,had,having,do,does,did,doing,will,would,should,can,could,ought,i'm,you're,he's,she's,it's,we're,they're,i've,you've,we've,they've,i'd,you'd,he'd,she'd,we'd,they'd,i'll,you'll,he'll,she'll,we'll,they'll,isn't,aren't,wasn't,weren't,hasn't,haven't,hadn't,doesn't,don't,didn't,won't,wouldn't,shan't,shouldn't,can't,cannot,couldn't,mustn't,let's,that's,who's,what's,here's,there's,when's,where's,why's,how's,a,an,the,and,but,if,or,because,as,until,while,of,at,by,for,with,about,against,between,into,through,during,before,after,above,below,to,from,up,upon,down,in,out,on,off,over,under,again,further,then,once,here,there,when,where,why,how,all,any,both,each,few,more,most,other,some,such,no,nor,not,only,own,same,so,than,too,very,say,says,said,shall";
+
+    var word_count = {};
+
+    var words = text_string.split(/[ '\-\(\)\*":;\[\]|{},.!?]+/);
+    if (words.length == 1) {
+      word_count[words[0]] = 1;
+    } else {
+      words.forEach(function (word) {
+        var word = word.toLowerCase();
+        if (word != "" && common.indexOf(word) == -1 && word.length > 1) {
+          if (word_count[word]) {
+            word_count[word]++;
+          } else {
+            word_count[word] = 1;
+          }
+        }
+      })
+    }
+
+    var svg_location = "#wordcloud";
+    var width = $('#wordcloud').width();
+    var height = 360;
+
+    var fill = d3.scale.category20();
+
+    var word_entries = d3.entries(word_count);
+
+    var xScale = d3.scale.linear()
+      .domain([0, d3.max(word_entries, function (d) {
+        return d.value;
+      })
+      ])
+      .range([10, 100]);
+
+    d3.layout.cloud().size([width, height])
+      .timeInterval(20)
+      .words(word_entries)
+      .fontSize(function (d) { return xScale(+d.value); })
+      .text(function (d) { return d.key; })
+      .rotate(function () { return ~~(Math.random() * 2) * 90; })
+      .font("Impact")
+      .on("end", draw)
+      .start();
+
+    function draw(words) {
+      d3.select(svg_location).append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", "translate(" + [width >> 1, height >> 1] + ")")
+        .selectAll("text")
+        .data(words)
+        .enter().append("text")
+        .style("font-size", function (d) { return xScale(d.value) + "px"; })
+        .style("font-family", "Impact")
+        .style("fill", function (d, i) { return fill(i); })
+        .attr("text-anchor", "middle")
+        .attr("transform", function (d) {
+          return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+        })
+        .text(function (d) { return d.key; });
+    }
+
+    d3.layout.cloud().stop();
+  }
+</script>
 <div class="air__layout__content">
   <div class="air__utils__content">
     <div class="air__utils__heading">
@@ -74,6 +164,7 @@
     </div>
   </div>
 </div>
+<script src="https://d3js.org/d3.v7.min.js"></script>
 <div class="air__layout__content">
   <div class="air__utils__content">
     <div class="air__utils__heading">
@@ -387,11 +478,13 @@
               <div class="card-body">
                 <div class="d-flex flex-wrap mb-3">
                   <div class="air__c1__item">
-                    <div class="font-size-18 text-dark font-weight-bold">+$12,367.36 <span class="text-success font-size-12 align-text-top">+25%</span></div>
+                    <div class="font-size-18 text-dark font-weight-bold">+$12,367.36 <span
+                        class="text-success font-size-12 align-text-top">+25%</span></div>
                     <div class="text-uppercase text-gray-4">Total sales</div>
                   </div>
                   <div class="air__c1__item">
-                    <div class="font-size-18 text-dark font-weight-bold">+$5,367.36 <span class="text-danger font-size-12 align-text-top">-76%</span></div>
+                    <div class="font-size-18 text-dark font-weight-bold">+$5,367.36 <span
+                        class="text-danger font-size-12 align-text-top">-76%</span></div>
                     <div class="text-uppercase text-gray-4">Avg. Per Day</div>
                   </div>
                 </div>
@@ -452,7 +545,8 @@
                     <div class="text-blue">New York Times</div>
                     <div class="font-weight-bold mb-2">Bitcoin Costs $10k+</div>
                     <div>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry's standard dummy text ...
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry's standard dummy text
+                      ...
                     </div>
                   </div>
                 </a>
@@ -466,7 +560,8 @@
                     <div class="text-blue">CNN</div>
                     <div class="font-weight-bold mb-2">Bitcoin Costs $10k+</div>
                     <div>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry's standard dummy text ...
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry's standard dummy text
+                      ...
                     </div>
                   </div>
                 </a>
@@ -480,7 +575,8 @@
                     <div class="text-blue">English Speakers</div>
                     <div class="font-weight-bold mb-2">Bitcoin Costs $10k+</div>
                     <div>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry's standard dummy text ...
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry's standard dummy text
+                      ...
                     </div>
                   </div>
                 </a>
@@ -569,16 +665,20 @@
             <div class="d-flex align-items-stretch">
               <ul class="nav nav-tabs nav-tabs-line nav-tabs-line-bold nav-tabs-noborder nav-tabs-stretched">
                 <li class="nav-item">
-                  <a class="text-uppercase nav-link" href="#tab-hour-content" data-toggle="tab" aria-selected="true" id="tab-hour">Hour</a>
+                  <a class="text-uppercase nav-link" href="#tab-hour-content" data-toggle="tab" aria-selected="true"
+                    id="tab-hour">Hour</a>
                 </li>
                 <li class="nav-item">
-                  <a class="text-uppercase nav-link" href="#tab-day-content" data-toggle="tab" aria-selected="false" id="tab-day">Day</a>
+                  <a class="text-uppercase nav-link" href="#tab-day-content" data-toggle="tab" aria-selected="false"
+                    id="tab-day">Day</a>
                 </li>
                 <li class="nav-item">
-                  <a class="text-uppercase nav-link active" href="#tab-week-content" data-toggle="tab" id="tab-week">Week</a>
+                  <a class="text-uppercase nav-link active" href="#tab-week-content" data-toggle="tab"
+                    id="tab-week">Week</a>
                 </li>
                 <li class="nav-item">
-                  <a class="text-uppercase nav-link" href="#tab-month-content" data-toggle="tab" id="tab-month">Month</a>
+                  <a class="text-uppercase nav-link" href="#tab-month-content" data-toggle="tab"
+                    id="tab-month">Month</a>
                 </li>
               </ul>
             </div>
@@ -835,7 +935,8 @@
                   <div class="text-gray-4 font-size-24">5,000</div>
                 </div>
                 <div class="progress">
-                  <div class="progress-bar bg-success" style="width: 60%;" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-success" style="width: 60%;" role="progressbar" aria-valuenow="60"
+                    aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
               </div>
             </div>
@@ -999,7 +1100,8 @@
                     <div class="text-blue">New York Times</div>
                     <div class="font-weight-bold mb-2">Bitcoin Costs $10k+</div>
                     <div>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry's standard dummy text ...
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry's standard dummy text
+                      ...
                     </div>
                   </div>
                 </a>
@@ -1013,7 +1115,8 @@
                     <div class="text-blue">CNN</div>
                     <div class="font-weight-bold mb-2">Bitcoin Costs $10k+</div>
                     <div>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry's standard dummy text ...
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry's standard dummy text
+                      ...
                     </div>
                   </div>
                 </a>
@@ -1027,7 +1130,8 @@
                     <div class="text-blue">English Speakers</div>
                     <div class="font-weight-bold mb-2">Bitcoin Costs $10k+</div>
                     <div>
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry's standard dummy text ...
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry's standard dummy text
+                      ...
                     </div>
                   </div>
                 </a>
@@ -1039,11 +1143,13 @@
           <div class="card-body">
             <div class="d-flex flex-wrap mb-3">
               <div class="air__c1__item">
-                <div class="font-size-18 text-dark font-weight-bold">+$12,367.36 <span class="text-success font-size-12 align-text-top">+25%</span></div>
+                <div class="font-size-18 text-dark font-weight-bold">+$12,367.36 <span
+                    class="text-success font-size-12 align-text-top">+25%</span></div>
                 <div class="text-uppercase text-gray-4">Total sales</div>
               </div>
               <div class="air__c1__item">
-                <div class="font-size-18 text-dark font-weight-bold">+$5,367.36 <span class="text-danger font-size-12 align-text-top">-76%</span></div>
+                <div class="font-size-18 text-dark font-weight-bold">+$5,367.36 <span
+                    class="text-danger font-size-12 align-text-top">-76%</span></div>
                 <div class="text-uppercase text-gray-4">Avg. Per Day</div>
               </div>
             </div>
@@ -1225,13 +1331,16 @@
             <div class="d-flex align-items-stretch">
               <ul class="nav nav-tabs nav-tabs-line nav-tabs-line-bold nav-tabs-noborder nav-tabs-stretched">
                 <li class="nav-item">
-                  <a class="nav-link active" href="#tab-bestsellers-content" data-toggle="tab" id="tab-bestsellers">Bestsellers</a>
+                  <a class="nav-link active" href="#tab-bestsellers-content" data-toggle="tab"
+                    id="tab-bestsellers">Bestsellers</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#tab-mostviewed-content" data-toggle="tab" id="tab-mostviewed">Most Viewed</a>
+                  <a class="nav-link" href="#tab-mostviewed-content" data-toggle="tab" id="tab-mostviewed">Most
+                    Viewed</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#tab-highrated-content" data-toggle="tab" id="tab-highrated">Highest Rated</a>
+                  <a class="nav-link" href="#tab-highrated-content" data-toggle="tab" id="tab-highrated">Highest
+                    Rated</a>
                 </li>
               </ul>
             </div>
@@ -1242,11 +1351,14 @@
                 <div class="card overflow-hidden">
                   <div class="air__ecommerce__productMark">New</div>
                   <div class="card-body">
-                    <a class="air__ecommerce__productFavorite text-gray-3" href="javascript: void(0);"><i class="fe fe-heart font-size-21"></i></a>
+                    <a class="air__ecommerce__productFavorite text-gray-3" href="javascript: void(0);"><i
+                        class="fe fe-heart font-size-21"></i></a>
                     <div class="border-bottom height-250 air__ecommerce__productImage mb-3">
-                      <img class="img-fluid" src="{% static '/external/airui/components/core/img/products/001.jpg' %}" alt="Product" />
+                      <img class="img-fluid" src="{% static '/external/airui/components/core/img/products/001.jpg' %}"
+                        alt="Product" />
                     </div>
-                    <div class="font-size-24 font-weight-bold text-dark mb-2">$199.28 <del class="align-text-top font-size-14">$299.28</del></div>
+                    <div class="font-size-24 font-weight-bold text-dark mb-2">$199.28 <del
+                        class="align-text-top font-size-14">$299.28</del></div>
                     <div>
                       <a href="javascript:void(0);" class="text-blue font-size-18">
                         TP-Link AC1750 Smart WiFi Router - Dual Band Gigabit Wireless Internet Routers for Home
@@ -1258,11 +1370,14 @@
               <div class="col-lg-6">
                 <div class="card overflow-hidden">
                   <div class="card-body">
-                    <a class="air__ecommerce__productFavorite text-dark" href="javascript: void(0);"><i class="fe fe-heart font-size-21"></i></a>
+                    <a class="air__ecommerce__productFavorite text-dark" href="javascript: void(0);"><i
+                        class="fe fe-heart font-size-21"></i></a>
                     <div class="border-bottom height-250 air__ecommerce__productImage mb-3">
-                      <img class="img-fluid" src="{% static '/external/airui/components/core/img/products/002.jpg' %}" alt="Product" />
+                      <img class="img-fluid" src="{% static '/external/airui/components/core/img/products/002.jpg' %}"
+                        alt="Product" />
                     </div>
-                    <div class="font-size-24 font-weight-bold text-dark mb-2">$99.99 <del class="align-text-top font-size-14">$199.99</del></div>
+                    <div class="font-size-24 font-weight-bold text-dark mb-2">$99.99 <del
+                        class="align-text-top font-size-14">$199.99</del></div>
                     <div>
                       <a href="javascript:void(0);" class="text-blue font-size-18">
                         TP-Link AC1750 Smart WiFi Router - Dual Band Gigabit Wireless Internet Routers for Home
@@ -1274,11 +1389,14 @@
               <div class="col-lg-6">
                 <div class="card overflow-hidden">
                   <div class="card-body">
-                    <a class="air__ecommerce__productFavorite text-dark" href="javascript: void(0);"><i class="fe fe-heart font-size-21"></i></a>
+                    <a class="air__ecommerce__productFavorite text-dark" href="javascript: void(0);"><i
+                        class="fe fe-heart font-size-21"></i></a>
                     <div class="border-bottom height-250 air__ecommerce__productImage mb-3">
-                      <img class="img-fluid" src="{% static '/external/airui/components/core/img/products/003.jpg' %}" alt="Product" />
+                      <img class="img-fluid" src="{% static '/external/airui/components/core/img/products/003.jpg' %}"
+                        alt="Product" />
                     </div>
-                    <div class="font-size-24 font-weight-bold text-dark mb-2">$99.99 <del class="align-text-top font-size-14">$199.99</del></div>
+                    <div class="font-size-24 font-weight-bold text-dark mb-2">$99.99 <del
+                        class="align-text-top font-size-14">$199.99</del></div>
                     <div>
                       <a href="javascript:void(0);" class="text-blue font-size-18">
                         TP-Link AC1750 Smart WiFi Router - Dual Band Gigabit Wireless Internet Routers for Home
@@ -1290,11 +1408,14 @@
               <div class="col-lg-6">
                 <div class="card overflow-hidden">
                   <div class="card-body">
-                    <a class="air__ecommerce__productFavorite text-dark" href="javascript: void(0);"><i class="fe fe-heart font-size-21"></i></a>
+                    <a class="air__ecommerce__productFavorite text-dark" href="javascript: void(0);"><i
+                        class="fe fe-heart font-size-21"></i></a>
                     <div class="border-bottom height-250 air__ecommerce__productImage mb-3">
-                      <img class="img-fluid" src="{% static '/external/airui/components/core/img/products/002.jpg' %}" alt="Product" />
+                      <img class="img-fluid" src="{% static '/external/airui/components/core/img/products/002.jpg' %}"
+                        alt="Product" />
                     </div>
-                    <div class="font-size-24 font-weight-bold text-dark mb-2">$99.99 <del class="align-text-top font-size-14">$199.99</del></div>
+                    <div class="font-size-24 font-weight-bold text-dark mb-2">$99.99 <del
+                        class="align-text-top font-size-14">$199.99</del></div>
                     <div>
                       <a href="javascript:void(0);" class="text-blue font-size-18">
                         TP-Link AC1750 Smart WiFi Router - Dual Band Gigabit Wireless Internet Routers for Home
@@ -1750,16 +1871,20 @@
                   <td>
                     <div class="air__utils__avatarGroup">
                       <div class="air__utils__avatar air__utils__avatar--rounded">
-                        <img src="{% static 'external/airui/components/core/img/avatars/1.jpg' %}" alt="Mary Stanform" />
+                        <img src="{% static 'external/airui/components/core/img/avatars/1.jpg' %}"
+                          alt="Mary Stanform" />
                       </div>
                       <div class="air__utils__avatar air__utils__avatar--rounded">
-                        <img src="{% static 'external/airui/components/core/img/avatars/2.jpg' %}" alt="Mary Stanform" />
+                        <img src="{% static 'external/airui/components/core/img/avatars/2.jpg' %}"
+                          alt="Mary Stanform" />
                       </div>
                       <div class="air__utils__avatar air__utils__avatar--rounded">
-                        <img src="{% static 'external/airui/components/core/img/avatars/3.jpg' %}" alt="Mary Stanform" />
+                        <img src="{% static 'external/airui/components/core/img/avatars/3.jpg' %}"
+                          alt="Mary Stanform" />
                       </div>
                       <div class="air__utils__avatar air__utils__avatar--rounded">
-                        <img src="{% static 'external/airui/components/core/img/avatars/4.jpg' %}" alt="Mary Stanform" />
+                        <img src="{% static 'external/airui/components/core/img/avatars/4.jpg' %}"
+                          alt="Mary Stanform" />
                       </div>
                       <button class="air__utils__avatarGroupAdd">
                         <i class="fe fe-plus"></i>
@@ -1790,10 +1915,12 @@
                   <td>
                     <div class="air__utils__avatarGroup">
                       <div class="air__utils__avatar air__utils__avatar--rounded">
-                        <img src="{% static 'external/airui/components/core/img/avatars/1.jpg' %}" alt="Mary Stanform" />
+                        <img src="{% static 'external/airui/components/core/img/avatars/1.jpg' %}"
+                          alt="Mary Stanform" />
                       </div>
                       <div class="air__utils__avatar air__utils__avatar--rounded">
-                        <img src="{% static 'external/airui/components/core/img/avatars/2.jpg' %}" alt="Mary Stanform" />
+                        <img src="{% static 'external/airui/components/core/img/avatars/2.jpg' %}"
+                          alt="Mary Stanform" />
                       </div>
                       <button class="air__utils__avatarGroupAdd">
                         <i class="fe fe-plus"></i>
@@ -1824,13 +1951,16 @@
                   <td>
                     <div class="air__utils__avatarGroup">
                       <div class="air__utils__avatar air__utils__avatar--rounded">
-                        <img src="{% static 'external/airui/components/core/img/avatars/1.jpg' %}" alt="Mary Stanform" />
+                        <img src="{% static 'external/airui/components/core/img/avatars/1.jpg' %}"
+                          alt="Mary Stanform" />
                       </div>
                       <div class="air__utils__avatar air__utils__avatar--rounded">
-                        <img src="{% static 'external/airui/components/core/img/avatars/2.jpg' %}" alt="Mary Stanform" />
+                        <img src="{% static 'external/airui/components/core/img/avatars/2.jpg' %}"
+                          alt="Mary Stanform" />
                       </div>
                       <div class="air__utils__avatar air__utils__avatar--rounded">
-                        <img src="{% static 'external/airui/components/core/img/avatars/3.jpg' %}" alt="Mary Stanform" />
+                        <img src="{% static 'external/airui/components/core/img/avatars/3.jpg' %}"
+                          alt="Mary Stanform" />
                       </div>
                       <button class="air__utils__avatarGroupAdd">
                         <i class="fe fe-plus"></i>
@@ -1880,7 +2010,8 @@
             <div class="ml-auto d-flex flex-column justify-content-center">
               <div>
                 <div class="dropdown d-inline-block">
-                  <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-noarrow" data-toggle="dropdown" aria-expanded="false">
+                  <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-noarrow"
+                    data-toggle="dropdown" aria-expanded="false">
                     <i class="fe fe-more-vertical"></i>
                   </button>
                   <div class="dropdown-menu dropdown-menu-right" role="menu" x-placement="bottom-start">
@@ -1901,8 +2032,11 @@
               <a href="javascript: void(0);" class="text-blue">Jira User's Guide.</a>
             </p>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-              type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+              industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+              scrambled it to make a
+              type specimen book. It has survived not only five centuries, but also the leap into electronic
+              typesetting, remaining essentially unchanged.
             </p>
           </div>
         </div>
@@ -1914,7 +2048,8 @@
             <div class="ml-auto d-flex flex-column justify-content-center">
               <div>
                 <div class="dropdown d-inline-block">
-                  <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-noarrow" data-toggle="dropdown" aria-expanded="false">
+                  <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-noarrow"
+                    data-toggle="dropdown" aria-expanded="false">
                     <i class="fe fe-more-vertical"></i>
                   </button>
                   <div class="dropdown-menu dropdown-menu-right" role="menu" x-placement="bottom-start">
@@ -1985,7 +2120,8 @@
             <div class="ml-auto d-flex flex-column justify-content-center">
               <div>
                 <div class="dropdown d-inline-block">
-                  <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-noarrow" data-toggle="dropdown" aria-expanded="false">
+                  <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-noarrow"
+                    data-toggle="dropdown" aria-expanded="false">
                     <i class="fe fe-more-vertical"></i>
                   </button>
                   <div class="dropdown-menu dropdown-menu-right" role="menu" x-placement="bottom-start">
@@ -2000,7 +2136,8 @@
             </div>
           </div>
           <div class="card-body">
-            <p>You currently have no <a href="javascript: void(0);" class="text-blue">issues</a> assigned to you. Enjoy your day!</p>
+            <p>You currently have no <a href="javascript: void(0);" class="text-blue">issues</a> assigned to you. Enjoy
+              your day!</p>
           </div>
         </div>
         <div class="card air__utils__cardMarked air__utils__cardMarked--primary">
@@ -2011,7 +2148,8 @@
             <div class="ml-auto d-flex flex-column justify-content-center">
               <div>
                 <div class="dropdown d-inline-block">
-                  <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-noarrow" data-toggle="dropdown" aria-expanded="false">
+                  <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-noarrow"
+                    data-toggle="dropdown" aria-expanded="false">
                     <i class="fe fe-more-vertical"></i>
                   </button>
                   <div class="dropdown-menu dropdown-menu-right" role="menu" x-placement="bottom-start">
@@ -2081,7 +2219,8 @@
             <div class="ml-auto d-flex flex-column justify-content-center">
               <div>
                 <div class="dropdown d-inline-block">
-                  <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-noarrow" data-toggle="dropdown" aria-expanded="false">
+                  <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-noarrow"
+                    data-toggle="dropdown" aria-expanded="false">
                     <i class="fe fe-more-vertical"></i>
                   </button>
                   <div class="dropdown-menu dropdown-menu-right" role="menu" x-placement="bottom-start">
@@ -2116,7 +2255,8 @@
                     <td>New Users</td>
                     <td width="50%">
                       <div class="progress">
-                        <div class="progress-bar bg-success" style="width: 60%;" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-success" style="width: 60%;" role="progressbar" aria-valuenow="60"
+                          aria-valuemin="0" aria-valuemax="100"></div>
                       </div>
                     </td>
                     <td class="font-weight-bold text-right">+3,125</td>
@@ -2125,7 +2265,8 @@
                     <td>New Reports</td>
                     <td width="50%">
                       <div class="progress">
-                        <div class="progress-bar bg-orange" style="width: 70%;" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-orange" style="width: 70%;" role="progressbar" aria-valuenow="70"
+                          aria-valuemin="0" aria-valuemax="100"></div>
                       </div>
                     </td>
                     <td class="font-weight-bold text-right">+643</td>
@@ -2134,7 +2275,8 @@
                     <td>Quote Submits</td>
                     <td width="50%">
                       <div class="progress">
-                        <div class="progress-bar bg-primary" style="width: 50%;" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-primary" style="width: 50%;" role="progressbar" aria-valuenow="50"
+                          aria-valuemin="0" aria-valuemax="100"></div>
                       </div>
                     </td>
                     <td class="font-weight-bold text-right">+982</td>
@@ -2360,7 +2502,8 @@
               <div class="font-size-24 text-gray-4">5,000</div>
             </div>
             <div class="progress">
-              <div class="progress-bar bg-success" style="width: 50%;" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+              <div class="progress-bar bg-success" style="width: 50%;" role="progressbar" aria-valuenow="50"
+                aria-valuemin="0" aria-valuemax="100"></div>
             </div>
           </div>
         </div>
@@ -2540,7 +2683,8 @@
               <div class="ml-auto d-flex flex-column justify-content-center">
                 <div>
                   <div class="dropdown d-inline-block">
-                    <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-noarrow" data-toggle="dropdown" aria-expanded="false">
+                    <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-noarrow"
+                      data-toggle="dropdown" aria-expanded="false">
                       <i class="fe fe-more-horizontal"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" role="menu" x-placement="bottom-end">
@@ -2573,12 +2717,16 @@
                 <div class="text-gray-4 font-size-24">5,000</div>
               </div>
               <div class="progress">
-                <div class="progress-bar bg-success" style="width: 60%;" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar bg-success" style="width: 60%;" role="progressbar" aria-valuenow="60"
+                  aria-valuemin="0" aria-valuemax="100"></div>
               </div>
             </div>
             <div class="card-body pt-1">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a
-              type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+              industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+              scrambled it to make a
+              type specimen book. It has survived not only five centuries, but also the leap into electronic
+              typesetting, remaining essentially unchanged.
             </div>
           </div>
         </div>
@@ -2690,16 +2838,20 @@
                   <td>
                     <div class="air__utils__avatarGroup">
                       <div class="air__utils__avatar air__utils__avatar--rounded">
-                        <img src="{% static '/external/airui/components/core/img/avatars/1.jpg' %}" alt="Mary Stanform" />
+                        <img src="{% static '/external/airui/components/core/img/avatars/1.jpg' %}"
+                          alt="Mary Stanform" />
                       </div>
                       <div class="air__utils__avatar air__utils__avatar--rounded">
-                        <img src="{% static '/external/airui/components/core/img/avatars/2.jpg' %}" alt="Mary Stanform" />
+                        <img src="{% static '/external/airui/components/core/img/avatars/2.jpg' %}"
+                          alt="Mary Stanform" />
                       </div>
                       <div class="air__utils__avatar air__utils__avatar--rounded">
-                        <img src="{% static '/external/airui/components/core/img/avatars/3.jpg' %}" alt="Mary Stanform" />
+                        <img src="{% static '/external/airui/components/core/img/avatars/3.jpg' %}"
+                          alt="Mary Stanform" />
                       </div>
                       <div class="air__utils__avatar air__utils__avatar--rounded">
-                        <img src="{% static '/external/airui/components/core/img/avatars/4.jpg' %}" alt="Mary Stanform" />
+                        <img src="{% static '/external/airui/components/core/img/avatars/4.jpg' %}"
+                          alt="Mary Stanform" />
                       </div>
                       <button class="air__utils__avatarGroupAdd">
                         <i class="fe fe-plus"></i>
@@ -2730,10 +2882,12 @@
                   <td>
                     <div class="air__utils__avatarGroup">
                       <div class="air__utils__avatar air__utils__avatar--rounded">
-                        <img src="{% static '/external/airui/components/core/img/avatars/1.jpg' %}" alt="Mary Stanform" />
+                        <img src="{% static '/external/airui/components/core/img/avatars/1.jpg' %}"
+                          alt="Mary Stanform" />
                       </div>
                       <div class="air__utils__avatar air__utils__avatar--rounded">
-                        <img src="{% static '/external/airui/components/core/img/avatars/2.jpg' %}" alt="Mary Stanform" />
+                        <img src="{% static '/external/airui/components/core/img/avatars/2.jpg' %}"
+                          alt="Mary Stanform" />
                       </div>
                       <button class="air__utils__avatarGroupAdd">
                         <i class="fe fe-plus"></i>
@@ -2764,13 +2918,16 @@
                   <td>
                     <div class="air__utils__avatarGroup">
                       <div class="air__utils__avatar air__utils__avatar--rounded">
-                        <img src="{% static '/external/airui/components/core/img/avatars/1.jpg' %}" alt="Mary Stanform" />
+                        <img src="{% static '/external/airui/components/core/img/avatars/1.jpg' %}"
+                          alt="Mary Stanform" />
                       </div>
                       <div class="air__utils__avatar air__utils__avatar--rounded">
-                        <img src="{% static '/external/airui/components/core/img/avatars/2.jpg' %}" alt="Mary Stanform" />
+                        <img src="{% static '/external/airui/components/core/img/avatars/2.jpg' %}"
+                          alt="Mary Stanform" />
                       </div>
                       <div class="air__utils__avatar air__utils__avatar--rounded">
-                        <img src="{% static '/external/airui/components/core/img/avatars/3.jpg' %}" alt="Mary Stanform" />
+                        <img src="{% static '/external/airui/components/core/img/avatars/3.jpg' %}"
+                          alt="Mary Stanform" />
                       </div>
                       <button class="air__utils__avatarGroupAdd">
                         <i class="fe fe-plus"></i>
@@ -2789,7 +2946,8 @@
       <div class="col-lg-6">
         <div class="card">
           <div class="card-body">
-            <div class="text-nowrap text-dark font-size-50 font-weight-bold">$29,931 <sup class="text-uppercase text-gray-6 font-size-30">paid</sup></div>
+            <div class="text-nowrap text-dark font-size-50 font-weight-bold">$29,931 <sup
+                class="text-uppercase text-gray-6 font-size-30">paid</sup></div>
             <div class="table-responsive">
               <table class="table table-borderless">
                 <tr>
@@ -2820,7 +2978,8 @@
                 <tr>
                   <td style="width: 70px;">
                     <div class="air__utils__avatar">
-                      <img src="{% static '/external/airui/components/core/img/avatars/4.jpg' %}" alt="Jamie Rockstar" />
+                      <img src="{% static '/external/airui/components/core/img/avatars/4.jpg' %}"
+                        alt="Jamie Rockstar" />
                     </div>
                   </td>
                   <td>

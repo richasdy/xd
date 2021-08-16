@@ -1,0 +1,250 @@
+{% load static %}
+
+<div class="air__menuLeft">
+    <div class="air__menuLeft__outer">
+    <div class="air__menuLeft__mobileToggleButton air__menuLeft__mobileActionToggle">
+        <span></span>
+    </div>
+    <div class="air__menuLeft__toggleButton air__menuLeft__actionToggle">
+        <span></span>
+        <span></span>
+    </div>
+    <a href="javascript: void(0);" class="air__menuLeft__logo">
+        <img style="max-width:17px;" src="{% static 'images/telu-logo-300.png' %}" alt="Tel-U logo" />
+        <div style="margin-left:1.96rem;" class="air__menuLeft__logo__name">TEL-U</div>
+        <div style="margin-left:1.96rem;" class="air__menuLeft__logo__descr">Dashboard</div>
+    </a>
+    <a href="javascript: void(0);" class="air__menuLeft__user">
+        <div class="air__menuLeft__user__avatar">
+        <img src="{% static 'external/airui/components/core/img/avatars/avatar.png' %}" alt="David Beckham" />
+        </div>
+        <div class="air__menuLeft__user__name">
+        {{request.user.first_name}}
+        </div>
+        <div class="air__menuLeft__user__role">
+        Administrator
+        </div>
+    </a>
+    <div class="air__menuLeft__container air__customScroll">
+        <ul class="air__menuLeft__list">
+            <li class="air__menuLeft__category">
+                <span>Menu</span>
+            </li>
+            <li class="air__menuLeft__item air__menuLeft__submenu">
+                <a href="javascript: void(0)" class="air__menuLeft__link">
+                <i class="fe fe-home air__menuLeft__icon"></i>
+                <span>Internal</span>
+                <!-- <span class="badge text-white bg-blue-light float-right mt-1 px-2">6</span> -->
+                </a>
+                <ul class="air__menuLeft__list">
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'internal:academic' %}" class="air__menuLeft__link">
+                        <span>Directorate of Academic</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'internal:secretariat_and_strategic_planning' %}" class="air__menuLeft__link">
+                        <span>Directorate of Secretariat and Strategic Planning</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'internal:postgraduate-and-advance-learning' %}" class="air__menuLeft__link">
+                        <span>Directorate of Postgraduate and Advance Learning</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'internal:logistics_and_assets' %}" class="air__menuLeft__link">
+                        <span>Directorate of Logistics and Assets</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'internal:finance' %}" class="air__menuLeft__link">
+                        <span>Directorate of Finance</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'internal:human_resources' %}" class="air__menuLeft__link">
+                        <span>Directorate of Human Resources</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'internal:information_technology_center' %}" class="air__menuLeft__link">
+                        <span>Directorate of Information Technology Center</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'internal:marketing_and_admission' %}" class="air__menuLeft__link">
+                        <span>Directorate of Marketing & Admission</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'internal:career-alumni-and-endowment-development' %}" class="air__menuLeft__link">
+                        <span>Directorate of Career, Alumni & Endowment Development</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'internal:student_affairs' %}" class="air__menuLeft__link">
+                        <span>Directorate of Student Affairs</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'internal:strategic_partnership_and_international_office' %}" class="air__menuLeft__link">
+                        <span>Directorate of Strategic Partnership & International Office</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'internal:research-and-community-service' %}" class="air__menuLeft__link">
+                        <span>Directorate of Research and Community Service</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'internal:bandung_techno_park' %}" class="air__menuLeft__link">
+                        <span>Directorate of Bandung Techno Park</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'internal:research_center' %}" class="air__menuLeft__link">
+                        <span>RESEARCH CENTER</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'internal:research_group' %}" class="air__menuLeft__link">
+                        <span>RESEARCH GROUP</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'internal:school_of_electrical_engineering' %}" class="air__menuLeft__link">
+                        <span>School of Electrical Engineering</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'internal:school_of_industrial_engineering' %}" class="air__menuLeft__link">
+                        <span>School of Industrial  Engineering</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'internal:school_of_computing' %}" class="air__menuLeft__link">
+                        <span>School of Computing</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'internal:school_of_economics_and_business' %}" class="air__menuLeft__link">
+                        <span>School of Economics & Business</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'internal:school_of_communication_and_business' %}" class="air__menuLeft__link">
+                        <span>School of Communication & Business</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'internal:school_of_creative_industries' %}" class="air__menuLeft__link">
+                        <span>School of Creative Industries</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'internal:school_of_applied_sciences' %}" class="air__menuLeft__link">
+                        <span>School of Applied Sciences</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="air__menuLeft__item air__menuLeft__submenu">
+                <a href="javascript: void(0)" class="air__menuLeft__link">
+                <i class="fe fe-home air__menuLeft__icon"></i>
+                <span>External</span>
+                <!-- <span class="badge text-white bg-blue-light float-right mt-1 px-2">6</span> -->
+                </a>
+                <ul class="air__menuLeft__list">
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'external:instagram' %}" class="air__menuLeft__link">
+                        <span>Instagram</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'external:portal_berita' %}" class="air__menuLeft__link">
+                        <span>Portal Berita</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'external:tiktok' %}" class="air__menuLeft__link">
+                        <span>Tiktok</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'external:twitter' %}" class="air__menuLeft__link">
+                        <span>Twitter</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'external:youtube' %}" class="air__menuLeft__link">
+                        <span>Youtube</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'external:linkedin' %}" class="air__menuLeft__link">
+                        <span>LinkedIn</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'external:scholar' %}" class="air__menuLeft__link">
+                        <span>Scholar</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="air__menuLeft__item air__menuLeft__submenu">
+                <a href="javascript: void(0)" class="air__menuLeft__link">
+                <i class="fe fe-home air__menuLeft__icon"></i>
+                <span>Stakeholder</span>
+                <!-- <span class="badge text-white bg-blue-light float-right mt-1 px-2">6</span> -->
+                </a>
+                <ul class="air__menuLeft__list">
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'stakeholder:mahasiswa_edom' %}" class="air__menuLeft__link">
+                        <span>Mahasiswa EDOM</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'stakeholder:orangtuamahasiswa' %}" class="air__menuLeft__link">
+                        <span>Orang Tua Mahasiswa</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'stakeholder:alumni' %}" class="air__menuLeft__link">
+                        <span>Alumni</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'stakeholder:pegawai' %}" class="air__menuLeft__link">
+                        <span>Pegawai</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'stakeholder:mahasiswalayanan' %}" class="air__menuLeft__link">
+                        <span>Mahasiswa Layanan</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'stakeholder:mitra' %}" class="air__menuLeft__link">
+                        <span>Mitra</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'stakeholder:mahasiswa-visi-misi' %}" class="air__menuLeft__link">
+                        <span>Mahasiswa Pengetahuan Visi Misi</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        <li class="air__menuLeft__item">
+            <a href="https://docs.airuitemplate.com" target="_blank" class="air__menuLeft__link">
+            <i class="fe fe-file-text air__menuLeft__icon"></i>
+            <span>Log</span>
+            </a>
+        </li>
+        </ul>
+    </div>
+    </div>
+</div>
+<div class="air__menuLeft__backdrop air__menuLeft__mobileActionToggle"></div>
