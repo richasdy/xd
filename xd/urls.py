@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+import django_db_logger.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -22,4 +23,6 @@ urlpatterns = [
     path('internal/', include('internal.urls')),
     path('auth/', include('auth.urls')),
     path('stakeholder/', include('stakeholder.urls')),
+    path('django_db_logger/', include('django_db_logger.urls')),
+    path('log', django_db_logger.views.xdlog, name="xdlog"),
 ]
