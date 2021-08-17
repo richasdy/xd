@@ -8,8 +8,8 @@ from django.contrib.auth import authenticate
 from django.contrib import messages
 import json
 import os
-#import spacy
-#from spacy import displacy
+import spacy
+from spacy import displacy
 from pathlib import Path
 import logging
 
@@ -118,21 +118,21 @@ def ner():
     text = text_file.read()
     text_file.close()
 
-    #nlp = spacy.load("en_core_web_sm")
-    #doc = nlp(text)
+    nlp = spacy.load("en_core_web_sm")
+    doc = nlp(text)
 
-    #ner = displacy.render([doc], style="ent", page=True)
-    #output_path = Path("./static/external/graphic/ner.html")
-    #output_path.open("w", encoding="utf-8").write(ner)
+    ner = displacy.render([doc], style="ent", page=True)
+    output_path = Path("./static/external/graphic/ner.html")
+    output_path.open("w", encoding="utf-8").write(ner)
 
 def pos():
     text_file = open("./static/external/text/text.txt", "r", encoding="utf8")
-    #text = text_file.read()
-    #text_file.close()
+    text = text_file.read()
+    text_file.close()
 
-    #nlp = spacy.load("en_core_web_sm")
-    #doc = nlp(text)
+    nlp = spacy.load("en_core_web_sm")
+    doc = nlp(text)
 
-    #pos = displacy.render(doc, style="dep")
-    #output_path = Path("./static/external/graphic/pos.svg")
-    #output_path.open("w", encoding="utf-8").write(pos)
+    pos = displacy.render(doc, style="dep")
+    output_path = Path("./static/external/graphic/pos.svg")
+    output_path.open("w", encoding="utf-8").write(pos)

@@ -54,3 +54,15 @@ def mahasiswalayanan(request):
     context = {}
     context['page_name'] = 'Mahasiswa Layanan'
     return render(request, "stakeholder/stakeholder-mahasiswalayanan.html", context)
+
+@login_required  
+def pegawai_hei(request):
+    context = {}
+    context['page_name'] = 'Pegawai HEI'
+    return render(request, "stakeholder/pegawai-hei.html", context)
+    
+@login_required  
+def ypt_gug(request):
+    context = {}
+    context['page_name'] = 'YPT GUG'
+    return render(request, "stakeholder/ypt-gug.html", context)    

@@ -3,7 +3,10 @@
 
 {% block content %}
  <!-- Load d3-cloud -->
- <script src="https://d3js.org/d3.v4.js"></script>
+<script src="{% static 'common/d3.min.js' %}"></script>
+<script src="{% static 'common/cloud.js' %}"></script>
+<script src="{% static 'common/ldavis.js' %}"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
 
 <div class="air__layout__content">
   <div class="air__utils__content">
@@ -11,10 +14,12 @@
       <h5>Dashboard Instagram</h5>
     </div>
     <div>
-      <!--copy card yang ini-->
       <div class="card">
         <div class="card-body">
           <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/bmabey/pyLDAvis/files/ldavis.v1.0.0.css">
+          <h4 class="mb-4">
+            <strong>Doc Clustering</strong>
+          </h4>
           <div id="lda"></div>
           <p style="text-align: center;">Doc Clustering (LDAvis Method)</p>
           <script type="text/javascript">
@@ -42,14 +47,16 @@
           //  require.config({paths: {d3: "https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min"}});
             require(["d3"], function(d3){
                 window.d3 = d3;
-                LDAvis_load_lib("https://cdn.rawgit.com/bmabey/pyLDAvis/files/ldavis.v1.0.0.js", function(){
+                //LDAvis_load_lib("https://cdn.rawgit.com/bmabey/pyLDAvis/files/ldavis.v1.0.0.js", function(){
+                LDAvis_load_lib("common/ldavis.js", function(){
                   new LDAvis("#" + "lda", ldavis);
                 });
               });
           }else{
               // require.js not available: dynamically load d3 & LDAvis
               LDAvis_load_lib("https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js", function(){
-                  LDAvis_load_lib("https://cdn.rawgit.com/bmabey/pyLDAvis/files/ldavis.v1.0.0.js", function(){
+                LDAvis_load_lib("common/ldavis.js", function(){
+                 // LDAvis_load_lib("https://cdn.rawgit.com/bmabey/pyLDAvis/files/ldavis.v1.0.0.js", function(){
                           new LDAvis("#" + "lda", ldavis);
                       })
                   });
@@ -59,11 +66,13 @@
         </div>
       </div>
     </div>
-    <!--copy card yang ini-->
     <div class="card">
       <div class="card-body">
         <div class="row">
           <div class="col-lg-6 position-relative">
+            <h4 class="mb-4">
+              <strong>Wordcloud & Scatter</strong>
+            </h4>
             <div id="wordcloud"></div>
             <p style="text-align: center;">Wordcloud</p>
           </div>
@@ -180,11 +189,15 @@
         </script>
       </div>
     </div>
+
     <!--card milik eko-->
     <div class ="row">
       <div class="col-lg-12">
         <div class="card">
           <div class="card-body">
+            <h4 class="mb-4">
+              <strong>Named Entity Recognition</strong>
+            </h4>
             <p style="text-align: center;">
               <iframe src="{% static 'external/graphic/ner.html' %}" width="1000" height="200"></iframe>
             </p>
@@ -197,6 +210,9 @@
       <div class="col-lg-12">
         <div class="card">
           <div class="card-body">
+            <h4 class="mb-4">
+              <strong>Part-of-Speech Tagging</strong>
+            </h4>
             <p style="text-align: center;">
               <img src="{% static 'external/graphic/pos.svg' %}" width="1000" height="200"></img>
             </p>
@@ -357,362 +373,263 @@ d3.json("{% static 'data/json/sct.json' %}",
 		</div>
       </div>
     </div>
-    <!-- yang ini tidak usah dicopy cardnya-->
+  
+    <!--card milik howard-->
     <div class="card">
       <div class="card-body">
         <div class="row">
-          <div class="col-lg-6">
-            <h4 class="mb-4"><strong>Scatter</strong></h4>
-            <div class="mb-5">
-              <div class="chart-scatter height-300"></div>
-            </div>
+          <h4 class="mb-4">
+            <strong>Sentiment Analysis</strong>
+          </h4>
+          <div class="col-lg-12" id="wordcloud2">
           </div>
-          <div class="col-lg-6">
-            <button onclick="update('var1')">Variable 1</button>
-            <button onclick="update('var2')">Variable 2</button>
-            <div id="multidata"></div>
-          </div>
-          <script>
-            /// scatter chart using c3
-          ;(function($) {
-            'use strict'
-            $(function() {
-              var colors = {
-                _primary: '#01a8fe',
-                _default: '#acb7bf',
-                _success: '#46be8a',
-                _danger: '#fb434a',
-              }
-    
-              c3.generate({
-            bindto: '.chart-scatter',
-            data: {
-              xs: {
-                Danger: 'Danger_x',
-                Primary: 'Primary_x',
-              },
-              columns: [
-                [
-                  'Danger_x',
-                  3.5,
-                  3,
-                  3.2,
-                  3.1,
-                  3.6,
-                  3.9,
-                  3.4,
-                  3.4,
-                  2.9,
-                  3.1,
-                  3.7,
-                  3.4,
-                  3,
-                  3,
-                  4,
-                  4.2,
-                  3.9,
-                  3.5,
-                  3.8,
-                  3.8,
-                  3.4,
-                  3.7,
-                  3.6,
-                  3.3,
-                  3.4,
-                  3,
-                  3.4,
-                  3.5,
-                  3.4,
-                  3.2,
-                  3.1,
-                  3.4,
-                  4.1,
-                  4.2,
-                  3.1,
-                  3.2,
-                  3.5,
-                  3.6,
-                  3,
-                  3.4,
-                  3.5,
-                  2.3,
-                  3.2,
-                  3.5,
-                  3.8,
-                  3,
-                  3.8,
-                  3.2,
-                  3.7,
-                  3.3,
-                ],
-                [
-                  'Primary_x',
-                  3.2,
-                  3.2,
-                  3.1,
-                  2.3,
-                  2.8,
-                  2.8,
-                  3.3,
-                  2.4,
-                  2.9,
-                  2.7,
-                  2,
-                  3,
-                  2.2,
-                  2.9,
-                  2.9,
-                  3.1,
-                  3,
-                  2.7,
-                  2.2,
-                  2.5,
-                  3.2,
-                  2.8,
-                  2.5,
-                  2.8,
-                  2.9,
-                  3,
-                  2.8,
-                  3,
-                  2.9,
-                  2.6,
-                  2.4,
-                  2.4,
-                  2.7,
-                  2.7,
-                  3,
-                  3.4,
-                  3.1,
-                  2.3,
-                  3,
-                  2.5,
-                  2.6,
-                  3,
-                  2.6,
-                  2.3,
-                  2.7,
-                  3,
-                  2.9,
-                  2.9,
-                  2.5,
-                  2.8,
-                ],
-                [
-                  'Danger',
-                  0.2,
-                  0.2,
-                  0.2,
-                  0.2,
-                  0.2,
-                  0.4,
-                  0.3,
-                  0.2,
-                  0.2,
-                  0.1,
-                  0.2,
-                  0.2,
-                  0.1,
-                  0.1,
-                  0.2,
-                  0.4,
-                  0.4,
-                  0.3,
-                  0.3,
-                  0.3,
-                  0.2,
-                  0.4,
-                  0.2,
-                  0.5,
-                  0.2,
-                  0.2,
-                  0.4,
-                  0.2,
-                  0.2,
-                  0.2,
-                  0.2,
-                  0.4,
-                  0.1,
-                  0.2,
-                  0.2,
-                  0.2,
-                  0.2,
-                  0.1,
-                  0.2,
-                  0.2,
-                  0.3,
-                  0.3,
-                  0.2,
-                  0.6,
-                  0.4,
-                  0.3,
-                  0.2,
-                  0.2,
-                  0.2,
-                  0.2,
-                ],
-                [
-                  'Primary',
-                  1.4,
-                  1.5,
-                  1.5,
-                  1.3,
-                  1.5,
-                  1.3,
-                  1.6,
-                  1,
-                  1.3,
-                  1.4,
-                  1,
-                  1.5,
-                  1,
-                  1.4,
-                  1.3,
-                  1.4,
-                  1.5,
-                  1,
-                  1.5,
-                  1.1,
-                  1.6,
-                  1.3,
-                  1.5,
-                  1.2,
-                  1.3,
-                  1.4,
-                  1.4,
-                  1.2,
-                  1.5,
-                  1,
-                  1.1,
-                  1,
-                  1.2,
-                  1.6,
-                  1.5,
-                  1.6,
-                  1.5,
-                  1.3,
-                  1.3,
-                  1.3,
-                  1.2,
-                  1.4,
-                  1.2,
-                  1,
-                  1.3,
-                  1.2,
-                  1.3,
-                  1.3,
-                  1.1,
-                  1.3,
-                ],
-              ],
-              type: 'scatter',
-            },
-            color: {
-              pattern: [colors._danger, colors._primary],
-            },
-            axis: {
-              x: {
-                label: 'Width',
-                tick: {
-                  outer: !1,
-                  fit: !1,
-                },
-              },
-              size: {
-                height: 400,
-              },
-              padding: {
-                right: 40,
-              },
-              y: {
-                label: 'Height',
-                tick: {
-                  outer: !1,
-                  count: 5,
-                  values: [0, 0.4, 0.8, 1.2, 1.6],
-                },
-              },
-            },
-            grid: {
-              x: {
-                show: !1,
-              },
-              y: {
-                show: !0,
-              },
-            },
-          })
-              })
-            })  (jQuery)
-            //multivalue bar chart
-            // set the dimensions and margins of the graph
-            var margin = {top: 30, right: 30, bottom: 70, left: 60},
-                width = 460 - margin.left - margin.right,
-                height = 300 - margin.top - margin.bottom;
-
-            // append the svg object to the body of the page
-            var md = d3.select("#multidata")
-              .append("svg")
-                .attr("width", width + margin.left + margin.right)
-                .attr("height", height + margin.top + margin.bottom)
-              .append("g")
-                .attr("transform",
-                      "translate(" + margin.left + "," + margin.top + ")");
-
-            // Initialize the X axis
-            var x = d3.scaleBand()
-              .range([ 0, width ])
-              .padding(0.2);
-            var xAxis = md.append("g")
-              .attr("transform", "translate(0," + height + ")")
-
-            // Initialize the Y axis
-            var y = d3.scaleLinear()
-              .range([ height, 0]);
-            var yAxis = md.append("g")
-              .attr("class", "myYaxis")
-
-
-            // A function that create / update the plot for a given variable:
-            function update(selectedVar) {
-
-              // Parse the Data
-              d3.json("/static/data/json/bar-change.json", function(data) {
-
-                // X axis
-                x.domain(data.map(function(d) { return d.group; }))
-                xAxis.transition().duration(1000).call(d3.axisBottom(x))
-
-                // Add Y axis
-                y.domain([0, d3.max(data, function(d) { return +d[selectedVar] }) ]);
-                yAxis.transition().duration(1000).call(d3.axisLeft(y));
-
-                // variable u: map data to existing bars
-                var u = md.selectAll("rect")
-                  .data(data)
-                // update bars
-                u
-                  .enter()
-                  .append("rect")
-                  .merge(u)
-                  .transition()
-                  .duration(1000)
-                    .attr("x", function(d) { return x(d.group); })
-                    .attr("y", function(d) { return y(d[selectedVar]); })
-                    .attr("width", x.bandwidth())
-                    .attr("height", function(d) { return height - y(d[selectedVar]); })
-                    .attr("fill", "#69b3a2")
-              })
-
-            }
-
-            // Initialize plot
-            update('var1')
-
-        </script>
         </div>
-        </div>
+      </div>
     </div>
+    <script>
+      var text_string = "Our goal is to get the best version consistently that’s going to bring us closer to winning football matches. That’s what I want from the team. If we do that consistently in every single match, we’re going to be in a good place, but that’s something we haven’t done, consistently give the best version. That’s something we must control and we must do, and I think if we’re able to do that, then the results will be the consequence to that.";
+    
+      drawWordCloud(text_string);
+    
+      function drawWordCloud(text_string){
+        var common = "poop,i,me,my,myself,we,us,our,ours,ourselves,you,your,yours,yourself,yourselves,he,him,his,himself,she,her,hers,herself,it,its,itself,they,them,their,theirs,themselves,what,which,who,whom,whose,this,that,these,those,am,is,are,was,were,be,been,being,have,has,had,having,do,does,did,doing,will,would,should,can,could,ought,i'm,you're,he's,she's,it's,we're,they're,i've,you've,we've,they've,i'd,you'd,he'd,she'd,we'd,they'd,i'll,you'll,he'll,she'll,we'll,they'll,isn't,aren't,wasn't,weren't,hasn't,haven't,hadn't,doesn't,don't,didn't,won't,wouldn't,shan't,shouldn't,can't,cannot,couldn't,mustn't,let's,that's,who's,what's,here's,there's,when's,where's,why's,how's,a,an,the,and,but,if,or,because,as,until,while,of,at,by,for,with,about,against,between,into,through,during,before,after,above,below,to,from,up,upon,down,in,out,on,off,over,under,again,further,then,once,here,there,when,where,why,how,all,any,both,each,few,more,most,other,some,such,no,nor,not,only,own,same,so,than,too,very,say,says,said,shall";
+    
+        var word_count = {};
+    
+        var words = text_string.split(/[ '\-\(\)\*":;\[\]|{},.!?]+/);
+          if (words.length == 1){
+            word_count[words[0]] = 1;
+          } else {
+            words.forEach(function(word){
+              var word = word.toLowerCase();
+              if (word != "" && common.indexOf(word)==-1 && word.length>1){
+                if (word_count[word]){
+                  word_count[word]++;
+                } else {
+                  word_count[word] = 1;
+                }
+              }
+            })
+          }
+    
+        var svg_location = "#wordcloud2";
+        var width = $('#wordcloud2').width();
+        var height = 360;
+    
+        var fill = d3.scale.category20();
+    
+        var word_entries = d3.entries(word_count);
+    
+        var xScale = d3.scale.linear()
+           .domain([0, d3.max(word_entries, function(d) {
+              return d.value;
+            })
+           ])
+           .range([10,100]);
+    
+        d3.layout.cloud().size([width, height])
+          .timeInterval(20)
+          .words(word_entries)
+          .fontSize(function(d) { return xScale(+d.value); })
+          .text(function(d) { return d.key; })
+          .rotate(function() { return ~~(Math.random() * 2) * 90; })
+          .font("Impact")
+          .on("end", draw)
+          .start();
+    
+        function draw(words) {
+          d3.select(svg_location).append("svg")
+              .attr("width", width)
+              .attr("height", height)
+            .append("g")
+              .attr("transform", "translate(" + [width >> 1, height >> 1] + ")")
+            .selectAll("text")
+              .data(words)
+            .enter().append("text")
+              .style("font-size", function(d) { return xScale(d.value) + "px"; })
+              .style("font-family", "Impact")
+              .style("fill", "#69b3a2")
+              .attr("text-anchor", "middle")
+              .attr("transform", function(d) {
+                return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+              })
+              .text(function(d) { return d.key; });
+    
+        }
+    
+    
+    
+        d3.layout.cloud().stop();
+      }
+    
+    
+    </script>
+    
+    <script>
+      var text_string = "That the team puts in place what we’ve been working on and the spirit that they have and the energy that they’ve been training with and in games more consistently, because we’ve had some very good patches against both teams in the last two games against Spurs and Chelsea. It’s how we compete in matches to get the wins, which is the most important things. ";
+    
+      drawWordCloud(text_string);
+    
+      function drawWordCloud(text_string){
+        var common = "poop,i,me,my,myself,we,us,our,ours,ourselves,you,your,yours,yourself,yourselves,he,him,his,himself,she,her,hers,herself,it,its,itself,they,them,their,theirs,themselves,what,which,who,whom,whose,this,that,these,those,am,is,are,was,were,be,been,being,have,has,had,having,do,does,did,doing,will,would,should,can,could,ought,i'm,you're,he's,she's,it's,we're,they're,i've,you've,we've,they've,i'd,you'd,he'd,she'd,we'd,they'd,i'll,you'll,he'll,she'll,we'll,they'll,isn't,aren't,wasn't,weren't,hasn't,haven't,hadn't,doesn't,don't,didn't,won't,wouldn't,shan't,shouldn't,can't,cannot,couldn't,mustn't,let's,that's,who's,what's,here's,there's,when's,where's,why's,how's,a,an,the,and,but,if,or,because,as,until,while,of,at,by,for,with,about,against,between,into,through,during,before,after,above,below,to,from,up,upon,down,in,out,on,off,over,under,again,further,then,once,here,there,when,where,why,how,all,any,both,each,few,more,most,other,some,such,no,nor,not,only,own,same,so,than,too,very,say,says,said,shall";
+    
+        var word_count = {};
+    
+        var words = text_string.split(/[ '\-\(\)\*":;\[\]|{},.!?]+/);
+          if (words.length == 1){
+            word_count[words[0]] = 1;
+          } else {
+            words.forEach(function(word){
+              var word = word.toLowerCase();
+              if (word != "" && common.indexOf(word)==-1 && word.length>1){
+                if (word_count[word]){
+                  word_count[word]++;
+                } else {
+                  word_count[word] = 1;
+                }
+              }
+            })
+          }
+    
+        var svg_location = "#wordcloud2";
+        var width = $('#wordcloud2').width();
+        var height = 360;
+    
+        var fill = d3.scale.category20();
+    
+        var word_entries = d3.entries(word_count);
+    
+        var xScale = d3.scale.linear()
+           .domain([0, d3.max(word_entries, function(d) {
+              return d.value;
+            })
+           ])
+           .range([10,100]);
+    
+        d3.layout.cloud().size([width, height])
+          .timeInterval(20)
+          .words(word_entries)
+          .fontSize(function(d) { return xScale(+d.value); })
+          .text(function(d) { return d.key; })
+          .rotate(function() { return ~~(Math.random() * 2) * 90; })
+          .font("Impact")
+          .on("end", draw)
+          .start();
+    
+        function draw(words) {
+          d3.select(svg_location).append("svg")
+              .attr("width", width)
+              .attr("height", height)
+            .append("g")
+              .attr("transform", "translate(" + [width >> 1, height >> 1] + ")")
+            .selectAll("text")
+              .data(words)
+            .enter().append("text")
+              .style("font-size", function(d) { return xScale(d.value) + "px"; })
+              .style("font-family", "Impact")
+              .style("fill", "#FF0000")
+              .attr("text-anchor", "middle")
+              .attr("transform", function(d) {
+                return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+              })
+              .text(function(d) { return d.key; });
+    
+        }
+    
+    
+    
+        d3.layout.cloud().stop();
+      }
+    
+    
+    </script>
+
+    <div class="card">
+      <div class="card-body">
+        <h4 class="mb-4">
+          <strong>Sentiment Polarity</strong>
+        </h4>
+        <div class="row">
+          <div id="sentpolar">
+          </div>
+        </div>
+      </div>
+    </div>
+  <script>
+     // set the dimensions and margins of the graph
+    var margin = {top: 10, right: 30, bottom: 30, left: 40},
+    width = 460 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+      // append the svg object to the body of the page
+      var sp = d3.select("#sentpolar")
+      .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+      // get the data
+      d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/data_doubleHist.csv", function(data) {
+        // X axis: scale and draw:
+  var x = d3.scaleLinear()
+      .domain([-4,9])     // can use this instead of 1000 to have the max of data: d3.max(data, function(d) { return +d.price })
+      .range([0, width]);
+  sp.append("g")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
+
+        // set the parameters for the histogram
+  var histogram = d3.histogram()
+      .value(function(d) { return +d.value; })   // I need to give the vector of value
+      .domain(x.domain())  // then the domain of the graphic
+      .thresholds(x.ticks(40)); // then the numbers of bins
+
+        // And apply twice this function to data to get the bins.
+  var bins1 = histogram(data.filter( function(d){return d.type === "variable 1"} ));
+  var bins2 = histogram(data.filter( function(d){return d.type === "variable 2"} ));
+
+       // Y axis: scale and draw:
+  var y = d3.scaleLinear()
+      .range([height, 0]);
+      y.domain([0, d3.max(bins1, function(d) { return d.length; })]);   // d3.hist has to be called before the Y axis obviously
+  sp.append("g")
+      .call(d3.axisLeft(y));
+
+        // append the bars for series 1
+  sp.selectAll("rect")
+      .data(bins1)
+      .enter()
+      .append("rect")
+        .attr("x", 1)
+        .attr("transform", function(d) { return "translate(" + x(d.x0) + "," + y(d.length) + ")"; })
+        .attr("width", function(d) { return x(d.x1) - x(d.x0) -1 ; })
+        .attr("height", function(d) { return height - y(d.length); })
+        .style("fill", "#3952a3")
+        .style("opacity", 0.6)
+
+  // append the bars for series 2
+  sp.selectAll("rect2")
+      .data(bins2)
+      .enter()
+      .append("rect")
+        .attr("x", 1)
+        .attr("transform", function(d) { return "translate(" + x(d.x0) + "," + y(d.length) + ")"; })
+        .attr("width", function(d) { return x(d.x1) - x(d.x0) -1 ; })
+        .attr("height", function(d) { return height - y(d.length); })
+        .style("fill", "#a64d19")
+        .style("opacity", 0.6)
+
+  // Handmade legend
+  sp.append("circle").attr("cx",300).attr("cy",30).attr("r", 6).style("fill", "#3952a3")
+  sp.append("circle").attr("cx",300).attr("cy",60).attr("r", 6).style("fill", "#a64d19")
+  sp.append("text").attr("x", 320).attr("y", 30).text("Not Recommended").style("font-size", "15px").attr("alignment-baseline","middle")
+  sp.append("text").attr("x", 320).attr("y", 60).text("Recommended").style("font-size", "15px").attr("alignment-baseline","middle")
+      });
+    </script>
+
+    <!--tabel-->
     <div class="card">
       <div class="card-body">
         <div class="row">
