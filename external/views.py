@@ -8,6 +8,8 @@ from django.contrib.auth import authenticate
 from django.contrib import messages
 import json
 import os
+import spacy
+from spacy import displacy
 from pathlib import Path
 import spacy
 from spacy import displacy
@@ -47,6 +49,8 @@ def tables(request):
 
 @login_required
 def instagram(request):
+    ner()
+    pos()
     json_data = open("static/data/json/100_data/instagram.json")
     data = json.load(json_data)
     context = {}
