@@ -11,6 +11,9 @@ import os
 import spacy
 from spacy import displacy
 from pathlib import Path
+import spacy
+from spacy import displacy
+from pathlib import Path
 import logging
 
 db_logger = logging.getLogger('db')
@@ -95,6 +98,8 @@ def youtube(request):
 
 @login_required
 def linkedin(request):
+    ner()
+    pos()
     json_data = open(os.path.join(BASE_DIR, "static/data/json/100_data/linkedin.json"))
     data = json.load(json_data)
     context = {}
