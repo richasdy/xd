@@ -2,6 +2,11 @@
 {% load static %}
 
 {% block content %}
+<!-- Load d3-cloud -->
+<script src="{% static 'common/d3.min.js' %}"></script>
+<script src="{% static 'common/cloud.js' %}"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+
 <div class="air__layout__content">
   <div class="air__utils__content">
     <div class="air__utils__heading">
@@ -148,21 +153,20 @@
 
     <div class="card">
       <div class="card-body">
-        <h4 class="mb-4">
-          <strong>Wordcloud</strong>
-        </h4>
         <div class="row">
           <div class="col-lg-6 position-relative">
+            <h4 class="mb-4">
+              <strong>Wordcloud & Scatter</strong>
+            </h4>
             <div id="wordcloud"></div>
             <p style="text-align: center;">Wordcloud</p>
           </div>
           <div class="col-lg-6">
             <div id="scatter"></div>
-            <p style="text-align: center;">Scatter Plot</p>
+            <p style="text-align: center;">Scatter</p>
           </div>
         </div>
-        <!-- Load d3-cloud -->
-        <script src="https://d3js.org/d3.v4.js"></script>
+
         <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
         <script>
           //WORDSCLOUD
@@ -224,7 +228,7 @@
 
 
           // append the svg object to the body of the page
-          var sct = d3.select("#scatter")
+          var sc = d3.select("#scatter")
             .append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
@@ -239,7 +243,7 @@
             var x = d3.scaleLinear()
               .domain([4, 8])
               .range([0, width]);
-            sct.append("g")
+            sc.append("g")
               .attr("transform", "translate(0," + height + ")")
               .call(d3.axisBottom(x));
 
@@ -247,7 +251,7 @@
             var y = d3.scaleLinear()
               .domain([0, 9])
               .range([height, 0]);
-            sct.append("g")
+            sc.append("g")
               .call(d3.axisLeft(y));
 
             // Color scale: give me a specie name, I return a color
@@ -256,7 +260,7 @@
               .range(["#440154ff", "#21908dff", "#fde725ff"])
 
             // Add dots
-            sct.append('g')
+            sc.append('g')
               .selectAll("dot")
               .data(data)
               .enter()
@@ -273,23 +277,17 @@
     <!-- end Khairul -->
 
     <!-- Howard: Sentiment Analysis & Sentiment Polarity -->
-    <div class="air__layout__content">
-      <div class="air__utils__content">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="mb-4">
-              <strong>Sentiment Analysis</strong>
-            </h4>
-            <div class="row">
-              <div class="col-lg-12" id="sentiment_analysis"></div>
-            </div>
-            <p style="text-align: center;">Wordcloud of Sentiment Analysis</p>
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <h4 class="mb-4">
+            <strong>Sentiment Analysis</strong>
+          </h4>
+          <div class="col-lg-12" id="wordcloud2">
           </div>
         </div>
       </div>
     </div>
-    <script src="{% static 'common/d3.min.js' %}"></script>
-    <script src="{% static 'common/cloud.js' %}"></script>
     <script>
       var text_string = "Our goal is to get the best version consistently that’s going to bring us closer to winning football matches. That’s what I want from the team. If we do that consistently in every single match, we’re going to be in a good place, but that’s something we haven’t done, consistently give the best version. That’s something we must control and we must do, and I think if we’re able to do that, then the results will be the consequence to that.";
 
@@ -316,8 +314,8 @@
           })
         }
 
-        var svg_location = "#sentiment_analysis";
-        var width = $('#sentiment_analysis').width();
+        var svg_location = "#wordcloud2";
+        var width = $('#wordcloud2').width();
         var height = 360;
 
         var fill = d3.scale.category20();
@@ -358,9 +356,15 @@
               return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
             })
             .text(function (d) { return d.key; });
+
         }
+
+
+
         d3.layout.cloud().stop();
       }
+
+
     </script>
 
     <script>
@@ -389,8 +393,8 @@
           })
         }
 
-        var svg_location = "#sentiment_analysis";
-        var width = $('#sentiment_analysis').width();
+        var svg_location = "#wordcloud2";
+        var width = $('#wordcloud2').width();
         var height = 360;
 
         var fill = d3.scale.category20();
@@ -442,25 +446,17 @@
 
     </script>
 
-    <div class="air__layout__content">
-      <div class="air__utils__content">
-        <div class="card">
-          <div class="card-body">
-            <h4 class="mb-4">
-              <strong>Sentiment Polarity</strong>
-            </h4>
-            <div class="row">
-              <div id="sentiment_polarity">
-              </div>
-            </div>
-            <p style="text-align: center;">Histogram of Sentiment Polarity</p>
+    <div class="card">
+      <div class="card-body">
+        <h4 class="mb-4">
+          <strong>Sentiment Polarity</strong>
+        </h4>
+        <div class="row">
+          <div id="sentpolar">
           </div>
         </div>
       </div>
     </div>
-    <!-- Load d3.js -->
-    <script src="https://d3js.org/d3.v4.js"></script>
-
     <script>
       // set the dimensions and margins of the graph
       var margin = { top: 10, right: 30, bottom: 30, left: 40 },
@@ -468,7 +464,7 @@
         height = 400 - margin.top - margin.bottom;
 
       // append the svg object to the body of the page
-      var svg = d3.select("#sentiment_polarity")
+      var sp = d3.select("#sentpolar")
         .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -482,7 +478,7 @@
         var x = d3.scaleLinear()
           .domain([-4, 9])     // can use this instead of 1000 to have the max of data: d3.max(data, function(d) { return +d.price })
           .range([0, width]);
-        svg.append("g")
+        sp.append("g")
           .attr("transform", "translate(0," + height + ")")
           .call(d3.axisBottom(x));
 
@@ -500,11 +496,11 @@
         var y = d3.scaleLinear()
           .range([height, 0]);
         y.domain([0, d3.max(bins1, function (d) { return d.length; })]);   // d3.hist has to be called before the Y axis obviously
-        svg.append("g")
+        sp.append("g")
           .call(d3.axisLeft(y));
 
         // append the bars for series 1
-        svg.selectAll("rect")
+        sp.selectAll("rect")
           .data(bins1)
           .enter()
           .append("rect")
@@ -516,7 +512,7 @@
           .style("opacity", 0.6)
 
         // append the bars for series 2
-        svg.selectAll("rect2")
+        sp.selectAll("rect2")
           .data(bins2)
           .enter()
           .append("rect")
@@ -528,10 +524,10 @@
           .style("opacity", 0.6)
 
         // Handmade legend
-        svg.append("circle").attr("cx", 300).attr("cy", 30).attr("r", 6).style("fill", "#3952a3")
-        svg.append("circle").attr("cx", 300).attr("cy", 60).attr("r", 6).style("fill", "#a64d19")
-        svg.append("text").attr("x", 320).attr("y", 30).text("Not Recommended").style("font-size", "15px").attr("alignment-baseline", "middle")
-        svg.append("text").attr("x", 320).attr("y", 60).text("Recommended").style("font-size", "15px").attr("alignment-baseline", "middle")
+        sp.append("circle").attr("cx", 300).attr("cy", 30).attr("r", 6).style("fill", "#3952a3")
+        sp.append("circle").attr("cx", 300).attr("cy", 60).attr("r", 6).style("fill", "#a64d19")
+        sp.append("text").attr("x", 320).attr("y", 30).text("Not Recommended").style("font-size", "15px").attr("alignment-baseline", "middle")
+        sp.append("text").attr("x", 320).attr("y", 60).text("Recommended").style("font-size", "15px").attr("alignment-baseline", "middle")
       });
     </script>
     <!-- end Howard -->
@@ -544,7 +540,6 @@
         </h4>
         <div id="hst"></div>
 
-        <script src="https://d3js.org/d3.v4.js"></script>
         <script>
           // set the dimensions and margins of the graph
           var margin = { top: 10, right: 30, bottom: 30, left: 40 },
