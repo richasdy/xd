@@ -5,6 +5,7 @@ from django.contrib.auth import views as auth_views
 
 app_name = 'external'
 urlpatterns = [
+    path('',views.dashboard, name='dashboard'),
     path('dashboard', views.dashboard, name='dashboard'),
     path('error404', views.error404, name='error404'),
     path('form', views.form, name='form'),

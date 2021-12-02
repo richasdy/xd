@@ -18,6 +18,8 @@ from django.urls import path, include
 import django_db_logger.views
 
 urlpatterns = [
+    path('', include('external.urls')),
+    path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls),
     path('external/', include('external.urls')),
     path('internal/', include('internal.urls')),
