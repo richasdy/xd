@@ -49,12 +49,22 @@ def tables(request):
 
 @login_required
 def instagram(request):
+    import csv
     ner()
     pos()
-    json_data = open("static/data/json/100_data/instagram.json")
+    json_data = open("static/data/json/instagram/instagram 2021-4.json")
+    json_lda_pos = open("static/data/json/instagram/instagram_lda_positive-2021-4.csv")
+    json_lda_neg = open("static/data/json/instagram/instagram_lda_negative-2021-4.csv")
     data = json.load(json_data)
+    data_lda_pos = csv.reader(json_lda_pos)
+    data_lda_neg = csv.reader(json_lda_neg)
+    data_pos = list(data_lda_pos)
+    data_neg = list(data_lda_neg)
     context = {}
     context['data'] = data
+    context['lda_pos'] = data_pos
+    context['lda_neg'] = data_neg
+    
     context['page_name'] = "Instagram"
     db_logger.info('load instagram page')
     return render(request, "external/instagram.html", context)
