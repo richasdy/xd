@@ -1,6 +1,5 @@
-from django.urls import path
+from django.urls import path, re_path
 from . import views
-from django.conf.urls import url
 
 app_name = 'internal'
 urlpatterns = [
@@ -29,6 +28,6 @@ urlpatterns = [
     path('json', views.json, name='json'),
     path('json/streamgraph', views.streamgraph_json, name='streamgraph_json'),
     path('json/density', views.density_json, name='density_json'),
-    url(r'^create/$', views.create, name='create'),
-    url(r'^form/$',views.form, name='form'),
+    re_path(r'^create/$', views.create, name='create'),
+    re_path(r'^form/$',views.form, name='form'),
 ]
