@@ -5,7 +5,6 @@
  <!-- Load d3-cloud -->
 <script src="{% static 'common/d3.min.js' %}"></script>
 <script src="{% static 'common/cloud.js' %}"></script>
-<script src="{% static 'common/ldavis.js' %}"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://d3js.org/d3.v4.js"></script>
 
@@ -14,6 +13,15 @@
     <div class="air__utils__heading">
       <h5>Dashboard Instagram</h5>
     </div>
+    <div class="card">
+      <div class="card-body">
+        <h4 class="mb-4">
+          <strong id="barplot_wordcloud">Wordcloud</strong>
+       </h4>
+      </div>
+    </div>
+    <!-- Load d3-cloud -->
+    <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
     <div class="card">
       <div class="card-body">
          <h4 class="mb-4">
@@ -41,6 +49,7 @@
             lda_pos_words = data_lda_pos[1].replace("\r","").split(",")
             data_lda.push(lda_pos_words)
             data_lda.push(lda_pos_counts)
+            if(element_id != "barplot_wordcloud"){
             const dataLDA = {
               labels: data_lda[0],
               datasets: [{
@@ -76,7 +85,62 @@
               document.getElementById(element_id),
               config
               );
-              
+          }
+          else {
+            // List of words
+              var myWords = []
+              for (var wordcloud = 0; wordcloud < lda_pos_words.length; wordcloud++) {
+                  data = {
+                    word: lda_pos_words[wordcloud],
+                    size: parseInt(lda_pos_counts[wordcloud]),
+                    color: "#"+Math.floor(Math.random()*16777215).toString(16)
+                  }
+                  myWords.push(data)
+              }
+              console.log("data color", myWords)
+              // set the dimensions and margins of the graph
+              var margin = {top: 10, right: 10, bottom: 10, left: 10},
+                  width = 900 - margin.left - margin.right,
+                  height = 450 - margin.top - margin.bottom;
+
+              // append the svg object to the body of the page
+              var svg = d3.select("#barplot_wordcloud").append("svg")
+                  .attr("width", width + margin.left + margin.right)
+                  .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                  .attr("transform",
+                        "translate(" + margin.left + "," + margin.top + ")");
+
+              // Constructs a new cloud layout instance. It run an algorithm to find the position of words that suits your requirements
+              // Wordcloud features that are different from one word to the other must be here
+              var layout = d3.layout.cloud()
+                .size([width, height])
+                .words(myWords.map(function(d) { return {text: d.word, size:d.size}; }))
+                .padding(5)        //space between words
+                .rotate(function() { return ~~(Math.random() * 2) * 90; })
+                .fontSize(function(d) { return d.size; })      // font size of words
+                .on("end", draw);
+              layout.start();
+             
+              // This function takes the output of 'layout' above and draw the words
+              // Wordcloud features that are THE SAME from one word to the other can be here
+              function draw(words) {
+                svg
+                  .append("g")
+                    .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
+                    .selectAll("text")
+                      .data(words)
+                    .enter().append("text")
+                      .style("font-size", function(d) { return d.size * 2; })
+                      .style("fill", function(d) { return d.color; })
+                      .attr("text-anchor", "middle")
+                      .style("font-family", "Impact")
+                      .attr("transform", function(d) {
+                        return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+                      })
+                      .text(function(d) { return d.text; });
+              }
+          }
             });
           });
       }
@@ -87,6 +151,7 @@
       
       visualize_lda(element_lda_positive,data_tw4_positive,"positive")
       visualize_lda(element_lda_negative,data_tw4_negative,"negative")
+      visualize_lda("barplot_wordcloud",data_tw4_negative,"negative")
     </script>
     <div class="card">
       <div class="card-body">
