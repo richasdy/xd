@@ -49,22 +49,16 @@ def tables(request):
 
 @login_required
 def instagram(request):
-    import csv
-    ner()
-    pos()
+    ner("./static/external/text/comment_ig_2021-4.txt")
+    pos("./static/external/text/comment_ig_2021-4.txt")
     json_data = open("static/data/json/instagram/instagram 2021-4.json")
-    json_lda_pos = open("static/data/json/instagram/instagram_lda_positive-2021-4.csv")
-    json_lda_neg = open("static/data/json/instagram/instagram_lda_negative-2021-4.csv")
+    json_doc_clustering = open("static/data/json/instagram/instagram_doc_clustering-2021-4.json")
     data = json.load(json_data)
-    data_lda_pos = csv.reader(json_lda_pos)
-    data_lda_neg = csv.reader(json_lda_neg)
-    data_pos = list(data_lda_pos)
-    data_neg = list(data_lda_neg)
+    data_doc_clustring = json.load(json_doc_clustering)
+    
     context = {}
     context['data'] = data
-    context['lda_pos'] = data_pos
-    context['lda_neg'] = data_neg
-    
+    context['doc_clustering']= data_doc_clustring
     context['page_name'] = "Instagram"
     db_logger.info('load instagram page')
     return render(request, "external/instagram.html", context)
@@ -108,8 +102,8 @@ def youtube(request):
 
 @login_required
 def linkedin(request):
-    ner()
-    pos()
+    ner("./static/external/text/comment_ig_2021-4.txt")
+    pos("./static/external/text/comment_ig_2021-4.txt")
     json_data = open(os.path.join(BASE_DIR, "static/data/json/100_data/linkedin.json"))
     data = json.load(json_data)
     context = {}
@@ -128,26 +122,29 @@ def scholar(request):
     db_logger.info('load scholar page')
     return render(request, "external/scholar.html", context)
 
-def ner():
-    text_file = open("./static/external/text/text.txt", "r", encoding="utf8")
+def ner(file_name):
+    text_file = open(file_name, "r", encoding="utf8")
     text = text_file.read()
     text_file.close()
-
     nlp = spacy.load("en_core_web_sm")
     doc = nlp(text)
-
     ner = displacy.render([doc], style="ent", page=True)
     output_path = Path("./static/external/graphic/ner.html")
     output_path.open("w", encoding="utf-8").write(ner)
 
-def pos():
-    text_file = open("./static/external/text/text.txt", "r", encoding="utf8")
-    text = text_file.read()
+def pos(file_name):
+    text_file = open(file_name, "r", encoding="utf8")
+    text = text_file.read().split("\n")
     text_file.close()
 
     nlp = spacy.load("en_core_web_sm")
-    doc = nlp(text)
+    # doc = nlp(text[3])
 
-    pos = displacy.render(doc, style="dep")
+    doc = []
+    for j in text:
+        postag = nlp(j)
+        doc.append(postag)
+    
+    pos = displacy.render(doc[3], style="dep")
     output_path = Path("./static/external/graphic/pos.svg")
     output_path.open("w", encoding="utf-8").write(pos)

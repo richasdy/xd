@@ -18,40 +18,37 @@
           Select Data
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <button onclick="data('tw1-2022')" class="dropdown-item" type="button">Triwulan 1 - 2022</button>
-          <button onclick="data('tw4-2021')" class="dropdown-item" type="button">Triwulan 4 - 2021</button>
-          <button onclick="data('tw3-2021')" class="dropdown-item" type="button">Triwulan 3 - 2021</button>
-          <button onclick="data('tw2-2021')" class="dropdown-item" type="button">Triwulan 2 - 2021</button>
-          <button onclick="data('tw1-2021')" class="dropdown-item" type="button">Triwulan 1 - 2021</button>
+          <button onclick="data('lastweek')" class="dropdown-item" type="button">Last Week</button>
+          <button onclick="data('tw4')" class="dropdown-item" type="button">Triwulan 4</button>
+          <button onclick="data('tw3')" class="dropdown-item" type="button">Triwulan 3</button>
+          <button onclick="data('tw2')" class="dropdown-item" type="button">Triwulan 2</button>
+          <button onclick="data('tw1')" class="dropdown-item" type="button">Triwulan 1</button>
         </div>
         <script>
-          let time = ""
           function data(time) {
             switch(time) {
-              case 'tw1-2022':
+              case 'lastweek':
                 document.getElementById("frame_lda_positive").src = "static/data/html/lda_instagram-2021-4-positive.html";
-                document.getElementById("sentiment").src = "static/data/png/sentiment_instagram_tw1-2022.png";
-                document.getElementById("wordcloud").src = "static/data/txt/wordcloud-tw1-2022.svg";
-                document.getElementById("wordcloud-caption").innerHTML = "Wordcloud Triwulan 1 Tahun 2022";
-                document.getElementById("caption_sentiment").innerHTML = "Triwulan 1 Tahun 2022";
+                alert(time)
                 break;
-              case 'tw4-2021':
+              case 'tw4':
                 document.getElementById("frame_lda_positive").src = "static/data/html/lda_instagram-2021-4-positive.html";
                 document.getElementById("sentiment").src = "static/data/png/sentiment_instagram_tw4-2021.png";
                 document.getElementById("wordcloud").src = "static/data/svg/wordcloud-tw4-2021.svg";
                 document.getElementById("wordcloud-caption").innerHTML = "Wordcloud Triwulan 4 Tahun 2021";
                 document.getElementById("caption_sentiment").innerHTML = "Triwulan 4 Tahun 2021";
                 break;
-              case 'tw3-2021':
+              case 'tw3':
                 document.getElementById("frame_lda_positive").src = "static/data/html/lda_instagram-2021-4-positive.html";
                 break;
-              case 'tw2-2021':
+              case 'tw2':
                 document.getElementById("frame_lda_positive").src = "static/data/html/lda_instagram-2021-4-positive.html";
                 break;
-              case 'tw1-2021':
+              case 'tw1':
                 document.getElementById("frame_lda_positive").src = "static/data/html/lda_instagram-2021-4-positive.html";
                 break;
-  
+              default:
+                document.getElementById("frame_lda_positive").src = "static/data/html/lda_instagram-2021-4-positive.html";
             }
           }
         </script>
@@ -63,7 +60,7 @@
       <div class="card-body">
         <h4 class="mb-4">
           <strong>Wordcloud</strong>
-          <img class="my-5" id="wordcloud" src="static/data/svg/wordcloud-tw4-2021.svg">
+          <img class="my-5" id="wordcloud" src="">
           <p id="wordcloud-caption" class="text-sm-center font-size-18"></p>
        </h4>
       </div>
@@ -73,7 +70,7 @@
       <div class="card-body">
         <h4 class="mb-4">
         <strong>LDA Positive</strong>
-        <iframe id="frame_lda_positive" class="mt-4" style="overflow: hidden;" height="800" width="100%" src="static/data/html/lda_instagram-2021-4-positive.html"></iframe>
+        <iframe id="frame_lda_positive" class="mt-4" style="overflow: hidden;" height="800" width="100%" src=""></iframe>
         </h4>
       </div>
     </div>
@@ -145,7 +142,7 @@
             lda_pos_words = data_lda_pos[1].replace("\r","").split(",")
             data_lda.push(lda_pos_words)
             data_lda.push(lda_pos_counts)
-  
+
             const dataLDA = {
               labels: data_lda[0],
               datasets: [{
@@ -181,8 +178,9 @@
               document.getElementById(element_id),
               config
               );
+          }
             });
-        });
+          });
       }
       var element_lda_positive = "ldapositive"
       var element_lda_negative = "ldanegative"
@@ -290,8 +288,8 @@
         </h4>
         <div class="row d-flex">
           <div class="col-6 ">
-            <img class="my-5" id="sentiment" src="static/data/png/sentiment_instagram_tw4-2021.png">
-            <p class="text-sm-center" id="caption_sentiment">Triwulan 4 Tahun 2021</p>
+            <img class="my-5" id="sentiment" src="">
+            <p class="text-sm-center" id="caption_sentiment"></p>
           </div>
           <div class="col-6">
             <img class="my-5" id="sentiment_barplot" src="static/data/png/data_tw_2021.png">
