@@ -35,8 +35,8 @@
     </form>
     {% comment %} <div class="text-center mt-4">
       OR
-    </div>
-    <div class="s12 m6 offset-m3 center-align my-3">
+    </div> {% endcomment %}
+    {% comment %} <div class="s12 m6 offset-m3 center-align my-3">
         <a class="oauth-container btn darken-4  black-text" href="https://accounts.google.com/o/oauth2/auth/oauthchooseaccount?client_id=1039690428294-9g8c3c31ba0qrgmto6cntfn8b9flgq0g.apps.googleusercontent.com&redirect_uri=http%3A%2F%2F127.0.0.1%3A8000%2Faccounts%2Fgoogle%2Flogin%2Fcallback%2F&scope=email%20profile&response_type=code&state=vLiNvwlWRpMN&access_type=online&flowName=GeneralOAuthFlow" style="text-transform:none">
             <div class="left">
                 <img width="20px" style="margin-top:7px; margin-right:8px" alt="Google sign-in" 
@@ -44,13 +44,13 @@
             Login with google
             </div>
         </a>
-    </div>
-    <a href="#" class="text-blue font-weight-bold font-size-18">Forgot password?</a>
+    </div> {% endcomment %}
+    {% comment %} <a href="#" class="text-blue font-weight-bold font-size-18">Forgot password?</a> {% endcomment %}
   </div>
   <div class="text-center font-size-18 pt-4 mb-auto">
-    Don't have an account?
-    <a href="{% url 'auth:register' %}" class="font-weight-bold text-blue text-underlined"><u>Sign Up</u></a>
-  </div> {% endcomment %}
+    {% comment %} Don't have an account? {% endcomment %}
+    {% comment %} <a href="{% url 'auth:register' %}" class="font-weight-bold text-blue text-underlined"><u>Sign Up</u></a> {% endcomment %}
+  </div> 
   <div class="mt-auto pb-5 pt-5">
     <ul class="air__auth__footerNav list-unstyled d-flex mb-2 flex-wrap justify-content-center">
     <div class="text-gray-4 text-center">© 2021 Tel-U Dashboard. All rights reserved.</div>
