@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 import django_db_logger.views
+from django.shortcuts import redirect
 
 urlpatterns = [
-    path('', include('external.urls')),
+    # path('', include('external.urls')),
+    path('', lambda request: redirect('external/linkedin', permanent = True)),
     path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls),
     path('external/', include('external.urls')),
