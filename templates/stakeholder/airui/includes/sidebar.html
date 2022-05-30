@@ -237,12 +237,20 @@
                     </li>
                 </ul>
             </li>
-        <li class="air__menuLeft__item">
-            <a href="https://docs.airuitemplate.com" target="_blank" class="air__menuLeft__link">
-            <i class="fe fe-file-text air__menuLeft__icon"></i>
-            <span>Log</span>
-            </a>
-        </li>
+            <li class="air__menuLeft__item air__menuLeft__submenu">
+                <a href="javascript: void(0)" class="air__menuLeft__link">
+                <i class="fe fe-home air__menuLeft__icon"></i>
+                <span>Logs</span>
+                <!-- <span class="badge text-white bg-blue-light float-right mt-1 px-2">6</span> -->
+                </a>
+                <ul class="air__menuLeft__list">
+                    <li class="air__menuLeft__item">
+                        <a href="{% url 'auth:logout' %}" class="air__menuLeft__link">
+                        <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </div>
     </div>

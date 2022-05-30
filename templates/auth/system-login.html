@@ -33,7 +33,7 @@
         Log In
       </button>
     </form>
-    <div class="text-center mt-4">
+    {% comment %} <div class="text-center mt-4">
       OR
     </div>
     <div class="s12 m6 offset-m3 center-align my-3">
@@ -50,7 +50,7 @@
   <div class="text-center font-size-18 pt-4 mb-auto">
     Don't have an account?
     <a href="{% url 'auth:register' %}" class="font-weight-bold text-blue text-underlined"><u>Sign Up</u></a>
-  </div>
+  </div> {% endcomment %}
   <div class="mt-auto pb-5 pt-5">
     <ul class="air__auth__footerNav list-unstyled d-flex mb-2 flex-wrap justify-content-center">
     <div class="text-gray-4 text-center">© 2021 Tel-U Dashboard. All rights reserved.</div>
