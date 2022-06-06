@@ -4,6 +4,7 @@ from . import views
 app_name = 'stakeholder'
 urlpatterns = [
     path('mahasiswa-edom', views.mahasiswa_edom, name='mahasiswa_edom'),
+    path('overview-newapps', views.overview_newapps, name='overview_newapps'),
     path('orangtuamahasiswa', views.orangtuamahasiswa, name='orangtuamahasiswa'),
     path('alumni', views.alumni, name='alumni'),
     path('pegawai', views.pegawai, name='pegawai'),

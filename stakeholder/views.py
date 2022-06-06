@@ -1,9 +1,11 @@
+from turtle import title
 from django.shortcuts import render
 import json
 from django.contrib.auth.decorators import login_required
 import logging
 import os
 from pathlib import Path
+from json import dumps
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -65,4 +67,61 @@ def pegawai_hei(request):
 def ypt_gug(request):
     context = {}
     context['page_name'] = 'YPT GUG'
-    return render(request, "stakeholder/ypt-gug.html", context)    
+    return render(request, "stakeholder/ypt-gug.html", context)   
+
+@login_required
+def overview_newapps(request):
+    data = [{
+                "params":"Total Engagement",
+                "total":143,
+                "trend":"#ef5350",
+                "percentage":13
+             }, 
+            {
+                "params":"Total Follower",
+                "total":12.5,
+                "trend":"#66bb6a",
+                "percentage":40}, 
+            {
+                "params":"Total Like",
+                "total":133,
+                "trend":"#ef5350",
+                "percentage":20},  
+            {
+                "params":"Total Reach",
+                "total":646,
+                "trend":"#66bb6a",
+                "percentage":10.5
+            }]
+    data_title = ["How is your engagement performance?",
+                  "How is your followers growth?",
+                  "How is your reach performance?",
+                  "How is your talk performance?",
+                  ]
+    data_chart = [
+        {
+            "like":[0, 10, 5, 2, 20, 30, 45], 
+            "share":[4, 5, 10, 2, 2, 23, 89],
+            "talk":[2, 7, 67, 43, 98, 54, 53],
+        },
+        {
+            "facebook":[0, 10, 5, 2, 20, 30, 45], 
+            "twitter":[2, 7, 67, 43, 98, 54, 53],
+            "instagram":[4, 5, 10, 2, 2, 23, 89],
+            "youtube":[54, 32, 12, 90, 34, 89, 43]
+        },
+        {
+            "reach":[0, 10, 5, 2, 20, 30, 45], 
+            "impression":[2, 7, 67, 43, 98, 54, 53],
+        },
+        {
+            "talk":[0, 10, 5, 2, 20, 30, 45], 
+            "talker":[2, 7, 67, 43, 98, 54, 53]
+        }
+    ]
+    context = {}
+    context['title'] = data_title
+    context['data_string'] = data
+    context['data_chart'] = dumps(data_chart)
+    context['page_name'] = 'Newapps Overview'
+    return render(request, "stakeholder/airui/overview-newapss.html", context) 
