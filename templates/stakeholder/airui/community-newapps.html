@@ -1,0 +1,268 @@
+{% extends "includes/dashboard-base.html" %}
+{% load static %}
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div class="air__layout__content">
+  <div class="air__utils__content">
+    <h5><strong>Community Dashboard</strong></h5>
+    <div class="row justify-content-center">
+        {% for i in data_string %}
+        <div class="col-lg-3 col-sm-6 my-3" style="max-width:400px">
+            <div class="card-header rounded" style="background-color:#249ce4; color:#FFFF; ">
+                <strong>{{i.params}}</strong>
+                <div class="row align-items-center justify-content-center">
+                    <p class="font-size-50">{{i.total}}k</p>
+                    <p class="mx-3" style="border-left: 2px solid #bdbdbd; height: 54px;">
+                    <div class="text-center">
+                        {% if i.trend == "#66bb6a" %}
+                            <i class="fa fa-arrow-up" style="color:{{i.trend}}" aria-hidden="true"></i>
+                        {% elif i.trend == "#ef5350" %}
+                            <i class="fa fa-arrow-down" style="color:{{i.trend}}" aria-hidden="true"></i>
+                        {% endif %}
+                        <p>{{i.percentage}}%</p>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        {% endfor %}
+    </div>
+    <div class="card" style="border-width:3px; ">
+        <div class="card-body">
+            <h5 class="card-title">How are your followers growth?</h5>
+            <div>
+                <canvas style="max-height: 200px;" id="followers"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            {% for data_title in title1 %}
+            <div class="card col-lg-6" style="border-width:3px; ">
+                <div class="card-body">
+                <h5 class="card-title">{{data_title}}</h5>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            {% for data_title in title2 %}
+            <div class="card col-lg-4" style="border-width:3px; ">
+                <div class="card-body">
+                <h5 class="card-title">{{data_title}}</h5>
+                <div>
+                    {% if forloop.counter0 == 0 %}
+                    <canvas id="gender"></canvas>
+                    {% elif forloop.counter0 == 1 %}
+                    <canvas id="location"></canvas>
+                    {% elif forloop.counter0 == 2 %}
+                    <canvas id="interest"></canvas>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            {% for data_title in title3 %}
+            <div class="card col-lg-6" style="border-width:3px; ">
+                <div class="card-body">
+                <h5 class="card-title">{{data_title}}</h5>
+                <div>
+                    {% if forloop.counter0 == 0 %}
+                    <img style="width:100%; margin-top:24px" src="/static/data/txt/wordcloud-tw1-2022.svg">
+                    {% elif forloop.counter0 == 1 %}
+                    <img style="width:100%; margin-top:24px" src="/static/data/txt/wordcloud-tw1-2022.svg">
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+  </div>
+</div>
+<script>
+
+
+    var dataChart = JSON.parse("{{data_chart|escapejs}}");
+   
+    var dynamicColors = function() {
+        var r = Math.floor(Math.random() * 255);
+        var g = Math.floor(Math.random() * 255);
+        var b = Math.floor(Math.random() * 255);
+        return "rgb(" + r + "," + g + "," + b + ")";
+    };
+    
+    const labels = [1,2,3,4,5,6];
+    const data_followers = {
+        labels: labels,
+        datasets: [
+        {
+            label: 'Twitter',
+            backgroundColor: '#249ce4',
+            borderColor: '#249ce4',
+            data: dataChart[0].twitter,
+        },
+        {
+            label: 'Youtube',
+            backgroundColor: '#66bb6a',
+            borderColor: '#66bb6a',
+            data: dataChart[0].youtube,
+        },
+        {
+            label: 'Facebook',
+            backgroundColor: '#FFFF00',
+            borderColor: '#FFFF00',
+            data: dataChart[0].facebook,
+        },
+        {
+            label: 'Instagram',
+            backgroundColor: '#775dd0',
+            borderColor: '#775dd0',
+            data: dataChart[0].instagram,
+        }]
+    };
+    const data_gender = {
+        labels: ["Male","Female"],
+        datasets: [{
+            label: 'Gender',
+            data: [
+                dataChart[1].male,
+                dataChart[1].female,
+            ],
+            backgroundColor: [
+              'rgb(255, 99, 132)',
+              'rgb(54, 162, 235)',
+            ],
+            hoverOffset: 4
+          }]
+    };
+    
+    function randomColor(data){
+        var colors = [];
+        for (var i in data) {
+            colors.push(dynamicColors());
+        }
+        return colors
+    }
+
+    const data_location = {
+        labels: dataChart[2].region,
+        datasets: [{
+            label: 'Location',
+            data: dataChart[2].count,
+            backgroundColor: randomColor(dataChart[2].region),
+            hoverOffset: 4
+          }]
+    };
+
+    const data_interest = {
+        labels: dataChart[3].interest,
+        datasets: [{
+            label: 'Interest',
+            data: dataChart[3].count,
+            backgroundColor: randomColor(dataChart[3].interest),
+            hoverOffset: 4
+          }]
+    };
+
+    const config_follower = {
+        type: 'line',
+        data: data_followers,
+        options: {}
+    };
+    const config_gender = {
+        type: 'pie',
+        data: data_gender,
+        options: {
+            plugins: {
+                legend: {
+                    position: 'left',
+                }
+            }
+        }
+    };
+    const config_location = {
+        type: 'pie',
+        data: data_location,
+        options: {
+            plugins: {
+                legend: {
+                    position: 'left',
+                }
+            }
+        }
+    };
+    const config_interest = {
+        type: 'pie',
+        data: data_interest,
+        options: {
+            plugins: {
+                legend: {
+                    position: 'left',
+                }
+            }
+        }
+    };
+
+    const chartFollower = new Chart(
+        document.getElementById('followers'),
+        config_follower
+    );
+    const chartGender = new Chart(
+        document.getElementById('gender'),
+        config_gender
+    );
+    const chartLocation = new Chart(
+        document.getElementById('location'),
+        config_location
+    );
+    const chartInterest = new Chart(
+        document.getElementById('interest'),
+        config_interest
+    );
+
+</script>
+
+{% endblock content %}

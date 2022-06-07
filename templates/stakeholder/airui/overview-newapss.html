@@ -4,12 +4,12 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <div class="air__layout__content">
-  <div class="air__utils__content" style="padding-bottom:0">
+  <div class="air__utils__content">
     <h5><strong>Overview Dashboard</strong></h5>
-    <div class="row">
+    <div class="row justify-content-center">
         {% for i in data_string %}
-        <div class="col-sm-3 my-3">
-            <div class="card-header" style="background-color:#249ce4; color:#FFFF; ">
+        <div class="col-lg-3 col-sm-6 my-3" style="max-width:400px">
+            <div class="card-header rounded" style="background-color:#249ce4; color:#FFFF; ">
                 <strong>{{i.params}}</strong>
                 <div class="row align-items-center justify-content-center">
                     <p class="font-size-50">{{i.total}}k</p>
@@ -31,7 +31,7 @@
     <div class="container mt-5 overflow-hidden">
       <div class="row justify-content-around">
         {% for data_title in title %}
-        <div class="card col-md-6" style="max-width:470px">
+        <div class="card col-md-6" style="max-width:470px; border-width:3px; ">
             <div class="card-body">
                 <h5 class="card-title">{{data_title}}</h5>
                 <div>

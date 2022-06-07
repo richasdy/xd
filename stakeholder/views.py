@@ -125,3 +125,122 @@ def overview_newapps(request):
     context['data_chart'] = dumps(data_chart)
     context['page_name'] = 'Newapps Overview'
     return render(request, "stakeholder/airui/overview-newapss.html", context) 
+
+@login_required
+def content_newapps(request):
+    data = [{
+                "params":"Total Postmade",
+                "total":166,
+                "trend":"#ef5350",
+                "percentage":13
+             }, 
+            {
+                "params":"Total Like",
+                "total":65.1,
+                "trend":"#66bb6a",
+                "percentage":40}, 
+            {
+                "params":"Total Comment",
+                "total":171,
+                "trend":"#ef5350",
+                "percentage":20},  
+            {
+                "params":"Total Engagement Rate",
+                "total":0.16,
+                "trend":"#66bb6a",
+                "percentage":23.41
+            }]
+    data_title = ["When do your followers engage?",
+                  "Post Type",
+                  "What do your followers talk about?",
+                  ]
+    data_chart = [
+        {
+            "like":[0, 10, 5, 2, 20, 30, 45], 
+            "comment":[4, 5, 10, 2, 2, 23, 89],
+            "share":[2, 7, 67, 43, 98, 54, 53],
+            "postmade":[4,54,12,45,67,79,12],
+            "engagementrate":[32,5,21,55,76,87,33]
+        },
+        {
+            "text":43, 
+            "image":23,
+            "video":10,
+        },
+        {
+            "word":['Hello', 'world', 'normally', 'you', 'want', 'more', 'words', 'than', 'this'],
+            "count":[90, 80, 70, 60, 50, 40, 30, 20, 10],
+        },
+    ]
+    context = {}
+    context['title'] = data_title
+    context['data_string'] = data
+    context['data_chart'] = dumps(data_chart)
+    context['page_name'] = 'Content Overview'
+    return render(request, "stakeholder/airui/content-newapps.html", context) 
+
+@login_required
+def community_newapps(request):
+    data = [{
+                "params":"Total Followers",
+                "total":166,
+                "trend":"#ef5350",
+                "percentage":13
+             }, 
+            {
+                "params":"Total Engaged User",
+                "total":65.1,
+                "trend":"#66bb6a",
+                "percentage":40}, 
+            {
+                "params":"Total Reply",
+                "total":171,
+                "trend":"#ef5350",
+                "percentage":20},  
+            {
+                "params":"Response Rate",
+                "total":0.16,
+                "trend":"#66bb6a",
+                "percentage":23.41
+            }]
+    data_title = [[
+                    "Who talks about you the most?",
+                    "Who is your popular talker?"
+                  ],
+                  [
+                    "What is your engaged user's interest By Gender",
+                    "Where is your engaged user location?",
+                    "What is your engaged users' top interests?"
+                  ],
+                  [
+                    "What do you followers write in their bio?",
+                    "What do your followers talk about?"
+                  ]]
+    data_chart = [
+        {
+            "facebook":[0, 10, 5, 2, 20, 30, 45], 
+            "twitter":[2, 7, 67, 43, 98, 54, 53],
+            "instagram":[4, 5, 10, 2, 2, 23, 89],
+            "youtube":[54, 32, 12, 90, 34, 89, 43]
+        },
+        {
+            "male":43, 
+            "female":23,
+        },
+        {
+            "region":["Bandung","Semarang","Yogyakarta","Bali","Jakarta"],
+            "count":[93, 84, 73, 69, 54],
+        },
+        {
+            "interest":["technology", "education","otomotif","game", "religius"],
+            "count":[23, 34, 53, 39, 94],
+        }
+    ]
+    context = {}
+    context['title1'] = data_title[0]
+    context['title2'] = data_title[1]
+    context['title3'] = data_title[2]
+    context['data_string'] = data
+    context['data_chart'] = dumps(data_chart)
+    context['page_name'] = 'Comunity Overview'
+    return render(request, "stakeholder/airui/community-newapps.html", context) 
