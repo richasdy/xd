@@ -22,9 +22,11 @@ import logging
 import json
 from django.http import JsonResponse
 import os
+from django.views.decorators.csrf import csrf_exempt
 
 logger = logging.getLogger(__name__)
 
+@csrf_exempt
 def pull(request) :
 
     # gihub webhook harus POST
@@ -59,7 +61,7 @@ def pull(request) :
         response_data['code'] = '200'
         response_data['message'] = message
 
-        logger.warning(message)
+        logger.error(message)
 
         return JsonResponse(response_data)
 
