@@ -146,11 +146,11 @@
     }
 
     const data_location = {
-        labels: dataChart[2].region,
+        labels: dataChart[6].region,
         datasets: [{
             label: 'Location',
-            data: dataChart[2].count,
-            backgroundColor: randomColor(dataChart[2].region),
+            data: dataChart[6].count,
+            backgroundColor: randomColor(dataChart[6].region),
             hoverOffset: 4
           }]
     };
@@ -177,9 +177,17 @@
         type: 'pie',
         data: data_sentimentTalker
     };
+
     const config_gender = {
         type: 'pie',
-        data: data_gender
+        data: data_gender,
+        options: {
+            plugins: {
+                legend: {
+                    position: 'left',
+                }
+            }
+        }
     };
     const config_interest = {
         type: 'pie',
