@@ -43,6 +43,8 @@
                 <div>
                      {% if forloop.counter0 == 0 %}
                     <canvas style="max-height: 200px;" id="conversation"></canvas>
+                    {% elif forloop.counter0 == 1 %}
+                    <canvas id="sentiment"></canvas>
                     {% elif forloop.counter0 == 2 %}
                     <canvas id="sentiment"></canvas>
                     {% elif forloop.counter0 == 3 %}
