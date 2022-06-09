@@ -42,9 +42,9 @@
                 <h5 class="card-title">{{data_title}}</h5>
                 <div>
                      {% if forloop.counter0 == 0 %}
-                    <canvas id="conversation"></canvas>
-                    {% elif forloop.counter0 == 1 %}
-                    <img style="width:100%; margin-top:24px" src="/static/data/txt/wordcloud-tw1-2022.svg">
+                    <canvas style="max-height: 200px;" id="conversation"></canvas>
+                    {% elif forloop.counter0 == 2 %}
+                    <canvas id="sentiment"></canvas>
                     {% endif %} 
                 </div>
             </div>
@@ -72,16 +72,16 @@
             backgroundColor: '#66bb6a',
             borderColor: '#66bb6a',
             data: dataChart[0].talker,
-        },
+        }]
     };
-    const data_posttype = {
+    const data_sentiment = {
         labels: ["Text","Image","Video"],
         datasets: [{
-            label: 'Post Type',
+            label: 'Sentiment Analysis',
             data: [
-                dataChart[1].text,
-                dataChart[1].image,
-                dataChart[1].video
+                dataChart[2].positive,
+                dataChart[2].negative,
+                dataChart[2].neutral
             ],
             backgroundColor: [
               'rgb(255, 99, 132)',
@@ -97,18 +97,22 @@
         data: data_conversation,
         options: {}
     };
-    const config_posttype = {
+    const config_sentiment = {
         type: 'pie',
-        data: data_posttype
+        data: data_sentiment
     };
 
-    const chartEngagement = new Chart(
+    const chartConversation = new Chart(
         document.getElementById('conversation'),
         config_conversation
     );
-    const chartPosttype = new Chart(
-        document.getElementById('posttype'),
-        config_posttype
+    const chartsentiment = new Chart(
+        document.getElementById('sentiment'),
+        config_sentiment
+    );
+    const chartsentimentTalker = new Chart(
+        document.getElementById('sentiment'),
+        config_sentimentTalker
     );
 
 </script>
