@@ -5,7 +5,7 @@
 
 <div class="air__layout__content">
   <div class="air__utils__content">
-    <h5><strong>Conversation Dashboard</strong></h5>
+    <h5><strong>Conversation Dashboardss</strong></h5>
     <div class="row justify-content-center">
         {% for i in data_string %}
         <div class="col-lg-3 col-sm-6 my-3" style="max-width:400px">
@@ -42,9 +42,13 @@
                 <h5 class="card-title">{{data_title}}</h5>
                 <div>
                      {% if forloop.counter0 == 0 %}
-                    <canvas id="conversation"></canvas>
+                    <canvas style="max-height: 200px;" id="conversation"></canvas>
                     {% elif forloop.counter0 == 1 %}
-                    <img style="width:100%; margin-top:24px" src="/static/data/txt/wordcloud-tw1-2022.svg">
+                    <canvas id="sentiment"></canvas>
+                    {% elif forloop.counter0 == 2 %}
+                    <canvas id="sentiment"></canvas>
+                    {% elif forloop.counter0 == 3 %}
+                    <canvas id="sentimentTalker"></canvas>
                     {% endif %} 
                 </div>
             </div>
@@ -72,16 +76,33 @@
             backgroundColor: '#66bb6a',
             borderColor: '#66bb6a',
             data: dataChart[0].talker,
-        },
+        }]
     };
-    const data_posttype = {
-        labels: ["Text","Image","Video"],
+    const data_sentiment = {
+        labels: ["Positive","Negative","Neutral"],
         datasets: [{
-            label: 'Post Type',
+            label: 'Sentiment Analysis',
             data: [
-                dataChart[1].text,
-                dataChart[1].image,
-                dataChart[1].video
+                dataChart[2].positive,
+                dataChart[2].negative,
+                dataChart[2].neutral
+            ],
+            backgroundColor: [
+              'rgb(255, 99, 132)',
+              'rgb(54, 162, 235)',
+              'rgb(255, 205, 86)'
+            ],
+            hoverOffset: 4
+          }]
+    };
+    const data_sentimentTalker = {
+        labels: ["Positive","Negative","Neutral"],
+        datasets: [{
+            label: 'Talker Sentiment Analysis',
+            data: [
+                dataChart[3].positive,
+                dataChart[3].negative,
+                dataChart[3].neutral
             ],
             backgroundColor: [
               'rgb(255, 99, 132)',
@@ -97,18 +118,26 @@
         data: data_conversation,
         options: {}
     };
-    const config_posttype = {
+    const config_sentiment = {
         type: 'pie',
-        data: data_posttype
+        data: data_sentiment
+    };
+    const config_sentimentTalker = {
+        type: 'pie',
+        data: data_sentimentTalker
     };
 
-    const chartEngagement = new Chart(
+    const chartConversation = new Chart(
         document.getElementById('conversation'),
         config_conversation
     );
-    const chartPosttype = new Chart(
-        document.getElementById('posttype'),
-        config_posttype
+    const chartsentiment = new Chart(
+        document.getElementById('sentiment'),
+        config_sentiment
+    );
+    const chartsentimentTalker = new Chart(
+        document.getElementById('sentimentTalker'),
+        config_sentimentTalker
     );
 
 </script>
