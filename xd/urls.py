@@ -17,6 +17,33 @@ from django.contrib import admin
 from django.urls import path, include
 import django_db_logger.views
 from django.shortcuts import redirect
+import datetime
+import logging
+import json
+from django.http import JsonResponse
+import os
+
+logger = logging.getLogger(__name__)
+
+def pull(request    ) :
+
+    # running git pull
+    stream = os.popen('pwd')
+    output_pwd = stream.read()
+
+    stream = os.popen('git pull')
+    output_pull = stream.read()
+
+    message = str(datetime.datetime.now())+' | pwd : '+ output_pwd +' |  git pull : ' + output_pull
+
+    response_data = {}
+    response_data['code'] = '200'
+    response_data['message'] = message
+
+    logger.warning(message)
+
+    return JsonResponse(response_data)
+
 
 urlpatterns = [
     # path('', include('external.urls')),
@@ -29,4 +56,7 @@ urlpatterns = [
     path('stakeholder/', include('stakeholder.urls')),
     path('django_db_logger/', include('django_db_logger.urls')),
     path('log', django_db_logger.views.xdlog, name="xdlog"),
+    path('85420C7563F08D4D0D0D24807A1F7AC2F1062F686EF3846F80CA9129EE35C25E', pull, name='pull'),
 ]
+
+
