@@ -45,6 +45,8 @@
                     <canvas style="max-height: 200px;" id="conversation"></canvas>
                     {% elif forloop.counter0 == 2 %}
                     <canvas id="sentiment"></canvas>
+                    {% elif forloop.counter0 == 3 %}
+                    <canvas id="sentimentTalker"></canvas>
                     {% endif %} 
                 </div>
             </div>
@@ -75,13 +77,30 @@
         }]
     };
     const data_sentiment = {
-        labels: ["Text","Image","Video"],
+        labels: ["Positive","Negative","Neutral"],
         datasets: [{
             label: 'Sentiment Analysis',
             data: [
                 dataChart[2].positive,
                 dataChart[2].negative,
                 dataChart[2].neutral
+            ],
+            backgroundColor: [
+              'rgb(255, 99, 132)',
+              'rgb(54, 162, 235)',
+              'rgb(255, 205, 86)'
+            ],
+            hoverOffset: 4
+          }]
+    };
+    const data_sentimentTalker = {
+        labels: ["Positive","Negative","Neutral"],
+        datasets: [{
+            label: 'Talker Sentiment Analysis',
+            data: [
+                dataChart[3].positive,
+                dataChart[3].negative,
+                dataChart[3].neutral
             ],
             backgroundColor: [
               'rgb(255, 99, 132)',
@@ -101,6 +120,10 @@
         type: 'pie',
         data: data_sentiment
     };
+    const config_sentimentTalker = {
+        type: 'pie',
+        data: data_sentimentTalker
+    };
 
     const chartConversation = new Chart(
         document.getElementById('conversation'),
@@ -111,7 +134,7 @@
         config_sentiment
     );
     const chartsentimentTalker = new Chart(
-        document.getElementById('sentiment'),
+        document.getElementById('sentimentTalker'),
         config_sentimentTalker
     );
 

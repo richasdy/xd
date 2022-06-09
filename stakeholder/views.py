@@ -296,7 +296,7 @@ def conversation_newapps(request):
         {
             "positive":6789, 
             "negative":1232,
-            "neutral":34
+            "neutral":5020
         },
         {
             "positive":4789, 
