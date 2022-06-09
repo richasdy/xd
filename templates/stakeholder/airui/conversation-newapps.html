@@ -5,7 +5,7 @@
 
 <div class="air__layout__content">
   <div class="air__utils__content">
-    <h5><strong>Conversation Dashboardss</strong></h5>
+    <h5><strong>Conversation Dashboard</strong></h5>
     <div class="row justify-content-center">
         {% for i in data_string %}
         <div class="col-lg-3 col-sm-6 my-3" style="max-width:400px">
@@ -43,12 +43,16 @@
                 <div>
                      {% if forloop.counter0 == 0 %}
                     <canvas style="max-height: 200px;" id="conversation"></canvas>
-                    {% elif forloop.counter0 == 1 %}
-                    <canvas id="sentiment"></canvas>
                     {% elif forloop.counter0 == 2 %}
                     <canvas id="sentiment"></canvas>
                     {% elif forloop.counter0 == 3 %}
                     <canvas id="sentimentTalker"></canvas>
+                    {% elif forloop.counter0 == 4 %}
+                    <canvas id="gender"></canvas>
+                    {% elif forloop.counter0 == 5 %}
+                    <canvas id="interest"></canvas>
+                    {% elif forloop.counter0 == 6 %}
+                    <canvas id="location"></canvas>
                     {% endif %} 
                 </div>
             </div>
@@ -61,6 +65,12 @@
 
 <script>
     var dataChart = JSON.parse("{{data_chart|escapejs}}");
+    var dynamicColors = function() {
+        var r = Math.floor(Math.random() * 255);
+        var g = Math.floor(Math.random() * 255);
+        var b = Math.floor(Math.random() * 255);
+        return "rgb(" + r + "," + g + "," + b + ")";
+    };
     const labels = [1,2,3,4,5,6];
     const data_conversation = {
         labels: labels,
@@ -112,6 +122,47 @@
             hoverOffset: 4
           }]
     };
+    const data_gender = {
+        labels: ["Male","Female"],
+        datasets: [{
+            label: 'Talker Sentiment Analysis',
+            data: [
+                dataChart[4].male,
+                dataChart[4].female,
+            ],
+            backgroundColor: [
+              'rgb(255, 99, 132)',
+              'rgb(54, 162, 235)',
+            ],
+            hoverOffset: 4
+          }]
+    };
+    function randomColor(data){
+        var colors = [];
+        for (var i in data) {
+            colors.push(dynamicColors());
+        }
+        return colors
+    }
+
+    const data_location = {
+        labels: dataChart[2].region,
+        datasets: [{
+            label: 'Location',
+            data: dataChart[2].count,
+            backgroundColor: randomColor(dataChart[2].region),
+            hoverOffset: 4
+          }]
+    };
+    const data_interest = {
+        labels: dataChart[5].interest,
+        datasets: [{
+            label: 'Interest',
+            data: dataChart[5].count,
+            backgroundColor: randomColor(dataChart[5].interest),
+            hoverOffset: 4
+          }]
+    };
 
     const config_conversation = {
         type: 'line',
@@ -126,6 +177,32 @@
         type: 'pie',
         data: data_sentimentTalker
     };
+    const config_gender = {
+        type: 'pie',
+        data: data_gender
+    };
+    const config_interest = {
+        type: 'pie',
+        data: data_interest,
+        options: {
+            plugins: {
+                legend: {
+                    position: 'left',
+                }
+            }
+        }
+    };
+    const config_location = {
+        type: 'pie',
+        data: data_location,
+        options: {
+            plugins: {
+                legend: {
+                    position: 'left',
+                }
+            }
+        }
+    };
 
     const chartConversation = new Chart(
         document.getElementById('conversation'),
@@ -138,6 +215,18 @@
     const chartsentimentTalker = new Chart(
         document.getElementById('sentimentTalker'),
         config_sentimentTalker
+    );
+    const chartGender = new Chart(
+        document.getElementById('gender'),
+        config_gender
+    );
+    const chartInterest = new Chart(
+        document.getElementById('interest'),
+        config_interest
+    );
+    const chartLocation = new Chart(
+        document.getElementById('location'),
+        config_location
     );
 
 </script>
