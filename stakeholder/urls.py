@@ -7,6 +7,7 @@ urlpatterns = [
     path('overview-newapps', views.overview_newapps, name='overview_newapps'),
     path('content-newapps', views.content_newapps, name='content_newapps'),
     path('community-newapps', views.community_newapps, name='community_newapps'),
+    path('conversation-newapps', views.conversation_newapps, name='conversation_newapps'),
     path('orangtuamahasiswa', views.orangtuamahasiswa, name='orangtuamahasiswa'),
     path('alumni', views.alumni, name='alumni'),
     path('pegawai', views.pegawai, name='pegawai'),

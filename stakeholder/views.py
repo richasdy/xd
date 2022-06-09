@@ -244,3 +244,81 @@ def community_newapps(request):
     context['data_chart'] = dumps(data_chart)
     context['page_name'] = 'Comunity Overview'
     return render(request, "stakeholder/airui/community-newapps.html", context) 
+
+@login_required
+def conversation_newapps(request):
+    data = [{
+                "params":"Talk",
+                "total":143,
+                "trend":"#ef5350",
+                "percentage":13
+             }, 
+            {
+                "params":"Talker",
+                "total":12.5,
+                "trend":"#66bb6a",
+                "percentage":40}, 
+            {
+                "params":"Positive Talk",
+                "total":133,
+                "trend":"#ef5350",
+                "percentage":20},  
+            {
+                "params":"Negative Talk",
+                "total":646,
+                "trend":"#66bb6a",
+                "percentage":10.5
+            }]
+    data_title = ["How is your conversation performance?",
+                  "Which media talks about you the most?",
+                  "How is your sentiment analysis?",
+                  "Talker By Sentiment",
+                  "What is you your engaged users by gender?",
+                  "What is you your engaged users top interests?",
+                  "What is you your engaged users top locations?",
+                  "Which talk is the most engaging?",
+                  "Who talk about you the most?",
+                  "Who is your popular talker?",
+                  "When do people talk about you?",
+                  "What do people talk about you?"
+                  ]
+    data_chart = [
+        {
+            "talk":[0, 10, 5, 2, 20, 30, 45], 
+            "talker":[4, 5, 10, 2, 2, 23, 89],
+        },
+        {
+            "facebook":[[0, 10, 5, 2, 20, 30, 45],[2, 7, 67, 43, 98, 54, 53]],
+            "twitter":[[2, 7, 67, 43, 98, 54, 53],[0, 10, 15, 12, 20, 30, 45]], 
+            "instagram":[[4, 5, 10, 2, 2, 23, 89],[40, 10, 45, 22, 30, 50, 25]],
+            "youtube":[[54, 32, 12, 90, 34, 89, 43],[30, 14, 13, 12, 24, 56, 90]]
+        },
+        {
+            "positive":6789, 
+            "negative":1232,
+            "neutral":34
+        },
+        {
+            "positive":4789, 
+            "negative":5232,
+            "neutral":1234
+        },
+        {
+            "male":1234,
+            "female":432
+        },
+        {
+            "interest":["technology", "education","otomotif","game", "religius"],
+            "count":[23, 34, 53, 39, 94],
+        },
+        {
+            "region":["Bandung","Semarang","Yogyakarta","Bali","Jakarta"],
+            "count":[93, 84, 73, 69, 54],
+        },
+    ]
+    context = {}
+    context['title'] = data_title
+    context['data_string'] = data
+    context['data_chart'] = dumps(data_chart)
+    context['page_name'] = 'Newapps Conversation'
+    return render(request, "stakeholder/airui/conversation-newapps.html", context) 
