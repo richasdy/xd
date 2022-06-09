@@ -36,13 +36,13 @@ def pull(request) :
         stream = os.popen('git pull')
         output_pull = stream.read()
 
-        message = str(datetime.datetime.now())+' | pwd : '+ output_pwd +' |  git pull : ' + output_pull
+        message = str(datetime.datetime.now())+' | pwd : '+ output_pwd +' |  git pull from POST : ' + output_pull
 
         response_data = {}
         response_data['code'] = '200'
         response_data['message'] = message
 
-        logger.warning(message)
+        logger.error(message)
 
         return JsonResponse(response_data)
     else :
@@ -53,7 +53,7 @@ def pull(request) :
         stream = os.popen('git pull')
         output_pull = stream.read()
 
-        message = str(datetime.datetime.now())+' | pwd : '+ output_pwd +' |  git pull : ' + output_pull
+        message = str(datetime.datetime.now())+' | pwd : '+ output_pwd +' |  git pull from GET: ' + output_pull
 
         response_data = {}
         response_data['code'] = '200'
