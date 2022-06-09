@@ -169,13 +169,28 @@
         data: data_conversation,
         options: {}
     };
+
     const config_sentiment = {
         type: 'pie',
-        data: data_sentiment
+        data: data_sentiment,
+        options: {
+            plugins: {
+                legend: {
+                    position: 'left',
+                }
+            }
+        }
     };
     const config_sentimentTalker = {
         type: 'pie',
-        data: data_sentimentTalker
+        data: data_sentimentTalker,
+        options: {
+            plugins: {
+                legend: {
+                    position: 'left',
+                }
+            }
+        }
     };
 
     const config_gender = {
