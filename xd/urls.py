@@ -25,24 +25,45 @@ import os
 
 logger = logging.getLogger(__name__)
 
-def pull(request    ) :
+def pull(request) :
 
-    # running git pull
-    stream = os.popen('pwd')
-    output_pwd = stream.read()
+    # gihub webhook harus POST
+    if request.method == "POST" :
+        # running git pull
+        stream = os.popen('pwd')
+        output_pwd = stream.read()
 
-    stream = os.popen('git pull')
-    output_pull = stream.read()
+        stream = os.popen('git pull')
+        output_pull = stream.read()
 
-    message = str(datetime.datetime.now())+' | pwd : '+ output_pwd +' |  git pull : ' + output_pull
+        message = str(datetime.datetime.now())+' | pwd : '+ output_pwd +' |  git pull : ' + output_pull
 
-    response_data = {}
-    response_data['code'] = '200'
-    response_data['message'] = message
+        response_data = {}
+        response_data['code'] = '200'
+        response_data['message'] = message
 
-    logger.warning(message)
+        logger.warning(message)
 
-    return JsonResponse(response_data)
+        return JsonResponse(response_data)
+    else :
+                # running git pull
+        stream = os.popen('pwd')
+        output_pwd = stream.read()
+
+        stream = os.popen('git pull')
+        output_pull = stream.read()
+
+        message = str(datetime.datetime.now())+' | pwd : '+ output_pwd +' |  git pull : ' + output_pull
+
+        response_data = {}
+        response_data['code'] = '200'
+        response_data['message'] = message
+
+        logger.warning(message)
+
+        return JsonResponse(response_data)
+
+    
 
 
 urlpatterns = [
