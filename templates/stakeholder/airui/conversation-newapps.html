@@ -53,6 +53,12 @@
                     <canvas id="interest"></canvas>
                     {% elif forloop.counter0 == 6 %}
                     <canvas id="location"></canvas>
+                    {% elif forloop.counter0 == 7 %}
+                    <div id="top_talker"></div>
+                    {% elif forloop.counter0 == 8 %}
+                    <div id="top_influencer"></div>
+                    {% elif forloop.counter0 == 10 %}
+                    <img style="width:100%; margin-top:24px" src="/static/data/txt/wordcloud-tw1-2022.svg">
                     {% endif %} 
                 </div>
             </div>
@@ -64,6 +70,59 @@
 </div>
 
 <script>
+    var tableChart = function(elementId){
+        document.getElementById(elementId).innerHTML= 
+        '<div class="table-responsive">\n'+
+            '<table class="table">\n'+
+                '<thead class="thead-dark">\n'+
+                  '<tr>\n'+
+                    '<th scope="col">No</th>\n'+
+                    '<th scope="col">Username</th>\n'+
+                    '<th scope="col">Sosial Media</th>\n'+
+                    '<th scope="col">Talk</th>\n'+
+                    '<th scope="col">Followers</th>\n'+
+                    '<th scope="col">Comment</th>\n'+
+                    '<th scope="col">Like</th>\n'+
+                    '<th scope="col">Share</th>\n'+
+                  '</tr>\n'+
+                '</thead>\n'+
+                '<tbody>\n'+
+                  '<tr>\n'+
+                    '<th scope="row">1</th>\n'+
+                    '<td>sbmptnfess</td>\n'+
+                    '<td>Twitter</td>\n'+
+                    '<td>37</td>\n'+
+                    '<td>1237</td>\n'+
+                    '<td>373</td>\n'+
+                    '<td>370</td>\n'+
+                    '<td>372</td>\n'+
+                  '</tr>\n'+
+                  '<tr>\n'+
+                    '<th scope="row">1</th>\n'+
+                    '<td>TelUCareer</td>\n'+
+                    '<td>Twitter</td>\n'+
+                    '<td>37</td>\n'+
+                    '<td>1237</td>\n'+
+                    '<td>373</td>\n'+
+                    '<td>370</td>\n'+
+                    '<td>372</td>\n'+
+                  '</tr>\n'+
+                  '<tr>\n'+
+                    '<th scope="row">1</th>\n'+
+                    '<td>ahsiappp</td>\n'+
+                    '<td>Twitter</td>\n'+
+                    '<td>37</td>\n'+
+                    '<td>1237</td>\n'+
+                    '<td>373</td>\n'+
+                    '<td>370</td>\n'+
+                    '<td>372</td>\n'+
+                  '</tr>\n'+
+                '</tbody>\n'+
+              '</table>\n'+
+        '</div>'
+    }
+    tableChart("top_talker")
+    tableChart("top_influencer")
     var dataChart = JSON.parse("{{data_chart|escapejs}}");
     var dynamicColors = function() {
         var r = Math.floor(Math.random() * 255);

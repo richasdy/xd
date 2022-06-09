@@ -173,6 +173,14 @@ WSGI_APPLICATION = 'xd.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'vjuorjla',
+        'USER': 'vjuorjla',
+        'PASSWORD': 'aMDlYbwF1r6nddMqDv8fjNmya_kswTn0',
+        'HOST': 'rosie.db.elephantsql.com',
+        'PORT': '5432',
+    },
+    'sqllite': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
