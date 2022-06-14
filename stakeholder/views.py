@@ -322,3 +322,9 @@ def conversation_newapps(request):
     context['data_chart'] = dumps(data_chart)
     context['page_name'] = 'Newapps Conversation'
     return render(request, "stakeholder/airui/conversation-newapps.html", context) 
+
+@login_required  
+def stream_newapps(request):
+    context = {}
+    context['page_name'] = 'Stream Dashboard'
+    return render(request, "stakeholder/airui/stream-newapps.html", context)   
