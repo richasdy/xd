@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
 <div class="air__layout__content">
   <div class="air__utils__content">
@@ -31,7 +32,7 @@
         <div class="card-body">
             <h5 class="card-title">How are your followers growth?</h5>
             <div>
-                <canvas style="max-height: 200px;" id="followers"></canvas>
+                <div style="max-height: 200px;" id="folgrowth"></div>
             </div>
         </div>
     </div>
@@ -134,35 +135,50 @@
         return "rgb(" + r + "," + g + "," + b + ")";
     };
     
-    const labels = [1,2,3,4,5,6];
-    const data_followers = {
-        labels: labels,
-        datasets: [
+    const labels = [1,2,3,4,5,6,7];
+    var optionsGrowth = {
+        series: [
         {
-            label: 'Twitter',
-            backgroundColor: '#249ce4',
-            borderColor: '#249ce4',
-            data: dataChart[0].twitter,
+        name: "Twitter",
+        data: dataChart[0].twitter
+        }, 
+        {
+        name: "Facebook",
+        data: dataChart[0].facebook
         },
         {
-            label: 'Youtube',
-            backgroundColor: '#66bb6a',
-            borderColor: '#66bb6a',
-            data: dataChart[0].youtube,
+        name: "Youtube",
+        data: dataChart[0].youtube
         },
         {
-            label: 'Facebook',
-            backgroundColor: '#FFFF00',
-            borderColor: '#FFFF00',
-            data: dataChart[0].facebook,
-        },
-        {
-            label: 'Instagram',
-            backgroundColor: '#775dd0',
-            borderColor: '#775dd0',
-            data: dataChart[0].instagram,
-        }]
+        name: "Instagram",
+        data: dataChart[0].instagram
+        }],
+        chart: {
+        height: 350,
+        type: 'line',
+        zoom: {
+        enabled: false
+        }
+    },
+    dataLabels: {
+        enabled: false
+    },
+    stroke: {
+        curve: 'straight'
+    },
+    title: {
+        text: 'overall performance',
+        align: 'left'
+    },
+    xaxis: {
+        categories: labels,
+    }
     };
+
+    var chartGrowth = new ApexCharts(document.querySelector("#folgrowth"), optionsGrowth);
+    chartGrowth.render();
+    
     const data_gender = {
         labels: ["Male","Female"],
         datasets: [{
@@ -207,11 +223,6 @@
           }]
     };
 
-    const config_follower = {
-        type: 'line',
-        data: data_followers,
-        options: {}
-    };
     const config_gender = {
         type: 'pie',
         data: data_gender,
@@ -246,10 +257,6 @@
         }
     };
 
-    const chartFollower = new Chart(
-        document.getElementById('followers'),
-        config_follower
-    );
     const chartGender = new Chart(
         document.getElementById('gender'),
         config_gender

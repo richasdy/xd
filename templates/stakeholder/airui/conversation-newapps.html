@@ -39,13 +39,13 @@
             {% else %}
             <div class="card col-lg-4" style="border-width:3px; ">
             {% endif %}
-                <div class="card-body">
+                <div class="card-body" >
                 <h5 class="card-title">{{data_title}}</h5>
                 <div>
                      {% if forloop.counter0 == 0 %}
-                    <canvas style="max-height: 200px;" id="conversation"></canvas>
+                    <div id="conversation2"></div>
                     {% elif forloop.counter0 == 1 %}
-                    <canvas style="height:300px" id="mediaTalk"></canvas>
+                    <div id="mediaTalk"></div>
                     {% elif forloop.counter0 == 2 %}
                     <canvas id="sentiment"></canvas>
                     {% elif forloop.counter0 == 3 %}
@@ -258,12 +258,6 @@
           }]
     };
 
-    const config_conversation = {
-        type: 'line',
-        data: data_conversation,
-        options: {}
-    };
-
     const config_sentiment = {
         type: 'pie',
         data: data_sentiment,
@@ -320,11 +314,6 @@
             }
         }
     };
-
-    const chartConversation = new Chart(
-        document.getElementById('conversation'),
-        config_conversation
-    );
     const chartsentiment = new Chart(
         document.getElementById('sentiment'),
         config_sentiment
@@ -344,10 +333,6 @@
     const chartLocation = new Chart(
         document.getElementById('location'),
         config_location
-    );
-    const chartMediaTalk = new Chart(
-        document.getElementById('mediaTalk'),
-        configMediaTalk
     );
 
     function generateData(count, yrange) {
@@ -441,6 +426,96 @@
 
       var chart = new ApexCharts(document.querySelector("#peaktime"), options);
       chart.render();
+
+
+      {% comment %} conversation {% endcomment %}
+      var optionsConv = {
+        series: [
+        {
+          name: "Talk",
+          data: dataChart[0].talk
+        }, 
+        {
+          name: "Talker",
+          data: dataChart[0].talker
+        }],
+        chart: {
+        height: 350,
+        type: 'line',
+        zoom: {
+          enabled: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: 'straight'
+      },
+      title: {
+        text: 'Day to day conversation',
+        align: 'left'
+      },
+      xaxis: {
+        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'],
+      }
+      };
+
+      var chartConv = new ApexCharts(document.querySelector("#conversation2"), optionsConv);
+      chartConv.render();
+
+      {% comment %} Media Talk {% endcomment %}
+      var optionsMediaTalk = {
+        series: [{
+        name: 'Talk',
+        data: [44, 55, 57, 56]
+      }, {
+        name: 'Talker',
+        data: [76, 85, 101, 98]
+      }],
+        chart: {
+        type: 'bar',
+        height: 250
+      },
+      plotOptions: {
+        bar: {
+          horizontal: false,
+          columnWidth: '55%',
+          endingShape: 'rounded'
+        },
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        show: true,
+        width: 2,
+        colors: ['transparent']
+      },
+      xaxis: {
+        categories: ['Twitter', 'Facebok', 'Youtube', 'Instagram'],
+      },
+      yaxis: {
+        title: {
+          text: 'users'
+        }
+      },
+      fill: {
+        opacity: 1
+      },
+      tooltip: {
+        y: {
+          formatter: function (val) {
+            return "$ " + val + " thousands"
+          }
+        }
+      }
+      };
+      
+      
+      var chartMediaTalk = new ApexCharts(document.querySelector("#mediaTalk"), optionsMediaTalk);
+      chartMediaTalk.render();    
+
 </script>
 
 {% endblock content %}

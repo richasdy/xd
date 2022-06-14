@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
 <div class="air__layout__content">
   <div class="air__utils__content">
@@ -31,7 +32,7 @@
         <div class="card-body">
             <h5 class="card-title">How is your engagement performance?</h5>
             <div>
-                <canvas style="max-height: 200px;" id="engagement"></canvas>
+                <div style="max-height: 200px;" id="engagePerformance"></div>
             </div>
         </div>
     </div>
@@ -44,7 +45,9 @@
                 <div class="card-body">
                 <h5 class="card-title">{{data_title}}</h5>
                 <div>
-                    {% if forloop.counter0 == 1 %}
+                    {% if forloop.counter0 == 0 %}
+                    <div id="followersEngage"></div>
+                    {% elif forloop.counter0 == 1 %}
                     <canvas id="posttype"></canvas>
                     {% elif forloop.counter0 == 2 %}
                     <img style="width:100%; margin-top:24px" src="/static/data/txt/wordcloud-tw1-2022.svg">
@@ -99,40 +102,146 @@
 <script>
     var dataChart = JSON.parse("{{data_chart|escapejs}}");
     const labels = [1,2,3,4,5,6];
-    const data_engagement = {
-        labels: labels,
-        datasets: [
+
+    var optionsEngagePerform = {
+        series: [
         {
-            label: 'Like',
-            backgroundColor: '#249ce4',
-            borderColor: '#249ce4',
-            data: dataChart[0].like,
+        name: "Like",
+        data: dataChart[0].like
+        }, 
+        {
+        name: "Comment",
+        data: dataChart[0].comment
         },
         {
-            label: 'Comment',
-            backgroundColor: '#66bb6a',
-            borderColor: '#66bb6a',
-            data: dataChart[0].comment,
+        name: "Share",
+        data: dataChart[0].share
         },
         {
-            label: 'Share',
-            backgroundColor: '#FFFF00',
-            borderColor: '#FFFF00',
-            data: dataChart[0].share,
+        name: "Postmade",
+        data: dataChart[0].postmade
         },
         {
-            label: 'Postmade',
-            backgroundColor: '#fc0313',
-            borderColor: '#fc0313',
-            data: dataChart[0].postmade,
-        },
-        {
-            label: 'Engagement Rate',
-            backgroundColor: '#775dd0',
-            borderColor: '#775dd0',
-            data: dataChart[0].engagementrate,
-        }]
+        name: "Engagement Rate",
+        data: dataChart[0].engagementrate
+        }],
+        chart: {
+        height: 280,
+        type: 'line',
+        zoom: {
+        enabled: false
+        }
+    },
+    dataLabels: {
+        enabled: false
+    },
+    stroke: {
+        curve: 'straight'
+    },
+    title: {
+        text: 'overall performance',
+        align: 'left'
+    },
+    xaxis: {
+        categories:labels
+    }
     };
+
+    var chartEngagePerform = new ApexCharts(document.querySelector("#engagePerformance"), optionsEngagePerform);
+    chartEngagePerform.render(); 
+
+    function generateData(count, yrange) {
+        var i = 0,
+        series = [];
+        while (i < count) {
+            var x = 'w' + (i + 1).toString(),
+            y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
+            series.push({
+                x: x,
+                y: y
+              });
+              i++;
+        }
+        return series;
+    }
+    var optionsEngage = {
+        series: [{
+        name: 'Metric1',
+        data: generateData(18, {
+          min: 0,
+          max: 90
+        })
+      },
+      {
+        name: 'Metric2',
+        data: generateData(18, {
+          min: 0,
+          max: 90
+        })
+      },
+      {
+        name: 'Metric3',
+        data: generateData(18, {
+          min: 0,
+          max: 90
+        })
+      },
+      {
+        name: 'Metric4',
+        data: generateData(18, {
+          min: 0,
+          max: 90
+        })
+      },
+      {
+        name: 'Metric5',
+        data: generateData(18, {
+          min: 0,
+          max: 90
+        })
+      },
+      {
+        name: 'Metric6',
+        data: generateData(18, {
+          min: 0,
+          max: 90
+        })
+      },
+      {
+        name: 'Metric7',
+        data: generateData(18, {
+          min: 0,
+          max: 90
+        })
+      },
+      {
+        name: 'Metric8',
+        data: generateData(18, {
+          min: 0,
+          max: 90
+        })
+      },
+      {
+        name: 'Metric9',
+        data: generateData(18, {
+          min: 0,
+          max: 90
+        })
+      }
+      ],
+        chart: {
+        height: 300,
+        type: 'heatmap',
+      },
+      dataLabels: {
+        enabled: false
+      },
+      colors: ["#008FFB"],
+      };
+
+      var chartEngage = new ApexCharts(document.querySelector("#followersEngage"), optionsEngage);
+      chartEngage.render();
+
     const data_posttype = {
         labels: ["Text","Image","Video"],
         datasets: [{
@@ -151,20 +260,18 @@
           }]
     };
 
-    const config_engagement = {
-        type: 'line',
-        data: data_engagement,
-        options: {}
-    };
     const config_posttype = {
         type: 'pie',
-        data: data_posttype
+        data: data_posttype,
+        options: {
+            plugins: {
+                legend: {
+                    position: 'left',
+                }
+            }
+        }
     };
 
-    const chartEngagement = new Chart(
-        document.getElementById('engagement'),
-        config_engagement
-    );
     const chartPosttype = new Chart(
         document.getElementById('posttype'),
         config_posttype

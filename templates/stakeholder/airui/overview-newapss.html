@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
 <div class="air__layout__content">
   <div class="air__utils__content">
@@ -36,13 +37,13 @@
                 <h5 class="card-title">{{data_title}}</h5>
                 <div>
                     {% if forloop.counter0 == 0 %}
-                    <canvas id="engagement"></canvas>
+                    <div id="engagePerformance"></div>
                     {% elif forloop.counter0 == 1 %}
-                    <canvas id="follower"></canvas>
+                    <div id="follower"></div>
                     {% elif forloop.counter0 == 2 %}
-                    <canvas id="reach"></canvas>
+                    <div id="reach"></div>
                     {% elif forloop.counter0 == 3 %}
-                    <canvas id="talk"></canvas>
+                    <div id="talk"></div>
                     {% endif %}
                 </div>
             </div>
@@ -55,127 +56,47 @@
 <script>
     {% comment %} engagement {% endcomment %}
     var dataChart = JSON.parse("{{data_chart|escapejs}}");
-    const labels = [1,2,3,4,5,6];
-    const data_engagement = {
-        labels: labels,
-        datasets: [
-        {
-            label: 'Like',
-            backgroundColor: '#249ce4',
-            borderColor: '#249ce4',
-            data: dataChart[0].like,
+    const idSelector = ['engagePerformance','follower','reach','talk']
+    
+    function createChart(dataChart, idSelector ){
+        const labels = [1,2,3,4,5,6,7];
+        var seriesList = []
+        let key = Object.keys(dataChart)
+        
+        for(let param in dataChart) {
+            let dataParams = {
+                name: param,
+                data: dataChart[param]
+            } 
+            seriesList.push(dataParams)
+        }  
+        var options = {
+            series: seriesList,
+            chart: {
+            height: 250,
+            type: 'line',
+            zoom: {
+            enabled: false
+            }
         },
-        {
-            label: 'Share',
-            backgroundColor: '#66bb6a',
-            borderColor: '#66bb6a',
-            data: dataChart[0].share,
+        dataLabels: {
+            enabled: false
         },
-        {
-            label: 'Talk',
-            backgroundColor: '#FFFF00',
-            borderColor: '#FFFF00',
-            data: dataChart[0].talk,
-        }]
-    };
-    const data_follower = {
-        labels: labels,
-        datasets: [
-        {
-            label: 'Facebook',
-            backgroundColor: '#249ce4',
-            borderColor: '#249ce4',
-            data: dataChart[1].facebook,
+        stroke: {
+            curve: 'straight'
         },
-        {
-            label: 'Twitter',
-            backgroundColor: '#66bb6a',
-            borderColor: '#66bb6a',
-            data: dataChart[1].twitter,
-        },
-        {
-            label: 'Instagram',
-            backgroundColor: '#FFFF00',
-            borderColor: '#FFFF00',
-            data: dataChart[1].instagram,
-        },
-        {
-            label: 'Youtube',
-            backgroundColor: '#fc0313',
-            borderColor: '#fc0313',
-            data: dataChart[1].youtube,
-        }]
-    };
-    const data_reach = {
-        labels: labels,
-        datasets: [
-        {
-            label: 'Reach',
-            backgroundColor: '#249ce4',
-            borderColor: '#249ce4',
-            data: dataChart[2].reach,
-        },
-        {
-            label: 'Impression',
-            backgroundColor: '#fc0313',
-            borderColor: '#fc0313',
-            data: dataChart[2].impression,
-        }]
-    };
-    const data_talk = {
-        labels: labels,
-        datasets: [
-        {
-            label: 'Talk',
-            backgroundColor: '#249ce4',
-            borderColor: '#249ce4',
-            data: dataChart[3].talk,
-        },
-        {
-            label: 'Talker',
-            backgroundColor: '#fc0313',
-            borderColor: '#fc0313',
-            data: dataChart[3].talker,
-        }]
-    };
+        xaxis: {
+            categories: labels,
+        }
+        };
+        var chart = new ApexCharts(document.querySelector("#"+idSelector), options);
+        chart.render(); 
+    }
 
-    const config_engagement = {
-        type: 'line',
-        data: data_engagement,
-        options: {}
-    };
-    const config_follower = {
-        type: 'line',
-        data: data_follower,
-        options: {}
-    };
-    const config_reach = {
-        type: 'line',
-        data: data_reach,
-        options: {}
-    };
-    const config_talk = {
-        type: 'line',
-        data: data_talk,
-        options: {}
-    };
+    for(let chart=0; chart < dataChart.length; chart++){
+        createChart(dataChart[chart], idSelector[chart])
+    } 
 
-    const chartEngagement = new Chart(
-        document.getElementById('engagement'),
-        config_engagement
-    );
-    const chartFollower = new Chart(
-        document.getElementById('follower'),
-        config_follower
-    );
-    const chartReach = new Chart(
-        document.getElementById('reach'),
-        config_reach
-    );
-    const chartTalk = new Chart(
-        document.getElementById('talk'),
-        config_talk
-    );
 </script>
 
 {% endblock content %}
