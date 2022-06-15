@@ -3,6 +3,7 @@
 {% block content %}
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
 
 <div class="air__layout__content">
   <div class="air__utils__content">
@@ -178,7 +179,7 @@
 
     var chartGrowth = new ApexCharts(document.querySelector("#folgrowth"), optionsGrowth);
     chartGrowth.render();
-    
+
     const data_gender = {
         labels: ["Male","Female"],
         datasets: [{
@@ -223,39 +224,41 @@
           }]
     };
 
-    const config_gender = {
-        type: 'pie',
-        data: data_gender,
-        options: {
-            plugins: {
-                legend: {
-                    position: 'left',
-                }
-            }
-        }
-    };
-    const config_location = {
-        type: 'pie',
-        data: data_location,
-        options: {
-            plugins: {
-                legend: {
-                    position: 'left',
-                }
-            }
-        }
-    };
-    const config_interest = {
-        type: 'pie',
-        data: data_interest,
-        options: {
-            plugins: {
-                legend: {
-                    position: 'left',
-                }
-            }
-        }
-    };
+    function configPieChart(data){
+        const config = {
+            type: 'pie',
+            data: data,
+            options: {
+                plugins: {
+                    legend: {
+                        position: 'left',
+                    },
+                    datalabels: {
+                        formatter: (value, ctx) => {
+                            let sum = 0;
+                            let dataArr = ctx.chart.data.datasets[0].data;
+                            dataArr.map(data => {
+                                sum += data;
+                            });
+                            let percentage = (value*100 / sum).toFixed(2)+"%";
+                            return percentage;
+                        },
+                        color: '#fff',
+                        font: {
+                            weight: 'bold',
+                            size: 9,
+                        }
+                    }
+                },
+            },
+            plugins: [ChartDataLabels]
+        };
+        return config
+    }
+
+    config_gender = configPieChart(data_gender)
+    config_location = configPieChart(data_location)
+    config_interest = configPieChart(data_interest)
 
     const chartGender = new Chart(
         document.getElementById('gender'),
@@ -269,6 +272,17 @@
         document.getElementById('interest'),
         config_interest
     );
+
+    function createChart(elementId, config){
+        const chart = new Chart(
+            document.getElementById(elementId),
+            config
+        );
+        return chart
+    }
+    chartGender = createChart('gender',config_gender)
+    chartLocation = createChart('location',config_location)
+    chartInterest = createChart('interest',config_interest)
 
 </script>
 
