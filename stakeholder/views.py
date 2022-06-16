@@ -328,3 +328,42 @@ def stream_newapps(request):
     context = {}
     context['page_name'] = 'Stream Dashboard'
     return render(request, "stakeholder/airui/stream-newapps.html", context)   
+
+@login_required  
+def media_statistic_newapps(request):
+    data = [{
+            "params":"Total Article",
+            "total":143,
+            "trend":"#ef5350",
+            "percentage":13
+            }, 
+        {
+            "params":"Total Media",
+            "total":12.5,
+            "trend":"#66bb6a",
+            "percentage":40}]
+    
+    data_title = ["Article by Media",
+                  "Talk Wordcloud",
+                  "PR Value",
+                  "Talk By Sentiment",
+                  "Top People",
+                  "Top Location"
+                  ]
+    data_chart = [
+                    {
+                        "positive":6789, 
+                        "negative":1232,
+                        "neutral":5020,
+                    },
+                    {
+                        "article":[32,54,67,45,12,98,23],
+                        "media": [54,86,23,97,5,95,12]
+                    }
+                  ]
+    context = {}
+    context['data_string'] = data
+    context['title'] = data_title
+    context['data_chart'] = dumps(data_chart)
+    context['page_name'] = 'Online Media Statistic'
+    return render(request, "stakeholder/airui/media-statistic-newapps.html", context)   
