@@ -32,9 +32,9 @@
     <div class="container mt-5">
         <div class="row">
             {% for data_title in title %}
-            {% if forloop.counter0 == 0 or forloop.counter0 == 11  %}
+            {% if forloop.counter0 == 0 or forloop.counter0 == 7 %}
             <div class="card col-lg-12" style="border-width:3px; ">
-            {% elif forloop.counter0 >= 7 %}
+            {% elif forloop.counter0 > 7 %}
             <div class="card col-lg-6" style="border-width:3px; ">
             {% else %}
             <div class="card col-lg-4" style="border-width:3px; ">
@@ -57,12 +57,14 @@
                     {% elif forloop.counter0 == 6 %}
                     <canvas id="location"></canvas>
                     {% elif forloop.counter0 == 7 %}
-                    <div id="top_talker"></div>
+                    <div id="most_engaging"></div>
                     {% elif forloop.counter0 == 8 %}
-                    <div id="top_influencer"></div>
+                    <div id="top_talker"></div>
                     {% elif forloop.counter0 == 9 %}
-                    <div id="peaktime"></div>
+                    <div id="top_influencer"></div>
                     {% elif forloop.counter0 == 10 %}
+                    <div id="peaktime"></div>
+                    {% elif forloop.counter0 == 11 %}
                     <img style="width:100%; margin-top:24px" src="/static/data/txt/wordcloud-tw1-2022.svg">
                     {% endif %} 
                 </div>
@@ -156,6 +158,7 @@
               '</table>\n'+
         '</div>'
     }
+    tableChart("most_engaging")
     tableChart("top_talker")
     tableChart("top_influencer")
     var dataChart = JSON.parse("{{data_chart|escapejs}}");
@@ -314,26 +317,19 @@
             }
         }
     };
-    const chartsentiment = new Chart(
-        document.getElementById('sentiment'),
-        config_sentiment
-    );
-    const chartsentimentTalker = new Chart(
-        document.getElementById('sentimentTalker'),
-        config_sentimentTalker
-    );
-    const chartGender = new Chart(
-        document.getElementById('gender'),
-        config_gender
-    );
-    const chartInterest = new Chart(
-        document.getElementById('interest'),
-        config_interest
-    );
-    const chartLocation = new Chart(
-        document.getElementById('location'),
-        config_location
-    );
+
+    function createChart(elementId, config) {
+      const chart = new Chart(
+        document.getElementById(elementId),
+        config
+      );
+      return chart
+    }
+    createChart('sentiment',config_sentiment)
+    createChart('sentimentTalker',config_sentimentTalker)
+    createChart('gender',config_gender)
+    createChart('interest',config_interest)
+    createChart('location',config_location)
 
     function generateData(count, yrange) {
         var i = 0,
@@ -506,7 +502,7 @@
       tooltip: {
         y: {
           formatter: function (val) {
-            return "$ " + val + " thousands"
+            return val 
           }
         }
       }
