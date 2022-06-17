@@ -1,0 +1,94 @@
+{% extends "includes/dashboard-base.html" %}
+{% load static %}
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
+<div class="air__layout__content">
+  <div class="air__utils__content">
+    <div id="reportrange" class="pull-right text-white" style="background: #009EE3; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width:30%">
+      <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+      <span></span> <b class="caret"></b>
+    </div>
+    <h5><strong>Statistic University Dashboard</strong></h5>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <table class="table" style="color:black">
+            <thead style="background:#009EE3">
+              <tr class="text-center text-white">
+                <th class="col-4">Media</th>
+                <th scope="col-8">News</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr> 
+                <td>Cristina</td>
+                <td class="row">
+                  <div class="col">
+                    <h6>
+                      Lowongan Kerja Terbaru 2022 Magang di Adira Finance sebagai Creative Designer
+                    </h6>
+                    <span style="font-size:12px; font-weight:light">12 Maret 2022</span>
+                  </div>
+                  <div class="col">
+                    Action
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .container {
+    padding: 2rem 0rem;
+  }
+  
+  h4 {
+    margin: 2rem 0rem 1rem;
+  }
+  
+  .table-image {
+    td, th {
+      vertical-align: middle;
+    }
+  }
+</style>
+
+<script>
+
+    $(function() {
+
+        var start = moment().subtract(29, 'days');
+        var end = moment();
+  
+        function cb(start, end) {
+            $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        }
+  
+        $('#reportrange').daterangepicker({
+            startDate: start,
+            endDate: end,
+            ranges: {
+              'Today': [moment(), moment()],
+              'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+              'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+              'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+              'This Month': [moment().startOf('month'), moment().endOf('month')],
+              'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            }
+        }, cb);
+  
+        cb(start, end); 
+      });
+</script>
+
+
+{% endblock content %}

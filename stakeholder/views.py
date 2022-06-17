@@ -367,3 +367,9 @@ def media_statistic_newapps(request):
     context['data_chart'] = dumps(data_chart)
     context['page_name'] = 'Online Media Statistic'
     return render(request, "stakeholder/airui/media-statistic-newapps.html", context)   
+
+@login_required  
+def statistic_universitas_newapps(request):
+    context = {}
+    context['page_name'] = 'Statistic University Dashboard'
+    return render(request, "stakeholder/airui/statistic-universitas-newapps.html", context)   
