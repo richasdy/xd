@@ -250,7 +250,7 @@
             <li class="air__menuLeft__item air__menuLeft__submenu">
                 <a href="javascript: void(0)" class="air__menuLeft__link">
                 <i class="fe fe-home air__menuLeft__icon"></i>
-                <span>New Apps</span>
+                <span>Social Media Statistic</span>
                 <!-- <span class="badge text-white bg-blue-light float-right mt-1 px-2">6</span> -->
                 </a>
                 <ul class="air__menuLeft__list">
@@ -270,6 +270,11 @@
                         </a>
                     </li>
                     <li class="air__menuLeft__item">
+                        <a href="{% url 'stakeholder:comparison_newapps' %}" class="air__menuLeft__link">
+                        <span>Comparison</span>
+                        </a>
+                    </li>
+                    <li class="air__menuLeft__item">
                         <a href="{% url 'stakeholder:conversation_newapps' %}" class="air__menuLeft__link">
                         <span>Conversation</span>
                         </a>
@@ -279,6 +284,15 @@
                         <span>Stream</span>
                         </a>
                     </li>
+                </ul>
+            </li>
+            <li class="air__menuLeft__item air__menuLeft__submenu">
+                <a href="javascript: void(0)" class="air__menuLeft__link">
+                <i class="fe fe-home air__menuLeft__icon"></i>
+                <span>Online Media Statistic</span>
+                <!-- <span class="badge text-white bg-blue-light float-right mt-1 px-2">6</span> -->
+                </a>
+                <ul class="air__menuLeft__list">
                     <li class="air__menuLeft__item">
                         <a href="{% url 'stakeholder:media_statistic_newapps' %}" class="air__menuLeft__link">
                         <span>Onine Media Statistic</span>

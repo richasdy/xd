@@ -1,0 +1,44 @@
+{% extends "includes/dashboard-base.html" %}
+{% load static %}
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
+<div class="air__layout__content">
+  <div class="air__utils__content">
+    <h5><strong>Comparison</strong></h5>
+    <div class="row" style="justify-content:space-around">
+      <div class="card bg-light" style="width: 18rem; border-width:3px;">
+        <div class="card-body text-center">
+          <h1 class="card-title text-center text-info">+</h1>
+          <h5 class="card-title text-info">Add New Comparison</h5>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;border-width:3px">
+        <div class="card-body text-center mt-4">
+          <h5 class="card-title text-info ">All University</h5>
+          <h6 class="card-title text-info">19 May 2022</h6>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;border-width:3px">
+        <div class="card-body text-center mt-4">
+          <h5 class="card-title text-info">Instagram</h5>
+          <h6 class="card-title text-info">19 May 2022</h6>
+        </div>
+      </div>
+      <div class="card" style="width: 18rem;border-width:3px">
+        <div class="card-body text-center mt-4">
+          <h5 class="card-title text-info">Twitter</h5>
+          <h6 class="card-title text-info">19 May 2022</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+
+</script>
+
+{% endblock content %}

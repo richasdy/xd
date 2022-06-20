@@ -372,4 +372,10 @@ def media_statistic_newapps(request):
 def statistic_universitas_newapps(request):
     context = {}
     context['page_name'] = 'Statistic University Dashboard'
-    return render(request, "stakeholder/airui/statistic-universitas-newapps.html", context)   
+    return render(request, "stakeholder/airui/statistic-universitas-newapps.html", context) 
+  
+@login_required  
+def comparison_newapps(request):
+    context = {}
+    context['page_name'] = 'Comparison'
+    return render(request, "stakeholder/airui/comparison-newapps.html", context)   
