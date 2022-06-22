@@ -12,6 +12,7 @@ urlpatterns = [
     path('media-statistic-newapps', views.media_statistic_newapps, name='media_statistic_newapps'),
     path('statistic-universitas-newapps', views.statistic_universitas_newapps, name='statistic_universitas_newapps'),
     path('comparison-newapps', views.comparison_newapps, name='comparison_newapps'),
+    path('comparison-university-newapps', views.comparison_university_newapps, name='comparison_university_newapps'),
     path('orangtuamahasiswa', views.orangtuamahasiswa, name='orangtuamahasiswa'),
     path('alumni', views.alumni, name='alumni'),
     path('pegawai', views.pegawai, name='pegawai'),

@@ -1,0 +1,156 @@
+{% extends "includes/dashboard-base.html" %}
+{% load static %}
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
+<div class="air__layout__content">
+  <div class="air__utils__content">
+    <h5><strong>Comparison Universities</strong></h5>
+    <div class="container mt-5">
+        <div class="row">
+            {% for data_title in title %}
+            {% if forloop.counter0 == 0 or forloop.counter0 == 7 or forloop.counter0 == 8 %}
+            <div class="card col-lg-12" style="border-width:3px; ">
+            {% else%}
+            <div class="card col-lg-6" style="border-width:3px; ">
+            {% endif %}
+                <div class="card-body">
+                <h5 class="card-title">{{data_title}}</h5>
+                <div>
+                    {% if forloop.counter0 == 0 %}
+                    <div id="followersEngage"></div>
+                    {% elif forloop.counter0 == 1 %}
+                    <canvas id="popularity"></canvas>
+                    {% elif forloop.counter0 == 2 %}
+                    <div id="sentiment"></div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+  </div>
+</div>
+<script>
+    var dataChart = JSON.parse("{{data_chart|escapejs}}");
+    const labels = [1,2,3,4,5,6];
+    
+    //get data from views
+    let allDataValue = []
+    let allDataKey = []
+    let tempValue = []
+    let tempKey = []
+    for(let i=0; i < dataChart.length; i++ ){
+      for (const [key, value] of Object.entries(dataChart[i])) {
+        tempValue.push(value)
+        tempKey.push(key)
+      }
+      allDataValue.push(tempValue)
+      allDataKey.push(tempKey)
+      tempValue = [],
+      tempKey = []
+    }
+    console.log(allDataValue[1])
+    var dynamicColors = function() {
+      var r = Math.floor(Math.random() * 255);
+      var g = Math.floor(Math.random() * 255);
+      var b = Math.floor(Math.random() * 255);
+      return "rgb(" + r + "," + g + "," + b + ")";
+    };
+
+    function randomColor(data){
+      var colors = [];
+      for (var i in data) {
+          colors.push(dynamicColors());
+      }
+      return colors
+    }
+
+    const data_popularity = {
+      labels: allDataKey[0],
+      datasets: [{
+          label: 'Popularity',
+          data: allDataValue[0],
+          backgroundColor: randomColor(allDataValue[0]),
+          hoverOffset: 4
+      }]
+    };
+
+    const config_popularity = {
+        type: 'pie',
+        data: data_popularity,
+        options: {
+            plugins: {
+                legend: {
+                    position: 'left',
+                }
+            }
+        }
+    };
+
+    const chartPopularity = new Chart(
+        document.getElementById('popularity'),
+        config_popularity
+    );
+
+    var optionsSentiment = {
+      series: [{
+        name: 'Positive',
+        data: [44, 55, 41, 67, 22, 43]
+      }, {
+        name: 'Neutral',
+        data: [13, 23, 20, 8, 13, 27]
+      }, {
+        name: 'Negative',
+        data: [11, 17, 15, 15, 21, 14]
+      }],
+        chart: {
+        type: 'bar',
+        height: 400,
+        stacked: true,
+        toolbar: {
+          show: true
+        },
+        zoom: {
+          enabled: true
+        }
+      },
+      responsive: [{
+        breakpoint: 300,
+        options: {
+          legend: {
+            position: 'bottom',
+            offsetX: -10,
+            offsetY: 0
+          }
+        }
+      }],
+      plotOptions: {
+        bar: {
+          horizontal: false,
+          borderRadius: 10
+        },
+      },
+      xaxis: {
+        categories: allDataKey[0]
+      },
+      legend: {
+        position: 'bottom',
+        offsetY: 40
+      },
+      fill: {
+        opacity: 1
+      }
+    };
+
+    var chartSentiment = new ApexCharts(document.querySelector("#sentiment"), optionsSentiment);
+    chartSentiment.render();
+
+</script>
+
+{% endblock content %}

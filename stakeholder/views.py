@@ -379,3 +379,58 @@ def comparison_newapps(request):
     context = {}
     context['page_name'] = 'Comparison'
     return render(request, "stakeholder/airui/comparison-newapps.html", context)   
+
+@login_required  
+def comparison_university_newapps(request):
+    
+    data_title = ["Brand Positioning",
+                  "How is your popularity compared to others?",
+                  "How is your sentiment analysis?",
+                  "How is your engagement performance?",
+                  "How is your followers growth?",
+                  "How is your talk peformance?",
+                  "When do your followers engage",
+                  "How is your content performance?",
+                  "Advanced Metrics"
+                  ]
+    data_chart = [
+                    {
+                        "Telkom":6789, 
+                        "Binus":1232,
+                        "Universitas Islam ":5020,
+                        "Ciputra":3020,
+                        "Untar":520,
+                        "Multimedia Nusantara":520,
+                    },
+                    {
+                        "positive": {
+                            "Telkom":6789, 
+                            "Binus":1232,
+                            "Universitas Islam ":5020,
+                            "Ciputra":3020,
+                            "Untar":520,
+                            "Multimedia Nusantara":520,
+                        },
+                        "negative": {
+                            "Telkom":89, 
+                            "Binus":32,
+                            "Universitas Islam ":50,
+                            "Ciputra":20,
+                            "Untar":50,
+                            "Multimedia Nusantara":52,
+                        },
+                        "neutral": {
+                            "Telkom":678, 
+                            "Binus":123,
+                            "Universitas Islam ":502,
+                            "Ciputra":302,
+                            "Untar":52,
+                            "Multimedia Nusantara":52,
+                        }
+                    },
+                  ]
+    context = {}
+    context['title'] = data_title
+    context['data_chart'] = dumps(data_chart)
+    context['page_name'] = 'Comparison University'
+    return render(request, "stakeholder/airui/comparison-university-newapps.html", context)   
