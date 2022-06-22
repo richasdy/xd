@@ -26,6 +26,18 @@
                     <canvas id="popularity"></canvas>
                     {% elif forloop.counter0 == 2 %}
                     <div id="sentiment"></div>
+                    {% elif forloop.counter0 == 3 %}
+                    <div id="engagement"></div>
+                    {% elif forloop.counter0 == 4 %}
+                    <div id="follower_growth"></div>
+                    {% elif forloop.counter0 == 5 %}
+                    <div id="talk"></div>
+                    {% elif forloop.counter0 == 6 %}
+                    <div id="follower_engage"></div>
+                    {% elif forloop.counter0 == 7 %}
+                    <div id="content_performance"></div>
+                    {% elif forloop.counter0 == 8 %}
+                    <div id="advance_metric"></div>
                     {% endif %}
                 </div>
             </div>
@@ -150,6 +162,115 @@
 
     var chartSentiment = new ApexCharts(document.querySelector("#sentiment"), optionsSentiment);
     chartSentiment.render();
+
+    function createChart(idSelector ){
+      var options = {
+          series: [
+          {
+            name: "Telkom",
+            data:[6789,123,431,312,654,231],
+          },
+          {
+            name: "Binus",
+            data:[6789,113,212,412,643,900],
+          },
+          {
+            name: "Universitas Islam",
+            data:[123,23,491,43,231,532],
+          },
+          {
+            name: "Ciputra",
+            data:[89,13,431,341,431,32],
+          },
+          {
+            name: "Untar",
+            data:[689,154,43,122,233,231],
+          },
+          {
+            name: "Multimedia Nusantara",
+            data:[69,23,31,23,431,33],
+          }],
+          chart: {
+          height: 250,
+          type: 'line',
+          zoom: {
+          enabled: false
+          }
+      },
+      dataLabels: {
+          enabled: false
+      },
+      stroke: {
+          curve: 'straight'
+      },
+      xaxis: {
+          categories: labels,
+      }
+      };
+      var chart = new ApexCharts(document.querySelector("#"+idSelector), options);
+      chart.render(); 
+    }
+
+
+    createChart("engagement")
+    createChart("follower_growth")
+    createChart("talk")
+    createChart("follower_engage")
+
+    var tableChart = function(elementId){
+      document.getElementById(elementId).innerHTML= 
+      '<div class="table-responsive">\n'+
+          '<table class="table">\n'+
+              '<thead class="thead-dark">\n'+
+                '<tr>\n'+
+                  '<th scope="col">No</th>\n'+
+                  '<th scope="col">Username</th>\n'+
+                  '<th scope="col">Sosial Media</th>\n'+
+                  '<th scope="col">Talk</th>\n'+
+                  '<th scope="col">Followers</th>\n'+
+                  '<th scope="col">Comment</th>\n'+
+                  '<th scope="col">Like</th>\n'+
+                  '<th scope="col">Share</th>\n'+
+                '</tr>\n'+
+              '</thead>\n'+
+              '<tbody>\n'+
+                '<tr>\n'+
+                  '<th scope="row">1</th>\n'+
+                  '<td>sbmptnfess</td>\n'+
+                  '<td>Twitter</td>\n'+
+                  '<td>37</td>\n'+
+                  '<td>1237</td>\n'+
+                  '<td>373</td>\n'+
+                  '<td>370</td>\n'+
+                  '<td>372</td>\n'+
+                '</tr>\n'+
+                '<tr>\n'+
+                  '<th scope="row">1</th>\n'+
+                  '<td>TelUCareer</td>\n'+
+                  '<td>Twitter</td>\n'+
+                  '<td>37</td>\n'+
+                  '<td>1237</td>\n'+
+                  '<td>373</td>\n'+
+                  '<td>370</td>\n'+
+                  '<td>372</td>\n'+
+                '</tr>\n'+
+                '<tr>\n'+
+                  '<th scope="row">1</th>\n'+
+                  '<td>ahsiappp</td>\n'+
+                  '<td>Twitter</td>\n'+
+                  '<td>37</td>\n'+
+                  '<td>1237</td>\n'+
+                  '<td>373</td>\n'+
+                  '<td>370</td>\n'+
+                  '<td>372</td>\n'+
+                '</tr>\n'+
+              '</tbody>\n'+
+            '</table>\n'+
+      '</div>'
+    }
+    tableChart("content_performance")
+    tableChart("advance_metric")
+
 
 </script>
 

@@ -428,6 +428,56 @@ def comparison_university_newapps(request):
                             "Multimedia Nusantara":52,
                         }
                     },
+                    # {
+                    #     {
+                    #         "Telkom":6789, 
+                    #         "Binus":1232,
+                    #         "Universitas Islam ":5020,
+                    #         "Ciputra":3020,
+                    #         "Untar":520,
+                    #         "Multimedia Nusantara":520,
+                    #     },
+                    #     {
+                    #         "Telkom":89, 
+                    #         "Binus":32,
+                    #         "Universitas Islam ":50,
+                    #         "Ciputra":20,
+                    #         "Untar":50,
+                    #         "Multimedia Nusantara":52,
+                    #     },
+                    #     {
+                    #         "Telkom":678, 
+                    #         "Binus":123,
+                    #         "Universitas Islam ":502,
+                    #         "Ciputra":302,
+                    #         "Untar":52,
+                    #         "Multimedia Nusantara":52,
+                    #     },
+                    #     {
+                    #         "Telkom":89, 
+                    #         "Binus":32,
+                    #         "Universitas Islam ":50,
+                    #         "Ciputra":20,
+                    #         "Untar":50,
+                    #         "Multimedia Nusantara":52,
+                    #     },
+                    #     {
+                    #         "Telkom":89, 
+                    #         "Binus":32,
+                    #         "Universitas Islam ":50,
+                    #         "Ciputra":20,
+                    #         "Untar":50,
+                    #         "Multimedia Nusantara":52, 
+                    #     },
+                    #     {
+                    #         "Telkom":189, 
+                    #         "Binus":12,
+                    #         "Universitas Islam ":150,
+                    #         "Ciputra":210,
+                    #         "Untar":510,
+                    #         "Multimedia Nusantara":152,
+                    #     }
+                    # }
                   ]
     context = {}
     context['title'] = data_title
